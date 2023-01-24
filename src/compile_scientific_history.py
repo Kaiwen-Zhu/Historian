@@ -1,0 +1,89 @@
+from sys import stdout
+from os import path, makedirs
+from shutil import rmtree
+from json import load
+import matplotlib.pyplot as plt
+import pandas as pd
+from pylatex import NoEscape, Section, Subsection, Figure
+
+
+# 绘制研究点数月收入变化图
+def plot_points_income(data_dir, output_path, lang):
+    with open(path.join(data_dir, 'basics.json'), encoding='utf-8') as f:
+        basics = load(f)
+        name = basics['name']
+
+    research = ['physics_research', 'society_research', 'engineering_research']
+    colors = ['#359db6', '#53b977', '#df8c4c']
+
+    if lang == 'en':
+        dir_name = f'The Scientific History of {name}'
+        file_name = f'The Monthly Income of Scientific Points of {name}.png'
+        # title = 'The Monthly Income of Research Points'
+
+    else:
+        plt.rcParams['font.sans-serif'] = ['SimHei']
+        plt.rcParams['axes.unicode_minus'] = False
+        dir_name = f'{name}科技史'
+        file_name = f'{name}研究点数月收入.png'
+        research_zh = ['物理学研究', '社会学研究', '工程学研究']
+        # title = '研究点数月收入'
+    
+
+    df = pd.read_csv(path.join(data_dir, 'resources.csv'), index_col=0, sep=';')
+
+    # plt.title(title, fontsize=15)
+    plt.figure(figsize=(8,4))
+    for research_idx in range(3):
+        research_name = research[research_idx]
+        if lang == 'en':
+            research_name_in_label = research[research_idx].replace('_', ' ').title()
+        else:
+            research_name_in_label = research_zh[research_idx]
+        plt.plot(df.index, df[f'{research_name}_income'], alpha = 0.8,
+                            label = research_name_in_label, color = colors[research_idx])
+
+    date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
+    omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
+    plt.xticks(ticks = range(0, len(df), date_step), 
+            labels = df.index.to_series()[::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+    plt.legend()
+
+    dir_path = path.join(output_path, dir_name)
+    if path.exists(dir_path):
+        rmtree(dir_path)
+    makedirs(dir_path)
+    pic_path = path.join(dir_path, file_name)
+    plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
+    plt.close()
+
+    return pic_path
+
+
+# 将图片加入到文档中
+def add_pics_to_doc(doc, pic, lang):
+    doc.append(NoEscape(R'\newpage'))
+
+    if lang == 'en':
+        section_name = 'Science'
+        subsection1_name = 'The Monthly Income of Scientific Points'
+    else:
+        section_name = '科技'
+        subsection1_name = '研究点数月收入'
+        
+    with doc.create(Section(section_name)):
+        with doc.create(Subsection(subsection1_name)):
+            with doc.create(Figure(position='H')) as pic_in_doc:
+                pic_in_doc.add_image(pic, width='17cm')
+
+
+# 编纂科技史
+def compile_scientific_history(doc, data_dir, output_path, lang):
+    print("Compiling the scientific history ...")
+    stdout.flush()
+
+    pic = plot_points_income(data_dir, output_path, lang)
+    add_pics_to_doc(doc, pic, lang)
+
+    print("Done!")
+    stdout.flush()

@@ -1,0 +1,35 @@
+namespace = historian_diplomacy
+
+
+# 记录我国与其它国家相互的评价
+country_event = {
+	id = historian_diplomacy.1
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { 
+				has_communications = Root
+				is_country_type = default
+			}
+
+			# 我方的评价
+			export_trigger_value_to_variable = {
+				trigger = their_opinion
+				parameters = { who = Root }
+				variable = HIS_MY_OPINION
+			}
+			# 对方的评价
+			export_trigger_value_to_variable = {
+				trigger = opinion
+				parameters = { who = Root }
+				variable = HIS_OPINION_ON_ME
+			}
+
+			log = "HIS_OPINION:[GetDate],[This.GetName],[This.HIS_MY_OPINION],[This.HIS_OPINION_ON_ME]"
+		}
+	}
+}

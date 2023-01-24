@@ -1,0 +1,25 @@
+on_game_start_country = {
+	events = {
+		historian_basics.1  # 记录国家名称，政府名称，政府个性，起源，母星名称，母星类别，母星系名称，创始物种
+		historian_economy.1  # 记录首月 (2200.01.02) 资源储量及月收入
+		historian_demography.1  # 于每年 01.15 记录人口总数及各物种人口数
+	}
+}
+
+# This = country
+on_monthly_pulse_country = {
+	events = {
+		historian_economy.2  # 记录 16 种资源储量及月收入
+		historian_diplomacy.1  # 记录我国与其它国家之间相互的评价
+	}
+}
+
+
+# A ship has been built
+# Root = Ship
+# From = Planet
+on_ship_built = {
+	events = {
+		historian_military_affairs.1
+	}
+}

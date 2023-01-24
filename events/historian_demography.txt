@@ -1,0 +1,81 @@
+namespace = historian_demography
+
+
+# 触发记录人口数的事件
+country_event = {
+	id = historian_demography.1
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	after = {
+		country_event = {
+			id = historian_demography.2
+			days = 14
+		}
+		country_event = {
+			id = historian_demography.3
+			days = 14
+		}
+	}
+}
+
+
+# 记录人口总数
+country_event = {
+	id = historian_demography.2
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = HIS_NUM_POP
+			value = trigger:num_pops
+		}
+		log = "HIS_NUM_POP:[GetDate],[This.HIS_NUM_POP]"
+	}
+	after = {
+		country_event = {
+			id = historian_demography.2
+			days = 360
+		}
+	}
+}
+
+
+# 记录各物种人口数
+country_event = {
+	id = historian_demography.3
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		every_owned_pop = {
+			species = {
+				change_variable = {
+					which = HIS_POP_SIZE_OF_THIS_SPECIES
+					value = 1
+				}
+			}
+		}
+		every_owned_species = {
+			log = "HIS_NUM_POP_OF_ONE_SPECIES:[GetDate],[This.GetName],[This.HIS_POP_SIZE_OF_THIS_SPECIES]"
+			set_variable = {
+				which = HIS_POP_SIZE_OF_THIS_SPECIES
+				value = 0
+			}
+		}
+	}
+	after = {
+		country_event = {
+			id = historian_demography.3
+			days = 360
+		}
+	}
+}

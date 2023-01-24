@@ -1,0 +1,18 @@
+namespace = historian_military_affairs
+
+
+# 记录建造的舰船
+ship_event = {
+	id = historian_military_affairs.1
+	hide_window = yes
+
+	trigger = { owner = {is_ai = no } }
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { is_ship_class = shipclass_military }
+			log = "HIS_BUILT_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
+		}
+	}
+}

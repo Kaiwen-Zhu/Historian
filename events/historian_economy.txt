@@ -1,0 +1,189 @@
+namespace = historian_economy
+
+
+# 游戏启动时执行，记录首月资源储量及月收入
+country_event = {
+	id = historian_economy.1
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	after = {
+		country_event = {
+			id = historian_economy.2
+			days = 1
+		}
+	}
+}
+
+
+# 记录 16 种资源储量及月收入
+country_event = {
+	id = historian_economy.2
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		# 设置存储 `资源储量` 的变量
+		# 0 ~ 12 分别对应：能量币, 矿物, 食物, 消费品, 合金, 易爆微粒, 异星天然气,
+		# 稀有水晶, 活体金属, 泽珞, 暗物质, 纳米机器人, 凝聚力
+
+		# 记录能量币储量
+		export_resource_stockpile_to_variable = {
+			resource = energy
+			variable = HIS_RESERVES0
+		}
+		# 记录矿物储量
+		export_resource_stockpile_to_variable = {
+			resource = minerals
+			variable = HIS_RESERVES1
+		}
+		# 记录食物储量
+		export_resource_stockpile_to_variable = {
+			resource = food
+			variable = HIS_RESERVES2
+		}
+		# 记录消费品储量
+		export_resource_stockpile_to_variable = {
+			resource = consumer_goods
+			variable = HIS_RESERVES3
+		}
+		# 记录合金储量
+		export_resource_stockpile_to_variable = {
+			resource = alloys
+			variable = HIS_RESERVES4
+		}
+		# 记录易爆微粒储量
+		export_resource_stockpile_to_variable = {
+			resource = volatile_motes
+			variable = HIS_RESERVES5
+		}
+		# 记录异星天然气储量
+		export_resource_stockpile_to_variable = {
+			resource = exotic_gases
+			variable = HIS_RESERVES6
+		}
+		# 记录稀有水晶储量
+		export_resource_stockpile_to_variable = {
+			resource = rare_crystals
+			variable = HIS_RESERVES7
+		}
+		# 记录活体金属储量
+		export_resource_stockpile_to_variable = {
+			resource = sr_living_metal
+			variable = HIS_RESERVES8
+		}
+		# 记录泽珞储量
+		export_resource_stockpile_to_variable = {
+			resource = sr_zro
+			variable = HIS_RESERVES9
+		}
+		# 记录暗物质储量
+		export_resource_stockpile_to_variable = {
+			resource = sr_dark_matter
+			variable = HIS_RESERVES10
+		}
+		# 记录纳米机器人储量
+		export_resource_stockpile_to_variable = {
+			resource = nanites
+			variable = HIS_RESERVES11
+		}
+		# 记录凝聚力储量
+		export_resource_stockpile_to_variable = {
+			resource = unity
+			variable = HIS_RESERVES12
+		}
+
+		
+		# 记录资源月收入
+		# 设置存储 `资源月收入` 的变量
+		# 13 ~ 15 分别对应：物理学研究, 社会学研究, 工程学研究
+		
+		# 记录能量币月收入
+		export_resource_income_to_variable = {
+			resource = energy
+			variable = HIS_INCOME0
+		}
+		# 记录矿物月收入
+		export_resource_income_to_variable = {
+			resource = minerals
+			variable = HIS_INCOME1
+		}
+		# 记录食物月收入
+		export_resource_income_to_variable = {
+			resource = food
+			variable = HIS_INCOME2
+		}
+		# 记录消费品月收入
+		export_resource_income_to_variable = {
+			resource = consumer_goods
+			variable = HIS_INCOME3
+		}
+		# 记录合金月收入
+		export_resource_income_to_variable = {
+			resource = alloys
+			variable = HIS_INCOME4
+		}
+		# 记录易爆微粒月收入
+		export_resource_income_to_variable = {
+			resource = volatile_motes
+			variable = HIS_INCOME5
+		}
+		# 记录异星天然气月收入
+		export_resource_income_to_variable = {
+			resource = exotic_gases
+			variable = HIS_INCOME6
+		}
+		# 记录稀有水晶月收入
+		export_resource_income_to_variable = {
+			resource = rare_crystals
+			variable = HIS_INCOME7
+		}
+		# 记录活体金属月收入
+		export_resource_income_to_variable = {
+			resource = sr_living_metal
+			variable = HIS_INCOME8
+		}
+		# 记录泽珞月收入
+		export_resource_income_to_variable = {
+			resource = sr_zro
+			variable = HIS_INCOME9
+		}
+		# 记录暗物质月收入
+		export_resource_income_to_variable = {
+			resource = sr_dark_matter
+			variable = HIS_INCOME10
+		}
+		# 记录纳米机器人月收入
+		export_resource_income_to_variable = {
+			resource = nanites
+			variable = HIS_INCOME11
+		}
+		# 记录凝聚力月收入
+		export_resource_income_to_variable = {
+			resource = unity
+			variable = HIS_INCOME12
+		}
+		# 记录物理学研究月收入
+		export_resource_income_to_variable = {
+			resource = physics_research
+			variable = HIS_INCOME13
+		}
+		# 记录社会学研究月收入
+		export_resource_income_to_variable = {
+			resource = society_research
+			variable = HIS_INCOME14
+		}
+		# 记录工程学研究月收入
+		export_resource_income_to_variable = {
+			resource = engineering_research
+			variable = HIS_INCOME15
+		}
+
+		log = "HIS_RESERVES_INCOME:[GetDate],[This.HIS_RESERVES0],[This.HIS_RESERVES1],[This.HIS_RESERVES2],[This.HIS_RESERVES3],[This.HIS_RESERVES4],[This.HIS_RESERVES5],[This.HIS_RESERVES6],[This.HIS_RESERVES7],[This.HIS_RESERVES8],[This.HIS_RESERVES9],[This.HIS_RESERVES10],[This.HIS_RESERVES11],[This.HIS_RESERVES12],[This.HIS_INCOME0],[This.HIS_INCOME1],[This.HIS_INCOME2],[This.HIS_INCOME3],[This.HIS_INCOME4],[This.HIS_INCOME5],[This.HIS_INCOME6],[This.HIS_INCOME7],[This.HIS_INCOME8],[This.HIS_INCOME9],[This.HIS_INCOME10],[This.HIS_INCOME11],[This.HIS_INCOME12],[This.HIS_INCOME13],[This.HIS_INCOME14],[This.HIS_INCOME15]"
+	}
+}

@@ -1,0 +1,15 @@
+namespace = historian_basics
+
+
+# 记录国家名称，政府名称，个性，起源，母星名称，母星类别，母星系名称，创始物种
+country_event = {
+	id = historian_basics.1
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		log = "HIS_BASICS:[This.GetName],[This.GetGovernmentName],[This.GetPersonalityName],[This.GetOriginName],[This.GetHomeWorldName],[This.Capital.GetClassName],[This.Capital.System.GetName],[This.GetSpeciesName]"
+	}
+}
