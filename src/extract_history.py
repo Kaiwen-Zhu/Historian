@@ -9,7 +9,7 @@ from extract_military_history import extract_military_history
 def main():
     # data_dir = input("请输入存储数据的文件夹名称：")
     root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))  # Stellaris 目录路径
-    data_dir = "data"  # 存储数据的目录名称
+    data_dir = "洛克机械师工会data"  # 存储数据的目录名称
     data_path = path.join(root_path, "mod", "Historian", data_dir)
     with open(path.join(root_path, "logs", "game.log"), 'r', encoding='utf-8') as f:
         game_log = f.read()

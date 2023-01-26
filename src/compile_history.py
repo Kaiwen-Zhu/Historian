@@ -20,9 +20,9 @@ def main():
     lang = "zh"
 
     root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))  # Stellaris 目录路径
-    data_dir = "data"  # 存储数据的目录名称
+    data_dir = "洛克机械师工会data"  # 存储数据的目录名称
     data_path = path.join(root_path, "mod", "Historian", data_dir)
-    output_dir = "output"  # 存储输出的目录名称
+    output_dir = "洛克机械师工会output"  # 存储输出的目录名称
     output_path = path.join(root_path, "mod", "Historian", output_dir)
     
     geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}  # 页边距
@@ -47,8 +47,8 @@ def main():
 
     print("Generating the document ...")
     stdout.flush()
-    doc.generate_tex(file_path)
-    # doc.generate_pdf(file_path, clean_tex=False, compiler='xelatex')
+    # doc.generate_tex(file_path)
+    doc.generate_pdf(file_path, clean_tex=False, compiler='xelatex')
     print("Done!")
     stdout.flush()
     
