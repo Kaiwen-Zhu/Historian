@@ -30,10 +30,10 @@ def prepare(doc, data_path, lang):
 \end{center}
 \end{titlepage}'''))
 
-    # 创建目录页
-    doc.append(NoEscape(R'''\begin{center}
-\tableofcontents
-\end{center}'''))
-    doc.append(NoEscape(R'\thispagestyle{empty}'))
-    doc.append(NoEscape(R'\newpage'))
-    doc.append(NoEscape(R'\setcounter{page}{1}'))
+#     # 创建目录页
+#     doc.append(NoEscape(R'''\begin{center}
+# \tableofcontents
+# \end{center}'''))
+#     doc.append(NoEscape(R'\thispagestyle{empty}'))
+#     doc.append(NoEscape(R'\newpage'))
+#     doc.append(NoEscape(R'\setcounter{page}{1}'))

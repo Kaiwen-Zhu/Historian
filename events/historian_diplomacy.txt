@@ -13,7 +13,11 @@ country_event = {
 		every_country = {
 			limit = { 
 				has_communications = Root
-				is_country_type = default
+				or = {
+					is_country_type = default
+					is_country_type = awakened_fallen_empire
+					is_country_type = awakened_marauders
+				}
 			}
 
 			# 我方的评价

@@ -1,6 +1,6 @@
 from sys import stdout
 import pandas as pd
-from utils import extract
+from utils import extract_utils
 
 
 # 提取我国与其它国家之间相互的评价
@@ -9,22 +9,24 @@ def extract_opinion(game_log, data_path):
     """    
 
     # data中的每项为 [date, name, my_opinion, its_opinion]
-    data = extract.extract_info(game_log, "(?<=HIS_OPINION:).*")
+    data = extract_utils.extract_info(game_log, "(?<=HIS_OPINION:).*")
     
     if data:
-        new_df = pd.DataFrame()
+        new_df = pd.DataFrame(columns=["date"])
         for ele in data:
             date = ele[0]
+            if date not in list(new_df["date"]):
+                new_df.loc[len(new_df.index), "date"] = date
+
             country_name = ele[1]
             if f"opinion_on_{country_name}" not in new_df.columns:
                 new_df[f"opinion_on_{country_name}"] = pd.NA
                 new_df[f"{country_name}'s_opinion"] = pd.NA
-            if date not in new_df.index:
-                new_df.loc[date] = pd.NA
-            new_df.loc[date, f"opinion_on_{country_name}"] = ele[2]
-            new_df.loc[date, f"{country_name}'s_opinion"] = ele[3]
 
-        extract.merge_and_save_df(data_path, 'opinions.csv', new_df)
+            new_df.loc[new_df[new_df["date"]==date].index, f"opinion_on_{country_name}"] = ele[2]
+            new_df.loc[new_df[new_df["date"]==date].index, f"{country_name}'s_opinion"] = ele[3]
+
+        extract_utils.merge_and_save_df(data_path, 'opinions.csv', new_df)
             
 
 def extract_diplomatic_history(game_log, data_path):

@@ -1,6 +1,6 @@
 from sys import stdout
 import pandas as pd
-from utils import extract
+from utils import extract_utils
 
 
 def extract_economic_history(game_log, data_path):
@@ -10,10 +10,10 @@ def extract_economic_history(game_log, data_path):
     print("Extracting the economic history ...")
     stdout.flush()
     
-    data = extract.extract_info(game_log, "(?<=HIS_RESERVES_INCOME:).*")
+    data = extract_utils.extract_info(game_log, "(?<=HIS_RESERVES_INCOME:).*")
 
     if data:
-        new_df = pd.DataFrame(columns = ["energy_reserves", "minerals_reserves", "food_reserves",
+        new_df = pd.DataFrame(columns = ["date", "energy_reserves", "minerals_reserves", "food_reserves",
                 "consumer_goods_reserves", "alloys_reserves", "volatile_motes_reserves",
                 "exotic_gases_reserves", "rare_crystals_reserves", "living_metal_reserves",
                 "zro_reserves", "dark_matter_reserves", "nanites_reserves", "unity_reserves", 
@@ -23,9 +23,9 @@ def extract_economic_history(game_log, data_path):
                 "dark_matter_income", "nanites_income", "unity_income",
                 "physics_research_income", "society_research_income", "engineering_research_income"])
         for row in data:
-            new_df.loc[row[0]] = row[1:]
+            new_df.loc[len(new_df.index)] = row
 
-        extract.merge_and_save_df(data_path, 'resources.csv', new_df)
+        extract_utils.merge_and_save_df(data_path, 'resources.csv', new_df)
         
     print("Done!")
     stdout.flush()

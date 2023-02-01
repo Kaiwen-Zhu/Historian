@@ -1,5 +1,5 @@
 from sys import stdout
-from os import path, makedirs
+from os import path, mkdir
 from shutil import rmtree
 from json import load
 import matplotlib.pyplot as plt
@@ -55,9 +55,9 @@ def plot_resources_reserves_income(data_path, output_path, lang):
 
         fig, (axes_reserves, axes_income) = plt.subplots(2, 1, figsize=(9,13))
         if lang == 'en':
-            suptitle = 'The Reserves and Monthly Income of {}'.format(resources_category_name[lang == 'zh'])
+            suptitle = 'The Reserves and Monthly Income of {}'.format(resources_category_name[0])
         else:
-            suptitle = '{}储量及月收入'.format(resources_category_name[lang == 'zh'])
+            suptitle = '{}储量及月收入'.format(resources_category_name[1])
         fig.suptitle(suptitle, fontsize=15)
 
         for resource_idx in resources_idx_range:
@@ -69,15 +69,15 @@ def plot_resources_reserves_income(data_path, output_path, lang):
 
             date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
             omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
-            xticks_labels = df.index.to_series()[::date_step]
-            axes_reserves.plot(df.index, df[f'{resource_name}_reserves'], alpha = 0.8,
+            xticks_labels = df["date"][::date_step]
+            axes_reserves.plot(df["date"], df[f'{resource_name}_reserves'], alpha = 0.8,
                                 label = resource_name_in_label, color = colors[resource_idx])
             axes_reserves.set_xlabel(time, fontsize = 17)
             axes_reserves.set_xticks(xticks_labels)
             axes_reserves.set_xticklabels(labels = xticks_labels.apply(lambda date: date[:-omitted]), rotation = 30)
             axes_reserves.set_ylabel(reserves, fontsize = 17)
             
-            axes_income.plot(df.index, df[f'{resource_name}_income'], alpha = 0.8,
+            axes_income.plot(df["date"], df[f'{resource_name}_income'], alpha = 0.8,
                                 label = resource_name_in_label, color = colors[resource_idx])
             axes_income.set_xlabel(time, fontsize = 17)
             axes_income.set_xticks(xticks_labels)
@@ -99,7 +99,7 @@ def plot_resources_reserves_income(data_path, output_path, lang):
     dir_path = path.join(output_path, dir_name)
     if path.exists(dir_path):
         rmtree(dir_path)
-    makedirs(dir_path)
+    mkdir(dir_path)
     for resources_category in range(3):
         plot_one_type_resources(resources_category)
     

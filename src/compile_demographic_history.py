@@ -1,5 +1,5 @@
 from sys import stdout
-from os import path, makedirs
+from os import path, mkdir
 from shutil import rmtree
 from json import load
 import matplotlib.pyplot as plt
@@ -19,17 +19,17 @@ def plot_num_pop(data_path, output_path, dir_name, lang):
     df = pd.read_csv(path.join(data_path, 'num_pop.csv'), index_col=0, sep=';')
     
     plt.figure(figsize=(9, 13))
-    plt.plot(df.index, df[f'num_pop'])
+    plt.plot(df["date"], df[f'num_pop'])
 
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
-    omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
+    omitted = 6
     plt.xticks(ticks = range(0, len(df), date_step), 
-            labels = df.index.to_series()[::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+            labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
 
     dir_path = path.join(output_path, dir_name)
     if path.exists(dir_path):
         rmtree(dir_path)
-    makedirs(dir_path)
+    mkdir(dir_path)
     pic_path = path.join(dir_path, file_name) + '.png'
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
     plt.close()
@@ -58,16 +58,16 @@ def plot_unity(data_path, output_path, dir_name, lang):
     
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
-    xticks_labels = df.index.to_series()[::date_step]
+    xticks_labels = df["date"][::date_step]
 
-    axes_reserves.plot(df.index, df['unity_reserves'], color = '#51aca6')
+    axes_reserves.plot(df["date"], df['unity_reserves'], color = '#51aca6')
     axes_reserves.set_xlabel(time, fontsize = 17)
     axes_reserves.set_xticks(xticks_labels)
     axes_reserves.set_xticklabels(labels = xticks_labels.apply(lambda date: date[:-omitted]), rotation = 30)
     axes_reserves.set_ylabel(reserves, fontsize = 17)
 
     axes_income.set_xlabel(time, fontsize = 17)
-    axes_income.plot(df.index, df['unity_income'], color = '#51aca6')
+    axes_income.plot(df["date"], df['unity_income'], color = '#51aca6')
     axes_income.set_xticks(xticks_labels)
     axes_income.set_xticklabels(labels = xticks_labels.apply(lambda date: date[:-omitted]), rotation = 30)
     axes_income.set_ylabel(income, fontsize = 17)

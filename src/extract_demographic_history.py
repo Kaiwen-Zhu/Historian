@@ -1,6 +1,6 @@
 from sys import stdout
 import pandas as pd
-from utils import extract
+from utils import extract_utils
 
 
 def extract_total_pop_num(game_log, data_path):
@@ -8,14 +8,14 @@ def extract_total_pop_num(game_log, data_path):
     """    
 
     # data中的每项为 [date, pop_num]
-    data = extract.extract_info(game_log, "(?<=HIS_NUM_POP:).*")
+    data = extract_utils.extract_info(game_log, "(?<=HIS_NUM_POP:).*")
     
     if data:
-        new_df = pd.DataFrame(columns = ["num_pop"])
+        new_df = pd.DataFrame(columns = ["date", "num_pop"])
         for row in data:
-            new_df.loc[row[0]] = row[1]
+            new_df.loc[len(new_df.index)] = row
 
-        extract.merge_and_save_df(data_path, 'num_pop.csv', new_df)
+        extract_utils.merge_and_save_df(data_path, 'num_pop.csv', new_df)
 
 
 def extract_pop_num_by_species(game_log, data_path):
@@ -23,14 +23,14 @@ def extract_pop_num_by_species(game_log, data_path):
     """
 
     # data中的每项为 [date, species_name, pop_num]
-    data = extract.extract_info(game_log, "(?<=HIS_NUM_POP_OF_ONE_SPECIES:).*")
+    data = extract_utils.extract_info(game_log, "(?<=HIS_NUM_POP_OF_ONE_SPECIES:).*")
 
     if data:
         new_df = pd.DataFrame(columns = ["date", "species_name", "num_pop"])
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        extract.merge_and_save_df(data_path, 'species_pop_num.csv', new_df)
+        extract_utils.merge_and_save_df(data_path, 'species_pop_num.csv', new_df, keys=["date","species_name"])
             
 
 def extract_demographic_history(game_log, data_path):  

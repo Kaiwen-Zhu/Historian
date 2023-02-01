@@ -1,6 +1,5 @@
-from re import sub
 from sys import stdout
-from os import path, makedirs
+from os import path, mkdir
 from shutil import rmtree
 from json import load
 import matplotlib.pyplot as plt
@@ -55,22 +54,23 @@ def plot_opinions(data_path, output_path, lang):
 
     # with PdfPages(path.join('..', output, filename)) as pdf:
     # 绘制与各国关系
-    plt.figure(figsize=(9, 13))
-    for ind in range(len(df.columns) // 2):
-        country = df.columns[2*ind][11:]  # 国家名称
-        plt.plot(df.index, df[df.columns[2*ind]] + df[df.columns[2*ind+1]], label=country, alpha=0.8)
+    plt.figure(figsize=(9, 11))
+    for ind in range((len(df.columns)-1) // 2):
+        country = df.columns[2*ind+1][11:]  # 国家名称
+        plt.plot(df["date"], df[df.columns[2*ind+1]] + df[df.columns[2*ind+2]], label=country, alpha=0.8)
     # plt.title(all_title, fontsize=15)
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
     plt.xticks(ticks = range(0, len(df), date_step), 
-            labels = df.index.to_series()[::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
-    plt.legend()
+            labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+    num_legend_col = min(len(df.columns)//2, 4)
+    plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
 
     # pdf.savefig()
     dir_path = path.join(output_path, dir_name)
     if path.exists(dir_path):
         rmtree(dir_path)
-    makedirs(dir_path)
+    mkdir(dir_path)
     pic_path = path.join(dir_path, all_title + '.png')
     pics.append(pic_path)
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
@@ -78,14 +78,15 @@ def plot_opinions(data_path, output_path, lang):
 
 
     # 分别绘制关系和相互的评价
-    for ind in range(len(df.columns) // 2):
-        country = df.columns[2*ind][11:]
+    for ind in range((len(df.columns)-1) // 2):
+        country = df.columns[2*ind+1][11:]
         plt.figure(figsize=(8,4))
         plt.title(title.format(country), fontsize=15)
         df_tmp = df.dropna(subset=[f'opinion_on_{country}'])
 
         # 绘制颜色随数值变化的关系变化图
         def plot_colored_relationship(vals, ls):
+            vals = list(vals)
             i = 0
             while i < len(vals):
                 start = i-1 if i != 0 else i
@@ -93,16 +94,16 @@ def plot_opinions(data_path, output_path, lang):
                 i += 1
                 while i < len(vals) and get_color(vals[i], ls) == color:
                     i += 1
-                plt.plot(df_tmp.index[start:i], vals[start:i], ls=ls, color=color, alpha=0.8)
+                plt.plot(df_tmp["date"][start:i], vals[start:i], ls=ls, color=color, alpha=0.8)
 
-        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind]], ls='--')
-        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind+1]], ls=':')
-        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind]] + df_tmp[df_tmp.columns[2*ind+1]], ls='-')
+        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind+1]], ls='--')
+        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind+2]], ls=':')
+        plot_colored_relationship(df_tmp[df_tmp.columns[2*ind+1]] + df_tmp[df_tmp.columns[2*ind+2]], ls='-')
 
         date_step = max(len(df_tmp) // 9, 1)  # 横轴相邻标签间隔的月数
         omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
         plt.xticks(ticks = range(0, len(df_tmp), date_step), 
-                labels = df_tmp.index.to_series()[::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+                labels = df_tmp["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
 
         # pdf.savefig()
         pic_path = path.join(dir_path, title.format(country)) + '.png'

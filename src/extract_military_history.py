@@ -1,6 +1,6 @@
 from sys import stdout
 import pandas as pd
-from utils import extract
+from utils import extract_utils
 
 
 def extract_ship_building(game_log, data_path):
@@ -8,7 +8,7 @@ def extract_ship_building(game_log, data_path):
     """   
      
     # data中的每项为 [date, ship_size, ship_design_name, ship_name]
-    data = extract.extract_info(game_log, "(?<=HIS_BUILT_SHIP:).*")
+    data = extract_utils.extract_info(game_log, "(?<=HIS_BUILT_SHIP:).*")
     
     if data:
         # 创建数据帧
@@ -16,7 +16,7 @@ def extract_ship_building(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        extract.merge_and_save_df(data_path, 'ship_building.csv', new_df)
+        extract_utils.merge_and_save_df(data_path, 'ship_building.csv', new_df, keys=["date","ship_name"])
             
 
 def extract_military_history(game_log, data_path):

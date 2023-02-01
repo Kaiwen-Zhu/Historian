@@ -1,4 +1,4 @@
-from os import path
+from os import path, mkdir
 from extract_basics import extract_basics
 from extract_economic_history import extract_economic_history
 from extract_demographic_history import extract_demographic_history
@@ -7,10 +7,15 @@ from extract_military_history import extract_military_history
 
 
 def main():
-    # data_dir = input("请输入存储数据的文件夹名称：")
+    # HIS_dir = input("请输入存储数据与输出的文件夹名称：")
     root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))  # Stellaris 目录路径
-    data_dir = "洛克机械师工会data"  # 存储数据的目录名称
-    data_path = path.join(root_path, "mod", "Historian", data_dir)
+    HIS_dir = "奇恩帝国"  # 存储数据目录与输出目录的目录名称
+    # HIS_dir += "HIS"
+    data_path = path.join(root_path, "mod", "Historian", HIS_dir, "data")
+
+    if not path.exists(data_path):
+        mkdir(data_path)
+    
     with open(path.join(root_path, "logs", "game.log"), 'r', encoding='utf-8') as f:
         game_log = f.read()
     

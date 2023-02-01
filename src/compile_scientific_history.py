@@ -1,5 +1,5 @@
 from sys import stdout
-from os import path, makedirs
+from os import path, mkdir
 from shutil import rmtree
 from json import load
 import matplotlib.pyplot as plt
@@ -7,8 +7,10 @@ import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
 
 
-# 绘制研究点数月收入变化图
 def plot_points_income(data_dir, output_path, lang):
+    """ Plots the line charts of monthly income of scientific points.
+    """ 
+
     with open(path.join(data_dir, 'basics.json'), encoding='utf-8') as f:
         basics = load(f)
         name = basics['name']
@@ -40,19 +42,19 @@ def plot_points_income(data_dir, output_path, lang):
             research_name_in_label = research[research_idx].replace('_', ' ').title()
         else:
             research_name_in_label = research_zh[research_idx]
-        plt.plot(df.index, df[f'{research_name}_income'], alpha = 0.8,
+        plt.plot(df["date"], df[f'{research_name}_income'], alpha = 0.8,
                             label = research_name_in_label, color = colors[research_idx])
 
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
     plt.xticks(ticks = range(0, len(df), date_step), 
-            labels = df.index.to_series()[::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+            labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
     plt.legend()
 
     dir_path = path.join(output_path, dir_name)
     if path.exists(dir_path):
         rmtree(dir_path)
-    makedirs(dir_path)
+    mkdir(dir_path)
     pic_path = path.join(dir_path, file_name)
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
     plt.close()
@@ -60,7 +62,6 @@ def plot_points_income(data_dir, output_path, lang):
     return pic_path
 
 
-# 将图片加入到文档中
 def add_pics_to_doc(doc, pic, lang):
     doc.append(NoEscape(R'\newpage'))
 
@@ -77,7 +78,6 @@ def add_pics_to_doc(doc, pic, lang):
                 pic_in_doc.add_image(pic, width='17cm')
 
 
-# 编纂科技史
 def compile_scientific_history(doc, data_dir, output_path, lang):
     print("Compiling the scientific history ...")
     stdout.flush()

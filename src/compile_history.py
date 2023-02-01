@@ -1,4 +1,4 @@
-from os import path
+from os import path, mkdir
 from json import load
 from pylatex import Document
 from prepare import prepare
@@ -11,19 +11,19 @@ from sys import stdout
 
 
 def main():
-    # # data_dir = input("请输入存储数据的文件夹名称：")
-    # data_dir = "data"
-    # # output = input("请输入存储输出的文件夹名称：")
-    # output = "output"
+    # HIS_dir = input("请输入存储数据与输出的文件夹名称：")
+    HIS_dir = "奇恩帝国"  # 存储数据目录与输出目录的目录名称
     
     # lang = input("选择语言\n输入“zh”以使用中文\nInput "en" if you prefer English\n")
     lang = "zh"
 
     root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))  # Stellaris 目录路径
-    data_dir = "洛克机械师工会data"  # 存储数据的目录名称
-    data_path = path.join(root_path, "mod", "Historian", data_dir)
-    output_dir = "洛克机械师工会output"  # 存储输出的目录名称
-    output_path = path.join(root_path, "mod", "Historian", output_dir)
+    data_path = path.join(root_path, "mod", "Historian", HIS_dir, "data")
+    output_path = path.join(root_path, "mod", "Historian", HIS_dir, "output")
+
+    assert path.exists(data_path)
+    if not path.exists(output_path):
+        mkdir(output_path)
     
     geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}  # 页边距
     doc = Document(geometry_options=geometry_options)
