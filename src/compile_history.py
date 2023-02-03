@@ -48,7 +48,8 @@ def main():
     print("Generating the document ...")
     stdout.flush()
     # doc.generate_tex(file_path)
-    doc.generate_pdf(file_path, clean_tex=False, compiler='xelatex')
+    doc.generate_pdf(file_path, clean_tex=False, compiler='latexmk', compiler_args=[
+        '-xelatex', '-file-line-error', '-halt-on-error'])
     print("Done!")
     stdout.flush()
     

@@ -2,4 +2,4 @@ __pycache__/
 test*
 data/
 output/
-*HIS/
+logs/

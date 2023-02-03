@@ -6,7 +6,7 @@ from json import load
 def prepare(doc, data_path, lang):
     # 引入宏包
     doc.packages.add(Package('float'))
-    # doc.packages.add(Package('hyperref', options=['breaklinks=true','colorlinks=true','linkcolor=black','citecolor=black','urlcolor=black']))  # 加入标签
+    doc.packages.add(Package('hyperref', options=['breaklinks=true','colorlinks=true','linkcolor=black','citecolor=black','urlcolor=black']))
     if lang == 'zh':
         doc.packages.add(Package('ctex'))
 
@@ -30,10 +30,10 @@ def prepare(doc, data_path, lang):
 \end{center}
 \end{titlepage}'''))
 
-#     # 创建目录页
-#     doc.append(NoEscape(R'''\begin{center}
-# \tableofcontents
-# \end{center}'''))
-#     doc.append(NoEscape(R'\thispagestyle{empty}'))
-#     doc.append(NoEscape(R'\newpage'))
-#     doc.append(NoEscape(R'\setcounter{page}{1}'))
+    # 创建目录页
+    doc.append(NoEscape(R'''\begin{center}
+\tableofcontents
+\end{center}'''))
+    doc.append(NoEscape(R'\thispagestyle{empty}'))
+    doc.append(NoEscape(R'\newpage'))
+    doc.append(NoEscape(R'\setcounter{page}{1}'))
