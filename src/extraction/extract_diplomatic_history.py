@@ -1,15 +1,14 @@
 from sys import stdout
 import pandas as pd
-from utils import extract_utils
+from .utils import *
 
 
-# 提取我国与其它国家之间相互的评价
 def extract_opinion(game_log, data_path):
     """ Extracts mutual opinions of all countries.
     """    
 
     # data中的每项为 [date, name, my_opinion, its_opinion]
-    data = extract_utils.extract_info(game_log, "(?<=HIS_OPINION:).*")
+    data = extract_info(game_log, "(?<=HIS_OPINION:).*")
     
     if data:
         new_df = pd.DataFrame(columns=["date"])
@@ -26,7 +25,7 @@ def extract_opinion(game_log, data_path):
             new_df.loc[new_df[new_df["date"]==date].index, f"opinion_on_{country_name}"] = ele[2]
             new_df.loc[new_df[new_df["date"]==date].index, f"{country_name}'s_opinion"] = ele[3]
 
-        extract_utils.merge_and_save_df(data_path, 'opinions.csv', new_df)
+        merge_and_save_df(data_path, 'opinions.csv', new_df)
             
 
 def extract_diplomatic_history(game_log, data_path):

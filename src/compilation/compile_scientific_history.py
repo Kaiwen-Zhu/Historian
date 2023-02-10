@@ -1,7 +1,7 @@
 from sys import stdout
 from os import path, mkdir
 from shutil import rmtree
-from json import load
+import json
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
@@ -12,7 +12,7 @@ def plot_points_income(data_dir, output_path, lang):
     """ 
 
     with open(path.join(data_dir, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
+        basics = json.load(f)
         name = basics['name']
 
     research = ['physics_research', 'society_research', 'engineering_research']

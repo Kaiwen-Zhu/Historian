@@ -1,6 +1,6 @@
 from sys import stdout
 from os import path
-from json import load
+import json
 from pylatex import Section, NoEscape
         
 
@@ -24,7 +24,7 @@ def compile_basics(doc, data_path, lang):
         species = "创始物种"
 
     with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
+        basics = json.load(f)
 
     with doc.create(Section(section_name)):
         doc.append(NoEscape(R'''\begin{itemize}

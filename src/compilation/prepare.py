@@ -1,6 +1,6 @@
 from pylatex import Package, Command, NoEscape
 from os import path
-from json import load
+import json
 
 
 def prepare(doc, data_path, lang):
@@ -12,7 +12,7 @@ def prepare(doc, data_path, lang):
 
     # 创建标题页
     with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
+        basics = json.load(f)
         name = basics['name'].replace(' ', '\ ')
         end_date = basics['end_date'][:4]
 

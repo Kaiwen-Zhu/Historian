@@ -1,18 +1,13 @@
 from os import path, mkdir
 from json import load
 from pylatex import Document
-from prepare import prepare
-from compile_basics import compile_basics
-from compile_economic_history import compile_economic_history
-from compile_demographic_history import compile_demographic_history
-from compile_scientific_history import compile_scientific_history
-from compile_diplomatic_history import compile_diplomatic_history
 from sys import stdout
+from compilation import *
 
 
 def main():
     # HIS_dir = input("请输入存储数据与输出的文件夹名称：")
-    HIS_dir = "奇恩帝国"  # 存储数据目录与输出目录的目录名称
+    HIS_dir = "人类联邦"  # 存储数据目录与输出目录的目录名称
     
     # lang = input("选择语言\n输入“zh”以使用中文\nInput "en" if you prefer English\n")
     lang = "zh"
@@ -25,7 +20,7 @@ def main():
     if not path.exists(output_path):
         mkdir(output_path)
     
-    geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}  # 页边距
+    geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}
     doc = Document(geometry_options=geometry_options)
     
 

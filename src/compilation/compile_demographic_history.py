@@ -1,7 +1,7 @@
 from sys import stdout
 from os import path, mkdir
 from shutil import rmtree
-from json import load
+import json
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import Section, Subsection, Figure, NoEscape
@@ -108,7 +108,7 @@ def compile_demographic_history(doc, data_path, output_path, lang):
     stdout.flush()
 
     with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
+        basics = json.load(f)
         name = basics['name']
     if lang == 'en':
         dir_name = f'The Demographic History of {name}'

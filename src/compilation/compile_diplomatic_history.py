@@ -1,7 +1,7 @@
 from sys import stdout
 from os import path, mkdir
 from shutil import rmtree
-from json import load
+import json
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
@@ -34,7 +34,7 @@ def plot_opinions(data_path, output_path, lang):
     pics = []  # 存储各图路径
 
     with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
+        basics = json.load(f)
         name = basics['name']
 
     if lang == 'en':

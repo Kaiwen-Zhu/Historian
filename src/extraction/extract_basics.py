@@ -1,4 +1,4 @@
-from re import compile
+import re
 from os import path
 from sys import stdout
 from json import load, dump
@@ -12,7 +12,7 @@ def extract_basics(game_log, data_path):
 
     if not path.exists(file_path):
         basics_dict = {}
-        basics_pat = compile('(?<=HIS_BASICS:).+')
+        basics_pat = re.compile('(?<=HIS_BASICS:).+')
         info = basics_pat.search(game_log)
         info = info.group().split(',')
         basics_dict['name'] = info[0]
@@ -29,7 +29,7 @@ def extract_basics(game_log, data_path):
             basics_dict = load(f) 
 
     # extract the last day
-    date_pat = compile('(?<=HIS_RESERVES_INCOME:)\d{4}.\d{2}.\d{2}(?=,)')
+    date_pat = re.compile('(?<=HIS_RESERVES_INCOME:)\d{4}.\d{2}.\d{2}(?=,)')
     dates = date_pat.findall(game_log)
     if dates:
         basics_dict['end_date'] = dates[-1]
