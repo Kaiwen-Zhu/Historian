@@ -1,51 +1,50 @@
 from sys import stdout
-from os import path, mkdir
-from shutil import rmtree
-import json
+from os import path
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
+from typing import Tuple
+from .utils import *
 # from matplotlib.backends.backend_pdf import PdfPages
 
+Color = Tuple[float]
 
-def get_gradient_color(c1, c2, dis):
+
+def get_gradient_color(c1: Color, c2: Color, dis: float) -> Color:
     """ Computes the color between `c1` and `c2` that is `dis` (in RGB) away from `c1`.
     """    
     return tuple(min(1, c1[i] + round(dis * (c2[i]-c1[i]), 1)) for i in range(3))
 
 
-def get_color(num, ls):
+def get_color(num: int, ls: str) -> Color:
     """ Computes the color corresponding to the given number.
     """    
     num *= 2 if ls != '-' else 1
-    colors = [(50/255,0,0), (1,0,0), (1,69/255,0), (0,1,0), (0,0,1), (0,1,1)]
-    thresholds = [-3000, -750, -300, 300, 750, 3000]
-    for ind in range(5):
+    colors = [(1,0,0), (1, 0xd7/255, 0), (0,1,0)]
+    thresholds = [-1000, 0, 1000]
+    if num <= thresholds[0]:
+        return colors[0]
+    if num >= thresholds[-1]:
+        return colors[-1]
+
+    for ind in range(len(thresholds)-1):
         if num < thresholds[ind+1]:
             break
     dis = (num - thresholds[ind]) / (thresholds[ind+1] - thresholds[ind])
     return get_gradient_color(colors[ind], colors[ind+1], dis)
 
 
-def plot_opinions(data_path, output_path, lang):
+def plot_opinions(data_path, dir_path, lang) -> list[str]:
     """ Plots the line chart of relationships and mutual opinions.
     """    
 
     pics = []  # 存储各图路径
 
-    with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = json.load(f)
-        name = basics['name']
-
     if lang == 'en':
-        dir_name = f'The Diplomatic History of {name}'
         all_title = 'The Relationships with Other Countries'
         title = 'The Relationship with {}'
 
     else:
-        plt.rcParams['font.sans-serif'] = ['SimHei']
-        plt.rcParams['axes.unicode_minus'] = False
-        dir_name = f'{name}外交史'
         all_title = '与各国关系'
         title = '与{}之间的关系'
 
@@ -67,10 +66,6 @@ def plot_opinions(data_path, output_path, lang):
     plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
 
     # pdf.savefig()
-    dir_path = path.join(output_path, dir_name)
-    if path.exists(dir_path):
-        rmtree(dir_path)
-    mkdir(dir_path)
     pic_path = path.join(dir_path, all_title + '.png')
     pics.append(pic_path)
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
@@ -142,12 +137,14 @@ def add_pics_to_doc(doc, pics, lang):
                     pic_in_doc.add_image(pic, width='17cm')
                 
 
-def compile_diplomatic_history(doc, data_path, output_path, lang):
+def compile_diplomatic_history(doc, data_path, output_path, lang, name):
     if path.exists(path.join(data_path, 'opinions.csv')):
         print("Compiling the diplomatic history ...")
         stdout.flush()
         
-        pics = plot_opinions(data_path, output_path, lang)
+        dir_path = prepare_compile_section(name, lang, output_path, "Diplomatic", "外交")
+
+        pics = plot_opinions(data_path, dir_path, lang)
         add_pics_to_doc(doc, pics, lang)
 
         print("Done!")

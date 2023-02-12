@@ -3,7 +3,7 @@ import pandas as pd
 from .utils import *
 
 
-def extract_total_pop_num(game_log, data_path):
+def extract_total_pop_size(game_log, data_path):
     """ Extracts the total number of population.
     """    
 
@@ -18,7 +18,7 @@ def extract_total_pop_num(game_log, data_path):
         merge_and_save_df(data_path, 'num_pop.csv', new_df)
 
 
-def extract_pop_num_by_species(game_log, data_path):
+def extract_pop_size_by_species(game_log, data_path):
     """ Extracts population size of various species respectively.
     """
 
@@ -30,15 +30,15 @@ def extract_pop_num_by_species(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'species_pop_num.csv', new_df, keys=["date","species_name"])
+        merge_and_save_df(data_path, 'species_pop_size.csv', new_df, keys=["date","species_name"])
             
 
 def extract_demographic_history(game_log, data_path):  
     print("Extracting the demographic history ...")
     sys.stdout.flush()
     
-    extract_total_pop_num(game_log, data_path)  # 提取人口总数
-    extract_pop_num_by_species(game_log, data_path)  # 提取各物种人口数
+    extract_total_pop_size(game_log, data_path)  # 提取人口总数
+    extract_pop_size_by_species(game_log, data_path)  # 提取各物种人口数
         
     print("Done!")
     sys.stdout.flush()

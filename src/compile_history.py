@@ -24,12 +24,12 @@ def main():
     doc = Document(geometry_options=geometry_options)
     
 
-    prepare(doc, data_path, lang)
+    name = prepare(doc, data_path, lang)
     compile_basics(doc, data_path, lang)
-    compile_economic_history(doc, data_path, output_path, lang)
-    compile_demographic_history(doc, data_path, output_path, lang)
-    compile_scientific_history(doc, data_path, output_path, lang)
-    compile_diplomatic_history(doc, data_path, output_path, lang)
+    compile_economic_history(doc, data_path, output_path, lang, name)
+    compile_demographic_history(doc, data_path, output_path, lang, name)
+    compile_scientific_history(doc, data_path, output_path, lang, name)
+    compile_diplomatic_history(doc, data_path, output_path, lang, name)
 
 
     with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:

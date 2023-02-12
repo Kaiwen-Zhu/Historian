@@ -1,35 +1,46 @@
 from sys import stdout
-from os import path, mkdir
-from shutil import rmtree
-import json
+from os import path
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import Section, Subsection, Figure, NoEscape
-        
+from .utils import *
 
-def plot_num_pop(data_path, output_path, dir_name, lang):
+
+def plot_pop_size(data_path, dir_path, lang):
     """ Plots the line chart of population size.
     """    
 
     if lang == 'en':
         file_name = 'Population Size'
+        total_label = "Total Size"
     else:
         file_name = '人口数量'
-        
+        total_label = "总数"
+
+    plt.figure(figsize=(9, 11))
+
+    # 绘制人口总数
     df = pd.read_csv(path.join(data_path, 'num_pop.csv'), index_col=0, sep=';')
-    
-    plt.figure(figsize=(9, 13))
-    plt.plot(df["date"], df[f'num_pop'])
+    plt.plot(df["date"], df['num_pop'], label=total_label, alpha=0.8)
 
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6
     plt.xticks(ticks = range(0, len(df), date_step), 
             labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
 
-    dir_path = path.join(output_path, dir_name)
-    if path.exists(dir_path):
-        rmtree(dir_path)
-    mkdir(dir_path)
+    # 绘制各物种人口数量
+    df_species = pd.read_csv(path.join(data_path, 'species_pop_size.csv'), index_col=0, sep=';')   
+    species_names = set(df_species['species_name']) 
+    for species in species_names:
+        df_one_species = df_species[df_species['species_name']==species]
+        plt.plot(df_one_species['date'], df_one_species['num_pop'], label=species, alpha=0.8)
+
+    # plt.xticks(ticks = range(0, len(df_species), date_step), 
+            # labels = df_species["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
+    num_legend_col = min(len(species_names)//2, 5)
+    plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
+
+
     pic_path = path.join(dir_path, file_name) + '.png'
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
     plt.close()
@@ -37,7 +48,7 @@ def plot_num_pop(data_path, output_path, dir_name, lang):
     return pic_path
 
 
-def plot_unity(data_path, output_path, dir_name, lang):
+def plot_unity(data_path, dir_path, lang):
     """ Plots the line chart of reserves and monthly income of unity.
     """    
 
@@ -75,7 +86,7 @@ def plot_unity(data_path, output_path, dir_name, lang):
     plt.subplots_adjust(hspace = 0.5)
     plt.suptitle(title, fontsize=15)
 
-    pic_path = path.join(output_path, dir_name, title + '.png')
+    pic_path = path.join(dir_path, title + '.png')
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
     plt.close()
 
@@ -103,22 +114,15 @@ def add_pics_to_doc(doc, pics, lang):
                 pic_in_doc.add_image(pics[1], width='15cm')
 
 
-def compile_demographic_history(doc, data_path, output_path, lang):
+def compile_demographic_history(doc, data_path, output_path, lang, name):
     print("Compiling the demographic history ...")
     stdout.flush()
 
-    with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = json.load(f)
-        name = basics['name']
-    if lang == 'en':
-        dir_name = f'The Demographic History of {name}'
-    else:
-        plt.rcParams['font.sans-serif'] = ['SimHei']
-        dir_name = f'{name}人口史'
+    dir_path = prepare_compile_section(name, lang, output_path, "Demographic", "人口")
 
     pics = []
-    pics.append(plot_num_pop(data_path, output_path, dir_name, lang))
-    pics.append(plot_unity(data_path, output_path, dir_name, lang))
+    pics.append(plot_pop_size(data_path, dir_path, lang))
+    pics.append(plot_unity(data_path, dir_path, lang))
     add_pics_to_doc(doc, pics, lang)
 
     print("Done!")

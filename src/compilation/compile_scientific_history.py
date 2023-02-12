@@ -1,32 +1,23 @@
 from sys import stdout
-from os import path, mkdir
-from shutil import rmtree
-import json
+from os import path
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
+from .utils import *
 
 
-def plot_points_income(data_dir, output_path, lang):
+def plot_points_income(data_dir, dir_path, lang, name) -> str:
     """ Plots the line charts of monthly income of scientific points.
     """ 
-
-    with open(path.join(data_dir, 'basics.json'), encoding='utf-8') as f:
-        basics = json.load(f)
-        name = basics['name']
 
     research = ['physics_research', 'society_research', 'engineering_research']
     colors = ['#359db6', '#53b977', '#df8c4c']
 
     if lang == 'en':
-        dir_name = f'The Scientific History of {name}'
         file_name = f'The Monthly Income of Scientific Points of {name}.png'
         # title = 'The Monthly Income of Research Points'
 
     else:
-        plt.rcParams['font.sans-serif'] = ['SimHei']
-        plt.rcParams['axes.unicode_minus'] = False
-        dir_name = f'{name}科技史'
         file_name = f'{name}研究点数月收入.png'
         research_zh = ['物理学研究', '社会学研究', '工程学研究']
         # title = '研究点数月收入'
@@ -51,10 +42,6 @@ def plot_points_income(data_dir, output_path, lang):
             labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
     plt.legend()
 
-    dir_path = path.join(output_path, dir_name)
-    if path.exists(dir_path):
-        rmtree(dir_path)
-    mkdir(dir_path)
     pic_path = path.join(dir_path, file_name)
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
     plt.close()
@@ -78,11 +65,13 @@ def add_pics_to_doc(doc, pic, lang):
                 pic_in_doc.add_image(pic, width='17cm')
 
 
-def compile_scientific_history(doc, data_dir, output_path, lang):
+def compile_scientific_history(doc, data_dir, output_path, lang, name):
     print("Compiling the scientific history ...")
     stdout.flush()
 
-    pic = plot_points_income(data_dir, output_path, lang)
+    dir_path = prepare_compile_section(name, lang, output_path, "Scientific", "科技")
+
+    pic = plot_points_income(data_dir, dir_path, lang, name)
     add_pics_to_doc(doc, pic, lang)
 
     print("Done!")

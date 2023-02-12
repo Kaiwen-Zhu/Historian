@@ -3,7 +3,10 @@ from os import path
 import json
 
 
-def prepare(doc, data_path, lang):
+def prepare(doc, data_path, lang) -> str:
+    """ Prepares before creating sections and returns name.
+    """
+    
     # 引入宏包
     doc.packages.add(Package('float'))
     doc.packages.add(Package('hyperref', options=['breaklinks=true','colorlinks=true','linkcolor=black','citecolor=black','urlcolor=black']))
@@ -37,3 +40,5 @@ def prepare(doc, data_path, lang):
     doc.append(NoEscape(R'\thispagestyle{empty}'))
     doc.append(NoEscape(R'\newpage'))
     doc.append(NoEscape(R'\setcounter{page}{1}'))
+
+    return name

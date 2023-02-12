@@ -1,22 +1,17 @@
 from sys import stdout
-from os import path, mkdir
-from shutil import rmtree
-import json
+from os import path
 import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import Section, Figure, NoEscape
+from .utils import *
 # from matplotlib.backends.backend_pdf import PdfPages
         
 
-def plot_resources_reserves_income(data_path, output_path, lang):
+def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
     """ Plots the line charts of reserves and monthly income of various resources and returns the paths of them.
     """   
 
     pics = []  # 存储各图路径
-
-    with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = json.load(f)
-        name = basics['name']
 
     resources = ['energy', 'minerals', 'food', 'consumer_goods', 'alloys',
             'volatile_motes', 'exotic_gases', 'rare_crystals', 'living_metal', 'zro',
@@ -26,15 +21,11 @@ def plot_resources_reserves_income(data_path, output_path, lang):
             '#1a212c', '#b1bfb3']
 
     if lang == 'en':
-        dir_name = f'The Economic History of {name}'
         time = 'Time'
         reserves = 'Reserves'
         income = 'Monthly Income'
 
     else:
-        plt.rcParams['font.sans-serif'] = ['SimHei']
-        plt.rcParams['axes.unicode_minus'] = False
-        dir_name = f'{name}经济史'
         time = '时间'
         income = '月收入'
         reserves = '储量'
@@ -96,10 +87,6 @@ def plot_resources_reserves_income(data_path, output_path, lang):
 
     # 绘制各资源储量/收入折线图
     # with PdfPages(path.join('..', output, filename)) as pdf:
-    dir_path = path.join(output_path, dir_name)
-    if path.exists(dir_path):
-        rmtree(dir_path)
-    mkdir(dir_path)
     for resources_category in range(3):
         plot_one_type_resources(resources_category)
     
@@ -120,11 +107,13 @@ def add_pics_to_doc(doc, pics, lang):
                 pic_in_doc.add_image(pic, width='15cm')
 
 
-def compile_economic_history(doc, data_path, output_path, lang):
+def compile_economic_history(doc, data_path, output_path, lang, name):
     print("Compiling the economic history ...")
     stdout.flush()
 
-    pics = plot_resources_reserves_income(data_path, output_path, lang)
+    dir_path = prepare_compile_section(name, lang, output_path, "Economic", "经济")
+
+    pics = plot_resources_reserves_income(data_path, dir_path, lang)
     add_pics_to_doc(doc, pics, lang)
 
     print("Done!")
