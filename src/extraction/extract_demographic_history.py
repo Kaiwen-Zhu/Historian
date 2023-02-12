@@ -1,4 +1,4 @@
-import sys
+from sys import stdout
 import pandas as pd
 from .utils import *
 
@@ -35,10 +35,10 @@ def extract_pop_size_by_species(game_log, data_path):
 
 def extract_demographic_history(game_log, data_path):  
     print("Extracting the demographic history ...")
-    sys.stdout.flush()
+    stdout.flush()
     
     extract_total_pop_size(game_log, data_path)  # 提取人口总数
     extract_pop_size_by_species(game_log, data_path)  # 提取各物种人口数
         
     print("Done!")
-    sys.stdout.flush()
+    stdout.flush()

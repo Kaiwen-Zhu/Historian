@@ -1,5 +1,4 @@
 from os import path, mkdir
-from json import load
 from pylatex import Document
 from sys import stdout
 from compilation import *
@@ -22,19 +21,14 @@ def main():
     
     geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}
     doc = Document(geometry_options=geometry_options)
-    
 
     name = prepare(doc, data_path, lang)
     compile_basics(doc, data_path, lang)
-    compile_economic_history(doc, data_path, output_path, lang, name)
-    compile_demographic_history(doc, data_path, output_path, lang, name)
-    compile_scientific_history(doc, data_path, output_path, lang, name)
-    compile_diplomatic_history(doc, data_path, output_path, lang, name)
+    compile_economic_history(doc, data_path, output_path, lang)
+    compile_demographic_history(doc, data_path, output_path, lang)
+    compile_scientific_history(doc, data_path, output_path, lang)
+    compile_diplomatic_history(doc, data_path, output_path, lang)
 
-
-    with open(path.join(data_path, 'basics.json'), encoding='utf-8') as f:
-        basics = load(f)
-        name = basics['name']
     if lang == 'en':
         file_path = path.join(output_path, f'The History of {name}')
     else:

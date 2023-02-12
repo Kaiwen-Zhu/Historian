@@ -137,12 +137,12 @@ def add_pics_to_doc(doc, pics, lang):
                     pic_in_doc.add_image(pic, width='17cm')
                 
 
-def compile_diplomatic_history(doc, data_path, output_path, lang, name):
+def compile_diplomatic_history(doc, data_path, output_path, lang):
     if path.exists(path.join(data_path, 'opinions.csv')):
         print("Compiling the diplomatic history ...")
         stdout.flush()
         
-        dir_path = prepare_compile_section(name, lang, output_path, "Diplomatic", "外交")
+        dir_path = prepare_compile_section(lang, output_path, "Diplomatic", "外交")
 
         pics = plot_opinions(data_path, dir_path, lang)
         add_pics_to_doc(doc, pics, lang)

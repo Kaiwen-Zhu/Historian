@@ -107,11 +107,11 @@ def add_pics_to_doc(doc, pics, lang):
                 pic_in_doc.add_image(pic, width='15cm')
 
 
-def compile_economic_history(doc, data_path, output_path, lang, name):
+def compile_economic_history(doc, data_path, output_path, lang):
     print("Compiling the economic history ...")
     stdout.flush()
 
-    dir_path = prepare_compile_section(name, lang, output_path, "Economic", "经济")
+    dir_path = prepare_compile_section(lang, output_path, "Economic", "经济")
 
     pics = plot_resources_reserves_income(data_path, dir_path, lang)
     add_pics_to_doc(doc, pics, lang)

@@ -114,11 +114,11 @@ def add_pics_to_doc(doc, pics, lang):
                 pic_in_doc.add_image(pics[1], width='15cm')
 
 
-def compile_demographic_history(doc, data_path, output_path, lang, name):
+def compile_demographic_history(doc, data_path, output_path, lang):
     print("Compiling the demographic history ...")
     stdout.flush()
 
-    dir_path = prepare_compile_section(name, lang, output_path, "Demographic", "人口")
+    dir_path = prepare_compile_section(lang, output_path, "Demographic", "人口")
 
     pics = []
     pics.append(plot_pop_size(data_path, dir_path, lang))

@@ -11,7 +11,6 @@ def extract_ship_building(game_log, data_path):
     data = extract_info(game_log, "(?<=HIS_BUILT_SHIP:).*")
     
     if data:
-        # 创建数据帧
         new_df = pd.DataFrame(columns = ["date", "ship_size", "ship_design_name", "ship_name"])
         for row in data:
             new_df.loc[len(new_df.index)] = row
