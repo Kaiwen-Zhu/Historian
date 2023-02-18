@@ -1,6 +1,4 @@
 from sys import stdout
-from os import path
-import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
 from .utils import *
