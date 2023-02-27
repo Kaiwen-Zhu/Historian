@@ -6,7 +6,7 @@ from compilation import *
 
 def main():
     # HIS_dir = input("请输入存储数据与输出的文件夹名称：")
-    HIS_dir = "人类联邦"  # 存储数据目录与输出目录的目录名称
+    HIS_dir = "旋桌骑士高阶领主团"  # 存储数据目录与输出目录的目录名称
     
     # lang = input("选择语言\n输入“zh”以使用中文\nInput "en" if you prefer English\n")
     lang = "zh"

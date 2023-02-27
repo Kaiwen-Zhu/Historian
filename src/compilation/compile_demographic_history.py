@@ -37,10 +37,12 @@ def plot_pop_size(data_path, dir_path, lang):
         others_label = "其它{}个物种"
 
     plt.figure(figsize=(9, 13))
+    num_legend_col = 0  # 图例列数
 
     # 绘制人口总数
     df = pd.read_csv(path.join(data_path, 'num_pop.csv'), index_col=0, sep=';')
     plt.plot(df["date"], df['num_pop'], label=total_label, alpha=0.8)
+    num_legend_col += 1
 
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6
@@ -69,6 +71,7 @@ def plot_pop_size(data_path, dir_path, lang):
         if species not in others:
             df_one_species = pad_vacant_year(df_one_species, species)  # 将中间缺失的值补上 0
             plt.plot(df_one_species['date'], df_one_species['num_pop'], label=species, alpha=0.8)
+            num_legend_col += 1
         else:
             df_one_species['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)
             for idx, row in df_one_species.iterrows():
@@ -83,10 +86,11 @@ def plot_pop_size(data_path, dir_path, lang):
         other_num.reset_index(inplace=True, drop=True)
         other_num = pad_vacant_year(other_num, "others")
         plt.plot(other_num['date'], other_num['num_pop'], label=others_label.format(len(other_num), alpha=0.8))
+        num_legend_col += 1
 
     # plt.xticks(ticks = range(0, len(df_species), date_step), 
             # labels = df_species["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
-    num_legend_col = min(len(species_names)//2, 5)
+    num_legend_col = min(num_legend_col, 5)
     plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
 
 
