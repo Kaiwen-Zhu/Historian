@@ -30,7 +30,7 @@ def plot_pop_size(data_path, dir_path, lang):
     if lang == 'en':
         file_name = 'Population Size'
         total_label = "Total Size"
-        other_label = "Other {} species"
+        others_label = "Other {} species"
     else:
         file_name = '人口数量'
         total_label = "总数"
@@ -70,8 +70,16 @@ def plot_pop_size(data_path, dir_path, lang):
         df_one_species = df_species[df_species['species_name']==species].copy()
         if species not in others:
             df_one_species = pad_vacant_year(df_one_species, species)  # 将中间缺失的值补上 0
-            plt.plot(df_one_species['date'], df_one_species['num_pop'], label=species, alpha=0.8)
+            # 可能有多个物种同名，需要合并
+            dates = df_one_species['date'].copy()
+            dates.drop_duplicates(inplace=True)
+            nums = []
+            for date in dates:
+                nums.append(df_one_species[df_one_species['date']==date]['num_pop'].sum())
+            assert len(dates) == len(nums)
+            plt.plot(dates, nums, label=species, alpha=0.8)
             num_legend_col += 1
+
         else:
             df_one_species['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)
             for idx, row in df_one_species.iterrows():
@@ -80,6 +88,7 @@ def plot_pop_size(data_path, dir_path, lang):
                     other_num.loc[len(other_num)] = [date, "others", num]
                 else:
                     other_num.loc[other_num['date']==date, 'num_pop'] += num
+                    
     # 绘制其它物种人口数量之和
     if len(other_num) > 0:
         other_num.sort_values(by='date', inplace=True)

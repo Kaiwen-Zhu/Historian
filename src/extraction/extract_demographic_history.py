@@ -30,7 +30,7 @@ def extract_pop_size_by_species(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'species_pop_size.csv', new_df, keys=["date","species_name"])
+        merge_and_save_df(data_path, 'species_pop_size.csv', new_df, keys=["date","species_name", "num_pop"])
             
 
 def extract_demographic_history(game_log, data_path):  

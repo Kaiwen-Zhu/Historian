@@ -43,8 +43,8 @@ In my modest dream, the history may include
 
 ## Known issues
 + The basic info is only recorded at the start of one game, so changes could not be recorded.
-+ Sum of population size of species does not equal total population size.
 + The diplomatic history identifies countries by their names, but names are changeable.
++ When you resume the game, it is possible that the date is earlier than that when you exited game last time, so info of the same date may be recorded twice. Duplicate entries will be removed, which are determined by a subset of attributes (keys) (typically date). However, for population size of species, as there may be multiple species sharing the same name, I have to set keys as `["date","species_name", "num_pop"]`, which is all-key. This poses some problems. For example, if two species of the same name has exactly the same pop size, then one of them will be incorrectly removed; also, if on the same date of your two play, the pop sizes of one species differ, then both entries will be incorrectly kept (this seldom happens unless you read save games too often).
 
 ## Requirements
 + Python 3
