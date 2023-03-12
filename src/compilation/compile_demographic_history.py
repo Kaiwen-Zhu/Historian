@@ -6,9 +6,10 @@ from pylatex import Section, Subsection, Figure, NoEscape
 from .utils import *
 
 
-def pad_vacant_year(df, species_name):
-    """ Makes the date continuous by setting `num_pop` as 0 and fills `nan` by interpolation.
+def pad_vacant_year(df, species_name, all_dates):
+    """ Makes the date complete by setting `num_pop` as 0 and fills `nan` by interpolation.
     """   
+    # 插入中间缺失的元组
     prev_year = int(df.iloc[0]['date'][:4])
     for idx, row in df.iterrows():
         this_year = int(row['date'][:4])
@@ -17,6 +18,22 @@ def pad_vacant_year(df, species_name):
                 df = pd.concat([df, pd.DataFrame(
                     {"date": [f"{vacant_year}.01.15"], "species_name": species_name, "num_pop": 0})])
         prev_year = this_year
+    
+    # 插入头尾缺失的元组
+    this_dates = df['date'].values
+    for date in all_dates:
+        if date not in this_dates:
+            df = pd.concat([df, pd.DataFrame(
+                {"date": [date], "species_name": species_name, "num_pop": 0})])
+        else:
+            break
+    for date in all_dates[::-1]:
+        if date not in this_dates:
+            df = pd.concat([df, pd.DataFrame(
+                {"date": [date], "species_name": species_name, "num_pop": 0})])
+        else:
+            break
+
     df.sort_values(by="date", inplace=True)
     df.reset_index(inplace=True, drop=True) 
     df['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)
@@ -24,36 +41,33 @@ def pad_vacant_year(df, species_name):
 
 
 def plot_pop_size(data_path, dir_path, lang):
-    """ Plots the line chart of population size.
+    """ Plots the line chart of population size of species.
     """    
 
     if lang == 'en':
         file_name = 'Population Size'
-        total_label = "Total Size"
         others_label = "Other {} species"
     else:
         file_name = '人口数量'
-        total_label = "总数"
         others_label = "其它{}个物种"
 
     plt.figure(figsize=(9, 13))
-    num_legend_col = 0  # 图例列数
+    colors = plt.get_cmap('tab20').colors
+    plt.gca().set_prop_cycle('color', colors)  # 设置颜色
+    num_legend = 0  # 图例个数
 
-    # 绘制人口总数
     df = pd.read_csv(path.join(data_path, 'num_pop.csv'), index_col=0, sep=';')
-    plt.plot(df["date"], df['num_pop'], label=total_label, alpha=0.8)
-    num_legend_col += 1
+    all_dates = df['date']
 
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6
     plt.xticks(ticks = range(0, len(df), date_step), 
             labels = df["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
 
-    # 绘制各物种人口数量
     df_species = pd.read_csv(path.join(data_path, 'species_pop_size.csv'), index_col=0, sep=';')  
 
     # 统计各物种最大数量，仅对前 `MAX_SPECIES_NUM` 个物种单独绘制
-    MAX_SPECIES_NUM = 18
+    MAX_SPECIES_NUM = 19
     max_sizes = []  # 各物种最大数量
     for species in set(df_species['species_name']):
         max_size = (species, df_species[df_species['species_name']==species]['num_pop'].max())
@@ -63,22 +77,29 @@ def plot_pop_size(data_path, dir_path, lang):
             max_sizes.append(max_size)
     max_sizes.sort(key = lambda t: t[-1])
     others = set(t[0] for t in max_sizes[:-MAX_SPECIES_NUM])  # `others` 中的物种不单独绘制
+    num_in_others = len(others)
 
-    species_names = set(df_species['species_name'])
+    # 按出现顺序统计物种名称
+    species_names = []
+    for species in df_species['species_name']:
+        if species not in species_names:
+            species_names.append(species)
+    
+    pop_sizes = []
     other_num = pd.DataFrame(columns=["date", "species_name", "num_pop"])  # 记录其它物种的人口数量之和
+    color_iter = iter(colors)
     for species in species_names:
         df_one_species = df_species[df_species['species_name']==species].copy()
         if species not in others:
-            df_one_species = pad_vacant_year(df_one_species, species)  # 将中间缺失的值补上 0
+            df_one_species = pad_vacant_year(df_one_species, species, all_dates)  # 将中间缺失的值补上 0
             # 可能有多个物种同名，需要合并
-            dates = df_one_species['date'].copy()
-            dates.drop_duplicates(inplace=True)
             nums = []
-            for date in dates:
+            for date in all_dates:
                 nums.append(df_one_species[df_one_species['date']==date]['num_pop'].sum())
-            assert len(dates) == len(nums)
-            plt.plot(dates, nums, label=species, alpha=0.8)
-            num_legend_col += 1
+            assert len(all_dates) == len(nums)
+            pop_sizes.append(nums)
+            plt.plot([], [], label=species, color=next(color_iter))
+            num_legend += 1
 
         else:
             df_one_species['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)
@@ -93,13 +114,16 @@ def plot_pop_size(data_path, dir_path, lang):
     if len(other_num) > 0:
         other_num.sort_values(by='date', inplace=True)
         other_num.reset_index(inplace=True, drop=True)
-        other_num = pad_vacant_year(other_num, "others")
-        plt.plot(other_num['date'], other_num['num_pop'], label=others_label.format(len(other_num), alpha=0.8))
-        num_legend_col += 1
+        other_num = pad_vacant_year(other_num, "others", all_dates)
+        pop_sizes.append(other_num['num_pop'])
+        plt.plot([], [], label=others_label.format(num_in_others), color=next(color_iter))
+        # plt.plot(other_num['date'], other_num['num_pop'], label=others_label.format(len(other_num), alpha=0.8))
+        num_legend += 1
+    plt.stackplot(all_dates, pop_sizes, colors=colors)
 
     # plt.xticks(ticks = range(0, len(df_species), date_step), 
             # labels = df_species["date"][::date_step].apply(lambda date: date[:-omitted]), rotation = 30)
-    num_legend_col = min(num_legend_col, 5)
+    num_legend_col = min(num_legend, 5)
     plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
 
 

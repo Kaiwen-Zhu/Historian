@@ -6,7 +6,7 @@ from compilation import *
 
 def main():
     # HIS_dir = input("请输入存储数据与输出的文件夹名称：")
-    HIS_dir = "旋桌骑士高阶领主团"  # 存储数据目录与输出目录的目录名称
+    HIS_dir = "旋桌骑士高阶领主国"  # 存储数据目录与输出目录的目录名称
     
     # lang = input("选择语言\n输入“zh”以使用中文\nInput "en" if you prefer English\n")
     lang = "zh"
@@ -19,7 +19,7 @@ def main():
     if not path.exists(output_path):
         mkdir(output_path)
     
-    geometry_options = {"top": "1.27cm", "bottom": "2cm", "left": "1.27cm", "right": "1.27cm"}
+    geometry_options = {"top": "0.89cm", "bottom": "1.43cm", "left": "0.89cm", "right": "0.89cm"}
     doc = Document(geometry_options=geometry_options)
 
     name = prepare(doc, data_path, lang)
