@@ -11,9 +11,9 @@ def main():
     # lang = input("选择语言\n输入“zh”以使用中文\nInput "en" if you prefer English\n")
     lang = "zh"
 
-    root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))  # Stellaris 目录路径
-    data_path = path.join(root_path, "mod", "Historian", HIS_dir, "data")
-    output_path = path.join(root_path, "mod", "Historian", HIS_dir, "output")
+    Historian_path = path.dirname(path.dirname(path.abspath(__file__)))  # Historian 目录路径
+    data_path = path.join(Historian_path, HIS_dir, "data")
+    output_path = path.join(Historian_path, HIS_dir, "output")
 
     assert path.exists(data_path)
     if not path.exists(output_path):

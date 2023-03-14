@@ -21,18 +21,19 @@ def pad_vacant_year(df, species_name, all_dates):
     
     # 插入头尾缺失的元组
     this_dates = df['date'].values
+    new_dates = []
     for date in all_dates:
         if date not in this_dates:
-            df = pd.concat([df, pd.DataFrame(
-                {"date": [date], "species_name": species_name, "num_pop": 0})])
+            new_dates.append(date)
         else:
             break
     for date in all_dates[::-1]:
         if date not in this_dates:
-            df = pd.concat([df, pd.DataFrame(
-                {"date": [date], "species_name": species_name, "num_pop": 0})])
+            new_dates.append(date)
         else:
             break
+    df = pd.concat([df, pd.DataFrame(
+                {"date": new_dates, "species_name": species_name, "num_pop": 0})])
 
     df.sort_values(by="date", inplace=True)
     df.reset_index(inplace=True, drop=True) 
