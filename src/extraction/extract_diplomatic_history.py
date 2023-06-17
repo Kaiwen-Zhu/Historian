@@ -4,8 +4,7 @@ from .utils import *
 
 
 def extract_opinion(game_log, data_path):
-    """ Extracts mutual opinions of all countries.
-    """    
+    """Extracts mutual opinions of all countries."""    
 
     # data中的每项为 [date, name, my_opinion, its_opinion]
     data = extract_info(game_log, "(?<=HIS_OPINION:).*")

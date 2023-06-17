@@ -4,8 +4,7 @@ from .utils import *
 
 
 def extract_total_pop_size(game_log, data_path):
-    """ Extracts the total number of population.
-    """    
+    """Extracts the total number of population."""    
 
     # data中的每项为 [date, pop_num]
     data = extract_info(game_log, "(?<=HIS_NUM_POP:).*")
@@ -19,8 +18,7 @@ def extract_total_pop_size(game_log, data_path):
 
 
 def extract_pop_size_by_species(game_log, data_path):
-    """ Extracts population size of various species respectively.
-    """
+    """Extracts population size of various species respectively."""
 
     # data中的每项为 [date, species_name, pop_num]
     data = extract_info(game_log, "(?<=HIS_NUM_POP_OF_ONE_SPECIES:).*")

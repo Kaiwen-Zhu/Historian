@@ -5,8 +5,7 @@ from .utils import *
 
 
 def plot_points_income(data_dir, dir_path, lang) -> str:
-    """ Plots the line charts of monthly income of scientific points.
-    """ 
+    """Plots the line charts of monthly income of scientific points.""" 
 
     research = ['physics_research', 'society_research', 'engineering_research']
     colors = ['#359db6', '#53b977', '#df8c4c']

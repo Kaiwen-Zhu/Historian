@@ -4,8 +4,7 @@ from .utils import *
 
 
 def extract_ship_building(game_log, data_path):
-    """ Extracts records of building ships.
-    """   
+    """Extracts records of building ships."""   
      
     # data中的每项为 [date, ship_size, ship_design_name, ship_name]
     data = extract_info(game_log, "(?<=HIS_BUILT_SHIP:).*")
@@ -26,3 +25,4 @@ def extract_military_history(game_log, data_path):
         
     print("Done!")
     stdout.flush()
+    

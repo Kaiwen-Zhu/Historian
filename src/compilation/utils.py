@@ -4,8 +4,7 @@ from shutil import rmtree
 
 
 def prepare_compile_section(lang: str, output_path: str, en_title: str, zh_title: str) -> str:
-    """ Prepares the output directory and returns its path.
-    """
+    """Prepares the output directory and returns its path."""
     
     if lang == 'en':
         dir_name = f'The {en_title} History'

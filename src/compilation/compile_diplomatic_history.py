@@ -11,14 +11,14 @@ Color = Tuple[float]
 
 
 def get_gradient_color(c1: Color, c2: Color, dis: float) -> Color:
-    """ Computes the color between `c1` and `c2` that is `dis` (in RGB) away from `c1`.
-    """    
+    """Computes the color between `c1` and `c2` that is `dis` (in RGB) away from `c1`."""
+
     return tuple(min(1, c1[i] + round(dis * (c2[i]-c1[i]), 1)) for i in range(3))
 
 
 def get_color(num: int, ls: str) -> Color:
-    """ Computes the color corresponding to the given number.
-    """    
+    """Computes the color corresponding to the given number."""
+
     num *= 2 if ls != '-' else 1
     colors = [(1,0,0), (1, 0xd7/255, 0), (0,1,0)]
     thresholds = [-1000, 0, 1000]
@@ -35,8 +35,7 @@ def get_color(num: int, ls: str) -> Color:
 
 
 def plot_opinions(data_path, dir_path, lang) -> list[str]:
-    """ Plots the line chart of relationships and mutual opinions.
-    """    
+    """Plots the line chart of relationships and mutual opinions."""    
 
     pics = []  # 存储各图路径
 

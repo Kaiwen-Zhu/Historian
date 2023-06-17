@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def extract_info(game_log: str, pat: str) -> list[list[str]]:
-    """ Extracts information of some pattern from log.
+    """Extracts information of some pattern from log.
 
     Args:
         game_log (str): Log of game.
@@ -21,7 +21,7 @@ def extract_info(game_log: str, pat: str) -> list[list[str]]:
 
 
 def merge_and_save_df(data_path: str, file_name: str, new_df, keys: list[str] = ['date']) -> None:
-    """ Merges the new dataframe with the old one (if exists) and saves it.
+    """Merges the new dataframe with the old one (if exists) and saves it.
 
     Args:
         data_path (str): Path of directory of data.

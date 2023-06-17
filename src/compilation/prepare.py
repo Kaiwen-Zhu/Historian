@@ -4,8 +4,7 @@ import json
 
 
 def prepare(doc, data_path, lang) -> str:
-    """ Prepares before creating sections and returns name.
-    """
+    """Prepares before creating sections and returns name."""
     
     # 引入宏包
     doc.packages.add(Package('float'))

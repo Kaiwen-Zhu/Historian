@@ -8,17 +8,16 @@ from .utils import *
         
 
 def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
-    """ Plots the line charts of reserves and monthly income of various resources and returns the paths of them.
-    """   
+    """Plots the line charts of reserves and monthly income of various resources and returns the paths of them."""   
 
     pics = []  # 存储各图路径
 
     resources = ['energy', 'minerals', 'food', 'consumer_goods', 'alloys',
             'volatile_motes', 'exotic_gases', 'rare_crystals', 'living_metal', 'zro',
-            'dark_matter', 'nanites']
+            'dark_matter', 'nanites', 'minor_artifacts']
     colors = ['#f1e916', '#e95350', '#71bb50', '#d2754c', '#7e3e9e',
             '#973d2f', '#027a2e', '#cc8602', '#647676', '#567fce',
-            '#1a212c', '#b1bfb3']
+            '#1a212c', '#b1bfb3', '#8958a7']
 
     if lang == 'en':
         time = 'Time'
@@ -30,14 +29,14 @@ def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
         income = '月收入'
         reserves = '储量'
         resources_zh = ['能量币', '矿物', '食物', '消费品', '合金', '易爆微粒', '异星天然气',
-            '稀有水晶', '活体金属', '泽珞', '暗物质', '纳米机器人']
+            '稀有水晶', '活体金属', '泽珞', '暗物质', '纳米机器人', '稀有文物']
         
 
     df = pd.read_csv(path.join(data_path, 'resources.csv'), index_col=0, sep=';')
     
     resources_type_map = [(('Fundamental Resources', '基础资源'), range(3)),
                         (('Industrial Resources', '工业资源'), range(3,5)), 
-                        (('Rare Resources', '稀有资源'), range(5,12))]
+                        (('Rare Resources', '稀有资源'), range(5,13))]
     # 绘制一类资源的储量和月收入折线图
     def plot_one_type_resources(resources_category):
         # resources_category: 0-基础资源，1-工业资源，2-稀有资源

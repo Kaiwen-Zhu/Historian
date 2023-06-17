@@ -1,8 +1,8 @@
 namespace = historian_military_affairs
 
 
-# 记录建造的舰船
-ship_event = {
+# 统计军事舰船情况
+country_event = {
 	id = historian_military_affairs.1
 	hide_window = yes
 
@@ -10,9 +10,9 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		if = {
+		every_owned_ship = {
 			limit = { is_ship_class = shipclass_military }
-			log = "HIS_BUILT_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
+			log = "HIS_MILITARY_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
 		}
 	}
 }

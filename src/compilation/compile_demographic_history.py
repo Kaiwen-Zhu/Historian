@@ -6,9 +6,9 @@ from pylatex import Section, Subsection, Figure, NoEscape
 from .utils import *
 
 
-def pad_vacant_year(df, species_name, all_dates):
-    """ Makes the date complete by setting `num_pop` as 0 and fills `nan` by interpolation.
-    """   
+def pad_vacant_year(df, species_name, all_dates):        
+    """Makes the date complete by setting `num_pop` as 0 and fills `nan` by interpolation.""" 
+
     # 插入中间缺失的元组
     prev_year = int(df.iloc[0]['date'][:4])
     for idx, row in df.iterrows():
@@ -42,8 +42,7 @@ def pad_vacant_year(df, species_name, all_dates):
 
 
 def plot_pop_size(data_path, dir_path, lang):
-    """ Plots the line chart of population size of species.
-    """    
+    """Plots the line chart of population size of species."""    
 
     if lang == 'en':
         file_name = 'Population Size'
@@ -136,8 +135,7 @@ def plot_pop_size(data_path, dir_path, lang):
 
 
 def plot_unity(data_path, dir_path, lang):
-    """ Plots the line chart of reserves and monthly income of unity.
-    """    
+    """Plots the line chart of reserves and monthly income of unity."""    
 
     if lang == 'en':
         title = 'The Reserves and Monthly Income of Unity'
