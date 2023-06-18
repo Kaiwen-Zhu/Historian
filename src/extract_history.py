@@ -31,7 +31,6 @@ def main():
     # extract_military_history(game_log, data_path)
 
     print("Successfully extracted the history!")
-    # input("Press any key to close the window.")
 
 
 if __name__ == '__main__':

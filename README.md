@@ -12,14 +12,13 @@ The compiled history includes
 
   Reserves and monthly income of all kinds of resources
 + Demographic history
-
-  - Total population size
-  - Population size of all species
+  
+  Population size of all species
 + Scientific history
 
   Monthly income of scientific points
 + Diplomatic history
-
+  
   Relationships and mutual opinions between us and each of other countries
 
 ## Future plans
@@ -52,9 +51,29 @@ In my modest dream, the history may include
 + PyLaTex
   
 ## Usage
-Create a new folder for one game in the same folder as this file and specify its name in `extract.py` and `compile.py`. After exiting game, run `extract.py` to extract info from game log, which will be stored in `{your_folder_name}/data`. Run `compile.py` when you want to generate the history, which will be stored in `{your_folder_name}/output`.
+Always make sure that **each of your countries corresponds to a unique folder**, which will contain extracted data and compiled history exclusively belonging to the country. This correspondence is controlled by an argument `your_folder_name`. That is, 
++ **for the same country, the argument `your_folder_name` should be the same;**
++ **if histories for multiple countries exist simultaneously in the current folder, then the argument `your_folder_name` can not be the same for them.**
+
+This folder will be automatically created first time you run `extract.py` for the country, so you do not need to create it manually.
+#### Extraction
+After exiting game, run `extract.py` with the following command:
+```sh
+python ./src/extract.py -o '{your_folder_name}'
+```
+This will extract info from game log, which will be stored in `./{your_folder_name}/data`.
+#### Compilation
+When you want to generate the history, run `compile.py` with the following command:
+```sh
+python ./src/compile.py -o '{your_folder_name}'
+```
+If you want to use English, then run
+```sh
+python ./src/compile.py -o '{your_folder_name}' -l en
+```
+The history will be stored in `./{your_folder_name}/output`.
 
 **IMPORTANT: If you forget to run `extract.py` after one play, then its info will be _LOST_ once you enter the game again, because the game log is overwritten each time you play the game.**
 
 ## Contributing
-I am not so familiar with the modding API provided by PDX, so I will be very happy if you are interested and could contact me. Feel free to send emails to `zhukaiwensq@outlook.com` or just talk to me in QQ (3387572450). Any ideas about content of the history, layout of the document or any other things are highly welcome!
+I am not so familiar with the modding API provided by Paradox, so I will be very happy if you are interested and could contact me. Feel free to send emails to `zhukaiwensq@outlook.com` or just talk to me in QQ (3387572450). Any ideas about content of the history, layout of the document or any other things are highly welcome!

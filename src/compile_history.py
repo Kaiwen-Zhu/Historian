@@ -44,7 +44,6 @@ def main():
     stdout.flush()
     
     print("Successfully compiled the history!")
-    # input("Press any key to close the window.")
 
 
 if __name__ == '__main__':
