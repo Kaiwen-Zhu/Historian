@@ -15,41 +15,13 @@ country_event = {
 			id = historian_demography.2
 			days = 14
 		}
-		country_event = {
-			id = historian_demography.3
-			days = 14
-		}
-	}
-}
-
-
-# 记录人口总数
-country_event = {
-	id = historian_demography.2
-	hide_window = yes
-
-	trigger = { is_ai = no }
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = {
-			which = HIS_NUM_POP
-			value = trigger:num_pops
-		}
-		log = "HIS_NUM_POP:[GetDate],[This.HIS_NUM_POP]"
-	}
-	after = {
-		country_event = {
-			id = historian_demography.2
-			days = 360
-		}
 	}
 }
 
 
 # 记录各物种人口数
 country_event = {
-	id = historian_demography.3
+	id = historian_demography.2
 	hide_window = yes
 
 	trigger = { is_ai = no }
@@ -74,7 +46,7 @@ country_event = {
 	}
 	after = {
 		country_event = {
-			id = historian_demography.3
+			id = historian_demography.2
 			days = 360
 		}
 	}
