@@ -60,23 +60,23 @@ Always make sure that **each of your countries corresponds to a unique folder**,
 
 This folder will be automatically created, so you do not need to create it manually.
 ### Extraction
-After exiting game, run `extract.py` with the following command:
+After exiting game, run `extract_history.py` with the following command:
 ```sh
-python ./src/extract.py -o 'your_folder_name'
+python ./src/extract_history.py -o 'your_folder_name'
 ```
 This will extract info from game log, which will be stored in `./your_folder_name/data`.
 ### Compilation
-When you want to generate the history, run `compile.py` with the following command:
+When you want to generate the history, run `compile_history.py` with the following command:
 ```sh
-python ./src/compile.py -o 'your_folder_name' -l en
+python ./src/compile_history.py -o 'your_folder_name' -l en
 ```
 If you want to use Chinese, then run
 ```sh
-python ./src/compile.py -o 'your_folder_name'
+python ./src/compile_history.py -o 'your_folder_name'
 ```
 The history will be stored in `./your_folder_name/output`.
 
-**IMPORTANT: If you forget to run `extract.py` after one play, then its info will be _LOST_ once you enter the game again, because the game log is overwritten each time you play the game.**
+**IMPORTANT: If you forget to run `extract_history.py` after one play, then its info will be _LOST_ once you enter the game again, because the game log is overwritten each time you play the game.**
 
 ## Contributing
 I am not so familiar with the modding API provided by Paradox, so I will be very happy if you are interested and help on this. Feel free to send emails to `zhukaiwensq@outlook.com` or just talk to me in QQ (3387572450). Besides, any ideas about content of the history, layout of the document or any other things are highly welcome!
