@@ -37,7 +37,7 @@ def pad_vacant_year(df, species_name, all_dates):
 
     df.sort_values(by="date", inplace=True)
     df.reset_index(inplace=True, drop=True) 
-    df['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)
+    df['num_pop'].interpolate(inplace=True)
     return df
 
 
@@ -58,6 +58,7 @@ def plot_pop_size(data_path, dir_path, lang):
 
     df_species = pd.read_csv(path.join(data_path, 'species_pop_size.csv'), index_col=0, sep=';')  
     all_dates = df_species['date'].drop_duplicates(keep='first')
+    all_dates.reset_index(inplace=True, drop=True)
 
     date_step = max(len(all_dates) // 9, 1)  # 横轴相邻标签间隔的月数
     omitted = 6
@@ -85,8 +86,8 @@ def plot_pop_size(data_path, dir_path, lang):
     color_iter = iter(colors)
     for species in species_names:
         df_one_species = df_species[df_species['species_name']==species].copy()
+        df_one_species = pad_vacant_year(df_one_species, species, all_dates)  # 将中间缺失的值补上 0
         if species not in others:
-            df_one_species = pad_vacant_year(df_one_species, species, all_dates)  # 将中间缺失的值补上 0
             # 可能有多个物种同名，需要合并
             nums = []
             for date in all_dates:
@@ -97,10 +98,9 @@ def plot_pop_size(data_path, dir_path, lang):
             num_legend += 1
 
         else:
-            # df_one_species['num_pop'].fillna(df['num_pop'].interpolate(), inplace=True)  # why???
             df_one_species['num_pop'].interpolate(inplace=True)
-            for idx, row in df_one_species.iterrows():
-                date, num = row['date'], row['num_pop']
+            for date in all_dates:
+                num = df_one_species[df_one_species['date']==date]['num_pop'].sum()
                 if date not in other_num['date'].values:
                     other_num.loc[len(other_num)] = [date, "others", num]
                 else:
@@ -110,7 +110,6 @@ def plot_pop_size(data_path, dir_path, lang):
     if len(other_num) > 0:
         other_num.sort_values(by='date', inplace=True)
         other_num.reset_index(inplace=True, drop=True)
-        other_num = pad_vacant_year(other_num, "others", all_dates)
         pop_sizes.append(other_num['num_pop'])
         plt.plot([], [], label=others_label.format(num_in_others), color=next(color_iter))
         num_legend += 1
@@ -118,7 +117,6 @@ def plot_pop_size(data_path, dir_path, lang):
 
     num_legend_col = min(num_legend, 5)
     plt.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
-
 
     pic_path = path.join(dir_path, file_name) + '.png'
     plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
