@@ -98,7 +98,6 @@ def plot_pop_size(data_path, dir_path, lang):
             num_legend += 1
 
         else:
-            df_one_species['num_pop'].interpolate(inplace=True)
             for date in all_dates:
                 num = df_one_species[df_one_species['date']==date]['num_pop'].sum()
                 if date not in other_num['date'].values:

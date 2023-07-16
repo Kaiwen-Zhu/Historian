@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from pylatex import NoEscape, Section, Subsection, Figure
 from typing import Tuple
+from json import load as json_load
 from .utils import *
 # from matplotlib.backends.backend_pdf import PdfPages
 
@@ -34,7 +35,7 @@ def get_color(num: int, ls: str) -> Color:
     return get_gradient_color(colors[ind], colors[ind+1], dis)
 
 
-def plot_opinions(data_path, dir_path, lang) -> list[str]:
+def plot_opinions(data_path, dir_path, mapping, lang) -> list[str]:
     """Plots the line chart of relationships and mutual opinions."""    
 
     pics = []  # 存储各图路径
@@ -54,7 +55,7 @@ def plot_opinions(data_path, dir_path, lang) -> list[str]:
     # 绘制与各国关系
     plt.figure(figsize=(9, 11))
     for ind in range((len(df.columns)-1) // 2):
-        country = df.columns[2*ind+1][11:]  # 国家名称
+        country = mapping[df.columns[2*ind+1][12:]]  # 国家名称
         plt.plot(df["date"], df[df.columns[2*ind+1]] + df[df.columns[2*ind+2]], label=country, alpha=0.8)
     # plt.title(all_title, fontsize=15)
     date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
@@ -73,10 +74,11 @@ def plot_opinions(data_path, dir_path, lang) -> list[str]:
 
     # 分别绘制关系和相互的评价
     for ind in range((len(df.columns)-1) // 2):
-        country = df.columns[2*ind+1][11:]
+        country_id = df.columns[2*ind+1][12:]
+        country = mapping[country_id]
         plt.figure(figsize=(8,4))
         plt.title(title.format(country), fontsize=15)
-        df_tmp = df.dropna(subset=[f'opinion_on_{country}'])
+        df_tmp = df.dropna(subset=[f'our_opinion_{country_id}'])
 
         # 绘制颜色随数值变化的关系变化图
         def plot_colored_relationship(vals, ls):
@@ -143,7 +145,10 @@ def compile_diplomatic_history(doc, data_path, output_path, lang):
         
         dir_path = prepare_compile_section(lang, output_path, "Diplomatic", "外交")
 
-        pics = plot_opinions(data_path, dir_path, lang)
+        with open(path.join(data_path, 'mapping.json'), encoding='utf-8') as f:
+            mapping = json_load(f)
+    
+        pics = plot_opinions(data_path, dir_path, mapping, lang)
         add_pics_to_doc(doc, pics, lang)
 
         print("Done!")

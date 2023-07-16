@@ -10,6 +10,11 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		set_variable = {
+			which = HIS_COUNTRY_COUNTER  # 用于标识其它国家的计数器
+			value = 0
+		}
+
 		log = "HIS_BASICS:[This.GetName],[This.GetGovernmentName],[This.GetPersonalityName],[This.GetOriginName],[This.GetHomeWorldName],[This.Capital.GetClassName],[This.Capital.System.GetName],[This.GetSpeciesName]"
 	}
 }

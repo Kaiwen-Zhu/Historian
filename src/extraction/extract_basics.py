@@ -1,7 +1,7 @@
 import re
 from os import path
 from sys import stdout
-from json import load, dump
+from json import load as json_load, dump as json_dump
 
 
 def extract_basics(game_log, data_path):
@@ -26,7 +26,7 @@ def extract_basics(game_log, data_path):
 
     else:
         with open(file_path, 'r', encoding='utf-8') as f:
-            basics_dict = load(f) 
+            basics_dict = json_load(f) 
 
     # extract the last day
     date_pat = re.compile('(?<=HIS_RESERVES_INCOME:)\d{4}.\d{2}.\d{2}(?=,)')
@@ -35,7 +35,7 @@ def extract_basics(game_log, data_path):
         basics_dict['end_date'] = dates[-1]
 
     with open(path.join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
-        dump(basics_dict, f, ensure_ascii=False)
+        json_dump(basics_dict, f, ensure_ascii=False)
         
     print("Done!")
     stdout.flush()

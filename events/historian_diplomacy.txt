@@ -36,6 +36,24 @@ country_event = {
 					is_country_type = awakened_fallen_empire
 				}
 			}
+			
+			# 检查是否记录过
+			if = {
+				limit = {
+					NOT = { has_country_flag = HIS_RECORDED }
+				}
+				set_country_flag = HIS_RECORDED
+				root = {
+					change_variable = {
+						which = HIS_COUNTRY_COUNTER
+						value = 1
+					}
+				}
+				set_variable = {
+					which = HIS_COUNTRY_ID
+					value = Root.HIS_COUNTRY_COUNTER
+				}
+			}
 
 			# 我方的评价
 			export_trigger_value_to_variable = {
@@ -47,16 +65,17 @@ country_event = {
 			export_trigger_value_to_variable = {
 				trigger = opinion
 				parameters = { who = Root }
-				variable = HIS_OPINION_ON_US
+				variable = HIS_THEIR_OPINION
 			}
 
-			log = "HIS_OPINION:[GetDate],[This.GetName],[This.HIS_OUR_OPINION],[This.HIS_OPINION_ON_US]"
+			log = "HIS_OPINION:[GetDate],[This.HIS_COUNTRY_ID],[This.GetName],[This.HIS_OUR_OPINION],[This.HIS_THEIR_OPINION]"
 		}
 	}
+
 	after = {
 		country_event = {
 			id = historian_diplomacy.2
-			days = 360
+			days = 30
 		}
 	}
 }

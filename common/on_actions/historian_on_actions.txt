@@ -2,7 +2,7 @@ on_game_start_country = {
 	events = {
 		historian_basics.1  # 记录国家名称，政府名称，政府个性，起源，母星名称，母星类别，母星系名称，创始物种
 		historian_economy.1  # 于每月 3 日记录 17 种资源储量及月收入
-		historian_diplomacy.1  # 于每年 01.05 记录我国与其它国家之间相互的评价
+		historian_diplomacy.1  # 于每月 10 日记录我国与其它国家之间相互的评价
 		historian_demography.1  # 于每年 01.15 记录人口总数及各物种人口数
 	}
 }
