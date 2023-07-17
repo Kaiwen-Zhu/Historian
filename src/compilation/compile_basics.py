@@ -29,27 +29,27 @@ def compile_basics(doc, data_path, lang):
         basics = json.load(f)
 
     loc = {
-            "FanaticEgalitarian": "极端平等主义",
-            "FanaticAuthoritarian": "极端威权主义",
-            "Egalitarian": "平等主义",
-            "Authoritarian": "威权主义",
+            "FanaticEgalitarian": ("极端平等主义", "Fanatic Egalitarian"),
+            "FanaticAuthoritarian": ("极端威权主义", "Fanatic Authoritarian"),
+            "Egalitarian": ("平等主义", "Egalitarian"),
+            "Authoritarian": ("威权主义", "Authoritarian"),
 
-            "FanaticPacifist": "极端和平主义",
-            "FanaticMilitarist": "极端军国主义",
-            "Pacifist": "和平主义",
-            "Militarist": "军国主义",
+            "FanaticPacifist": ("极端和平主义", "Fanatic Pacifist"),
+            "FanaticMilitarist": ("极端军国主义", "Fanatic Militarist"),
+            "Pacifist": ("和平主义", "Pacifist"),
+            "Militarist": ("军国主义", "Militarist"),
 
-            "FanaticXenophile": "极端亲外主义",
-            "FanaticXenophobe": "极端排外主义",
-            "Xenophile": "亲外主义",
-            "Xenophobe": "排外主义",
+            "FanaticXenophile": ("极端亲外主义", "Fanatic Xenophile"),
+            "FanaticXenophobe": ("极端排外主义", "Fanatic Xenophobe"),
+            "Xenophile": ("亲外主义", "Xenophile"),
+            "Xenophobe": ("排外主义", "Xenophobe"),
 
-            "FanaticMaterialist": "极端唯物主义",
-            "FanaticSpiritualist": "极端唯心主义",
-            "Materialist": "唯物主义",
-            "Spiritualist": "唯心主义",
+            "FanaticMaterialist": ("极端唯物主义", "Fanatic Materialist"),
+            "FanaticSpiritualist": ("极端唯心主义", "Fanatic Spiritualist"),
+            "Materialist": ("唯物主义", "Materialist"),
+            "Spiritualist": ("唯心主义", "Spiritualist"),
 
-            "GestaltConsciousness": "格式塔意识"
+            "GestaltConsciousness": ("格式塔意识", "Gestalt Consciousness")
         }
     
     with doc.create(Section(section_name)):
@@ -59,7 +59,7 @@ def compile_basics(doc, data_path, lang):
 "\item " + R"{}: {}".format(origin, basics['origin']).replace(' ', R'\ ') + 
 "\item " + R"{}: {} {} {}".format(home_world, basics['home_system'], basics['home_world_class'], basics['home_world']).replace(' ', R'\ ') +
 "\item " + R"{}: {}".format(species, basics['species']).replace(' ', R'\ ') +
-"\item " + R"{}: {}".format(ethics, ' '.join(list(map(loc.get, basics['ethics']))).replace(' ', R'\ ') + 
+"\item " + R"{}: {}".format(ethics, ', '.join(list(map(lambda k: loc[k][lang=='en'], basics['ethics']))).replace(' ', R'\ ') + 
 R"\end{itemize}")))
 
     print("Done!")
