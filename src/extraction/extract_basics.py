@@ -15,14 +15,11 @@ def extract_basics(game_log, data_path):
         basics_pat = re.compile('(?<=HIS_BASICS:).+')
         info = basics_pat.search(game_log)
         info = info.group().split(',')
-        basics_dict['name'] = info[0]
-        basics_dict['government_name'] = info[1]
-        basics_dict['personality'] = info[2]
-        basics_dict['origin'] = info[3]
-        basics_dict['home_world'] = info[4]
-        basics_dict['home_world_class'] = info[5]
-        basics_dict['home_system'] = info[6]
-        basics_dict['species'] = info[7]
+        basics_dict['origin'] = info[0]
+        basics_dict['home_world'] = info[1]
+        basics_dict['home_world_class'] = info[2]
+        basics_dict['home_system'] = info[3]
+        basics_dict['species'] = info[4]
 
     else:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -33,6 +30,22 @@ def extract_basics(game_log, data_path):
     dates = date_pat.findall(game_log)
     if dates:
         basics_dict['end_date'] = dates[-1]
+
+    # extract name, government name, and personality
+    ngp_pat = re.compile('(?<=HIS_ETHOS:).+')
+    info = ngp_pat.findall(game_log)[-1]
+    info = info.split(',')
+    last_date = info[0]
+    basics_dict['name'] = info[1]
+    basics_dict['government_name'] = info[2]
+    basics_dict['personality'] = info[3]
+
+    # extract ethics
+    ethics_pat = re.compile('(?<=HIS_ETHIC:).+')
+    ethics = ethics_pat.findall(game_log)
+    ethics = filter(lambda x: x.startswith(last_date), ethics)
+    ethics = list(map(lambda x: x.split(',')[1], ethics))
+    basics_dict['ethics'] = ethics
 
     with open(path.join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
         json_dump(basics_dict, f, ensure_ascii=False)

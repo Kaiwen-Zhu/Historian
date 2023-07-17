@@ -36,7 +36,9 @@ def extract_opinion(game_log, data_path):
         with open(path.join(data_path, 'mapping.json'), 'w', encoding='utf-8') as f:
             json_dump(mapping, f, ensure_ascii=False)
     
-    return mapping
+        return mapping
+    
+    return {}
             
 
 def extract_diplomatic_history(game_log, data_path):

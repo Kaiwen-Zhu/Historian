@@ -2,13 +2,13 @@
 # Historian
 Stellaris mod which records information of player's country automatically during the game and then compiles its history in PDF format.
 
-Record, Retain, Remember.
+_Record, Retain, Remember._
 
 ## Current features
 The compiled history includes
 + Basic info
 
-   country name, government name, personality, origin, homeworld name, homeworld class, home system name, species name
+   country name, government name, personality, ethics, origin, homeworld name, homeworld class, home system name, species name
 + Economic history
 
   Reserves and monthly income of all kinds of resources
@@ -42,8 +42,7 @@ In my modest dream, the history may include
   - Description of all events
 
 ## Known issues
-+ The basic info is only recorded at the start of one game, so changes could not be recorded.
-+ When you resume the game, it is possible that the date is earlier than that when you exited game last time, so info of the same date may be recorded twice. Duplicate entries will be removed, which are determined by a subset of attributes (keys) (typically date). For population size of species, as there may be multiple species sharing the same name, I have to set keys as `(date,species_name, num_pop)`, which is all-key. This poses some problems. For example, if two species of the same name has exactly the same pop size, then one of them will be incorrectly removed; also, if on the same date of your two play, the pop sizes of one species differ, then both entries will be incorrectly kept (this seldom happens unless you read save games too often).
+When you resume the game, it is possible that the date is earlier than that when you exited game last time, so info of the same date may be recorded twice. Duplicate entries will be removed, which are determined by a subset of attributes (keys) (typically date). For population size of species, as there may be multiple species sharing the same name, I have to set keys as `(date,species_name, num_pop)`, which is all-key. This poses some problems. For example, if two species of the same name has exactly the same pop size, then one of them will be incorrectly removed; also, if on the same date of your two play, the pop sizes of one species differ, then both entries will be incorrectly kept (this seldom happens unless you read save games too often).
 
 ## Requirements
 + Python 3

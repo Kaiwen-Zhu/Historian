@@ -47,7 +47,7 @@ country_event = {
 	after = {
 		country_event = {
 			id = historian_demography.2
-			days = 360
+			days = 180
 		}
 	}
 }

@@ -1,7 +1,8 @@
 namespace = historian_basics
 
 
-# 记录国家名称，政府名称，个性，起源，母星名称，母星类别，母星系名称，创始物种
+# 记录起源、母星名称、母星类别、母星系名称、创始物种
+# 触发记录国家名称、政府名称、个性、主流思潮的事件
 country_event = {
 	id = historian_basics.1
 	hide_window = yes
@@ -10,11 +11,146 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = {
-			which = HIS_COUNTRY_COUNTER  # 用于标识其它国家的计数器
-			value = 0
+		log = "HIS_BASICS:[This.GetOriginName],[This.GetHomeWorldName],[This.Capital.GetClassName],[This.Capital.System.GetName],[This.GetSpeciesName]"
+	}
+
+	after = {
+		country_event = {
+			id = historian_basics.2
+			days = 1
+		}
+	}
+}
+
+
+# 记录国家名称、政府名称、个性、主流思潮
+country_event = {
+	id = historian_basics.2
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		log = "HIS_ETHOS:[GetDate],[This.GetName],[This.GetGovernmentName],[This.GetPersonalityName]"
+
+		# 平等-威权
+		if = {
+			limit = {
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticEgalitarian"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticAuthoritarian"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_egalitarian
+			}
+			log = "HIS_ETHIC:[GetDate],Egalitarian"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_authoritarian
+			}
+			log = "HIS_ETHIC:[GetDate],Authoritarian"
 		}
 
-		log = "HIS_BASICS:[This.GetName],[This.GetGovernmentName],[This.GetPersonalityName],[This.GetOriginName],[This.GetHomeWorldName],[This.Capital.GetClassName],[This.Capital.System.GetName],[This.GetSpeciesName]"
+		# 和平-军国
+		if = {
+			limit = {
+				has_ethic = ethic_fanatic_pacifist
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticPacifist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_fanatic_militarist
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticMilitarist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_pacifist
+			}
+			log = "HIS_ETHIC:[GetDate],Pacifist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_militarist
+			}
+			log = "HIS_ETHIC:[GetDate],Militarist"
+		}
+
+		# 亲外-排外
+		if = {
+			limit = {
+				has_ethic = ethic_fanatic_xenophile
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticXenophile"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticXenophobe"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_xenophile
+			}
+			log = "HIS_ETHIC:[GetDate],Xenophile"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_xenophobe
+			}
+			log = "HIS_ETHIC:[GetDate],Xenophobe"
+		}
+
+		# 唯物-唯心
+		if = {
+			limit = {
+				has_ethic = ethic_fanatic_materialist
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticMaterialist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			log = "HIS_ETHIC:[GetDate],FanaticSpiritualist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_materialist
+			}
+			log = "HIS_ETHIC:[GetDate],Materialist"
+		}
+		else_if = {
+			limit = {
+				has_ethic = ethic_spiritualist
+			}
+			log = "HIS_ETHIC:[GetDate],Spiritualist"
+		}
+
+		# 格式塔
+		if = {
+			limit = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+			log = "HIS_ETHIC:[GetDate],GestaltConsciousness"
+		}
+	}
+
+	after = {
+		country_event = {
+			id = historian_basics.2
+			days = 360
+		}
 	}
 }
