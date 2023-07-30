@@ -128,7 +128,7 @@ def add_pics_to_doc(doc, pics, lang):
         # 加入与各国关系图
         with doc.create(Subsection(subsection1_name)):
             with doc.create(Figure(position='H')) as pic_in_doc:
-                pic_in_doc.add_image(pics[0], width='17cm')
+                pic_in_doc.add_image(pics[0], width='16cm')
         # 加入与单独国家关系图
         doc.append(NoEscape(R'\newpage'))
         with doc.create(Subsection(subsection2_name)):
