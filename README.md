@@ -1,78 +1,78 @@
-[中文](介绍.md)
-# Historian
-Stellaris mod which records information of player's country automatically during the game and then compiles its history in PDF format.
+**注意：尚未完成迁移**
 
-_Record, Retain, Remember._
+# 史学家
+《群星》模组，在游戏中自动记录数据，并将其编纂为 HTML 格式的史书。
 
-## Current features
-The compiled history includes
-+ Basic info
+_五帝三皇神圣事，骗了无涯过客。_
 
-   country name, government name, personality, ethics, origin, homeworld name, homeworld class, home system name, species name
-+ Economic history
+## 当前内容
++ 基本信息
 
-  Reserves and monthly income of all kinds of resources
-+ Demographic history
+   国家名称，政府名称，政府个性，主流思潮，起源，母星名称，母星类别，母星系名称，创始物种
++ 经济史
+
+  各类资源的储量及月收入
++ 人口史
   
-  Population size of all species
-+ Scientific history
+  各物种人口数量
++ 科技史
 
-  Monthly income of scientific points
-+ Diplomatic history
+  研究点数月收入
++ 外交史
   
-  Relationships and mutual opinions between us and each of other countries
+  我国与其它国家的关系及相互评价
 
-## Future plans
-In my modest dream, the history may include
-+ Diplomatic history
+## 未来计划
++ 外交史
   
-  Diplomatic actions between us and other countries
-+ Scientific history
+  我国与其它国家的外交操作与事件
++ 科技史
   
-  Name, descriptions and complete date of technologies
-+ Military history
-  - Details of wars and battles of them
-  - Organizations of armies
-+ Map
-  
-  Map of the galaxy
-+ Others
-  - Local chronicles of each colony
-  - Biographies of leaders
-  - Description of all events
+  获得科技的名称、描述及获得时间。
++ 军事史
+  - 战争细节
+  - 海军、陆军组织
++ 富语义地图
++ 其它
+  - 星球地方志
+  - 领袖传记
+  - 各事件（局势，异常现象，考古等等）的描述
 
-## Known issues
-When you resume the game, it is possible that the date is earlier than that when you exited game last time, so info of the same date may be recorded twice. Duplicate entries will be removed, which are determined by a subset of attributes (keys) (typically date). For population size of species, as there may be multiple species sharing the same name, I have to set keys as `(date,species_name, num_pop)`, which is all-key. This poses some problems. For example, if two species of the same name has exactly the same pop size, then one of them will be incorrectly removed; also, if on the same date of your two play, the pop sizes of one species differ, then both entries will be incorrectly kept (this seldom happens unless you read save games too often).
+## 已知问题
+再次进入游戏时，日期可能会早于上次退出的日期，因此同一日期的数据可能被记录多次。重复的数据将会据某一主码被去除（通常是日期）。对于物种人口数量，由于可能多个物种名称相同，主码必须为 `(日期，物种名称，物种数量)`。这将造成一些问题。例如，如果两个名称相同的物种在同一天数量也相同，那么这两条记录会被视为属于同一物种，从而其中的一条记录将被错误地去除；此外，如果在两次游戏的同一天，一个物种的数量不同，那么这两条记录会被视为属于两个物种，从而被错误地同时保留。
 
-## Requirements
+
+## 环境要求
 + Python 3
   - PyLatex
   - Pandas
   - Matplotlib
 + LaTex
+
+<!-- 如有问题，请参考[使用指南](史学家模组使用指南.md)。 -->
   
-## Usage
-Two Python scripts should be run:
-+ **Each time you exit game, run `./src/extract_history.py`.** This will extract data from game log and write it to structured data files.
-+ **When you want to generate the history, run `./src/compile_history.py`.** This will read data from data files and compile PDF document.
+## 使用
+正确使用本模组需要运行两个 Python 脚本（运行方法稍后详细说明）：
++ **每次退出游戏后，运行 `src` 文件夹中的 `extract_history.py`**，这会从游戏日志中提取数据并写入结构化的数据文件；
++ **想要生成史书时，运行 `src` 文件夹中的 `compile_history.py`**，这会从 `extract_history.py` 生成的数据文件中读取数据并编译出 HTML 文档。
+  
+生成的数据文件和 HTML 文档会被保存到本文件夹下的一个单独的文件夹中，该文件夹的名称作为一个参数需要在运行脚本的时候指定（若不指定则为默认值 `MemoryGrain`）。因此，**玩家的每个国家须对应一个独有的文件夹**，即，**对于一个国家，假设希望将其相关文件保存在名为 `地球联合国` 的文件夹中，则第一次运行 `extract_history.py` 前，应保证本文件夹下没有名为 `地球联合国` 的文件夹；每次为该国家运行脚本时，该参数都应为 `地球联合国`**。文件夹 `地球联合国` 将会在第一次运行 `extract_history.py` 时被自动创建。
 
-Generated data files and PDF document will be stored in a unique folder in this folder, whose name should be specified as a parameter when running scripts (defaults to `MemoryGrain`). Therefore, **each of your countries should correspond to a unique folder**. This folder will be automatically created the first time you run `extract.py`.
-
-Here is how to run the two scripts.
-#### Run `extract_history.py`
-Run
+以下介绍运行脚本的方法。
+#### 运行 `extract_history.py`
+在本文件夹下的终端运行命令
 ```sh
-python ./src/extract_history.py -o 'your_folder_name'
+python ./src/extract_history.py -o '地球联合国'
 ```
-Generated data files will be stored in `./your_folder_name/data`.
-#### Run `compile_history.py`
-Run
+生成的数据文件将被存储到 `./地球联合国/data`。
+#### 运行 `compile_history.py`
+在本文件夹下的终端运行命令
 ```sh
-python ./src/compile_history.py -o 'your_folder_name'
+python ./src/compile_history.py -o '地球联合国'
 ```
-Generated history will be stored in `./your_folder_name/output`.
+生成的史书将被存储到 `./地球联合国/output`。
 
-**IMPORTANT: If you forget to run `extract_history.py` after one play, then its info will be _LOST_ once you enter the game again, because the game log is overwritten each time you play the game.**
+**注意：如果玩家某次退出游戏后没有运行 `extract_history.py`，那么其信息会在玩家再次进入游戏时 _丢失_，因为每次进入游戏后游戏日志都会被覆盖。**
 
-## Contributing
-Welcome any contribution to modding, including coding (Stellaris modding API or Python) and design of content or layout of the history. If you are interested, feel free to create issues or send emails to `zhukaiwensq@outlook.com`.
+## 贡献方式
+欢迎对模组创作的任何贡献，包括代码（Stellaris modding API 或 Python）编写、对史书内容或排版的设计等。如有兴趣可以提出 issue，发送邮件至 `zhukaiwensq@outlook.com` 或在 QQ 上联系 3387572450。

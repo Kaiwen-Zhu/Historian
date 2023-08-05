@@ -1,8 +1,6 @@
 from sys import stdout
 from os import path
-import matplotlib.pyplot as plt
 import pandas as pd
-from pylatex import NoEscape, Section, Subsection, Figure
 from typing import Tuple
 from json import load as json_load
 from .utils import *
@@ -108,39 +106,11 @@ def plot_opinions(data_path, dir_path, mapping, lang) -> list[str]:
         plt.close()
     
     return pics
-
-
-def add_pics_to_doc(doc, pics, lang):
-    doc.append(NoEscape(R'\newpage'))
-    
-    if lang == 'en':
-        section_name = 'Diplomacy'
-        subsection1_name = 'The Relationships with All Other Countries'
-        subsection2_name = 'The Relationships with Specific Countries'
-        annotation = 'Solid lines represent the relationships between us and them, dashed lines represent our opinions of them and dotted lines represent their opinions of us.'
-    else:
-        section_name = '外交'
-        subsection1_name = '与各国关系总览'
-        subsection2_name = '与各国关系'
-        annotation = '实线代表我方与对方之间的关系，破折线代表我方对对方的评价，点虚线代表对方对我方的评价。'
-
-    with doc.create(Section(section_name)):
-        # 加入与各国关系图
-        with doc.create(Subsection(subsection1_name)):
-            with doc.create(Figure(position='H')) as pic_in_doc:
-                pic_in_doc.add_image(pics[0], width='16cm')
-        # 加入与单独国家关系图
-        doc.append(NoEscape(R'\newpage'))
-        with doc.create(Subsection(subsection2_name)):
-            doc.append(annotation)
-            for pic in pics[1:]:
-                with doc.create(Figure(position='H')) as pic_in_doc:
-                    pic_in_doc.add_image(pic, width='17cm')
                 
 
 def compile_diplomatic_history(doc, data_path, output_path, lang):
     if path.exists(path.join(data_path, 'opinions.csv')):
-        print("Compiling the diplomatic history ...")
+        print("Compiling the diplomatic history ...", end=' ')
         stdout.flush()
         
         dir_path = prepare_compile_section(lang, output_path, "Diplomatic", "外交")
@@ -149,7 +119,6 @@ def compile_diplomatic_history(doc, data_path, output_path, lang):
             mapping = json_load(f)
     
         pics = plot_opinions(data_path, dir_path, mapping, lang)
-        add_pics_to_doc(doc, pics, lang)
 
         print("Done!")
         stdout.flush()

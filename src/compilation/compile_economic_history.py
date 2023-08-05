@@ -1,10 +1,7 @@
 from sys import stdout
 from os import path
-import matplotlib.pyplot as plt
 import pandas as pd
-from pylatex import Section, Figure, NoEscape
 from .utils import *
-# from matplotlib.backends.backend_pdf import PdfPages
         
 
 def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
@@ -85,35 +82,19 @@ def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
 
 
     # 绘制各资源储量/收入折线图
-    # with PdfPages(path.join('..', output, filename)) as pdf:
     for resources_category in range(3):
         plot_one_type_resources(resources_category)
     
     return pics
 
 
-def add_pics_to_doc(doc, pics, lang):
-    doc.append(NoEscape(R'\newpage'))
-
-    if lang == 'en':
-        section_name = 'Economy'
-    else:
-        section_name = '经济'
-        
-    with doc.create(Section(section_name)):
-        for pic in pics:
-            with doc.create(Figure(position='H')) as pic_in_doc:
-                pic_in_doc.add_image(pic, width='15cm')
-
-
 def compile_economic_history(doc, data_path, output_path, lang):
-    print("Compiling the economic history ...")
+    print("Compiling the economic history ...", end=' ')
     stdout.flush()
 
     dir_path = prepare_compile_section(lang, output_path, "Economic", "经济")
 
     pics = plot_resources_reserves_income(data_path, dir_path, lang)
-    add_pics_to_doc(doc, pics, lang)
 
     print("Done!")
     stdout.flush()

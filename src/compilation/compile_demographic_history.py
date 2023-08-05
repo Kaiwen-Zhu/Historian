@@ -1,8 +1,6 @@
 from sys import stdout
 from os import path
-import matplotlib.pyplot as plt
 import pandas as pd
-from pylatex import Section, Subsection, Figure, NoEscape
 from .utils import *
 
 
@@ -168,29 +166,8 @@ def plot_unity(data_path, dir_path, lang):
     return pic_path
 
 
-def add_pics_to_doc(doc, pics, lang):
-    doc.append(NoEscape(R'\newpage'))
-
-    if lang == 'en':
-        section_name = 'Demography'
-        subsection1_name = 'Population Size'
-        subsection2_name = 'Unity'
-    else:
-        section_name = '人口'
-        subsection1_name = '人口数量'
-        subsection2_name = '凝聚力'
-
-    with doc.create(Section(section_name)):
-        with doc.create(Subsection(subsection1_name)):
-            with doc.create(Figure(position='H')) as pic_in_doc:
-                pic_in_doc.add_image(pics[0], width='15cm')
-        with doc.create(Subsection(subsection2_name)):
-            with doc.create(Figure(position='H')) as pic_in_doc:
-                pic_in_doc.add_image(pics[1], width='15cm')
-
-
 def compile_demographic_history(doc, data_path, output_path, lang):
-    print("Compiling the demographic history ...")
+    print("Compiling the demographic history ...", end=' ')
     stdout.flush()
 
     dir_path = prepare_compile_section(lang, output_path, "Demographic", "人口")
@@ -198,7 +175,6 @@ def compile_demographic_history(doc, data_path, output_path, lang):
     pics = []
     pics.append(plot_pop_size(data_path, dir_path, lang))
     pics.append(plot_unity(data_path, dir_path, lang))
-    add_pics_to_doc(doc, pics, lang)
 
     print("Done!")
     stdout.flush()
