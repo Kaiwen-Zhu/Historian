@@ -43,11 +43,10 @@ _五帝三皇神圣事，骗了无涯过客。_
 
 
 ## 环境要求
-+ Python 3
-  - PyLatex
-  - Pandas
-  - Matplotlib
-+ LaTex
+Python 3
+  - jinja2
+  - pyecharts
+  - pandas
 
 <!-- 如有问题，请参考[使用指南](史学家模组使用指南.md)。 -->
   
