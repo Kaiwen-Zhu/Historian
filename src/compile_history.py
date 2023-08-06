@@ -20,11 +20,13 @@ def main():
 
     env = Environment(loader=FileSystemLoader(path.join(Historian_path, 'src', 'templates')))
 
-    compile_index(env, assets_path, data_path, output_path)
+    compile_overview(env, assets_path, data_path, output_path)
     # compile_economic_history(env, data_path, output_path)
     # compile_demographic_history(env, data_path, output_path)
     compile_scientific_history(env, assets_path, data_path, output_path)
     # compile_diplomatic_history(env, data_path, output_path)
+
+    compile_index(env, assets_path, output_path)
 
     print("编译完成")
 

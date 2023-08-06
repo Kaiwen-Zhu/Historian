@@ -40,7 +40,7 @@ def plot_points_income(data_dir, dir_path, assets_path):
     labels = ('物理学研究', '社会学研究', '工程学研究')
     colors = ('#359db6', '#53b977', '#df8c4c')
 
-    research_src_path = path_join(assets_path, 'resources', '{}.webp')
+    research_src_path = path_join(assets_path, 'img', 'resources', '{}.webp')
     research_dst_path = path_join(dir_path, '{}.webp')
     
     for name, label, color in zip(names, labels, colors):
