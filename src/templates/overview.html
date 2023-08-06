@@ -1,0 +1,13 @@
+<h1>{{ name }}史</h1>
+<p>2200 - {{ end_date[:4] }}</p>
+<p>{{ government_name }} {{ personality }}</p>
+<p>
+  主流思潮: {% for ethic in ethics %}
+  <img src="{{ ethic[1] }}" />
+  {{ ethic[0] }} {% endfor %}
+</p>
+
+<p>起源: <img src="{{ origin[1] }}" />{{ origin[0] }}</p>
+<p>母星系: {{ home_system }}</p>
+<p>母星: {{ home_world_class }} {{ home_world }}</p>
+<p>创始物种: {{ species }}</p>
