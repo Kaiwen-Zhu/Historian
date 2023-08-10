@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>研究点数月收入</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-    <script type="text/javascript" src="./research_points_income.js"></script>
   </head>
   <body>
     <div
@@ -249,7 +248,7 @@
         title: [
           {
             show: true,
-            text: "\u7814\u7a76\u70b9\u6570\u6708\u6536\u5165",
+            text: "研究点数月收入",
             target: "blank",
             subtarget: "blank",
             padding: 5,
@@ -271,63 +270,22 @@
               backgroundColor: "white",
               connectedBackgroundColor: "#fff",
               show: true,
-              title: "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+              title: "保存为图片",
               pixelRatio: 2,
             },
             restore: {
               show: true,
-              title: "\u8fd8\u539f",
-            },
-            dataView: {
-              show: false,
-              title: "\u6570\u636e\u89c6\u56fe",
-              readOnly: false,
-              lang: [
-                "\u6570\u636e\u89c6\u56fe",
-                "\u5173\u95ed",
-                "\u5237\u65b0",
-              ],
-              backgroundColor: "#fff",
-              textareaColor: "#fff",
-              textareaBorderColor: "#333",
-              textColor: "#000",
-              buttonColor: "#c23531",
-              buttonTextColor: "#fff",
+              title: "还原",
             },
             dataZoom: {
               show: true,
               title: {
-                zoom: "\u533a\u57df\u7f29\u653e",
-                back: "\u533a\u57df\u7f29\u653e\u56de\u9000",
+                zoom: "区域缩放",
+                back: "区域缩放回退",
               },
               icon: {},
               filterMode: "filter",
-            },
-            magicType: {
-              show: false,
-              title: "\u6570\u636e\u89c6\u56fe",
-              readOnly: false,
-              lang: [
-                "\u6570\u636e\u89c6\u56fe",
-                "\u5173\u95ed",
-                "\u5237\u65b0",
-              ],
-              backgroundColor: "#fff",
-              textareaColor: "#fff",
-              textareaBorderColor: "#333",
-              textColor: "#000",
-              buttonColor: "#c23531",
-              buttonTextColor: "#fff",
-            },
-            brush: {
-              show: false,
-              title: {
-                zoom: "\u533a\u57df\u7f29\u653e",
-                back: "\u533a\u57df\u7f29\u653e\u8fd8\u539f",
-              },
-              icon: {},
-              filterMode: "filter",
-            },
+            }
           },
         },
       };
