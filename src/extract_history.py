@@ -17,11 +17,11 @@ def main():
         mkdir(HIS_path)
         mkdir(data_path)
     
-    print("Reading the log ...")
+    print("读取日志...", end=' ')
     stdout.flush()
     with open(path.join(root_path, "logs", "game.log"), 'r', encoding='utf-8') as f:
         game_log = f.read()
-    print("Done!")
+    print("完成")
     stdout.flush()
     
     extract_basics(game_log, data_path)
@@ -30,7 +30,7 @@ def main():
     extract_diplomatic_history(game_log, data_path)
     # extract_military_history(game_log, data_path)
 
-    print("Successfully extracted the history!")
+    print(f"数据已被提取到 {data_path}")
 
 
 if __name__ == '__main__':

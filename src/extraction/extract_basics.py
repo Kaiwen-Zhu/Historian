@@ -5,7 +5,7 @@ from json import load as json_load, dump as json_dump
 
 
 def extract_basics(game_log, data_path):
-    print("Extracting basics ...")
+    print("提取基本信息...", end=' ')
     stdout.flush()
 
     file_path = path.join(data_path, 'basics.json')
@@ -50,5 +50,5 @@ def extract_basics(game_log, data_path):
     with open(path.join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
         json_dump(basics_dict, f, ensure_ascii=False)
         
-    print("Done!")
+    print("完成")
     stdout.flush()

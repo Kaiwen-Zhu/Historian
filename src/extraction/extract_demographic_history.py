@@ -18,10 +18,10 @@ def extract_pop_size_by_species(game_log, data_path):
             
 
 def extract_demographic_history(game_log, data_path):  
-    print("Extracting the demographic history ...")
+    print("提取人口史...", end=' ')
     stdout.flush()
     
     extract_pop_size_by_species(game_log, data_path)  # 提取各物种人口数
         
-    print("Done!")
+    print("完成")
     stdout.flush()

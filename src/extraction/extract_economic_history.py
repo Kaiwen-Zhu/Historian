@@ -6,7 +6,7 @@ from .utils import *
 def extract_economic_history(game_log, data_path):
     """Extracts the reserves and monthly income of all kinds of resources."""    
 
-    print("Extracting the economic history ...")
+    print("提取经济史...", end=' ')
     stdout.flush()
     
     data = extract_info(game_log, "(?<=HIS_RESERVES_INCOME:).*")
@@ -26,5 +26,5 @@ def extract_economic_history(game_log, data_path):
 
         merge_and_save_df(data_path, 'resources.csv', new_df)
         
-    print("Done!")
+    print("完成")
     stdout.flush()

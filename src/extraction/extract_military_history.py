@@ -18,11 +18,11 @@ def extract_ship_building(game_log, data_path):
             
 
 def extract_military_history(game_log, data_path):
-    print("Extracting the military history ...")
+    print("提取军事史...", end=' ')
     stdout.flush()
     
     extract_ship_building(game_log, data_path)  # 提取舰船建造记录
         
-    print("Done!")
+    print("完成")
     stdout.flush()
     

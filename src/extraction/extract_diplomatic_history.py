@@ -42,10 +42,10 @@ def extract_opinion(game_log, data_path):
             
 
 def extract_diplomatic_history(game_log, data_path):
-    print("Extracting the diplomatic history ...")
+    print("提取外交史...", end=' ')
     stdout.flush()
     
     mapping = extract_opinion(game_log, data_path)  # 提取我国与其它国家之间相互的评价
         
-    print("Done!")
+    print("完成")
     stdout.flush()
