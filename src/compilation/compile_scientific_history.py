@@ -10,7 +10,7 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
     df = pd.read_csv(path_join(data_dir, 'resources.csv'), index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
-    env.globals['dates'] = dates
+    env.globals['resource_income_dates'] = dates
     
     for name in ('physics_research', 'society_research', 'engineering_research'):
         val = df[f'{name}_income'].tolist()
