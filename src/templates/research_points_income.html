@@ -12,301 +12,296 @@
       style="width: 900px; height: 500px"
     ></div>
     <script>
-        var chart_research_points_income = echarts.init(
-          document.getElementById("research_point_income"),
-          "white",
-          { renderer: "canvas" }
-        );
-        var option_research_point_income = {
-          animation: true,
-          animationThreshold: 2000,
-          animationDuration: 1000,
-          animationEasing: "cubicOut",
-          animationDelay: 0,
-          animationDurationUpdate: 300,
-          animationEasingUpdate: "cubicOut",
-          animationDelayUpdate: 0,
-          aria: {
-            enabled: false,
-          },
-          color: [
-            "#359db6",
-            "#53b977",
-            "#df8c4c"
-          ],
-          series: [
-            {
-              type: "line",
-              name: "物理学研究",
-              connectNulls: false,
-              xAxisIndex: 0,
-              symbolSize: 4,
-              showSymbol: false,
-              smooth: true,
-              clip: true,
-              step: false,
-              data: [],
-              hoverAnimation: true,
-              label: {
-                show: true,
-                margin: 8,
-              },
-              logBase: 10,
-              seriesLayoutBy: "column",
-              lineStyle: {
-                show: true,
-                width: 1,
-                opacity: 1,
-                curveness: 0,
-                type: "solid",
-              },
-              areaStyle: {
-                opacity: 0,
-              },
-              zlevel: 0,
-              z: 0,
-            },
-            {
-              type: "line",
-              name: "社会学研究",
-              connectNulls: false,
-              xAxisIndex: 0,
-              symbolSize: 4,
-              showSymbol: false,
-              smooth: true,
-              clip: true,
-              step: false,
-              data: [],
-              hoverAnimation: true,
-              label: {
-                show: true,
-                margin: 8,
-              },
-              logBase: 10,
-              seriesLayoutBy: "column",
-              lineStyle: {
-                show: true,
-                width: 1,
-                opacity: 1,
-                curveness: 0,
-                type: "solid",
-              },
-              areaStyle: {
-                opacity: 0,
-              },
-              zlevel: 0,
-              z: 0,
-            },
-            {
-              type: "line",
-              name: "工程学研究",
-              connectNulls: false,
-              xAxisIndex: 0,
-              symbolSize: 4,
-              showSymbol: false,
-              smooth: true,
-              clip: true,
-              step: false,
-              data: [],
-              hoverAnimation: true,
-              label: {
-                show: true,
-                margin: 8,
-              },
-              logBase: 10,
-              seriesLayoutBy: "column",
-              lineStyle: {
-                show: true,
-                width: 1,
-                opacity: 1,
-                curveness: 0,
-                type: "solid",
-              },
-              areaStyle: {
-                opacity: 0,
-              },
-              zlevel: 0,
-              z: 0,
-            },
-          ],
-          legend: [
-            {
-              data: [
-                // {
-                //   name: "物理学研究",
-                //   icon: "path://M160 100 c0 -5 6 -10 14 -10 9 0 12 -7 9 -20 -8 -31 -43 -26 -43 6 0 22 -3 25 -22 20 -13 -3 -36 -6 -52 -6 -36 0 -30 -9 9 -12 19 -2 34 -12 44 -30 21 -37 62 -38 81 -3 7 14 23 26 34 26 46 3 51 5 54 22 4 18 -13 24 -23 7 -3 -5 -17 -10 -31 -10 -13 0 -24 5 -24 10 0 6 -11 10 -25 10 -14 0 -25 -4 -25 -10z",
-                // },
-                // {
-                //   name: "社会学研究",
-                //   icon: "image://./society_research.webp",
-                // },
-                // {
-                //   name: "工程学研究",
-                //   icon: "image://./engineering_research.webp",
-                // },
-                "物理学研究",
-                "社会学研究",
-                "工程学研究",
-              ],
-              selected: {},
+      var chart_research_points_income = echarts.init(
+        document.getElementById("research_point_income"),
+        "white",
+        { renderer: "canvas" }
+      );
+      var option_research_point_income = {
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: "cubicOut",
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: "cubicOut",
+        animationDelayUpdate: 0,
+        aria: {
+          enabled: false,
+        },
+        color: [
+          "#359db6",
+          "#53b977",
+          "#df8c4c"
+        ],
+        series: [
+          {
+            type: "line",
+            name: "物理学研究",
+            connectNulls: false,
+            xAxisIndex: 0,
+            symbolSize: 4,
+            showSymbol: false,
+            smooth: true,
+            clip: true,
+            step: false,
+            data: {{ physics_research }},
+            hoverAnimation: true,
+            label: {
               show: true,
-              padding: 5,
-              itemGap: 10,
-              itemWidth: 25,
-              itemHeight: 14,
-              backgroundColor: "transparent",
-              borderColor: "#ccc",
-              borderWidth: 1,
-              borderRadius: 0,
-              pageButtonItemGap: 5,
-              pageButtonPosition: "end",
-              pageFormatter: "{current}/{total}",
-              pageIconColor: "#2f4554",
-              pageIconInactiveColor: "#aaa",
-              pageIconSize: 15,
-              animationDurationUpdate: 800,
-              selector: false,
-              selectorPosition: "auto",
-              selectorItemGap: 7,
-              selectorButtonGap: 10,
+              margin: 8,
             },
-          ],
-          tooltip: {
+            logBase: 10,
+            seriesLayoutBy: "column",
+            lineStyle: {
+              show: true,
+              width: 1,
+              opacity: 1,
+              curveness: 0,
+              type: "solid",
+            },
+            areaStyle: {
+              opacity: 0,
+            },
+            zlevel: 0,
+            z: 0,
+          },
+          {
+            type: "line",
+            name: "社会学研究",
+            connectNulls: false,
+            xAxisIndex: 0,
+            symbolSize: 4,
+            showSymbol: false,
+            smooth: true,
+            clip: true,
+            step: false,
+            data: {{ society_research }},
+            hoverAnimation: true,
+            label: {
+              show: true,
+              margin: 8,
+            },
+            logBase: 10,
+            seriesLayoutBy: "column",
+            lineStyle: {
+              show: true,
+              width: 1,
+              opacity: 1,
+              curveness: 0,
+              type: "solid",
+            },
+            areaStyle: {
+              opacity: 0,
+            },
+            zlevel: 0,
+            z: 0,
+          },
+          {
+            type: "line",
+            name: "工程学研究",
+            connectNulls: false,
+            xAxisIndex: 0,
+            symbolSize: 4,
+            showSymbol: false,
+            smooth: true,
+            clip: true,
+            step: false,
+            data: {{ engineering_research }},
+            hoverAnimation: true,
+            label: {
+              show: true,
+              margin: 8,
+            },
+            logBase: 10,
+            seriesLayoutBy: "column",
+            lineStyle: {
+              show: true,
+              width: 1,
+              opacity: 1,
+              curveness: 0,
+              type: "solid",
+            },
+            areaStyle: {
+              opacity: 0,
+            },
+            zlevel: 0,
+            z: 0,
+          },
+        ],
+        legend: [
+          {
+            data: [
+              // {
+              //   name: "物理学研究",
+              //   icon: "path://M160 100 c0 -5 6 -10 14 -10 9 0 12 -7 9 -20 -8 -31 -43 -26 -43 6 0 22 -3 25 -22 20 -13 -3 -36 -6 -52 -6 -36 0 -30 -9 9 -12 19 -2 34 -12 44 -30 21 -37 62 -38 81 -3 7 14 23 26 34 26 46 3 51 5 54 22 4 18 -13 24 -23 7 -3 -5 -17 -10 -31 -10 -13 0 -24 5 -24 10 0 6 -11 10 -25 10 -14 0 -25 -4 -25 -10z",
+              // },
+              // {
+              //   name: "社会学研究",
+              //   icon: "image://./society_research.webp",
+              // },
+              // {
+              //   name: "工程学研究",
+              //   icon: "image://./engineering_research.webp",
+              // },
+              "物理学研究",
+              "社会学研究",
+              "工程学研究",
+            ],
+            selected: {},
             show: true,
-            trigger: "item",
-            triggerOn: "mousemove|click",
-            axisPointer: {
-              type: "line",
-            },
-            showContent: true,
-            alwaysShowContent: false,
-            showDelay: 0,
-            hideDelay: 100,
-            enterable: false,
-            confine: false,
-            appendToBody: false,
-            transitionDuration: 0.4,
-            textStyle: {
-              fontSize: 14,
-            },
-            borderWidth: 0,
             padding: 5,
-            order: "seriesAsc",
-          },
-          xAxis: [
-            {
-              show: true,
-              scale: false,
-              nameLocation: "end",
-              nameGap: 15,
-              gridIndex: 0,
-              axisLabel: {
-                show: true,
-                rotate: 15,
-                margin: 8,
-              },
-              inverse: false,
-              offset: 0,
-              splitNumber: 5,
-              minInterval: 0,
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  show: true,
-                  width: 1,
-                  opacity: 1,
-                  curveness: 0,
-                  type: "solid",
-                },
-              },
-              data: [],
-            },
-          ],
-          yAxis: [
-            {
-              show: true,
-              scale: true,
-              nameLocation: "end",
-              nameGap: 15,
-              gridIndex: 0,
-              inverse: false,
-              offset: 0,
-              splitNumber: 5,
-              minInterval: 0,
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  show: true,
-                  width: 1,
-                  opacity: 1,
-                  curveness: 0,
-                  type: "solid",
-                },
-              },
-            },
-          ],
-          title: [
-            {
-              show: true,
-              text: "研究点数月收入",
-              target: "blank",
-              subtarget: "blank",
-              padding: 5,
-              itemGap: 10,
-              textAlign: "auto",
-              textVerticalAlign: "auto",
-              triggerEvent: false,
-            },
-          ],
-          toolbox: {
-            show: true,
-            orient: "horizontal",
-            itemSize: 15,
             itemGap: 10,
-            left: "80%",
-            feature: {
-              saveAsImage: {
-                type: "png",
-                backgroundColor: "white",
-                connectedBackgroundColor: "#fff",
+            itemWidth: 25,
+            itemHeight: 14,
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+            borderRadius: 0,
+            pageButtonItemGap: 5,
+            pageButtonPosition: "end",
+            pageFormatter: "{current}/{total}",
+            pageIconColor: "#2f4554",
+            pageIconInactiveColor: "#aaa",
+            pageIconSize: 15,
+            animationDurationUpdate: 800,
+            selector: false,
+            selectorPosition: "auto",
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+          },
+        ],
+        tooltip: {
+          show: true,
+          trigger: "item",
+          triggerOn: "mousemove|click",
+          axisPointer: {
+            type: "line",
+          },
+          showContent: true,
+          alwaysShowContent: false,
+          showDelay: 0,
+          hideDelay: 100,
+          enterable: false,
+          confine: false,
+          appendToBody: false,
+          transitionDuration: 0.4,
+          textStyle: {
+            fontSize: 14,
+          },
+          borderWidth: 0,
+          padding: 5,
+          order: "seriesAsc",
+        },
+        xAxis: [
+          {
+            show: true,
+            scale: false,
+            nameLocation: "end",
+            nameGap: 15,
+            gridIndex: 0,
+            axisLabel: {
+              show: true,
+              rotate: 15,
+              margin: 8,
+            },
+            inverse: false,
+            offset: 0,
+            splitNumber: 5,
+            minInterval: 0,
+            splitLine: {
+              show: true,
+              lineStyle: {
                 show: true,
-                title: "保存为图片",
-                pixelRatio: 2,
+                width: 1,
+                opacity: 1,
+                curveness: 0,
+                type: "solid",
               },
-              restore: {
+            },
+            data: {{ resource_income_dates }},
+          },
+        ],
+        yAxis: [
+          {
+            show: true,
+            scale: true,
+            nameLocation: "end",
+            nameGap: 15,
+            gridIndex: 0,
+            inverse: false,
+            offset: 0,
+            splitNumber: 5,
+            minInterval: 0,
+            splitLine: {
+              show: true,
+              lineStyle: {
                 show: true,
-                title: "还原",
+                width: 1,
+                opacity: 1,
+                curveness: 0,
+                type: "solid",
               },
-              dataZoom: {
-                show: true,
-                title: {
-                  zoom: "区域缩放",
-                  back: "区域缩放回退",
-                },
-                icon: {},
-                filterMode: "filter",
-              }
             },
           },
-        };
-
-        option_research_point_income["xAxis"][0]["data"] = {{ resource_income_dates }};
-        option_research_point_income["series"][0]["data"] = {{ physics_research }};
-        option_research_point_income["series"][1]["data"] = {{ society_research }};
-        option_research_point_income["series"][2]["data"] = {{ engineering_research }};
-
-        chart_research_points_income.setOption(option_research_point_income);
-
-        // 点击图例后仅显示该曲线
-        chart_research_points_income.on('legendselectchanged', function(params) {
-          for (let i=0; i<3; ++i) {
-            if (option_research_point_income.series[i].name != params.name) {
-              option_research_point_income.legend[0].selected[option_research_point_income.series[i].name] = false;
+        ],
+        title: [
+          {
+            show: true,
+            text: "研究点数月收入",
+            target: "blank",
+            subtarget: "blank",
+            padding: 5,
+            itemGap: 10,
+            textAlign: "auto",
+            textVerticalAlign: "auto",
+            triggerEvent: false,
+          },
+        ],
+        toolbox: {
+          show: true,
+          orient: "horizontal",
+          itemSize: 15,
+          itemGap: 10,
+          left: "80%",
+          feature: {
+            saveAsImage: {
+              type: "png",
+              backgroundColor: "white",
+              connectedBackgroundColor: "#fff",
+              show: true,
+              title: "保存为图片",
+              pixelRatio: 2,
+            },
+            restore: {
+              show: true,
+              title: "还原",
+            },
+            dataZoom: {
+              show: true,
+              title: {
+                zoom: "区域缩放",
+                back: "区域缩放回退",
+              },
+              icon: {},
+              filterMode: "filter",
             }
+          },
+        },
+      };
+
+      chart_research_points_income.setOption(option_research_point_income);
+
+      // 点击图例后仅显示该曲线
+      chart_research_points_income.on('legendselectchanged', function(params) {
+        for (let i=0; i<3; ++i) {
+          if (option_research_point_income.series[i].name != params.name) {
+            option_research_point_income.legend[0].selected[option_research_point_income.series[i].name] = false;
           }
-          option_research_point_income.legend[0].selected[params.name] = true;
-          chart_research_points_income.setOption(option_research_point_income);
-        });
+        }
+        option_research_point_income.legend[0].selected[params.name] = true;
+        chart_research_points_income.setOption(option_research_point_income);
+      });
     </script>
   </body>
 </html>

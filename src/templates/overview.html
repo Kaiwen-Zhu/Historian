@@ -1,11 +1,12 @@
 <h1>{{ name }}史</h1>
 <p>2200 - {{ end_date[:4] }}</p>
-<p>{{ government_name }} {{ personality }}</p>
+<p>政府名称: {{ government_name }}</p>
+<p>个性: {{ personality }}</p>
 <div class="icon-text">
   <span>主流思潮:&nbsp;</span>
   {% for ethic in ethics %}
   <img src="{{ ethic[1] }}" />
-  <span>&nbsp;{{ ethic[0] }}&emsp;</span>
+  <span>&nbsp;{{ ethic[0] }}&nbsp;&nbsp;</span>
   {% endfor %}
 </div>
 
