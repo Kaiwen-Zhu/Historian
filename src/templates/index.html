@@ -22,7 +22,7 @@
               <span>概览</span>
             </el-menu-item>
 
-            <el-menu-item index="2">
+            <el-menu-item index="2" v-on:click="showPage('economic_history')">
               <span>经济</span>
             </el-menu-item>
 
@@ -59,6 +59,10 @@
 
         <el-main v-show="currentPage==='overview'">
           {% include "overview.html" %}
+        </el-main>
+
+        <el-main v-show="currentPage==='economic_history'">
+          {% include "economic_history.html" %}
         </el-main>
 
         <el-main v-show="currentPage==='scientific_history'">

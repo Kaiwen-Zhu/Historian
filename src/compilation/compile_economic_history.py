@@ -1,100 +1,70 @@
 from sys import stdout
-from os import path
+from os.path import join as path_join
 import pandas as pd
+from jinja2 import Environment
 from .utils import *
         
 
-def plot_resources_reserves_income(data_path, dir_path, lang) -> list[str]:
-    """Plots the line charts of reserves and monthly income of various resources and returns the paths of them."""   
+def plot_resources_reserves_income(env: Environment, data_dir: str, dir_path: str):
+    df = pd.read_csv(path_join(data_dir, 'resources.csv'), index_col=0, sep=';')
 
-    pics = []  # 存储各图路径
-
+    dates = df["date"].apply(lambda date: date[:-3]).tolist()
     resources = ['energy', 'minerals', 'food', 'consumer_goods', 'alloys',
             'volatile_motes', 'exotic_gases', 'rare_crystals', 'living_metal', 'zro',
             'dark_matter', 'nanites', 'minor_artifacts']
     colors = ['#f1e916', '#e95350', '#71bb50', '#d2754c', '#7e3e9e',
             '#973d2f', '#027a2e', '#cc8602', '#647676', '#567fce',
             '#1a212c', '#b1bfb3', '#8958a7']
-
-    if lang == 'en':
-        time = 'Time'
-        reserves = 'Reserves'
-        income = 'Monthly Income'
-
-    else:
-        time = '时间'
-        income = '月收入'
-        reserves = '储量'
-        resources_zh = ['能量币', '矿物', '食物', '消费品', '合金', '易爆微粒', '异星天然气',
-            '稀有水晶', '活体金属', '泽珞', '暗物质', '纳米机器人', '稀有文物']
-        
-
-    df = pd.read_csv(path.join(data_path, 'resources.csv'), index_col=0, sep=';')
+    resources_label = ['能量币', '矿物', '食物', '消费品', '合金', '易爆微粒', '异星天然气',
+        '稀有水晶', '活体金属', '泽珞', '暗物质', '纳米机器人', '稀有文物']
     
-    resources_type_map = [(('Fundamental Resources', '基础资源'), range(3)),
-                        (('Industrial Resources', '工业资源'), range(3,5)), 
-                        (('Rare Resources', '稀有资源'), range(5,13))]
+    resources_type_map = [
+        ('基础资源', range(3)), ('工业资源', range(3,5)), ('稀有资源', range(5,13))
+    ]
+    
     # 绘制一类资源的储量和月收入折线图
     def plot_one_type_resources(resources_category):
         # resources_category: 0-基础资源，1-工业资源，2-稀有资源
         resources_category_name, resources_idx_range = resources_type_map[resources_category]
-        num_legend_col = min(len(resources_idx_range), 3)
+        color_list = [colors[i] for i in resources_idx_range]
 
-        fig, (axes_reserves, axes_income) = plt.subplots(2, 1, figsize=(9,13))
-        if lang == 'en':
-            suptitle = 'The Reserves and Monthly Income of {}'.format(resources_category_name[0])
-        else:
-            suptitle = '{}储量及月收入'.format(resources_category_name[1])
-        fig.suptitle(suptitle, fontsize=15)
+        reserves_config = {
+            'title': f"{resources_category_name}储量", 'x': dates, 'data': [], 
+            'colors': color_list
+        }
+        income_config = {
+            'title': f"{resources_category_name}月收入", 'x': dates, 'data': [], 
+            'colors': color_list
+        }
 
         for resource_idx in resources_idx_range:
             resource_name = resources[resource_idx]
-            if lang == 'en':
-                resource_name_in_label = resources[resource_idx].replace('_', ' ').title()
-            else:
-                resource_name_in_label = resources_zh[resource_idx]
-
-            date_step = max(len(df) // 9, 1)  # 横轴相邻标签间隔的月数
-            omitted = 6 if date_step > 60 else 3  # 为6则日期省略月、日，为3则省略日
-            xticks_labels = df["date"][::date_step]
-            axes_reserves.plot(df["date"], df[f'{resource_name}_reserves'], alpha = 0.8,
-                                label = resource_name_in_label, color = colors[resource_idx])
-            axes_reserves.set_xlabel(time, fontsize = 17)
-            axes_reserves.set_xticks(xticks_labels)
-            axes_reserves.set_xticklabels(labels = xticks_labels.apply(lambda date: date[:-omitted]), rotation = 30)
-            axes_reserves.set_ylabel(reserves, fontsize = 17)
-            
-            axes_income.plot(df["date"], df[f'{resource_name}_income'], alpha = 0.8,
-                                label = resource_name_in_label, color = colors[resource_idx])
-            axes_income.set_xlabel(time, fontsize = 17)
-            axes_income.set_xticks(xticks_labels)
-            axes_income.set_xticklabels(labels = xticks_labels.apply(lambda date: date[:-omitted]), rotation = 30)
-            axes_income.set_ylabel(income, fontsize = 17)
-
-        plt.subplots_adjust(hspace = 0.5)
-        axes_reserves.legend(loc='lower center', bbox_to_anchor=(0.5,1), borderaxespad=1, ncol=num_legend_col)
-
-        # pdf.savefig()
-        pic_path = path.join(dir_path, suptitle + '.png')
-        pics.append(pic_path)
-        plt.savefig(pic_path, dpi=500, bbox_inches='tight', pad_inches=0.02)
-        plt.close()
+            resource_name_in_label = resources_label[resource_idx]
+            reserves_config['data'].append({
+                'name': resource_name_in_label, 'data': df[f'{resource_name}_reserves'].tolist()
+            })
+            income_config['data'].append({
+                'name': resource_name_in_label, 'data': df[f'{resource_name}_income'].tolist()
+            })
+        
+        render_page(env, 'line_chart.html', dir_path, f'{resources_category_name}储量.html', 
+                    config=reserves_config)
+        render_page(env, 'line_chart.html', dir_path, f'{resources_category_name}月收入.html', 
+                    config=income_config)
 
 
     # 绘制各资源储量/收入折线图
     for resources_category in range(3):
         plot_one_type_resources(resources_category)
-    
-    return pics
 
 
-def compile_economic_history(doc, data_path, output_path, lang):
-    print("Compiling the economic history ...", end=' ')
+def compile_economic_history(env: Environment, assets_path: str, data_path: str, output_path: str):
+    print("编译经济史...", end=' ')
     stdout.flush()
 
-    dir_path = prepare_compile_section(lang, output_path, "Economic", "经济")
+    dir_path = prepare_output(output_path, "经济史")
 
-    pics = plot_resources_reserves_income(data_path, dir_path, lang)
+    plot_resources_reserves_income(env, data_path, dir_path)
 
-    print("Done!")
+    print("完成")
     stdout.flush()

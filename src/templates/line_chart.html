@@ -31,32 +31,7 @@
         },
         color: [],
         series: [],
-        legend: [
-          {
-            data: [],
-            selected: {},
-            show: true,
-            padding: 5,
-            itemGap: 10,
-            itemWidth: 25,
-            itemHeight: 14,
-            backgroundColor: "transparent",
-            borderColor: "#ccc",
-            borderWidth: 1,
-            borderRadius: 0,
-            pageButtonItemGap: 5,
-            pageButtonPosition: "end",
-            pageFormatter: "{current}/{total}",
-            pageIconColor: "#2f4554",
-            pageIconInactiveColor: "#aaa",
-            pageIconSize: 15,
-            animationDurationUpdate: 800,
-            selector: false,
-            selectorPosition: "auto",
-            selectorItemGap: 7,
-            selectorButtonGap: 10,
-          },
-        ],
+        legend: [],
         tooltip: {
           show: true,
           trigger: "item",
@@ -216,15 +191,53 @@
         z: 0,
       };
 
-      names = [];
+      legend_template = {
+        data: [],
+        x: "center",
+        y: "0%",
+        selected: {},
+        show: true,
+        padding: 5,
+        itemGap: 10,
+        itemWidth: 25,
+        itemHeight: 14,
+        backgroundColor: "transparent",
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 0,
+        pageButtonItemGap: 5,
+        pageButtonPosition: "end",
+        pageFormatter: "{current}/{total}",
+        pageIconColor: "#2f4554",
+        pageIconInactiveColor: "#aaa",
+        pageIconSize: 15,
+        animationDurationUpdate: 800,
+        selector: false,
+        selectorPosition: "auto",
+        selectorItemGap: 7,
+        selectorButtonGap: 10,
+      };
+
+      this_legend = JSON.parse(JSON.stringify(legend_template));
+      legend_idx = {};
+      cur_idx = 0;
       for (let i = 0; i < config.data.length; ++i) {
-        names.push(config.data[i].name);
         this_series = JSON.parse(JSON.stringify(series_template));
         this_series.name = config.data[i].name;
         this_series.data = config.data[i].data;
         opt.series.push(this_series);
+        this_legend.data.push(config.data[i].name);
+        legend_idx[config.data[i].name] = cur_idx;
+        if (this_legend.data.length == 4) {
+          opt.legend.push(this_legend);
+          this_legend = JSON.parse(JSON.stringify(legend_template));
+          this_legend.y = 6 * opt.legend.length + "%";
+          ++cur_idx;
+        }
       }
-      opt.legend[0].data = names;
+      if (this_legend.data.length > 0) {
+        opt.legend.push(this_legend);
+      }
 
       chart.setOption(opt);
 
@@ -233,10 +246,10 @@
       chart.on("legendselectchanged", function (params) {
         for (let i = 0; i < opt.series.length; ++i) {
           if (opt.series[i].name != params.name) {
-            opt.legend[0].selected[opt.series[i].name] = false;
+            opt.legend[legend_idx[opt.series[i].name]].selected[opt.series[i].name] = false;
           }
         }
-        opt.legend[0].selected[params.name] = true;
+        opt.legend[legend_idx[params.name]].selected[params.name] = true;
         chart.setOption(opt);
       });
     </script>

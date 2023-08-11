@@ -22,7 +22,7 @@ def main():
     env = Environment(loader=FileSystemLoader(path_join(Historian_path, 'src', 'templates')))
 
     compile_overview(env, assets_path, data_path, output_path)
-    # compile_economic_history(env, data_path, output_path)
+    compile_economic_history(env, assets_path, data_path, output_path)
     # compile_demographic_history(env, data_path, output_path)
     compile_scientific_history(env, assets_path, data_path, output_path)
     # compile_diplomatic_history(env, data_path, output_path)
