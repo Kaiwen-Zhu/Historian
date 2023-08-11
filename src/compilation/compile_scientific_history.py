@@ -10,13 +10,23 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
     df = pd.read_csv(path_join(data_dir, 'resources.csv'), index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
-    env.globals['resource_income_dates'] = dates
-    
-    for name in ('physics_research', 'society_research', 'engineering_research'):
-        val = df[f'{name}_income'].tolist()
-        env.globals[name] = list(zip(dates, val))
 
-    render_page(env, 'research_points_income.html', dir_path, '研究点数月收入.html')
+    research_points_income = {
+        'title': "研究点数月收入", 'x': dates, 'data': [], 
+        'colors': ["#359db6", "#53b977", "#df8c4c"]
+    }
+
+    col_name = ('physics_research', 'society_research', 'engineering_research')
+    names = ('物理学研究', '社会学研究', '工程学研究')
+    
+    for col_name, name in zip(col_name, names):
+        val = df[f'{col_name}_income'].tolist()
+        research_points_income['data'].append({'name': name, 'data': val})
+
+    env.globals['research_points_income'] = research_points_income
+
+    render_page(env, 'research_points_income.html', dir_path, '研究点数月收入.html', 
+                config=research_points_income)
 
 
 def compile_scientific_history(env: Environment, assets_path: str, data_path: str, output_path: str):

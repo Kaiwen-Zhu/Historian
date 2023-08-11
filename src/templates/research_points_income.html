@@ -2,22 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>研究点数月收入</title>
+    <title>多折线图</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   </head>
   <body>
     <div
-      id="research_point_income"
+      id="chart"
       class="chart-container"
       style="width: 900px; height: 500px"
     ></div>
     <script>
-      var chart_research_points_income = echarts.init(
-        document.getElementById("research_point_income"),
+      var chart = echarts.init(
+        document.getElementById("chart"),
         "white",
         { renderer: "canvas" }
       );
-      var option_research_point_income = {
+      var opt = {
         animation: true,
         animationThreshold: 2000,
         animationDuration: 1000,
@@ -29,125 +29,11 @@
         aria: {
           enabled: false,
         },
-        color: [
-          "#359db6",
-          "#53b977",
-          "#df8c4c"
-        ],
-        series: [
-          {
-            type: "line",
-            name: "物理学研究",
-            connectNulls: false,
-            xAxisIndex: 0,
-            symbolSize: 4,
-            showSymbol: false,
-            smooth: true,
-            clip: true,
-            step: false,
-            data: {{ physics_research }},
-            hoverAnimation: true,
-            label: {
-              show: true,
-              margin: 8,
-            },
-            logBase: 10,
-            seriesLayoutBy: "column",
-            lineStyle: {
-              show: true,
-              width: 1,
-              opacity: 1,
-              curveness: 0,
-              type: "solid",
-            },
-            areaStyle: {
-              opacity: 0,
-            },
-            zlevel: 0,
-            z: 0,
-          },
-          {
-            type: "line",
-            name: "社会学研究",
-            connectNulls: false,
-            xAxisIndex: 0,
-            symbolSize: 4,
-            showSymbol: false,
-            smooth: true,
-            clip: true,
-            step: false,
-            data: {{ society_research }},
-            hoverAnimation: true,
-            label: {
-              show: true,
-              margin: 8,
-            },
-            logBase: 10,
-            seriesLayoutBy: "column",
-            lineStyle: {
-              show: true,
-              width: 1,
-              opacity: 1,
-              curveness: 0,
-              type: "solid",
-            },
-            areaStyle: {
-              opacity: 0,
-            },
-            zlevel: 0,
-            z: 0,
-          },
-          {
-            type: "line",
-            name: "工程学研究",
-            connectNulls: false,
-            xAxisIndex: 0,
-            symbolSize: 4,
-            showSymbol: false,
-            smooth: true,
-            clip: true,
-            step: false,
-            data: {{ engineering_research }},
-            hoverAnimation: true,
-            label: {
-              show: true,
-              margin: 8,
-            },
-            logBase: 10,
-            seriesLayoutBy: "column",
-            lineStyle: {
-              show: true,
-              width: 1,
-              opacity: 1,
-              curveness: 0,
-              type: "solid",
-            },
-            areaStyle: {
-              opacity: 0,
-            },
-            zlevel: 0,
-            z: 0,
-          },
-        ],
+        color: [],
+        series: [],
         legend: [
           {
-            data: [
-              // {
-              //   name: "物理学研究",
-              //   icon: "path://M160 100 c0 -5 6 -10 14 -10 9 0 12 -7 9 -20 -8 -31 -43 -26 -43 6 0 22 -3 25 -22 20 -13 -3 -36 -6 -52 -6 -36 0 -30 -9 9 -12 19 -2 34 -12 44 -30 21 -37 62 -38 81 -3 7 14 23 26 34 26 46 3 51 5 54 22 4 18 -13 24 -23 7 -3 -5 -17 -10 -31 -10 -13 0 -24 5 -24 10 0 6 -11 10 -25 10 -14 0 -25 -4 -25 -10z",
-              // },
-              // {
-              //   name: "社会学研究",
-              //   icon: "image://./society_research.webp",
-              // },
-              // {
-              //   name: "工程学研究",
-              //   icon: "image://./engineering_research.webp",
-              // },
-              "物理学研究",
-              "社会学研究",
-              "工程学研究",
-            ],
+            data: [],
             selected: {},
             show: true,
             padding: 5,
@@ -219,7 +105,7 @@
                 type: "solid",
               },
             },
-            data: {{ resource_income_dates }},
+            data: []
           },
         ],
         yAxis: [
@@ -248,7 +134,7 @@
         title: [
           {
             show: true,
-            text: "研究点数月收入",
+            text: "",
             target: "blank",
             subtarget: "blank",
             padding: 5,
@@ -285,22 +171,73 @@
               },
               icon: {},
               filterMode: "filter",
-            }
+            },
           },
         },
       };
 
-      chart_research_points_income.setOption(option_research_point_income);
+      // 从模板中读取配置
+      config = {{ config }};
+
+      // 填入数据
+      opt.title[0].text = config.title;
+      opt.color = config.colors;
+      opt.xAxis[0].data = config.x;
+
+      series_template = {
+        type: "line",
+        name: "",
+        connectNulls: false,
+        xAxisIndex: 0,
+        symbolSize: 4,
+        showSymbol: false,
+        smooth: true,
+        clip: true,
+        step: false,
+        data: [],
+        hoverAnimation: true,
+        label: {
+          show: true,
+          margin: 8,
+        },
+        logBase: 10,
+        seriesLayoutBy: "column",
+        lineStyle: {
+          show: true,
+          width: 1,
+          opacity: 1,
+          curveness: 0,
+          type: "solid",
+        },
+        areaStyle: {
+          opacity: 0,
+        },
+        zlevel: 0,
+        z: 0,
+      };
+
+      names = [];
+      for (let i = 0; i < config.data.length; ++i) {
+        names.push(config.data[i].name);
+        this_series = JSON.parse(JSON.stringify(series_template));
+        this_series.name = config.data[i].name;
+        this_series.data = config.data[i].data;
+        opt.series.push(this_series);
+      }
+      opt.legend[0].data = names;
+
+      chart.setOption(opt);
+
 
       // 点击图例后仅显示该曲线
-      chart_research_points_income.on('legendselectchanged', function(params) {
-        for (let i=0; i<3; ++i) {
-          if (option_research_point_income.series[i].name != params.name) {
-            option_research_point_income.legend[0].selected[option_research_point_income.series[i].name] = false;
+      chart.on("legendselectchanged", function (params) {
+        for (let i = 0; i < opt.series.length; ++i) {
+          if (opt.series[i].name != params.name) {
+            opt.legend[0].selected[opt.series[i].name] = false;
           }
         }
-        option_research_point_income.legend[0].selected[params.name] = true;
-        chart_research_points_income.setOption(option_research_point_income);
+        opt.legend[0].selected[params.name] = true;
+        chart.setOption(opt);
       });
     </script>
   </body>
