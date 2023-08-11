@@ -25,7 +25,7 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
 
     env.globals['research_points_income'] = research_points_income
 
-    render_page(env, 'research_points_income.html', dir_path, '研究点数月收入.html', 
+    render_page(env, 'line_chart.html', dir_path, '研究点数月收入.html', 
                 config=research_points_income)
 
 
