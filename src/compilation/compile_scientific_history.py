@@ -11,7 +11,7 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
 
-    research_points_income = {
+    research_points_income_config = {
         'title': "研究点数月收入", 'x': dates, 'data': [], 
         'colors': ["#359db6", "#53b977", "#df8c4c"]
     }
@@ -21,12 +21,10 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
     
     for col_name, name in zip(col_name, names):
         val = df[f'{col_name}_income'].tolist()
-        research_points_income['data'].append({'name': name, 'data': val})
-
-    env.globals['research_points_income'] = research_points_income
+        research_points_income_config['data'].append({'name': name, 'data': val})
 
     render_page(env, 'line_chart.html', dir_path, '研究点数月收入.html', 
-                config=research_points_income)
+                config=research_points_income_config)
 
 
 def compile_scientific_history(env: Environment, assets_path: str, data_path: str, output_path: str):
