@@ -7,7 +7,6 @@
       rel="stylesheet"
       href="https://unpkg.com/element-plus/dist/index.css"
     />
-    <link rel="stylesheet" href=".\css\general.css" />
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/element-plus"></script>
@@ -68,7 +67,6 @@
         <el-main id="scientific_history" v-show="currentPage==='scientific_history'">
           {% include "scientific_history.html" %}
         </el-main>
-
       </el-container>
     </div>
 
@@ -88,5 +86,33 @@
       });
       app.use(ElementPlus).mount("#app");
     </script>
+
+    <style>
+      .el-main {
+        position: absolute;
+        left: 20vw;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-left: 3vw;
+      }
+
+      .icon-text {
+        display: flex;
+        align-items: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+      }
+
+      h1 {
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+      }
+
+      p {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+      }
+    </style>
   </body>
 </html>
