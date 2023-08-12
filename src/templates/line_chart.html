@@ -242,15 +242,21 @@
       chart.setOption(opt);
 
 
-      // 点击图例后仅显示该曲线
+      // 点击选中的图例时，取消其他图例的选中状态；
+      // 点击未被选中的图例时，选中该图例
       chart.on("legendselectchanged", function (params) {
-        for (let i = 0; i < opt.series.length; ++i) {
-          if (opt.series[i].name != params.name) {
-            opt.legend[legend_idx[opt.series[i].name]].selected[opt.series[i].name] = false;
+        new_opt = this.getOption();
+        // if (new_opt.legend[legend_idx[params.name]].selected[params.name]) {
+        //   return;
+        // }
+        
+        for (let i = 0; i < new_opt.series.length; ++i) {
+          if (new_opt.series[i].name != params.name) {
+            new_opt.legend[legend_idx[new_opt.series[i].name]].selected[new_opt.series[i].name] = false;
           }
         }
-        opt.legend[legend_idx[params.name]].selected[params.name] = true;
-        chart.setOption(opt);
+        new_opt.legend[legend_idx[params.name]].selected[params.name] = true;
+        this.setOption(new_opt);
       });
     </script>
   </body>

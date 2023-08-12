@@ -57,22 +57,23 @@
           </el-menu>
         </el-aside>
 
-        <el-main v-show="currentPage==='overview'">
+        <el-main id="overview" v-show="currentPage==='overview'">
           {% include "overview.html" %}
         </el-main>
 
-        <el-main v-show="currentPage==='economic_history'">
+        <el-main id="economic_history" v-show="currentPage==='economic_history'">
           {% include "economic_history.html" %}
         </el-main>
 
-        <el-main v-show="currentPage==='scientific_history'">
+        <el-main id="scientific_history" v-show="currentPage==='scientific_history'">
           {% include "scientific_history.html" %}
         </el-main>
+
       </el-container>
     </div>
 
     <script>
-      const { createApp, toRefs } = Vue;
+      const { createApp } = Vue;
       const app = Vue.createApp({
         data() {
           return {
