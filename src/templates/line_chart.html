@@ -12,11 +12,9 @@
       style="width: 900px; height: 500px"
     ></div>
     <script>
-      var chart = echarts.init(
-        document.getElementById("chart"),
-        "white",
-        { renderer: "canvas" }
-      );
+      var chart = echarts.init(document.getElementById("chart"), "white", {
+        renderer: "canvas",
+      });
       var opt = {
         animation: true,
         animationThreshold: 2000,
@@ -31,7 +29,34 @@
         },
         color: [],
         series: [],
-        legend: [],
+        legend: [
+          {
+            data: [],
+            x: "center",
+            y: "0%",
+            selected: {},
+            show: true,
+            padding: 5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+            borderRadius: 0,
+            pageButtonItemGap: 5,
+            pageButtonPosition: "end",
+            pageFormatter: "{current}/{total}",
+            pageIconColor: "#2f4554",
+            pageIconInactiveColor: "#aaa",
+            pageIconSize: 15,
+            animationDurationUpdate: 800,
+            selector: false,
+            selectorPosition: "auto",
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+          },
+        ],
         tooltip: {
           show: true,
           trigger: "item",
@@ -124,7 +149,8 @@
           orient: "horizontal",
           itemSize: 15,
           itemGap: 10,
-          left: "80%",
+          // left: "80%",
+          right: "10%",
           feature: {
             saveAsImage: {
               type: "png",
@@ -146,6 +172,12 @@
               },
               icon: {},
               filterMode: "filter",
+            },
+            myTooltip: {
+              show: true,
+              title: "点击未被选中的图例时显示该曲线，点击被选中的图例时隐藏其它曲线",
+              icon: "path://M644 263.008q-60.992-64-152-64-84 0-143.488 59.488t-59.488 143.488q0 15.008 10.496 25.504t25.504 10.496 25.504-10.496 10.496-25.504q0-54.016 38.496-92.512t92.512-38.496h0.992q59.008 0 99.008 42.016 35.008 36.992 32 84.992-0.992 18.016-4 28.992t-20.992 37.504-54.016 62.496q-43.008 43.008-66.496 76.992t-27.488 72q-2.016 15.008 7.488 26.496t24.512 12.512h4q14.016 0 24-8.992t12-23.008q3.008-35.008 72.992-104.992 60.992-60.992 79.488-98.016t20.512-78.016q4.992-79.008-52-139.008zM443.008 816q0-18.016 12.512-30.496t30.496-12.512 30.496 12.512 12.512 30.496-12.512 30.496-30.496 12.512-30.496-12.512-12.512-30.496z",
+              onclick: function () {},
             },
           },
         },
@@ -191,71 +223,33 @@
         z: 0,
       };
 
-      legend_template = {
-        data: [],
-        x: "center",
-        y: "0%",
-        selected: {},
-        show: true,
-        padding: 5,
-        itemGap: 10,
-        itemWidth: 25,
-        itemHeight: 14,
-        backgroundColor: "transparent",
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 0,
-        pageButtonItemGap: 5,
-        pageButtonPosition: "end",
-        pageFormatter: "{current}/{total}",
-        pageIconColor: "#2f4554",
-        pageIconInactiveColor: "#aaa",
-        pageIconSize: 15,
-        animationDurationUpdate: 800,
-        selector: false,
-        selectorPosition: "auto",
-        selectorItemGap: 7,
-        selectorButtonGap: 10,
-      };
-
-      this_legend = JSON.parse(JSON.stringify(legend_template));
-      legend_idx = {};
-      cur_idx = 0;
       for (let i = 0; i < config.data.length; ++i) {
         this_series = JSON.parse(JSON.stringify(series_template));
         this_series.name = config.data[i].name;
         this_series.data = config.data[i].data;
         opt.series.push(this_series);
-        this_legend.data.push(config.data[i].name);
-        legend_idx[config.data[i].name] = cur_idx;
-        if (this_legend.data.length == 4) {
-          opt.legend.push(this_legend);
-          this_legend = JSON.parse(JSON.stringify(legend_template));
-          this_legend.y = 6 * opt.legend.length + "%";
-          ++cur_idx;
+        opt.legend[0].data.push(config.data[i].name);
+        if (i % 4 == 3) {
+          opt.legend[0].data.push("\n");
         }
-      }
-      if (this_legend.data.length > 0) {
-        opt.legend.push(this_legend);
       }
 
       chart.setOption(opt);
-
 
       // 点击选中的图例时，取消其他图例的选中状态；
       // 点击未被选中的图例时，选中该图例
       chart.on("legendselectchanged", function (params) {
         new_opt = this.getOption();
-        // if (new_opt.legend[legend_idx[params.name]].selected[params.name]) {
-        //   return;
-        // }
-        
+        if (new_opt.legend[0].selected[params.name]) {
+          return;
+        }
+
         for (let i = 0; i < new_opt.series.length; ++i) {
           if (new_opt.series[i].name != params.name) {
-            new_opt.legend[legend_idx[new_opt.series[i].name]].selected[new_opt.series[i].name] = false;
+            new_opt.legend[0].selected[new_opt.series[i].name] = false;
           }
         }
-        new_opt.legend[legend_idx[params.name]].selected[params.name] = true;
+        new_opt.legend[0].selected[params.name] = true;
         this.setOption(new_opt);
       });
     </script>
