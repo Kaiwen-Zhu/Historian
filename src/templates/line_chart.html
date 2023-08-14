@@ -234,6 +234,12 @@
         }
       }
 
+      // 只有一条曲线时不显示图例
+      if (config.data.length == 1) {
+        opt.legend[0].show = false;
+        opt.toolbox.feature.myTooltip.show = false;
+      }
+
       chart.setOption(opt);
 
       // 点击选中的图例时，取消其他图例的选中状态；

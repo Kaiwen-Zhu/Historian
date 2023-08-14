@@ -25,9 +25,17 @@
               <span>经济</span>
             </el-menu-item>
 
-            <el-menu-item index="3">
-              <span>人口</span>
-            </el-menu-item>
+            <el-sub-menu index="3">
+              <template #title>
+                <span>人口</span>
+              </template>
+              <el-menu-item index="3-1" v-on:click="showPage('')">
+                <span>人口规模</span>
+              </el-menu-item>
+              <el-menu-item index="3-2" v-on:click="showPage('unity')">
+                <span>凝聚力储量及月收入</span>
+              </el-menu-item>
+            </el-sub-menu>
 
             <el-menu-item index="4" v-on:click="showPage('scientific_history')">
               <span>科技</span>
@@ -62,6 +70,10 @@
 
         <el-main id="economic_history" v-show="currentPage==='economic_history'">
           {% include "economic_history.html" %}
+        </el-main>
+
+        <el-main id="demographic_history_unity" v-show="currentPage==='unity'">
+          {% include "demographic_history_unity.html" %}
         </el-main>
 
         <el-main id="scientific_history" v-show="currentPage==='scientific_history'">
