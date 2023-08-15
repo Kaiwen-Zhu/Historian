@@ -1,7 +1,0 @@
-{
-  "name": "Stellaris",
-  "scopeName": "source.stellaris",
-  "fileTypes": ["txt", "mod"],
-  "patterns": [
-  ]
-}

@@ -1,6 +1,6 @@
-version="0.1.0"
+version="0.1.1"
 tags={
 	"Utilities"
 }
 name="Historian"
-supported_version="3.6.1"
+supported_version="3.8"
