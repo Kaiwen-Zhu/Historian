@@ -4,6 +4,7 @@
 _五帝三皇神圣事，骗了无涯过客。_
 
 ## 当前内容
+示例见 `example` 文件夹或 [科尔-阿赞共和国史](https://kaiwen-zhu.github.io/Historian/example/output/%E7%A7%91%E5%B0%94-%E9%98%BF%E8%B5%9E%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8F%B2.html)。
 + 基本信息
 
    国家名称，政府名称，政府个性，主流思潮，起源，母星名称，母星类别，母星系名称，创始物种
