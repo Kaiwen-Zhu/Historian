@@ -41,7 +41,7 @@
               <span>科技</span>
             </el-menu-item>
 
-            <el-menu-item index="5">
+            <el-menu-item index="5" v-on:click="showPage('diplomatic_history')">
               <span>外交</span>
             </el-menu-item>
 
@@ -66,6 +66,10 @@
 
         <el-main id="scientific_history" v-if="currentPage==='scientific_history'">
           {% include "scientific_history.html" %}
+        </el-main>
+
+        <el-main id="diplomatic_history" v-if="currentPage==='diplomatic_history'">
+          {% include "diplomatic_history.html" %}
         </el-main>
       </el-container>
     </div>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>外交关系</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="chart"
+      class="chart-container"
+      style="width: 1000px; height: 680px"
+    ></div>
+    <script>
+      var chart = echarts.init(document.getElementById("chart"), "white", {
+        renderer: "canvas",
+      });
+      var opt = {
+        animation: false,
+        aria: {
+          enabled: false,
+        },
+        color: [],
+        series: [],
+        grid: {
+          right: "21%",
+        },
+        legend: [
+          {
+            type: 'scroll',
+            orient: 'vertical',
+            data: [],
+            x: "80%",
+            y: "center",
+            selected: {},
+            show: true,
+            padding: 5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+            borderRadius: 0,
+            pageButtonItemGap: 5,
+            pageButtonPosition: "end",
+            pageFormatter: "{current}/{total}",
+            pageIconColor: "#2f4554",
+            pageIconInactiveColor: "#aaa",
+            pageIconSize: 15,
+            selector: false,
+            selectorPosition: "auto",
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+          },
+        ],
+        tooltip: {
+          show: true,
+          trigger: "item",
+          triggerOn: "mousemove|click",
+          axisPointer: {
+            type: "line",
+          },
+          showContent: true,
+          alwaysShowContent: false,
+          showDelay: 0,
+          hideDelay: 100,
+          enterable: false,
+          confine: false,
+          appendToBody: false,
+          transitionDuration: 0.4,
+          textStyle: {
+            fontSize: 14,
+          },
+          borderWidth: 0,
+          padding: 5,
+          order: "seriesAsc",
+        },
+        xAxis: [
+          {
+            show: true,
+            scale: false,
+            nameLocation: "end",
+            nameGap: 15,
+            gridIndex: 0,
+            axisLabel: {
+              show: true,
+              rotate: 15,
+              margin: 8,
+            },
+            inverse: false,
+            offset: 0,
+            splitNumber: 5,
+            minInterval: 0,
+            splitLine: {
+              show: true,
+              lineStyle: {
+                show: true,
+                width: 1,
+                opacity: 1,
+                curveness: 0,
+                type: "solid",
+              },
+            },
+            data: []
+          },
+        ],
+        yAxis: [
+          {
+            show: true,
+            scale: true,
+            nameLocation: "end",
+            nameGap: 15,
+            gridIndex: 0,
+            inverse: false,
+            offset: 0,
+            splitNumber: 5,
+            minInterval: 0,
+            splitLine: {
+              show: true,
+              lineStyle: {
+                show: true,
+                width: 1,
+                opacity: 1,
+                curveness: 0,
+                type: "solid",
+              },
+            },
+          },
+        ],
+        title: [
+          {
+            show: true,
+            text: "",
+            target: "blank",
+            subtarget: "blank",
+            padding: 5,
+            itemGap: 10,
+            textAlign: "auto",
+            textVerticalAlign: "auto",
+            triggerEvent: false,
+          },
+        ],
+        toolbox: {
+          show: true,
+          orient: "horizontal",
+          itemSize: 15,
+          itemGap: 10,
+          right: "20%",
+          feature: {
+            saveAsImage: {
+              type: "png",
+              backgroundColor: "white",
+              connectedBackgroundColor: "#fff",
+              show: true,
+              title: "保存为图片",
+              pixelRatio: 2,
+            },
+            // restore: {
+            //   show: true,
+            //   title: "还原",
+            // },
+            myRestore: {
+              show: true,
+              title: "还原",
+              icon: "path://M3.8,33.4 M47,18.9h9.8V8.7 M56.3,20.1 C52.1,9,40.5,0.6,26.8,2.1C12.6,3.7,1.6,16.2,2.1,30.6 M13,41.1H3.1v10.2 M3.7,39.9c4.2,11.1,15.8,19.5,29.5,18 c14.2-1.6,25.2-14.1,24.7-28.5",
+              onclick: () => {
+                chart.clear();
+                chart.setOption(opt);
+              },
+            },
+            dataZoom: {
+              show: true,
+              title: {
+                zoom: "区域缩放",
+                back: "区域缩放回退",
+              },
+              icon: {},
+              filterMode: "filter",
+            },
+          },
+        },
+      };
+
+      // 从模板中读取配置
+      config = {{ config }};
+
+      // 填入数据
+      opt.title[0].text = config.title;
+      opt.xAxis[0].data = config.x;
+
+      // 随机生成颜色
+      for (let i = 0; i < config.data.length; ++i) {
+        opt.color.push(
+          "#" +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0") +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0") +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0")
+        );
+      }
+
+      series_template = {
+        type: "line",
+        name: "",
+        connectNulls: false,
+        xAxisIndex: 0,
+        symbolSize: 4,
+        showSymbol: false,
+        smooth: true,
+        clip: true,
+        step: false,
+        data: [],
+        hoverAnimation: false,
+        label: {
+          show: true,
+          margin: 8,
+        },
+        logBase: 10,
+        seriesLayoutBy: "column",
+        lineStyle: {
+          show: true,
+          width: 1,
+          opacity: 1,
+          curveness: 0,
+          type: "solid",
+        },
+        areaStyle: {
+          opacity: 0,
+        },
+        zlevel: 0,
+        z: 0,
+      };
+
+      for (let i = 0; i < config.data.length; ++i) {
+        this_series = JSON.parse(JSON.stringify(series_template));
+        this_series.name = config.data[i].name;
+        config.data[i].rel = [];
+        for (let j = 0; j < config.data[i].date.length; ++j) {
+          config.data[i].rel.push(config.data[i].our_opinion[j] + config.data[i].their_opinion[j]);
+          this_series.data.push([
+            config.data[i].date[j],
+            config.data[i].rel[j],
+          ]);
+        }
+        opt.series.push(this_series);
+        opt.legend[0].data.push(config.data[i].name);
+      }
+
+      chart.setOption(opt);
+
+      // 点击某国图例时，显示与其外交关系与对彼此的评价
+      chart.on("legendselectchanged", function (params) {
+        new_opt = this.getOption();
+        if (new_opt.title[0].text != "外交关系") {
+          new_opt.legend[0].selected[params.name] = true;
+          this.setOption(new_opt);
+          return;
+        }
+
+        for (let i = 0; i < new_opt.series.length; ++i) {
+          if (new_opt.series[i].name == params.name) {
+            new_opt.title[0].text = "与" + params.name + "的关系";
+            new_opt.xAxis[0].data = config.data[i].date;
+            new_opt.color = [opt.color[i], "#042940", "#005C53"],
+            new_opt.legend[0].data = ["外交关系", "我方对对方评价", "对方对我方评价"],
+            new_opt.series = [
+              {
+                type: "line",
+                name: "外交关系",
+                connectNulls: false,
+                xAxisIndex: 0,
+                symbolSize: 4,
+                showSymbol: false,
+                smooth: true,
+                clip: true,
+                step: false,
+                data: config.data[i].rel,
+                hoverAnimation: false,
+                label: {
+                  show: true,
+                  margin: 8,
+                },
+                logBase: 10,
+                seriesLayoutBy: "column",
+                lineStyle: {
+                  show: true,
+                  width: 1,
+                  opacity: 1,
+                  curveness: 0,
+                  type: "solid",
+                },
+                areaStyle: {
+                  opacity: 0,
+                },
+                zlevel: 0,
+                z: 0,
+              },
+              {
+                type: "line",
+                name: "我方对对方评价",
+                connectNulls: false,
+                xAxisIndex: 0,
+                symbolSize: 4,
+                showSymbol: false,
+                smooth: true,
+                clip: true,
+                step: false,
+                data: config.data[i].our_opinion,
+                hoverAnimation: false,
+                label: {
+                  show: true,
+                  margin: 8,
+                },
+                logBase: 10,
+                seriesLayoutBy: "column",
+                lineStyle: {
+                  show: true,
+                  width: 1,
+                  opacity: 1,
+                  curveness: 0,
+                  type: "dashed",
+                },
+                areaStyle: {
+                  opacity: 0,
+                },
+                zlevel: 0,
+                z: 0,
+              },
+              {
+                type: "line",
+                name: "对方对我方评价",
+                connectNulls: false,
+                xAxisIndex: 0,
+                symbolSize: 4,
+                showSymbol: false,
+                smooth: true,
+                clip: true,
+                step: false,
+                data: config.data[i].their_opinion,
+                hoverAnimation: false,
+                label: {
+                  show: true,
+                  margin: 8,
+                },
+                logBase: 10,
+                seriesLayoutBy: "column",
+                lineStyle: {
+                  show: true,
+                  width: 1,
+                  opacity: 1,
+                  curveness: 0,
+                  type: "dotted",
+                },
+                areaStyle: {
+                  opacity: 0,
+                },
+                zlevel: 0,
+                z: 0,
+              },
+            ]
+          }
+        }
+        this.clear();
+        this.setOption(new_opt);
+      });
+    </script>
+  </body>
+</html>
