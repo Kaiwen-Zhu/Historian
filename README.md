@@ -1,6 +1,6 @@
 [中文](介绍.md)
 
-**NOTE: I am transferring the document from PDF to HTML format, and the maintenance of this PDF branch will not be guaranteed.**
+**NOTE: I have transferred the document from PDF to HTML format, and the maintenance of this PDF branch will not be guaranteed.**
 
 # Historian
 Stellaris mod which records information of player's country automatically during the game and then compiles its history in PDF format.
