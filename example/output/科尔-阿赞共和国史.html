@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>科尔-阿赞共和国史</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus/dist/index.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/element-plus"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <el-container>
+        <el-aside width="20vw">
+          <el-menu default-active="1" class="sidebar">
+            <el-menu-item index="1" v-on:click="showPage('overview')">
+              <span>概览</span>
+            </el-menu-item>
+
+            <el-menu-item index="2" v-on:click="showPage('economic_history')">
+              <span>经济</span>
+            </el-menu-item>
+
+            <el-sub-menu index="3">
+              <template #title>
+                <span>人口</span>
+              </template>
+              <el-menu-item index="3-1" v-on:click="showPage('pop_size')">
+                <span>人口规模</span>
+              </el-menu-item>
+              <el-menu-item index="3-2" v-on:click="showPage('unity')">
+                <span>凝聚力储量及月收入</span>
+              </el-menu-item>
+            </el-sub-menu>
+
+            <el-menu-item index="4" v-on:click="showPage('scientific_history')">
+              <span>科技</span>
+            </el-menu-item>
+
+            <el-menu-item index="5" v-on:click="showPage('diplomatic_history')">
+              <span>外交</span>
+            </el-menu-item>
+
+          </el-menu>
+        </el-aside>
+
+        <el-main id="overview" v-if="currentPage==='overview'">
+          <h1>科尔-阿赞共和国史</h1>
+<p>2200 - 2425</p>
+<p>政府名称: 军政官僚制</p>
+<p>个性: 荣耀战士</p>
+<div class="icon-text">
+  <span>主流思潮:&nbsp;</span>
+  
+  <img src=".\基本信息\Egalitarian.webp" />
+  <span>&nbsp;平等主义&nbsp;&nbsp;</span>
+  
+  <img src=".\基本信息\FanaticMilitarist.webp" />
+  <span>&nbsp;极端军国主义&nbsp;&nbsp;</span>
+  
+</div>
+
+<div class="icon-text">
+  <span>起源:&nbsp;</span>
+  <img src=".\基本信息\繁荣一统.webp" />
+  <span>&nbsp;繁荣一统</span>
+</div>
+<p>母星系: 科尔-阿扎克</p>
+<p>母星: 草原星球 阿扎克</p>
+<p>创始物种: 科尔-阿赞</p>
+
+<el-backtop target="#overview" />
+        </el-main>
+
+        <el-main id="economic_history" v-if="currentPage==='economic_history'">
+          <iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/基础资源储量.html"
+></iframe>
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/基础资源月收入.html"
+></iframe>
+
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/工业资源储量.html"
+></iframe>
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/工业资源月收入.html"
+></iframe>
+
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/稀有资源储量.html"
+></iframe>
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./经济史/稀有资源月收入.html"
+></iframe>
+
+<el-backtop target="#economic_history" />
+        </el-main>
+
+        <el-main id="demographic_history_pop_size" v-if="currentPage==='pop_size'">
+          <iframe
+  width="1000"
+  height="680"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./人口史/人口规模.html"
+></iframe>
+
+<el-backtop target="#demographic_history_pop_size" />
+        </el-main>
+
+        <el-main id="demographic_history_unity" v-if="currentPage==='unity'">
+          <iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./人口史/凝聚力储量.html"
+></iframe>
+<iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./人口史/凝聚力月收入.html"
+></iframe>
+
+<el-backtop target="#demographic_history_unity" />
+        </el-main>
+
+        <el-main id="scientific_history" v-if="currentPage==='scientific_history'">
+          <iframe
+  width="900"
+  height="500"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./科技史/研究点数月收入.html"
+></iframe>
+
+<el-backtop target="#scientific_history" />
+        </el-main>
+
+        <el-main id="diplomatic_history" v-if="currentPage==='diplomatic_history'">
+          <iframe
+  width="1000"
+  height="680"
+  seamless
+  frameborder="0"
+  scrolling="no"
+  src="./外交史/外交关系.html"
+></iframe>
+
+<el-backtop target="#diplomatic_history" />
+        </el-main>
+      </el-container>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+      const app = Vue.createApp({
+        data() {
+          return {
+            currentPage: "overview",
+          };
+        },
+        methods: {
+          showPage(page) {
+            this.currentPage = page;
+          },
+        },
+      });
+      app.use(ElementPlus).mount("#app");
+    </script>
+
+    <style>
+      .el-main {
+        position: absolute;
+        left: 20vw;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-left: 3vw;
+      }
+
+      .icon-text {
+        display: flex;
+        align-items: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+      }
+
+      h1 {
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+      }
+
+      p {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+      }
+    </style>
+  </body>
+</html>
