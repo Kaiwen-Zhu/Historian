@@ -82,4 +82,4 @@ python ./src/compile_history.py -o '地球联合国'
 **注意：如果玩家某次退出游戏后没有运行 `extract_history.py`，那么其信息会在玩家再次进入游戏时 _丢失_，因为每次进入游戏后游戏日志都会被覆盖。**
 
 ## 贡献方式
-欢迎对模组创作的任何贡献，包括代码（Stellaris modding API 或 Python）编写、对史书内容或排版的设计等。如有兴趣可以提出 issue，发送邮件至 `zhukaiwensq@outlook.com` 或在 QQ 上联系 3387572450。
+欢迎对模组创作的任何贡献，包括代码（Stellaris modding API，Python，前端）编写、对史书内容或排版的设计等。如有兴趣可以提出 issue，发送邮件至 `zhukaiwensq@outlook.com` 或在 QQ 上联系 3387572450。
