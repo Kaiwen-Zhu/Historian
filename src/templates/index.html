@@ -29,7 +29,7 @@
               <template #title>
                 <span>人口</span>
               </template>
-              <el-menu-item index="3-1" v-on:click="showPage('')">
+              <el-menu-item index="3-1" v-on:click="showPage('pop_size')">
                 <span>人口规模</span>
               </el-menu-item>
               <el-menu-item index="3-2" v-on:click="showPage('unity')">
@@ -45,38 +45,26 @@
               <span>外交</span>
             </el-menu-item>
 
-            <!-- <el-sub-menu index="0">
-              <template #title>
-                <span>test</span>
-              </template>
-              <el-menu-item-group title="Group One">
-                <el-menu-item index="1-1">item one</el-menu-item>
-                <el-menu-item index="1-2">item two</el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item-group title="Group Two">
-                <el-menu-item index="1-3">item three</el-menu-item>
-              </el-menu-item-group>
-              <el-sub-menu index="1-4">
-                <template #title>item four</template>
-                <el-menu-item index="1-4-1">item one</el-menu-item>
-              </el-sub-menu>
-            </el-sub-menu> -->
           </el-menu>
         </el-aside>
 
-        <el-main id="overview" v-show="currentPage==='overview'">
+        <el-main id="overview" v-if="currentPage==='overview'">
           {% include "overview.html" %}
         </el-main>
 
-        <el-main id="economic_history" v-show="currentPage==='economic_history'">
+        <el-main id="economic_history" v-if="currentPage==='economic_history'">
           {% include "economic_history.html" %}
         </el-main>
 
-        <el-main id="demographic_history_unity" v-show="currentPage==='unity'">
+        <el-main id="demographic_history_pop_size" v-if="currentPage==='pop_size'">
+          {% include "demographic_history_pop_size.html" %}
+        </el-main>
+
+        <el-main id="demographic_history_unity" v-if="currentPage==='unity'">
           {% include "demographic_history_unity.html" %}
         </el-main>
 
-        <el-main id="scientific_history" v-show="currentPage==='scientific_history'">
+        <el-main id="scientific_history" v-if="currentPage==='scientific_history'">
           {% include "scientific_history.html" %}
         </el-main>
       </el-container>

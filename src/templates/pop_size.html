@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>多折线图</title>
+    <title>人口规模</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   </head>
   <body>
     <div
       id="chart"
       class="chart-container"
-      style="width: 900px; height: 500px"
+      style="width: 1000px; height: 680px"
     ></div>
     <script>
       var chart = echarts.init(document.getElementById("chart"), "white", {
@@ -29,11 +29,16 @@
         },
         color: [],
         series: [],
+        grid: {
+          right: "21%",
+        },
         legend: [
           {
+            type: 'scroll',
+            orient: 'vertical',
             data: [],
-            x: "center",
-            y: "0%",
+            x: "80%",
+            y: "center",
             selected: {},
             show: true,
             padding: 5,
@@ -111,7 +116,7 @@
         yAxis: [
           {
             show: true,
-            scale: true,
+            // scale: true,
             nameLocation: "end",
             nameGap: 15,
             gridIndex: 0,
@@ -150,7 +155,7 @@
           itemSize: 15,
           itemGap: 10,
           // left: "80%",
-          right: "10%",
+          right: "20%",
           feature: {
             saveAsImage: {
               type: "png",
@@ -188,11 +193,22 @@
 
       // 填入数据
       opt.title[0].text = config.title;
-      opt.color = config.colors;
       opt.xAxis[0].data = config.x;
+
+      // 随机生成颜色
+      for (let i = 0; i < config.data.length; ++i) {
+        opt.color.push(
+          "#" +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0") +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0") +
+            Math.floor(Math.random() * 256).toString(16).padStart(2, "0")
+        );
+      }
 
       series_template = {
         type: "line",
+        stack: 'x',
+        areaStyle: {},
         name: "",
         connectNulls: false,
         xAxisIndex: 0,
@@ -216,9 +232,6 @@
           curveness: 0,
           type: "solid",
         },
-        areaStyle: {
-          opacity: 0,
-        },
         zlevel: 0,
         z: 0,
       };
@@ -229,15 +242,6 @@
         this_series.data = config.data[i].data;
         opt.series.push(this_series);
         opt.legend[0].data.push(config.data[i].name);
-        if (i % 4 == 3) {
-          opt.legend[0].data.push("\n");
-        }
-      }
-
-      // 只有一条项时不显示图例
-      if (config.data.length == 1) {
-        opt.legend[0].show = false;
-        opt.toolbox.feature.myTooltip.show = false;
       }
 
       chart.setOption(opt);
@@ -249,7 +253,6 @@
         if (new_opt.legend[0].selected[params.name]) {
           return;
         }
-
         for (let i = 0; i < new_opt.series.length; ++i) {
           if (new_opt.series[i].name != params.name) {
             new_opt.legend[0].selected[new_opt.series[i].name] = false;
