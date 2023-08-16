@@ -3,4 +3,4 @@ tags={
 	"Utilities"
 }
 name="Historian"
-supported_version="3.8"
+supported_version="3.8.*"
