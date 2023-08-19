@@ -31,11 +31,11 @@ _五帝三皇神圣事，骗了无涯过客。_
 + 军事史
   - 战争细节
   - 海军、陆军组织
-+ 富语义星图
 + 其它
   - 星球地方志
   - 领袖传记
   - 各事件（局势、异常现象、考古等等）的描述
+  - 富语义星图
   - AIGC（文字、图画等）
 
 ## 已知问题
@@ -49,7 +49,7 @@ _五帝三皇神圣事，骗了无涯过客。_
   - pandas
   
 ## 安装
-在 Stellaris 模组文件夹（通常为 `C:\Users\{用户名}\Documents\Paradox Interactive\Stellaris\mod`）下的 Powershell 终端中运行如下命令，以下载本仓库文件、创建 `Historian.mod` 文件、安装所需的 Python 包：
+在 Stellaris 模组文件夹（通常为 `C:\Users\%USERNAME%\Documents\Paradox Interactive\Stellaris\mod`）下的 Powershell 终端中运行如下命令，以下载本仓库文件、创建 `Historian.mod` 文件、安装所需的 Python 包：
 ```powershell
 git clone https://github.com/Kaiwen-Zhu/Historian.git
 Write-Output ("version=`"0.1.1`"`ntags={`n    `"Utilities`"`n}`nname=`"Historian`"`nsupported_version=`"3.8.*`"`npath=`"$pwd\Historian`"" -replace "\\","/") | Out-File -FilePath Historian.mod -Encoding utf8
@@ -69,21 +69,21 @@ pip install -r requirements.txt
 + **文件夹 `地球联合国` 将会在第一次运行 `extract_history.py` 时被自动创建，结档前，不可随意删改或移动该文件夹中的文件；**
 + **每次为该国家运行脚本时，该参数都应为 `地球联合国`。**
 
-生成史书后，点击 `地球联合国/output/地球联合国史.html` 查看（假设国名为“地球联合国”）。**若希望将生成的史书移至别处，需要将 `output` 这一文件夹作为整体移动，不可单独移出 `地球联合国史.html` 文件。**
+生成史书后，可点击 `地球联合国/output/地球联合国史.html` 查看（假设国名为“地球联合国”）。**若希望将生成的史书移至别处，需要将 `output` 这一文件夹作为整体移动，不可单独移出 `地球联合国史.html` 文件。**
 
 以下介绍运行脚本的方法。
-#### 运行 `extract_history.py`
++ 运行 `extract_history.py`
 在 `Historian` 文件夹下的 Powershell 终端运行如下命令。
-```sh
-python ./src/extract_history.py -o "地球联合国"
-```
-生成的数据文件将被存储到 `./地球联合国/data`。
-#### 运行 `compile_history.py`
+  ```sh
+  python ./src/extract_history.py -o "地球联合国"
+  ```
+  生成的数据文件将被存储到 `./地球联合国/data`。
++ 运行 `compile_history.py`
 在 `Historian` 文件夹下的 Powershell 终端运行如下命令。
-```sh
-python ./src/compile_history.py -o "地球联合国"
-```
-生成的史书将被存储到 `./地球联合国/output`。
+  ```sh
+  python ./src/compile_history.py -o "地球联合国"
+  ```
+  生成的史书将被存储到 `./地球联合国/output`。
 
 **注意：如果玩家某次退出游戏后没有运行 `extract_history.py`，那么其信息会在玩家再次进入游戏时 _丢失_，因为每次进入游戏后游戏日志都会被覆盖。**
 
@@ -91,4 +91,4 @@ python ./src/compile_history.py -o "地球联合国"
 欢迎对模组创作的任何贡献，包括代码（Stellaris modding API、Python、前端）编写、对史书内容或排版的设计等。如有兴趣可以提出 issue，发送邮件至 `zhukaiwensq@outlook.com` 或在 QQ 上联系 3387572450。
 
 ## 鸣谢
-感谢 Kejing Zhang 对环境搭建的测试、[moon-xu37](https://github.com/moon-xu37) 对本文档的审校。
+感谢 Kejing Zhang 对环境搭建的测试、[moon-xu37](https://github.com/moon-xu37) 对文档的审校。
