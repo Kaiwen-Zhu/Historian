@@ -1,5 +1,6 @@
 from .extract_basics import extract_basics
 from .extract_economic_history import extract_economic_history
 from .extract_demographic_history import extract_demographic_history
+from .extract_scientific_history import extract_scientific_history
 from .extract_diplomatic_history import extract_diplomatic_history
 from .extract_military_history import extract_military_history

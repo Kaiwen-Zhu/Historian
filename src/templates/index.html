@@ -10,86 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/element-plus"></script>
-  </head>
-
-  <body>
-    <div id="app">
-      <el-container>
-        <el-aside width="20vw">
-          <el-menu default-active="1" class="sidebar">
-            <el-menu-item index="1" v-on:click="showPage('overview')">
-              <span>概览</span>
-            </el-menu-item>
-
-            <el-menu-item index="2" v-on:click="showPage('economic_history')">
-              <span>经济</span>
-            </el-menu-item>
-
-            <el-sub-menu index="3">
-              <template #title>
-                <span>人口</span>
-              </template>
-              <el-menu-item index="3-1" v-on:click="showPage('pop_size')">
-                <span>人口规模</span>
-              </el-menu-item>
-              <el-menu-item index="3-2" v-on:click="showPage('unity')">
-                <span>凝聚力储量及月收入</span>
-              </el-menu-item>
-            </el-sub-menu>
-
-            <el-menu-item index="4" v-on:click="showPage('scientific_history')">
-              <span>科技</span>
-            </el-menu-item>
-
-            <el-menu-item index="5" v-on:click="showPage('diplomatic_history')">
-              <span>外交</span>
-            </el-menu-item>
-
-          </el-menu>
-        </el-aside>
-
-        <el-main id="overview" v-if="currentPage==='overview'">
-          {% include "overview.html" %}
-        </el-main>
-
-        <el-main id="economic_history" v-if="currentPage==='economic_history'">
-          {% include "economic_history.html" %}
-        </el-main>
-
-        <el-main id="demographic_history_pop_size" v-if="currentPage==='pop_size'">
-          {% include "demographic_history_pop_size.html" %}
-        </el-main>
-
-        <el-main id="demographic_history_unity" v-if="currentPage==='unity'">
-          {% include "demographic_history_unity.html" %}
-        </el-main>
-
-        <el-main id="scientific_history" v-if="currentPage==='scientific_history'">
-          {% include "scientific_history.html" %}
-        </el-main>
-
-        <el-main id="diplomatic_history" v-if="currentPage==='diplomatic_history'">
-          {% include "diplomatic_history.html" %}
-        </el-main>
-      </el-container>
-    </div>
-
-    <script>
-      const { createApp } = Vue;
-      const app = Vue.createApp({
-        data() {
-          return {
-            currentPage: "overview",
-          };
-        },
-        methods: {
-          showPage(page) {
-            this.currentPage = page;
-          },
-        },
-      });
-      app.use(ElementPlus).mount("#app");
-    </script>
 
     <style>
       .el-main {
@@ -117,6 +37,116 @@
         margin-top: 3vh;
         margin-bottom: 3vh;
       }
+
+      .tech {
+        padding: 1vh;
+      }
+
+      .tech-time {
+        text-align: center;
+      }
     </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <el-container>
+        <el-aside width="20vw">
+          <el-menu default-active="1" class="sidebar">
+            <el-menu-item index="1" v-on:click="showPage('overview')">
+              <span>概览</span>
+            </el-menu-item>
+
+            <el-menu-item index="2" v-on:click="showPage('economic_history')">
+              <span>经济</span>
+            </el-menu-item>
+
+            <el-sub-menu index="3">
+              <template #title>
+                <span>人口</span>
+              </template>
+              <el-menu-item index="3-1" v-on:click="showPage('pop_size')">
+                <span>人口规模</span>
+              </el-menu-item>
+              <el-menu-item index="3-2" v-on:click="showPage('unity')">
+                <span>凝聚力储量及月收入</span>
+              </el-menu-item>
+            </el-sub-menu>
+
+            <el-sub-menu index="4">
+              <template #title>
+                <span>科技</span>
+              </template>
+              <el-menu-item index="4-1" v-on:click="showPage('research_points_income')">
+                <span>研究点数月收入</span>
+              </el-menu-item>
+              <el-menu-item index="4-2" v-on:click="showPage('technologies')">
+                <span>已研究科技</span>
+              </el-menu-item>
+            </el-sub-menu>
+
+            <el-menu-item index="5" v-on:click="showPage('diplomatic_history')">
+              <span>外交</span>
+            </el-menu-item>
+
+          </el-menu>
+        </el-aside>
+
+        <!-- overview begin -->
+        <el-main id="overview" v-if="currentPage==='overview'">
+          {% include "overview.html" %}
+        </el-main>
+        <!-- overview end -->
+
+        <!-- economic history begin -->
+        <el-main id="economic_history" v-if="currentPage==='economic_history'">
+          {% include "economic_history.html" %}
+        </el-main>
+        <!-- economic history end -->
+
+        <!-- demographic history begin -->
+        <el-main id="demographic_history_pop_size" v-if="currentPage==='pop_size'">
+          {% include "demographic_history_pop_size.html" %}
+        </el-main>
+
+        <el-main id="demographic_history_unity" v-if="currentPage==='unity'">
+          {% include "demographic_history_unity.html" %}
+        </el-main>
+        <!-- demographic history end -->
+
+        <!-- scientific history begin -->
+        <el-main id="scientific_history_research_points_income" v-if="currentPage==='research_points_income'">
+          {% include "scientific_history_research_points_income.html" %}
+        </el-main>
+
+        <el-main id="scientific_history_techs" v-if="currentPage==='technologies'">
+          {% include "scientific_history_techs.html" %}
+        </el-main>
+        <!-- scientific history end -->
+
+        <!-- diplomatic history begin -->
+        <el-main id="diplomatic_history" v-if="currentPage==='diplomatic_history'">
+          {% include "diplomatic_history.html" %}
+        </el-main>
+        <!-- diplomatic history end -->
+      </el-container>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+      const app = Vue.createApp({
+        data() {
+          return {
+            currentPage: "overview",
+          };
+        },
+        methods: {
+          showPage(page) {
+            this.currentPage = page;
+          },
+        },
+      });
+      app.use(ElementPlus).mount("#app");
+    </script>
   </body>
 </html>

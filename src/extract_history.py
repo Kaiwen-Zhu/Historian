@@ -27,6 +27,7 @@ def main():
     extract_basics(game_log, data_path)
     extract_economic_history(game_log, data_path)
     extract_demographic_history(game_log, data_path)
+    extract_scientific_history(game_log, data_path)
     extract_diplomatic_history(game_log, data_path)
     # extract_military_history(game_log, data_path)
 

@@ -1,0 +1,2863 @@
+namespace = historian_science
+
+
+country_event = {
+	id = historian_science.1
+	hide_window = yes
+
+	trigger = { owner = {is_ai = no } }
+	is_triggered_only = yes
+
+	immediate = {
+        if = {
+            limit = {
+                last_increased_tech = tech_arcane_deciphering
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_arcane_deciphering"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archeology_lab_ancrel
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archeology_lab_ancrel"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeostudies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeostudies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_cybrex
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_cybrex"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_league
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_league"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_irassian
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_irassian"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_vultaum
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_vultaum"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_yuht
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_yuht"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_baol
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_baol"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_secrets_zroni
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_secrets_zroni"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeoshield
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeoshield"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeoarmor
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeoarmor"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_detection_scrambler
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_detection_scrambler"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_titan_beam
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_titan_beam"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_pk_devolving_beam
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_pk_devolving_beam"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_mass_drivers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_mass_drivers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_lasers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_lasers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_point_defence
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_point_defence"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_missiles
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_missiles"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_mass_accelerator
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_mass_accelerator"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_strike_crafts
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_strike_crafts"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_rampart
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_rampart"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_overcharger
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_overcharger"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archaeo_refinery
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archaeo_refinery"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colossus
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colossus"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pk_cracker
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pk_cracker"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pk_shielder
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pk_shielder"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pk_neutron
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pk_neutron"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pk_godray
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pk_godray"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pk_nanobots
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pk_nanobots"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_btc_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_btc_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gargantuan_evolution
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gargantuan_evolution"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lgate_activation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lgate_activation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_lcluster_clue
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_lcluster_clue"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_experimental_subspace_navigation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_experimental_subspace_navigation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_neuroregeneration
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_neuroregeneration"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nanite_repair_system
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nanite_repair_system"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nanite_autocannon
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nanite_autocannon"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nanite_flak_batteries
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nanite_flak_batteries"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_solar_panel_network
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_solar_panel_network"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_exploration
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_exploration"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_corvettes
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_corvettes"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_destroyers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_destroyers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cruisers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cruisers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_battleships
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_battleships"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_titans
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_titans"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_juggernaut
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_juggernaut"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_corvette_build_speed
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_corvette_build_speed"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_corvette_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_corvette_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_corvette_hull_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_corvette_hull_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_destroyer_build_speed
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_destroyer_build_speed"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_destroyer_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_destroyer_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_destroyer_hull_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_destroyer_hull_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cruiser_build_speed
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cruiser_build_speed"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cruiser_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cruiser_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cruiser_hull_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cruiser_hull_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_battleship_build_speed
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_battleship_build_speed"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_battleship_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_battleship_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_battleship_hull_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_battleship_hull_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_titan_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_titan_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_titan_hull_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_titan_hull_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_starbase_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_starbase_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_starbase_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_starbase_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_starbase_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_starbase_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_starbase_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_starbase_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_starbase_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_starbase_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_habitat_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_habitat_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_habitat_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_habitat_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_habitat_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_habitat_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_modular_engineering
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_modular_engineering"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_defense_station_improvement
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_defense_station_improvement"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_strike_craft_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_strike_craft_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_strike_craft_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_strike_craft_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_strike_craft_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_strike_craft_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_strike_craft_skrand
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_strike_craft_skrand"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_assault_armies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_assault_armies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ship_armor_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ship_armor_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ship_armor_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ship_armor_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ship_armor_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ship_armor_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ship_armor_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ship_armor_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ship_armor_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ship_armor_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_crystal_armor_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_crystal_armor_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_crystal_armor_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_crystal_armor_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_armor_hardeners_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_armor_hardeners_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_armor_hardeners_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_armor_hardeners_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_thrusters_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_thrusters_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_thrusters_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_thrusters_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_thrusters_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_thrusters_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_thrusters_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_thrusters_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_defense_station_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_defense_station_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_defense_platform_hull_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_defense_platform_hull_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_basic_industry
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_basic_industry"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mechanized_mining
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mechanized_mining"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_powered_exoskeletons
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_powered_exoskeletons"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_mining_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_mining_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_mining_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_mining_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_mining_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_mining_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_mining_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_mining_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_mining_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_mining_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mining_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mining_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mining_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mining_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mining_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mining_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mineral_purification_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mineral_purification_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mineral_purification_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mineral_purification_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_alloys_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_alloys_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_alloys_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_alloys_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_advanced_metallurgy_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_advanced_metallurgy_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_advanced_metallurgy_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_advanced_metallurgy_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_luxuries_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_luxuries_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_luxuries_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_luxuries_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_engineering_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_engineering_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_engineering_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_engineering_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_engineering_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_engineering_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robotic_workers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robotic_workers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_droid_workers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_droid_workers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_synthetic_workers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_synthetic_workers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_synthetic_leaders
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_synthetic_leaders"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robot_assembly_complex
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robot_assembly_complex"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_integrated_cybernetics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_integrated_cybernetics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_construction
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_construction"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_afterburners_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_afterburners_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_afterburners_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_afterburners_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_assembly_pattern
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_assembly_pattern"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_construction_templates
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_construction_templates"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_housing_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_housing_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_housing_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_housing_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_tile_mineral_output
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_tile_mineral_output"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_military_station_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_military_station_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_military_station_health
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_military_station_health"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_armor_output
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_armor_output"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_explosive_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_explosive_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_explosive_fire_rate
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_explosive_fire_rate"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_kinetic_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_kinetic_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_kinetic_fire_rate
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_kinetic_fire_rate"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_reduced_building_time
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_reduced_building_time"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_drivers_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_drivers_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_drivers_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_drivers_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_drivers_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_drivers_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_drivers_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_drivers_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_drivers_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_drivers_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_kinetic_artillery_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_kinetic_artillery_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_kinetic_artillery_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_kinetic_artillery_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_accelerator_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_accelerator_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mass_accelerator_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mass_accelerator_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_autocannons_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_autocannons_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_autocannons_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_autocannons_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_autocannons_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_autocannons_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_flak_batteries_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_flak_batteries_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_flak_batteries_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_flak_batteries_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_flak_batteries_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_flak_batteries_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_missiles_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_missiles_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_missiles_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_missiles_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_missiles_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_missiles_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_missiles_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_missiles_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_missiles_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_missiles_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_swarmer_missiles_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_swarmer_missiles_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_swarmer_missiles_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_swarmer_missiles_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_torpedoes_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_torpedoes_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_torpedoes_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_torpedoes_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_torpedoes_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_torpedoes_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dark_matter_deflector
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dark_matter_deflector"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dark_matter_power_core
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dark_matter_power_core"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dark_matter_propulsion
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dark_matter_propulsion"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloaking_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloaking_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloaking_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloaking_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloaking_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloaking_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloaking_dark_matter
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloaking_dark_matter"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloaking_psi
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloaking_psi"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_detection_array
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_detection_array"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dark_matter_detection
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dark_matter_detection"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_assisted_detection
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_assisted_detection"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_subspace_drive
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_subspace_drive"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_unusual_senses
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_unusual_senses"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_new_numbers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_new_numbers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_trinary_computing
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_trinary_computing"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_atmospheric_orbital_mechanics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_atmospheric_orbital_mechanics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_predatory_tactics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_predatory_tactics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_satisfying_insults
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_satisfying_insults"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_compact_living
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_compact_living"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_alien_topography
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_alien_topography"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_xeno_aesthetics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_xeno_aesthetics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lost_building_methods
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lost_building_methods"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_supreme_alloy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_supreme_alloy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ordered_retreat
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ordered_retreat"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_temple_of_transportation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_temple_of_transportation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_akx_worm_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_akx_worm_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_akx_worm_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_akx_worm_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_akx_worm_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_akx_worm_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dragon_armor
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dragon_armor"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_enigmatic_encoder
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_enigmatic_encoder"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_enigmatic_decoder
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_enigmatic_decoder"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_orbital_trash_dispersal
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_orbital_trash_dispersal"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_xeno_tourism_agency
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_xeno_tourism_agency"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_executive_retreat
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_executive_retreat"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mega_engineering
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mega_engineering"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_science_nexus
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_science_nexus"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_sentry_array
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_sentry_array"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_strategic_coordination
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_strategic_coordination"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_interstellar_assembly
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_interstellar_assembly"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mega_art
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mega_art"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gateway_activation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gateway_activation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gateway_construction
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gateway_construction"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dyson_sphere
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dyson_sphere"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_matter_decompressor
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_matter_decompressor"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ring_world
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ring_world"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mega_shipyard
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mega_shipyard"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_quantum_catapult
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_quantum_catapult"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_orbital_ring_tier_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_orbital_ring_tier_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hyper_relays
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hyper_relays"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_basic_science_lab_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_basic_science_lab_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_basic_science_lab_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_basic_science_lab_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_basic_science_lab_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_basic_science_lab_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_global_research_initiative
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_global_research_initiative"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_curator_lab
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_curator_lab"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_archeology_lab
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_archeology_lab"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_science_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_science_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_science_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_science_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_science_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_science_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_science_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_science_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_science_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_science_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_physics_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_physics_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_physics_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_physics_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_physics_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_physics_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_administrative_ai
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_administrative_ai"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cryostasis_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cryostasis_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cryostasis_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cryostasis_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_self_aware_logic
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_self_aware_logic"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_automated_exploration
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_automated_exploration"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_sapient_ai
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_sapient_ai"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_positronic_implants
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_positronic_implants"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_combat_computers_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_combat_computers_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_combat_computers_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_combat_computers_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_combat_computers_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_combat_computers_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_combat_computers_autonomous
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_combat_computers_autonomous"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_auxiliary_fire_control
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_auxiliary_fire_control"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_synchronized_defences
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_synchronized_defences"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_consumer_good_refinement_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_consumer_good_refinement_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_consumer_good_refinement_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_consumer_good_refinement_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_neuro_quantum_links
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_neuro_quantum_links"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_encryption_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_encryption_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_encryption_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_encryption_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_encryption_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_encryption_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_decryption_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_decryption_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_decryption_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_decryption_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_decryption_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_decryption_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_fission_power
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_fission_power"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_fusion_power
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_fusion_power"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cold_fusion_power
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cold_fusion_power"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_antimatter_power
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_antimatter_power"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_zero_point_power
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_zero_point_power"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_reactor_boosters_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_reactor_boosters_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_reactor_boosters_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_reactor_boosters_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_reactor_boosters_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_reactor_boosters_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shields_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shields_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shields_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shields_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shields_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shields_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shields_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shields_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shields_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shields_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shield_rechargers_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shield_rechargers_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shield_hardeners_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shield_hardeners_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_shield_hardeners_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_shield_hardeners_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_shield_generator
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_shield_generator"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_sensors_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_sensors_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_sensors_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_sensors_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_sensors_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_sensors_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_plant_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_plant_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_plant_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_plant_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_plant_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_plant_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_plant_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_plant_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_hub_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_hub_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_power_hub_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_power_hub_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hyper_drive_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hyper_drive_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hyper_drive_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hyper_drive_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hyper_drive_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hyper_drive_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_wormhole_stabilization
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_wormhole_stabilization"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_jump_drive_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_jump_drive_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ftl_inhibitor
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ftl_inhibitor"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_bio_reactor
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_bio_reactor"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_tile_energy_output
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_tile_energy_output"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_shield_output
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_shield_output"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_energy_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_energy_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_energy_fire_rate
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_energy_fire_rate"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_reduced_building_cost
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_reduced_building_cost"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lasers_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lasers_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lasers_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lasers_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lasers_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lasers_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lasers_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lasers_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lasers_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lasers_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_energy_lance_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_energy_lance_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_energy_lance_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_energy_lance_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_plasma_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_plasma_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_plasma_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_plasma_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_plasma_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_plasma_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_arc_emitter_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_arc_emitter_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_arc_emitter_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_arc_emitter_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_disruptors_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_disruptors_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_disruptors_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_disruptors_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_disruptors_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_disruptors_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_energy_torpedoes_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_energy_torpedoes_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_energy_torpedoes_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_energy_torpedoes_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pd_tracking_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pd_tracking_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pd_tracking_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pd_tracking_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_pd_tracking_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_pd_tracking_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_extradimensional_weapon_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_extradimensional_weapon_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mining_drone_weapon_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mining_drone_weapon_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_cloud_weapon_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_cloud_weapon_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = null_void_beam
+            }
+            log = "HIS_SCIENCE:[GetDate],null_void_beam"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_defenses
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_defenses"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_interplanetary_commerce
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_interplanetary_commerce"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_trading
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_trading"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_interstellar_economics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_interstellar_economics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_galactic_markets
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_galactic_markets"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_prescient_data_modeling
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_prescient_data_modeling"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_industrial_farming
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_industrial_farming"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_eco_simulation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_eco_simulation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gene_crops
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gene_crops"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nano_vitality_crops
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nano_vitality_crops"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nutrient_replication
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nutrient_replication"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hydroponics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hydroponics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_food_processing_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_food_processing_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_food_processing_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_food_processing_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_society_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_society_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_society_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_society_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_society_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_society_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_alien_life_studies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_alien_life_studies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonization_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonization_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonization_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonization_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonization_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonization_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonization_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonization_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonization_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonization_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_tomb_world_adaption
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_tomb_world_adaption"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_frontier_health
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_frontier_health"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_frontier_hospital
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_frontier_hospital"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mountain_range
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mountain_range"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_volcano
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_volcano"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dangerous_wildlife
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dangerous_wildlife"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_dense_jungle
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_dense_jungle"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_quicksand_basin
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_quicksand_basin"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_noxious_swamp
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_noxious_swamp"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_massive_glacier
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_massive_glacier"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_toxic_kelp
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_toxic_kelp"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_deep_sinkhole
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_deep_sinkhole"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_terrestrial_sculpting
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_terrestrial_sculpting"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ecological_adaptation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ecological_adaptation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_climate_restoration
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_climate_restoration"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_genome_mapping
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_genome_mapping"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_vitality_boosters
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_vitality_boosters"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_epigenetic_triggers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_epigenetic_triggers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cloning
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cloning"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gene_banks
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gene_banks"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gene_seed_purification
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gene_seed_purification"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_morphogenetic_field_mastery
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_morphogenetic_field_mastery"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gene_tailoring
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gene_tailoring"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_glandular_acclimation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_glandular_acclimation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_lithoid_transgenesis
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_lithoid_transgenesis"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_plantoid_transgenesis
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_plantoid_transgenesis"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_leviathan_transgenesis
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_leviathan_transgenesis"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_gene_expressions
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_gene_expressions"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_selected_lineages
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_selected_lineages"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_capacity_boosters
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_capacity_boosters"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_regenerative_hull_tissue
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_regenerative_hull_tissue"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_fleet_size_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_fleet_size_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_fleet_size_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_fleet_size_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_fleet_size_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_fleet_size_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_fleet_size_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_fleet_size_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_fleet_size_5
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_fleet_size_5"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_interstellar_fleet_traditions
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_interstellar_fleet_traditions"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_refit_standards
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_refit_standards"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_command_matrix
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_command_matrix"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_navy_size_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_navy_size_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_navy_size_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_navy_size_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_navy_size_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_navy_size_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_doctrine_navy_size_4
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_doctrine_navy_size_4"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_centralized_command
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_centralized_command"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_combat_training
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_combat_training"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ground_defense_planning
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ground_defense_planning"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_global_defense_grid
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_global_defense_grid"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_psionic_theory
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_psionic_theory"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_telepathy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_telepathy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_precognition_interface
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_precognition_interface"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_thought_enforcement
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_thought_enforcement"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_psi_jump_drive_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_psi_jump_drive_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_galactic_ambitions
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_galactic_ambitions"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_manifest_destiny
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_manifest_destiny"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_interstellar_campaigns
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_interstellar_campaigns"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_galactic_campaigns
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_galactic_campaigns"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_government
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_government"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_unification
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_unification"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonial_centralization
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonial_centralization"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_galactic_administration
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_galactic_administration"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_infrastructure_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_infrastructure_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_planetary_infrastructure_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_planetary_infrastructure_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_subdermal_stimulation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_subdermal_stimulation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_tracking_implants
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_tracking_implants"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_global_production_strategy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_global_production_strategy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_adaptive_bureaucracy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_adaptive_bureaucracy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_effective_bureaucracy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_effective_bureaucracy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_colonial_bureaucracy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_colonial_bureaucracy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_galactic_bureaucracy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_galactic_bureaucracy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_living_state
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_living_state"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_collective_self
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_collective_self"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_autonomous_agents
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_autonomous_agents"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_embodied_dynamism
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_embodied_dynamism"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_neural_implants
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_neural_implants"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_artificial_moral_codes
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_artificial_moral_codes"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_synthetic_thought_patterns
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_synthetic_thought_patterns"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_unity_of_purpose
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_unity_of_purpose"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_collective_production_methods
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_collective_production_methods"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_resource_processing_algorithms
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_resource_processing_algorithms"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_holo_entertainment
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_holo_entertainment"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hyper_entertainment_forum
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hyper_entertainment_forum"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_paradise_dome
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_paradise_dome"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_cultural_heritage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_cultural_heritage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_heritage_site
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_heritage_site"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hypercomms_forum
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hypercomms_forum"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_autocurating_vault
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_autocurating_vault"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_holographic_rituals
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_holographic_rituals"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_consecration_fields
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_consecration_fields"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_transcendent_faith
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_transcendent_faith"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hive_node
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hive_node"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hive_cluster
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hive_cluster"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_hive_confluence
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_hive_confluence"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_ascension_theory
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_ascension_theory"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_psionic_barrier
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_psionic_barrier"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_psionic_shield
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_psionic_shield"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_penal_colonies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_penal_colonies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_resort_colonies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_resort_colonies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_slave_colonies
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_slave_colonies"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_housing_agrarian_idyll
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_housing_agrarian_idyll"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_xeno_diplomacy
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_xeno_diplomacy"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_xeno_relations
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_xeno_relations"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_capital_productivity_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_capital_productivity_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_capital_productivity_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_capital_productivity_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_capital_productivity_3
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_capital_productivity_3"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_covenant_composer
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_covenant_composer"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_covenant_eater
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_covenant_eater"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_covenant_instrument
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_covenant_instrument"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_covenant_whisperers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_covenant_whisperers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_xeno_linguistics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_xeno_linguistics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_tile_food_output
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_tile_food_output"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_core_system_cap
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_core_system_cap"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_army_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_army_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_army_health
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_army_health"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_leader_life_span
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_leader_life_span"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_naval_cap
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_naval_cap"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_command_limit
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_command_limit"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_improved_starbase_capacity
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_improved_starbase_capacity"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_strike_craft_fire_damage
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_strike_craft_fire_damage"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_repeatable_weapon_type_strike_craft_fire_rate
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_repeatable_weapon_type_strike_craft_fire_rate"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_amoeba_strike_craft_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_amoeba_strike_craft_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_swarm_strike_craft_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_swarm_strike_craft_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_scourge_missile_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_scourge_missile_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_space_whale_weapon_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_space_whale_weapon_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_living_metal
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_living_metal"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_betharian
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_betharian"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_volatile_motes
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_volatile_motes"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_volatile_motes
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_volatile_motes"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_exotic_gases
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_exotic_gases"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_exotic_gases
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_exotic_gases"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_rare_crystals
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_rare_crystals"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_rare_crystals
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_rare_crystals"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_zro
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_zro"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mine_dark_matter
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mine_dark_matter"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nanite_transmutation
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nanite_transmutation"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robomodding_m
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robomodding_m"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robomodding
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robomodding"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robomodding_points_1
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robomodding_points_1"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_robomodding_points_2
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_robomodding_points_2"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_binary_motivators
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_binary_motivators"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_nanite_assemblers
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_nanite_assemblers"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_mega_assembly
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_mega_assembly"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_adaptive_combat_algorithms
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_adaptive_combat_algorithms"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_biomechanics
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_biomechanics"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_micro_replicators
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_micro_replicators"
+        }
+        else_if = {
+            limit = {
+                last_increased_tech = tech_self_assembling_components
+            }
+            log = "HIS_SCIENCE:[GetDate],tech_self_assembling_components"
+        }
+    }
+}

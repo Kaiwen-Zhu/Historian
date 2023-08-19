@@ -1,0 +1,21 @@
+<div class="tech">
+    <el-row :gutter="17">
+      <el-col :span="4"><h3 style="margin:0">科技</h3></el-col>
+      <el-col :span="10"></el-col>
+      <el-col :span="4" class="tech-time"><h3 style="margin:0">领域</h3></el-col>
+      <el-col :span="4"><h3 style="margin:0" class="tech-time">获得时间</h3><el-col>
+    </el-row>
+  </div>
+
+{% for tech in techs %}
+<div class="tech">
+  <el-row :gutter="17">
+    <el-col :span="4">{{ tech.name }}</el-col>
+    <el-col :span="10">{{ tech.desc }}</el-col>
+    <el-col :span="4" class="tech-time">{{ tech.area }}</el-col>
+    <el-col :span="4" class="tech-time">{{ tech.date }}</el-col>
+  </el-row>
+</div>
+{% endfor %}
+
+<el-backtop target="#scientific_history_techs" />
