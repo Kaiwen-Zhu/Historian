@@ -1,18 +1,434 @@
 namespace = historian_military_affairs
 
 
-# 统计军事舰船情况
+# 触发记录海军组织的事件
 country_event = {
 	id = historian_military_affairs.1
 	hide_window = yes
 
-	trigger = { owner = {is_ai = no } }
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	after = {
+		country_event = {
+			id = historian_military_affairs.2
+			days = 4
+		}
+	}
+}
+
+
+# 记录海军组织
+country_event = {
+	id = historian_military_affairs.2
+	hide_window = yes
+
+	trigger = { owner = { is_ai = no } }
 	is_triggered_only = yes
 
 	immediate = {
-		every_owned_ship = {
-			limit = { is_ship_class = shipclass_military }
-			log = "HIS_MILITARY_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
+		every_owned_fleet = {
+			limit = {
+				OR = {
+					is_ship_class = shipclass_military
+					is_ship_class = shipclass_military_special
+					is_ship_size = juggernaut
+				}
+			}
+			root = {
+				set_variable = {
+					which = HIS_NUM_CORVETTE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_FRIGATE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_DESTROYER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CRUISER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_BATTLESHIP
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_TITAN
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_COLOSSUS
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_JUGGERNAUT
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_SMALL_SHIP_FALLEN_EMPIRE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_LARGE_SHIP_FALLEN_EMPIRE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_PIRATE_CORVETTE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_PIRATE_DESTROYER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_GALLEON
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_PSIONIC_AVATAR
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_SPACE_AMOEBA
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CRISIS_CORVETTE
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CRISIS_DESTROYER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CRISIS_CRUISER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_STAR_EATER
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CARAVANEER_DESTROYER_01
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_CARAVANEER_CRUISER_01
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_GRAYGOO_INTERDICTOR
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_GRAYGOO_MOTHERSHIP
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_NPC_WARSHIP_01
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_TOXIC_GOD
+					value = 0
+				}
+			}
+			
+			# log = "HIS_FLEET:[GetDate],[This.GetName]"
+			every_owned_ship = {
+				if = {
+					limit = {
+						is_ship_size = corvette
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CORVETTE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = frigate
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_FRIGATE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = destroyer
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_DESTROYER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = cruiser
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CRUISER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = battleship
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_BATTLESHIP
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = titan
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_TITAN
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = colossus
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_COLOSSUS
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = juggernaut
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_JUGGERNAUT
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = small_ship_fallen_empire
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_SMALL_SHIP_FALLEN_EMPIRE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = large_ship_fallen_empire
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_LARGE_SHIP_FALLEN_EMPIRE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = pirate_corvette
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_PIRATE_CORVETTE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = pirate_destroyer
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_PIRATE_DESTROYER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = galleon
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_GALLEON
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = psionic_avatar
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_PSIONIC_AVATAR
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = space_amoeba
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_SPACE_AMOEBA
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = crisis_corvette
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CRISIS_CORVETTE
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = crisis_destroyer
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CRISIS_DESTROYER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = crisis_cruiser
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CRISIS_CRUISER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = star_eater
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_STAR_EATER
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = caravaneer_destroyer_01
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CARAVANEER_DESTROYER_01
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = caravaneer_cruiser_01
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_CARAVANEER_CRUISER_01
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = graygoo_interdictor
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_GRAYGOO_INTERDICTOR
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = graygoo_mothership
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_GRAYGOO_MOTHERSHIP
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = npc_warship_01
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_NPC_WARSHIP_01
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = toxic_god
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_TOXIC_GOD
+							value = 1
+						}
+					}
+				}
+				else = {
+					log = "HIS_MILITARY_SHIP_ERROR:UNKOWN_MILITARY_SHIP_SIZE,[This.GetShipSizeName]"
+				}
+				# log = "HIS_MILITARY_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
+			}
+			log = "HIS_FLEET:[GetDate],[This.GetName],[Root.HIS_NUM_CORVETTE],[Root.HIS_NUM_FRIGATE],[Root.HIS_NUM_DESTROYER],[Root.HIS_NUM_CRUISER],[Root.HIS_NUM_BATTLESHIP],[Root.HIS_NUM_TITAN],[Root.HIS_NUM_COLOSSUS],[Root.HIS_NUM_JUGGERNAUT],[Root.HIS_NUM_SMALL_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_LARGE_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_PIRATE_CORVETTE],[Root.HIS_NUM_PIRATE_DESTROYER],[Root.HIS_NUM_GALLEON],[Root.HIS_NUM_PSIONIC_AVATAR],[Root.HIS_NUM_SPACE_AMOEBA],[Root.HIS_NUM_CRISIS_CORVETTE],[Root.HIS_NUM_CRISIS_DESTROYER],[Root.HIS_NUM_CRISIS_CRUISER],[Root.HIS_NUM_STAR_EATER],[Root.HIS_NUM_CARAVANEER_DESTROYER_01],[Root.HIS_NUM_CARAVANEER_CRUISER_01],[Root.HIS_NUM_GRAYGOO_INTERDICTOR],[Root.HIS_NUM_GRAYGOO_MOTHERSHIP],[Root.HIS_NUM_NPC_WARSHIP_01],[Root.HIS_NUM_TOXIC_GOD]"
+		}
+	}
+
+	after = {
+		country_event = {
+			id = historian_military_affairs.2
+			days = 30
 		}
 	}
 }

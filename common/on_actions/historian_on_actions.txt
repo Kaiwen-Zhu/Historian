@@ -4,13 +4,7 @@ on_game_start_country = {
 		historian_economy.1  # 于每月 3 日记录 17 种资源储量及月收入
 		historian_diplomacy.1  # 于每月 10 日记录我国与其它国家之间相互的评价
 		historian_demography.1  # 于每年 01.15, 07.15 记录人口总数及各物种人口数
-		}
-}
-
-# This = country
-on_monthly_pulse_country = {
-	events = {
-		# historian_military_affairs.1  # 统计军事舰船情况
+		historian_military_affairs.1  # 于每月 5 日记录海军组织
 	}
 }
 

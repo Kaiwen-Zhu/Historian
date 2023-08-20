@@ -89,6 +89,15 @@
               <span>外交</span>
             </el-menu-item>
 
+            <el-sub-menu index="6">
+              <template #title>
+                <span>军事</span>
+              </template>
+              <el-menu-item index="6-1" v-on:click="showPage('navy')">
+                <span>海军</span>
+              </el-menu-item>
+            </el-sub-menu>
+
           </el-menu>
         </el-aside>
 
@@ -129,6 +138,12 @@
           {% include "diplomatic_history.html" %}
         </el-main>
         <!-- diplomatic history end -->
+
+        <!-- military history begin -->
+        <el-main id="military_history_navy" v-if="currentPage==='navy'">
+          {% include "military_history_navy.html" %}
+        </el-main>
+        <!-- military history end -->
       </el-container>
     </div>
 

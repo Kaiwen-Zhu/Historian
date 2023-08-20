@@ -1,0 +1,10 @@
+{% for fleet in fleets %}
+<div class="fleet">
+  <h3>{{ fleet.name }}</h3>
+  {% for size, num in fleet.ships.items() %}
+    {{ size }} × {{ num }}&nbsp;&nbsp;
+  {% endfor %}
+</div>
+{% endfor %}
+
+<el-backtop target="#military_history_navy" />

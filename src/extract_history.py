@@ -29,7 +29,7 @@ def main():
     extract_demographic_history(game_log, data_path)
     extract_scientific_history(game_log, data_path)
     extract_diplomatic_history(game_log, data_path)
-    # extract_military_history(game_log, data_path)
+    extract_military_history(game_log, data_path)
 
     print(f"数据已被提取到 {data_path}。")
 
