@@ -93,8 +93,8 @@
               <template #title>
                 <span>军事</span>
               </template>
-              <el-menu-item index="6-1" v-on:click="showPage('navy')">
-                <span>海军</span>
+              <el-menu-item index="6-1" v-on:click="showPage('fleets')">
+                <span>海军舰队</span>
               </el-menu-item>
             </el-sub-menu>
 
@@ -140,8 +140,8 @@
         <!-- diplomatic history end -->
 
         <!-- military history begin -->
-        <el-main id="military_history_navy" v-if="currentPage==='navy'">
-          {% include "military_history_navy.html" %}
+        <el-main id="military_history_fleets" v-if="currentPage==='fleets'">
+          {% include "military_history_fleets.html" %}
         </el-main>
         <!-- military history end -->
       </el-container>

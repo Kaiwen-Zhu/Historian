@@ -73,7 +73,7 @@ def plot_pop_size(env, data_path, dir_path):
             'name': species, 'data': nums
         })
     
-    render_page(env, 'pop_size.html', dir_path, '人口规模.html', config=pop_size_config)
+    render_page(env, 'charts/pop_size.html', dir_path, '人口规模.html', config=pop_size_config)
                     
 
 def plot_unity(env, data_path, dir_path):
@@ -96,8 +96,8 @@ def plot_unity(env, data_path, dir_path):
         'colors': ['#51aca6']
     }
 
-    render_page(env, 'line_chart.html', dir_path, '凝聚力储量.html', config=unity_reserves_config)
-    render_page(env, 'line_chart.html', dir_path, '凝聚力月收入.html', config=unity_income_config)
+    render_page(env, 'charts/line_chart.html', dir_path, '凝聚力储量.html', config=unity_reserves_config)
+    render_page(env, 'charts/line_chart.html', dir_path, '凝聚力月收入.html', config=unity_income_config)
 
 
 def compile_demographic_history(env: Environment, data_path: str, output_path: str):
