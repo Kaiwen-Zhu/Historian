@@ -1,0 +1,2377 @@
+{
+    "tech_arcane_deciphering": {
+        "name": "奥术解密",
+        "desc": "各式各样的文物和科技以无法理解和复制的神秘方式运行着……至少无法用我们已知的常规科学来理解。",
+        "area": "society"
+    },
+    "tech_archeology_lab_ancrel": {
+        "name": "策展人考古实验室",
+        "desc": "舰载实验室装备有先进的考古学装备，包括由策展人提供的大容量数据库，新的发现可以很容易地在其中标注出来。",
+        "area": "society"
+    },
+    "tech_archaeostudies": {
+        "name": "远古学",
+        "desc": "该领域的研究致力于开发远古文物的可行性应用。我们远不是星系里第一批涉足繁星的文明。只要加以努力，他们的遗产便能照亮我们的前程。",
+        "area": "society"
+    },
+    "tech_secrets_cybrex": {
+        "name": "赛博勒克斯采矿核心",
+        "desc": "赛博勒克斯在建造环形世界方面依赖一种可以调查和收获轨道资源的高效采矿无人机。赛博勒克斯制造的存储芯片和传感器可以适配到我们自己的采矿无人机中，以此我们得以高效利用他们远古的算法。",
+        "area": "society"
+    },
+    "tech_secrets_league": {
+        "name": "第一联盟归档办公室",
+        "desc": "巅峰时期的第一联盟其庞大的帝国规模让我们相形见绌，唯有无可匹敌的官僚体系才能让这台巨大的机械顺畅运转。他们所使用的并行归档阵列在归类和存储文件方面提供了前所未有的效率。",
+        "area": "society"
+    },
+    "tech_secrets_irassian": {
+        "name": "伊拉斯人海军船坞",
+        "desc": "伊拉斯人的太空海军传统在其时代可谓无与伦比。海军舰船和商船如同流水般从其船坞中汩汩涌出，这可能也招致了他们自身的衰弱。由于伊拉斯人制造了如此海量的舰船并又对其极度依赖，他们完全无力控制疫情最终毁灭了整个帝国。",
+        "area": "society"
+    },
+    "tech_secrets_vultaum": {
+        "name": "沃陶姆现实计算机",
+        "desc": "沃陶姆人的现实计算机是一种独特的、专用于分析“存在”本身的处理单元，其工作并不通过物理，而更多像是在对现实的源代码进行逆向工程，并寻找其中的漏洞以让沃陶姆人利用来拆解他们认为自己所生活在其中的这个“模拟过程”。",
+        "area": "society"
+    },
+    "tech_secrets_yuht": {
+        "name": "尤特天文干涉仪",
+        "desc": "尤特文明是一个充满矛盾的社会，他们一方面痴迷于寻找其他感性物种的念头，另一方面又拒绝接受自己并不孤单的事实。他们竭尽全力证伪所有的外星生命，他们的偏见也渗入入了科技当中。然而，通过合适的调整，我们确实可以修复他们强大的探测阵列。",
+        "area": "society"
+    },
+    "tech_secrets_baol": {
+        "name": "巴奥有机工厂",
+        "desc": "巴奥有机体制造工具的手段非常独特。由于该物种的行动相对迟缓，他们会在一种又像果园又像工厂的设施中直接利用有机物种出需要的工具。通过合适的基因调控，我们也可以在普通的农田边上种出许多物品和工具。",
+        "area": "society"
+    },
+    "tech_secrets_zroni": {
+        "name": "泽珞风暴投射器",
+        "desc": "泽珞是一种令人惊叹的物质，倾向狂暴地释放能量。我们认为只要正确利用文物就可以生成覆盖一整个恒星系的太空风暴。",
+        "area": "society"
+    },
+    "tech_archaeoshield": {
+        "name": "远古延留力场",
+        "desc": "延留力场的投射距离远超普通护盾，它能在着弹瞬间利用远古文物将时间流速减缓，给予护盾更长的时间窗口来消耗来袭攻击的能量。",
+        "area": "society"
+    },
+    "tech_archaeoarmor": {
+        "name": "远古脉冲装甲",
+        "desc": "利用磁能脉冲和场投射原理，这种离子化的装甲板可以负载反应装药，缓解碰撞的能量。",
+        "area": "society"
+    },
+    "tech_archaeo_detection_scrambler": {
+        "name": "远古索敌扰频器",
+        "desc": "具有正确波长的回显中继器和光扩散器可以产生破坏性干涉，有效地扰乱敌方索敌系统。",
+        "area": "society"
+    },
+    "tech_archaeo_titan_beam": {
+        "name": "远古湮灭眩光",
+        "desc": "高强度中射程火力将会让我们的泰坦舰更加轻易地突破敌人的战线。这些远古的火炮曾是一个星海帝国建立的根基。",
+        "area": "society"
+    },
+    "tech_archaeo_pk_devolving_beam": {
+        "name": "降智光束",
+        "desc": "这是一种巨像级心智抹除武器，可以释放覆盖整颗行星的能量波，将大多数感性生命变回未开智状态。工程师们预估在进行进一步调整之后，它甚至还可以用来抹除机器单元的记忆体使其瘫痪。",
+        "area": "society"
+    },
+    "tech_archaeo_mass_drivers": {
+        "name": "远古巨炮组",
+        "desc": "这些硕大无朋的炮组发射相对缓慢但是极具破坏力的弹丸，确切地说它们什么都能射，包括金属废弃物和小行星碎块等等。",
+        "area": "society"
+    },
+    "tech_archaeo_lasers": {
+        "name": "远古穴蚀坍缩器",
+        "desc": "这种高能武器在命中时会产生狂暴的微坍缩事件，向目标的装甲中释放巨量热量和应力。",
+        "area": "society"
+    },
+    "tech_archaeo_point_defence": {
+        "name": "远古防御投网机",
+        "desc": "要说锁定和拦截导弹这活儿，这些古怪的炮阵可是超级棒，以远古代码写就的预测算法可以织造一张滴水不漏的火力防御网。",
+        "area": "society"
+    },
+    "tech_archaeo_missiles": {
+        "name": "远古纳米导弹云发射器",
+        "desc": "当利用远古科技稳定化后，我们便可以用粒子电荷创造携带有载荷颇具威力的微导弹簇群，可用于饱和对方的点防御系统。",
+        "area": "society"
+    },
+    "tech_archaeo_mass_accelerator": {
+        "name": "远古饱和剂发射炮",
+        "desc": "这种火炮发射一系列微小的离子化球体弹幕用来中和大部分的力场，使其拥有极高的护盾穿透率。虽有理论认为这些漂亮的球体可以用作珠宝，但在一场熔毁了整间实验室的严重事故后，所有相关提案都被驳回了。",
+        "area": "society"
+    },
+    "tech_archaeo_strike_crafts": {
+        "name": "远古钻孔机无人机",
+        "desc": "这些高速无人机装备有独特的采矿激光，它们几乎可以无视目标的任何镀层防护。这么好的科技只用来采矿岂不是太浪费了。",
+        "area": "society"
+    },
+    "tech_archaeo_rampart": {
+        "name": "远古壁垒",
+        "desc": "在安保方面，尽管防御平台性价比极高，但它们仍需要在控制中心的操作下运行。强化我们的恒星基地，提升其在遭受攻击时的生存能力，并最大化我们对独立轨道防御设施的组网能力将会让我们有更充裕的时间派遣增援。",
+        "area": "society"
+    },
+    "tech_archaeo_overcharger": {
+        "name": "远古护盾超频器",
+        "desc": "得益于远古稳定化线圈和阻尼器，护盾可以安全地进行超频。除了产生的力场更强以外，这也可以直接汽化掉部分来袭的弹丸。",
+        "area": "society"
+    },
+    "tech_archaeo_refinery": {
+        "name": "远古精炼厂",
+        "desc": "这种具有数百万年历史的处理设施拥有着超过100%的效率。它的运作方式依旧是个谜，但它对产出的巨大提升是难以估量的。",
+        "area": "society"
+    },
+    "tech_colossus": {
+        "name": "巨像",
+        "desc": "巨构工程学的进步孕育出了巨像型战舰，模糊了现实与幻想的界限。只需按下按钮，这些巨大的单一武器平台就能凭一己之力改变或抹去一整个世界。",
+        "area": "engineering"
+    },
+    "tech_pk_cracker": {
+        "name": "地爆天星",
+        "desc": "发射的热能流能够加热行星大气，并引爆行星核心，此举将彻底的毁灭星球的地壳构造。 最后，一个相对较小的冲击波会将行星炸得四分五裂。",
+        "area": "engineering"
+    },
+    "tech_pk_shielder": {
+        "name": "安乐天使",
+        "desc": "一个永久的、不可逾越的屏蔽场将被部署在行星表面（吸收一些波长的光）。",
+        "area": "physics"
+    },
+    "tech_pk_neutron": {
+        "name": "中子灭杀",
+        "desc": "一种加速的中子辐射羽流将会扫过行星表面，并对大多数生物组织进行破坏。",
+        "area": "physics"
+    },
+    "tech_pk_godray": {
+        "name": "神圣激素",
+        "desc": "一种能增强特定灵能波长的神秘催化剂，能诱导生物脑产生幻觉（宗教体验），并能严重扰乱电子脑（脑死亡）。",
+        "area": "society"
+    },
+    "tech_pk_nanobots": {
+        "name": "大气纳米机器人散布",
+        "desc": "向大气中散布大量纳米机器人，它们侵入智慧生命并将自己转化为控制性的植入物，最终将不知情的宿主转化为被机械智能控制的义体人。",
+        "area": "engineering"
+    },
+    "tech_btc_1": {
+        "name": "星爆器",
+        "desc": "一束定向的快子能量被注入到这颗恒星，引发了一次超新星爆炸。这次事件释放的巨额能量被用来产生足量的暗物质。\\n\\n当恒星被引爆时，恒星系内包括我方在内的所有殖民地，巨型结构和空间站都会被摧毁。只有焚天神兵能够幸免遇难。",
+        "area": "engineering"
+    },
+    "tech_gargantuan_evolution": {
+        "name": "超体进化",
+        "desc": "虚空孳孽的卵进化出了通过吸收邻近恒星的能源来忍受严酷太空环境的能力。",
+        "area": "society"
+    },
+    "tech_lgate_activation": {
+        "name": "L-星门启动",
+        "desc": "L-星门超出了我们对亚空间原理的理解。在将其开启之前，我们必须对此进行补救。",
+        "area": "physics"
+    },
+    "tech_repeatable_lcluster_clue": {
+        "name": "L-星门线索",
+        "desc": "对纳米机器与亚空间现象进行大量研究，最终将为瘫痪的L-星门谜团揭开新的L-星门线索。",
+        "area": "engineering"
+    },
+    "tech_experimental_subspace_navigation": {
+        "name": "试验性超空间导航",
+        "desc": "单独的科研船可以突破自然形成的超空间来抵达那些用正常手段无法抵达的已知星域。",
+        "area": "physics"
+    },
+    "tech_neuroregeneration": {
+        "name": "神经组织工程",
+        "desc": "当适应了一个物种的基因组之后，这种经工程设计出来的组织能够表现出强烈的神经再生特性，显著加速了其受体中神经元、轴突和突触的发育。",
+        "area": "society"
+    },
+    "tech_nanite_repair_system": {
+        "name": "纳米修复系统",
+        "desc": "在拾荒者机器人的残骸里发现了一种高效的船壳自动维修系统，由数十亿个微型纳米机器人组成，并已改造成可为我们所用。至于拾荒者是从远古残骸中夺取了这个系统，还是原本就自带该系统则不得而知。",
+        "area": "engineering"
+    },
+    "tech_nanite_autocannon": {
+        "name": "纳米机关炮",
+        "desc": "极度先进的自动火炮，射出的弹药可以在接近目标时引爆成一片纳米机器人云，以此过载目标的护盾并蚕食其船体区段。",
+        "area": "engineering"
+    },
+    "tech_nanite_flak_batteries": {
+        "name": "纳米高射炮",
+        "desc": "在现有的设计上，改装以纳米机器人的筒状战斗部，可以对舰载机大快朵颐，可谓是舰载机飞行员的噩梦。",
+        "area": "engineering"
+    },
+    "tech_solar_panel_network": {
+        "name": "轨道能源转化技术",
+        "desc": "先进的太阳能板科技可以抵消恒星基地的运行成本。不过，这些太阳能板需要占用一个恒星基地的模块才能生产足够规模的能源。",
+        "area": "engineering"
+    },
+    "tech_space_exploration": {
+        "name": "太空探索",
+        "desc": "超光速航行的实现带来了太空时代的曙光。跨星系载人航行现在不再仅仅是可能，而是变成一种必要的技术。",
+        "area": "engineering"
+    },
+    "tech_corvettes": {
+        "name": "护卫舰",
+        "desc": "超光速航行技术的突破将使得我们将传统的地空军用穿梭机最终改造成体型相对小，速度快，操纵性强但是火力有限的机动战舰。",
+        "area": "engineering"
+    },
+    "tech_destroyers": {
+        "name": "驱逐舰",
+        "desc": "尽管比护卫舰大一些，但是驱逐舰的船体结构仍使它仍不失为一种较为灵活的炮艇。",
+        "area": "engineering"
+    },
+    "tech_cruisers": {
+        "name": "巡洋舰",
+        "desc": "这种船体结构最初设计为下一代试验型殖民船，其丰富的挂载点使得其能够理想地携带重武器及弹药。",
+        "area": "engineering"
+    },
+    "tech_battleships": {
+        "name": "战列舰",
+        "desc": "作为最大的标准化军用战舰，战列舰自然配备了厚重的装甲和数个移动炮塔。",
+        "area": "engineering"
+    },
+    "tech_titans": {
+        "name": "泰坦",
+        "desc": "设计这种规模的战舰，可以结合卓越的火力和尖端的辅助，达到摧枯拉朽的效果。泰坦型战舰可充当全能的旗舰，也可支援周围的舰船，抑或诱敌深入。",
+        "area": "engineering"
+    },
+    "tech_juggernaut": {
+        "name": "主宰",
+        "desc": "作为一个行动自如、大小空前的太空基地，主宰级舰船可以将进攻作战提升到一个全新的高度。",
+        "area": "engineering"
+    },
+    "tech_corvette_build_speed": {
+        "name": "标准化护卫舰模板",
+        "desc": "建立新的护卫舰模板和建造标准将会大大提高生产线的效率。",
+        "area": "engineering"
+    },
+    "tech_corvette_hull_1": {
+        "name": "改进护卫舰船体",
+        "desc": "建造技术的进步将使得我们能够进行更坚固更耐用的护卫舰的建造。",
+        "area": "engineering"
+    },
+    "tech_corvette_hull_2": {
+        "name": "先进护卫舰船体",
+        "desc": "最新一代的护卫舰优化了结构的整体性并改进了舱壁。",
+        "area": "engineering"
+    },
+    "tech_destroyer_build_speed": {
+        "name": "标准化驱逐舰模板",
+        "desc": "建立新的驱逐舰模板和建造标准将会大大提高生产线的效率。",
+        "area": "engineering"
+    },
+    "tech_destroyer_hull_1": {
+        "name": "改进驱逐舰船体",
+        "desc": "建造技术的进步将使得我们能够进行更坚固更耐用的驱逐舰的建造。",
+        "area": "engineering"
+    },
+    "tech_destroyer_hull_2": {
+        "name": "先进驱逐舰船体",
+        "desc": "新一代的驱逐舰优化了结构的整体性并改进了舱壁。",
+        "area": "engineering"
+    },
+    "tech_cruiser_build_speed": {
+        "name": "标准化巡洋舰模板",
+        "desc": "建立新的巡洋舰模板和建造标准将会大大提高生产线的效率。",
+        "area": "engineering"
+    },
+    "tech_cruiser_hull_1": {
+        "name": "改进巡洋舰船体",
+        "desc": "建造技术的进步将使得我们能够进行更坚固更耐用的巡洋舰的建造。",
+        "area": "engineering"
+    },
+    "tech_cruiser_hull_2": {
+        "name": "先进巡洋舰船体",
+        "desc": "最新一代的巡洋舰优化了结构的整体性并改进了舱壁。",
+        "area": "engineering"
+    },
+    "tech_battleship_build_speed": {
+        "name": "标准化战列舰模板",
+        "desc": "建立新的战列舰模板和建造标准将会大大提高生产线的效率。",
+        "area": "engineering"
+    },
+    "tech_battleship_hull_1": {
+        "name": "改进战列舰船体",
+        "desc": "建造技术的进步将使得我们能够进行更坚固更耐用的战列舰的建造。",
+        "area": "engineering"
+    },
+    "tech_battleship_hull_2": {
+        "name": "先进战列舰船体",
+        "desc": "最新一代的战列舰优化了结构的整体性并改进了舱壁。",
+        "area": "engineering"
+    },
+    "tech_titan_hull_1": {
+        "name": "改进泰坦船体",
+        "desc": "建造技术的进步将使得我们能够进行更坚固更耐用的泰坦的建造。",
+        "area": "engineering"
+    },
+    "tech_titan_hull_2": {
+        "name": "先进泰坦船体",
+        "desc": "最新一代的泰坦已经改善了结构的整体性并改进了舱壁。",
+        "area": "engineering"
+    },
+    "tech_starbase_1": {
+        "name": "恒星基地建设",
+        "desc": "为了充分利用恒星系中的资源，我们必须在星系主星较近的轨道附近建立一个集中化的太空设施。",
+        "area": "engineering"
+    },
+    "tech_starbase_2": {
+        "name": "星港",
+        "desc": "初期的恒星基地只不过是临时的前哨站。而永久性的星港能够让我们保证对恒星系的牢固控制。",
+        "area": "engineering"
+    },
+    "tech_starbase_3": {
+        "name": "星垒",
+        "desc": "随着太空交通流量的增加，我们需要更大更可靠的恒星基地来保证对恒星系航道的控制。",
+        "area": "engineering"
+    },
+    "tech_starbase_4": {
+        "name": "星堡",
+        "desc": "这些强大的太空堡垒将为恒星系中所有的军事活动提供一个据点，它们的存在几乎足以阻挡住最顽强的进攻者。",
+        "area": "engineering"
+    },
+    "tech_starbase_5": {
+        "name": "擎天堡",
+        "desc": "一个用一座巨型军用空间站就能抵挡数支攻击舰队的构想正在制定当中。一旦实现，这些擎天堡将会成为恒星系中心的伟大纪念碑。",
+        "area": "engineering"
+    },
+    "tech_habitat_1": {
+        "name": "轨道居住站",
+        "desc": "允许建造规模庞大，能够自给自足的轨道居住站。",
+        "area": "engineering"
+    },
+    "tech_habitat_2": {
+        "name": "居住站扩建",
+        "desc": "相较于如今的高效设计，我们早期的居住站只能算原始罢了。",
+        "area": "engineering"
+    },
+    "tech_habitat_3": {
+        "name": "高级太空居住站",
+        "desc": "多年来对轨道居住站的改进让我们能够创造效率更高的新设计。",
+        "area": "engineering"
+    },
+    "tech_modular_engineering": {
+        "name": "模块化工程",
+        "desc": "优化恒星基地的建造流程，使用模块化设计，这将可以减少目前建造的花费和时间。",
+        "area": "engineering"
+    },
+    "tech_space_defense_station_improvement": {
+        "name": "工兵部队",
+        "desc": "创建专门的舰队工兵部队会有利于深空防御平台建设，同时降低建筑成本，并提高其耐久度。",
+        "area": "engineering"
+    },
+    "tech_strike_craft_1": {
+        "name": "航母作战",
+        "desc": "短程载人舰载机，速度快，体型小，突防生存能力强。",
+        "area": "engineering"
+    },
+    "tech_strike_craft_2": {
+        "name": "改良型舰载机",
+        "desc": "新一代舰载机装备了改进的航空电子设备，同时拥有更优良的操作性能及更强劲的武器装备。",
+        "area": "engineering"
+    },
+    "tech_strike_craft_3": {
+        "name": "先进型舰载机",
+        "desc": "深度改良型舰载机，性能远胜于先期版本，是每位飞行员梦寐以求的机型。",
+        "area": "engineering"
+    },
+    "tech_strike_craft_skrand": {
+        "name": "斯卡拉维德舰载机",
+        "desc": "从斯克兰德和他的人那儿学到的设计经验，这些先进的舰载机可以运用灵活适应的战术进行长时间作战。",
+        "area": "engineering"
+    },
+    "tech_assault_armies": {
+        "name": "星际远征军",
+        "desc": "入侵星球绝非易事。军队出征前，须先克服重大后勤补给问题。",
+        "area": "engineering"
+    },
+    "tech_ship_armor_1": {
+        "name": "纳米复合材料",
+        "desc": "加强过的纳米装甲能够提供多一层的防护，有没有这一层防护，在战斗中可能就是生与死的区别。",
+        "area": "engineering"
+    },
+    "tech_ship_armor_2": {
+        "name": "瓷金复合材料",
+        "desc": "不同金属和陶瓷的结合物，坚硬而又不失柔韧性。",
+        "area": "engineering"
+    },
+    "tech_ship_armor_3": {
+        "name": "塑钢材料",
+        "desc": "塑钢由多种塑料和金属结合而成，富有弹性。能增加舰体强度，而且造价低廉。",
+        "area": "engineering"
+    },
+    "tech_ship_armor_4": {
+        "name": "耐钢材料",
+        "desc": "此种材料质地强韧、耐冲击，是合适的舰体材料。",
+        "area": "engineering"
+    },
+    "tech_ship_armor_5": {
+        "name": "零素材料",
+        "desc": "中子装甲密度大、质地坚，相比常规合金装甲，中子装甲能抵抗更强大火力。",
+        "area": "engineering"
+    },
+    "tech_crystal_armor_1": {
+        "name": "水晶复合镀层",
+        "desc": "灌注水晶的镀层可使船体更加耐用。",
+        "area": "engineering"
+    },
+    "tech_crystal_armor_2": {
+        "name": "水晶锻造镀层",
+        "desc": "锻造时加入水晶材料，则合金硬度更上一层楼。",
+        "area": "engineering"
+    },
+    "tech_armor_hardeners_1": {
+        "name": "装甲硬化",
+        "desc": "将晶体阵列植入舰船的防御系统可以对那些通常能贯穿装甲的武器产生一定抵抗力。",
+        "area": "engineering"
+    },
+    "tech_armor_hardeners_2": {
+        "name": "自适应装甲硬化",
+        "desc": "活性金属细丝对来袭火力做出反应，通过重构自身来抵抗贯穿性武器的火力。",
+        "area": "engineering"
+    },
+    "tech_thrusters_1": {
+        "name": "化学推进器",
+        "desc": "简易而有效的化学能推进器，依靠可燃推进剂来维持运作。",
+        "area": "engineering"
+    },
+    "tech_thrusters_2": {
+        "name": "离子推进器",
+        "desc": "此种电推进器的推力来源于离子束，而非传统工质。",
+        "area": "engineering"
+    },
+    "tech_thrusters_3": {
+        "name": "等离子推进器",
+        "desc": "等离子推进是电推进的高级形式，赋予舰船更快的亚光速航速和更好的机动性。",
+        "area": "engineering"
+    },
+    "tech_thrusters_4": {
+        "name": "脉冲推进器",
+        "desc": "在亚光速条件下，此种高级聚变推进器可赋予舰船无与伦比的机动性和速度优势。",
+        "area": "engineering"
+    },
+    "tech_space_defense_station_1": {
+        "name": "深空防御",
+        "desc": "这将允许我们建设深空防御平台以保护我们的恒星基地。",
+        "area": "engineering"
+    },
+    "tech_defense_platform_hull_1": {
+        "name": "改善结构完整性",
+        "desc": "强化过的构架与增强了冲击吸收能力的防爆护盾即使在巨大的压力下，也可以确保平台的结构完整性。",
+        "area": "engineering"
+    },
+    "tech_basic_industry": {
+        "name": "工业基地",
+        "desc": "建立基础工业是远航宇宙的必要条件。",
+        "area": "engineering"
+    },
+    "tech_mechanized_mining": {
+        "name": "机械化开采",
+        "desc": "应用机械工程学进行采矿是任何工业社会的基本需求。",
+        "area": "engineering"
+    },
+    "tech_powered_exoskeletons": {
+        "name": "动力外骨骼",
+        "desc": "外骨骼动力套装能增加穿戴者的力量和速度。其军事用途显而易见，但同样可以用来提升劳动效率。",
+        "area": "engineering"
+    },
+    "tech_space_mining_1": {
+        "name": "零重力精炼厂",
+        "desc": "在矿物开采站中内置精炼厂将会大幅提升采矿效率。",
+        "area": "engineering"
+    },
+    "tech_space_mining_2": {
+        "name": "远距离矿物扫描仪",
+        "desc": "增加扫描仪距离后，可以更快辨识矿物分布，从而增加矿物开采效率。",
+        "area": "engineering"
+    },
+    "tech_space_mining_3": {
+        "name": "矿石切割束",
+        "desc": "短距离高能镭射，可以轻而易举地切开岩石，大幅提升采矿的效率。",
+        "area": "engineering"
+    },
+    "tech_space_mining_4": {
+        "name": "自动采矿无人机",
+        "desc": "配置了采矿镭射的无人机群可以在附近进行高效采矿。",
+        "area": "engineering"
+    },
+    "tech_space_mining_5": {
+        "name": "纳米矿物探测器",
+        "desc": "装配了成千上万纳米机器人的特殊探测器。可以探索到之前无法识别的矿脉，并将其加以标记，以便以后进行采集。",
+        "area": "engineering"
+    },
+    "tech_mining_1": {
+        "name": "地热水力压裂",
+        "desc": "新的水力压裂技术可使我们深入地壳，开采过去无法获得的地热资源。",
+        "area": "engineering"
+    },
+    "tech_mining_2": {
+        "name": "地心开采",
+        "desc": "借助这些大型钻机，我们可以开采接近地心附近常见的深层富矿。",
+        "area": "engineering"
+    },
+    "tech_mining_3": {
+        "name": "矿物分离",
+        "desc": "用先进光谱测定法配合水力压裂技术与化学冲刷，可以快速开采浅层与中层的矿脉。",
+        "area": "engineering"
+    },
+    "tech_mineral_purification_1": {
+        "name": "矿物提纯",
+        "desc": "优化开采矿物的加工流程可使我们的效率达到新的水平。",
+        "area": "engineering"
+    },
+    "tech_mineral_purification_2": {
+        "name": "先进矿物提纯",
+        "desc": "对半精炼的矿物进行二级处理，可使矿物的存储和运输更为高效。",
+        "area": "engineering"
+    },
+    "tech_alloys_1": {
+        "name": "固态全息铸模",
+        "desc": "固态全息铸模可以瞬间改变自身形态，从而提升合金的生产速度。",
+        "area": "engineering"
+    },
+    "tech_alloys_2": {
+        "name": "纳米分离器",
+        "desc": "纳米分离器乃是合金制造业改革性的新一步。大幅简化铸模过程，还能够提升总体生产质量。",
+        "area": "engineering"
+    },
+    "tech_advanced_metallurgy_1": {
+        "name": "陶瓷合金",
+        "desc": "改良陶瓷在工业中的广泛运用能够提高冶金产量。",
+        "area": "engineering"
+    },
+    "tech_advanced_metallurgy_2": {
+        "name": "耐钢合金",
+        "desc": "采用尖端技术取代过时的瓷金设备后，我们的煅炉将更高温、更耐久，进而提高其产能。",
+        "area": "engineering"
+    },
+    "tech_luxuries_1": {
+        "name": "纳米电路装配",
+        "desc": "有了提前编写过的纳米电路，很多消费品能够快速地在工厂中进行组装。",
+        "area": "engineering"
+    },
+    "tech_luxuries_2": {
+        "name": "复制机终端",
+        "desc": "对物件的图样进行储存后，这些终端可以复制生产已储存的物件。",
+        "area": "engineering"
+    },
+    "tech_engineering_1": {
+        "name": "纳米力学",
+        "desc": "通过先进的仪器，我们可以在纳米层面上对物理进行研究与应用。",
+        "area": "engineering"
+    },
+    "tech_engineering_2": {
+        "name": "超固体材料",
+        "desc": "充分了解与并生产这种超固体，可以使任何一个太空文明受益匪浅。",
+        "area": "engineering"
+    },
+    "tech_engineering_3": {
+        "name": "超流体材料",
+        "desc": "对于超流态材料的研究，有望将量子力学与重力基本相互作用结合起来。",
+        "area": "engineering"
+    },
+    "tech_robotic_workers": {
+        "name": "机器人劳工",
+        "desc": "此种机器人单位是完美的廉价低端劳动力，能在简单的语音指令下完成重体力劳动，但无法胜任诸如爬楼梯等较为高级的任务。",
+        "area": "engineering"
+    },
+    "tech_droid_workers": {
+        "name": "智能人",
+        "desc": "升级版机器人劳工，行动能力可与大多数有机生物相媲美。其神经处理器也进步巨大。",
+        "area": "engineering"
+    },
+    "tech_synthetic_workers": {
+        "name": "合成人",
+        "desc": "高级机器人，比绝大多数有机生物更强，更快，更耐用。其神经处理器有很大提高，拥有独立运作的能力。",
+        "area": "engineering"
+    },
+    "tech_synthetic_leaders": {
+        "name": "合成人人格矩阵",
+        "desc": "合成人被赋予人格后，终于能与其他人们平等地进行社会交流。有些合成人甚至能够成为领袖。",
+        "area": "engineering"
+    },
+    "tech_robot_assembly_complex": {
+        "name": "机器人装配系统",
+        "desc": "先进的装配模板系统，可以大幅提高我们组装新机器人的效率。",
+        "area": "engineering"
+    },
+    "tech_integrated_cybernetics": {
+        "name": "整合式义体",
+        "desc": "对基础的外骨骼套件进行改良后，这些整合式义体植入体能够让使用者对于有害的环境效果更具有抵抗力。",
+        "area": "engineering"
+    },
+    "tech_space_construction": {
+        "name": "外太空建设",
+        "desc": "在我们能够在其他星球上建立轨道空间站之前，工程师们必须首先解决空间建设中遇到的全新的设计挑战。",
+        "area": "engineering"
+    },
+    "tech_afterburners_1": {
+        "name": "加力燃烧室",
+        "desc": "这种强力推进器能够额外提升战斗速度，然而需要消耗巨大能源。",
+        "area": "engineering"
+    },
+    "tech_afterburners_2": {
+        "name": "先进加力燃烧室",
+        "desc": "这种改进版的标准加力燃烧室能够极大提升舰船的战斗速度。",
+        "area": "engineering"
+    },
+    "tech_assembly_pattern": {
+        "name": "装配模式",
+        "desc": "通过在建筑模拟领域引入快速迭代算法，我们能够尽快确定所有建筑项目的最优装配模式。",
+        "area": "engineering"
+    },
+    "tech_construction_templates": {
+        "name": "建造模板",
+        "desc": "标准化的预制模板大大减少了实地设施的建造工期。",
+        "area": "engineering"
+    },
+    "tech_housing_1": {
+        "name": "气候控制系统",
+        "desc": "改变行星气候规律以压制灾难性气候现象的能力可使住房建筑更容易维护，并开放新的可居住区域。",
+        "area": "engineering"
+    },
+    "tech_housing_2": {
+        "name": "反重力工程",
+        "desc": "在指向性重力科技的帮助下，星球地表的建筑可以达到前所未有的高度，而不必担心结构崩塌。通天塔指日可待！",
+        "area": "engineering"
+    },
+    "tech_repeatable_improved_tile_mineral_output": {
+        "name": "提取模式",
+        "desc": "评估矿物沉积的变动形式可以帮助建立更有效的钻探模式。",
+        "area": "engineering"
+    },
+    "tech_repeatable_improved_military_station_damage": {
+        "name": "同步开火模式",
+        "desc": "交联武器系统发射的交错式齐射可以极大提升防御站的伤害。",
+        "area": "engineering"
+    },
+    "tech_repeatable_improved_military_station_health": {
+        "name": "强化核心层",
+        "desc": "额外的内部装甲结构可以提高防御站的耐久。",
+        "area": "engineering"
+    },
+    "tech_repeatable_improved_armor_output": {
+        "name": "物质压缩",
+        "desc": "把合适的材料压缩成超高密度，是一种便宜又有效的提高防护力的方式。",
+        "area": "engineering"
+    },
+    "tech_repeatable_weapon_type_explosive_damage": {
+        "name": "热力学当量控制",
+        "desc": "得益于火箭上的微处理器严格控制的化学反应，现有的弹头可以在爆炸时发挥出最大的威力。",
+        "area": "engineering"
+    },
+    "tech_repeatable_weapon_type_explosive_fire_rate": {
+        "name": "小型预点火装置",
+        "desc": "小型化技术的进步可以让火箭拥有更快的装载与卸货速度。",
+        "area": "engineering"
+    },
+    "tech_repeatable_weapon_type_kinetic_damage": {
+        "name": "高密度弹药",
+        "desc": "超高密度的子弹可以击穿最强大的护盾。",
+        "area": "engineering"
+    },
+    "tech_repeatable_weapon_type_kinetic_fire_rate": {
+        "name": "装载效率",
+        "desc": "小小的技术进步加上改良的船只管理规程，可以让射速显著提高。",
+        "area": "engineering"
+    },
+    "tech_repeatable_reduced_building_time": {
+        "name": "组装算法",
+        "desc": "博弈论和模糊理论的应用具有大幅优化模块组装和建造的潜力。",
+        "area": "engineering"
+    },
+    "tech_mass_drivers_1": {
+        "name": "质量投射器",
+        "desc": "此类电磁射弹器使用磁铁将穿甲弹丸回旋加速到极高的速度。",
+        "area": "engineering"
+    },
+    "tech_mass_drivers_2": {
+        "name": "线圈炮",
+        "desc": "线圈炮是早期质量投射器的升级版，使用电磁线圈更有效地加速弹药。",
+        "area": "engineering"
+    },
+    "tech_mass_drivers_3": {
+        "name": "轨道炮",
+        "desc": "轨道炮是最新的电磁加速炮，轨道炮通过并行双轨加速炮弹使之以难以置信的高速发射出去。",
+        "area": "engineering"
+    },
+    "tech_mass_drivers_4": {
+        "name": "先进轨道炮",
+        "desc": "经典轨道炮的新版本，使用更坚固的轨道并增加了能量配给。这些武器比之前的更强劲，更准确。",
+        "area": "engineering"
+    },
+    "tech_mass_drivers_5": {
+        "name": "高斯炮",
+        "desc": "在对老式电磁线圈的设计进行升级后，新版本的破坏性甚至高于最先进的轨道炮。它能够发射得更准，速度更快。",
+        "area": "engineering"
+    },
+    "tech_kinetic_artillery_1": {
+        "name": "动能火炮",
+        "desc": "射程极远的火炮，火力猛烈，而且准确性极高。",
+        "area": "engineering"
+    },
+    "tech_kinetic_artillery_2": {
+        "name": "先进动能火炮",
+        "desc": "更为强劲的远程舰载火力系统，装备有升级版的发射装置和火控系统。",
+        "area": "engineering"
+    },
+    "tech_mass_accelerator_1": {
+        "name": "兆级加农炮",
+        "desc": "一款无比庞大的质量加速炮，只能安装在轴基武器台上。能够在极远距离射出威力惊人的炮弹。",
+        "area": "engineering"
+    },
+    "tech_mass_accelerator_2": {
+        "name": "千兆级加农炮",
+        "desc": "更加强大的质量加速炮，能够轻易撕毁最坚固的护盾。",
+        "area": "engineering"
+    },
+    "tech_autocannons_1": {
+        "name": "机关炮",
+        "desc": "大口径的弹道武器，发抛射壳炮弹。这些机炮的主要优势在于极高的射速。",
+        "area": "engineering"
+    },
+    "tech_autocannons_2": {
+        "name": "撕裂者机关炮",
+        "desc": "这些升级版机关炮具备更完善的追踪能力和开火控制系统，因此也提升了射速。",
+        "area": "engineering"
+    },
+    "tech_autocannons_3": {
+        "name": "火风暴机关炮",
+        "desc": "设计先进的自动火炮，能够向目标倾泻一片由高爆炮弹构成的弹幕。",
+        "area": "engineering"
+    },
+    "tech_flak_batteries_1": {
+        "name": "高射炮",
+        "desc": "高射炮可以近距离发射榴弹，这对敌人的舰载机杀伤巨大，当然也能够防御导弹。",
+        "area": "engineering"
+    },
+    "tech_flak_batteries_2": {
+        "name": "高射加农炮",
+        "desc": "升级后的高射炮装备了新型更加强大的榴弹。",
+        "area": "engineering"
+    },
+    "tech_flak_batteries_3": {
+        "name": "重型高射炮",
+        "desc": "使用预测跟踪算法和更强大的齐射，使得这些高射炮拥有了难以置信的打击敌军舰载机的能力。",
+        "area": "engineering"
+    },
+    "tech_missiles_1": {
+        "name": "核导弹",
+        "desc": "配备有高当量核弹头的天基导弹。尽管是前太空时代的老旧技术，这种简单粗暴的制导武器在射程范围内有着惊人的高效。",
+        "area": "engineering"
+    },
+    "tech_missiles_2": {
+        "name": "聚变核导弹",
+        "desc": "升级版的深空导弹，配备了更强大的核聚变弹头，飞行能力进一步提升。",
+        "area": "engineering"
+    },
+    "tech_missiles_3": {
+        "name": "反物质导弹",
+        "desc": "这些先进的导弹配备有强劲的反物质弹头。更加完善的导航系统大大提高了索敌能力。",
+        "area": "engineering"
+    },
+    "tech_missiles_4": {
+        "name": "量子导弹",
+        "desc": "最新的深空导弹，升级之后装备了威力极度强大的弹头，它能够从真空中汲取真空零点能。",
+        "area": "engineering"
+    },
+    "tech_missiles_5": {
+        "name": "掠夺者导弹",
+        "desc": "这些最尖端的导弹配备有限程度的人工智能导航，极大地提高导弹追踪目标的能力和表现。",
+        "area": "engineering"
+    },
+    "tech_swarmer_missiles_1": {
+        "name": "蜂群导弹",
+        "desc": "这些小导弹可以集群发射，是专为克制敌人的点防御系统设计的。",
+        "area": "engineering"
+    },
+    "tech_swarmer_missiles_2": {
+        "name": "旋风导弹",
+        "desc": "新的微型化技术将使得我们可以在蜂群导弹上安装更加强力的弹头，并提高飞行能力。",
+        "area": "engineering"
+    },
+    "tech_torpedoes_1": {
+        "name": "太空鱼雷",
+        "desc": "这些鱼雷其实都是速度缓慢的巨大导弹。它们装备了更加强大的弹头和护盾调制器，这使得它们可以安然穿过能量屏障。",
+        "area": "engineering"
+    },
+    "tech_torpedoes_2": {
+        "name": "装甲鱼雷",
+        "desc": "升级过后的太空鱼雷装备有装甲，可以更好地应对敌人的点防御系统。在爆炸的时候，鱼雷碎裂的装甲也会造成额外的伤害。",
+        "area": "engineering"
+    },
+    "tech_torpedoes_3": {
+        "name": "毁灭者鱼雷",
+        "desc": "装备有超强弹头的先进鱼雷。拥有更加光滑的设计，更快的引擎以及改良的护盾调解器，可以轻松穿过能量屏障。",
+        "area": "engineering"
+    },
+    "tech_dark_matter_deflector": {
+        "name": "暗物质偏导护盾",
+        "desc": "这些偏导护盾利用暗物质以一种似乎完全违反自然规律的方式偏转来袭的炮火。",
+        "area": "physics"
+    },
+    "tech_dark_matter_power_core": {
+        "name": "暗物质能源",
+        "desc": "以某种违背物理法则的方法，直接从暗物质中汲取巨量能源，为舰船供能。",
+        "area": "physics"
+    },
+    "tech_dark_matter_propulsion": {
+        "name": "暗物质推进",
+        "desc": "这些舰船推进器利用暗物质技术，以一种似乎违反了多个物理法则的方式来产生推进力。",
+        "area": "engineering"
+    },
+    "tech_cloaking_1": {
+        "name": "基础隐形场",
+        "desc": "一个经修饰的粒子场可以有效地将我们的舰船“隐藏”在开阔的太空中。然而，作为代价，这将会破坏通常情况下能够保护舰船的能量护盾的稳定性。",
+        "area": "physics"
+    },
+    "tech_cloaking_2": {
+        "name": "高级隐形场",
+        "desc": "稀有水晶透镜磨制技术的进步能够大幅提升隐形效率。",
+        "area": "physics"
+    },
+    "tech_cloaking_3": {
+        "name": "精英隐形场",
+        "desc": "以往典型的隐形技术会对舰船上相对精密的仪器造成严重的损害。但是精英隐形场的出现让这样的担忧显得过时。",
+        "area": "physics"
+    },
+    "tech_cloaking_dark_matter": {
+        "name": "暗物质隐形场",
+        "desc": "该装置使用暗物质以扭曲舰船周围的时空，使得其极难被侦测到。",
+        "area": "physics"
+    },
+    "tech_cloaking_psi": {
+        "name": "灵能相位场发生器",
+        "desc": "灵能相位场发生器能够聚焦船员的灵能潜势，从而将舰船部分相位潜入到虚境中。这将使得舰船只能被最好的传感阵列探测到，尽管在这种情况下船员被迫要面对的事还是最好别说了。",
+        "area": "society"
+    },
+    "tech_detection_array": {
+        "name": "探测阵列",
+        "desc": "一套强大的外部传感器，能够探测隐形舰队。\\n",
+        "area": "physics"
+    },
+    "tech_dark_matter_detection": {
+        "name": "暗物质探测",
+        "desc": "暗物质共振室能够显著地提升我们探测阵列的性能。",
+        "area": "physics"
+    },
+    "tech_assisted_detection": {
+        "name": "先进探测算法",
+        "desc": "将探测阵列和科研舰舰载电脑耦合在一起能够极大地提升扫描分辨率。",
+        "area": "physics"
+    },
+    "tech_subspace_drive": {
+        "name": "亚空间引擎",
+        "desc": "这些亚空间驱动引擎是在离开我们的家园的迫切愿望下诞生的一种方案，它的设计目的是用来进行有限的星际旅行。虽然它们只能进行小规模跃迁，但仍提供了一个千载难逢的机会来启动我们的星海探索。",
+        "area": "physics"
+    },
+    "tech_unusual_senses": {
+        "name": "异常传感",
+        "desc": "没有什么比自然进化更有创新力的了。通过研究前超光速文明社会是如何看待它们的世界，我们设计了新的方法以探测不速之舰船。",
+        "area": "physics"
+    },
+    "tech_new_numbers": {
+        "name": "新数字",
+        "desc": "通过研究数个前超光速文明，我们意识到还存在很多计量宇宙的方法。这甚至能够将新的数字引入到我们的数学体系中。",
+        "area": "physics"
+    },
+    "tech_trinary_computing": {
+        "name": "三元计算技术",
+        "desc": "不同的社会发展出了不同的解答方案以适应它们的逻辑和计算机技术。这些外星人的思考方式能让我们更轻易地适应外星帝国的社会结构。",
+        "area": "physics"
+    },
+    "tech_atmospheric_orbital_mechanics": {
+        "name": "大气轨道力学",
+        "desc": "得益于对围绕前超光速星球的观测站的大规模运作经验，我们发现了些许的优化空间。通过将这些优化推广到整个国家的范围，我们能够彻底降低空间站所需的维护费用。",
+        "area": "physics"
+    },
+    "tech_predatory_tactics": {
+        "name": "掠食策略",
+        "desc": "就像聪明的前超光速文明如何运动以在面对敌人的时候隐藏彼此一样，我们的飞行员可以学习到如何飞行的更快且不干扰到隐形场。",
+        "area": "society"
+    },
+    "tech_satisfying_insults": {
+        "name": "令人满意的侮辱技巧",
+        "desc": "没有什么比恰到好处的侮辱更强力的了，我们现在已经知道了如何用数种语言辱骂其他一个物种的祖先。",
+        "area": "society"
+    },
+    "tech_compact_living": {
+        "name": "蜗居",
+        "desc": "尽管没有一个文明在治理管辖一个不断发展的国家时找到了解决不断扩增的挑战的完美解决方案，我们还是发现了部分的解决办法。在研究了数个物种及其政府之后，我们发现了在灵活性和功能性之间的卓越的平衡点。",
+        "area": "society"
+    },
+    "tech_alien_topography": {
+        "name": "外星地形学",
+        "desc": "文明通常在能够促进其成长的位置勃勃生机，通过分析前太空文明定居发展的主要地点，我们的殖民地可以学习到很多。",
+        "area": "society"
+    },
+    "tech_xeno_aesthetics": {
+        "name": "异星美学",
+        "desc": "在分析了大量来自迥然不同的文化的艺术家之后，我们得到了一个泛用的理论。通过研究一个文明的艺术和文化，我们能够在同它们的战斗中取得优势。",
+        "area": "society"
+    },
+    "tech_lost_building_methods": {
+        "name": "失落建筑模式",
+        "desc": "任何拥有足够长历史的文明都有由已经被遗忘的古文明建立的奇观，这些奇观已经无法被复现了。幸运的是，我们拥有这些曾经在这些前超光速文明世界出现的古王国的档案。",
+        "area": "engineering"
+    },
+    "tech_supreme_alloy": {
+        "name": "终极合金",
+        "desc": "我们曾经以为最好的合金，结果远非如此。编目了数不清的前超光速文明的精炼过程，现在我们可以合成一种无可匹敌的金属。",
+        "area": "engineering"
+    },
+    "tech_ordered_retreat": {
+        "name": "有序撤退",
+        "desc": "尽管研究战斗中的胜利者可能是能从战斗中获得见解最明显的办法，但观察前超光速文明中的落败者也教会了我们如何组织更有效率的撤退。",
+        "area": "engineering"
+    },
+    "tech_temple_of_transportation": {
+        "name": "交通神殿",
+        "desc": "交通网络将人们聚集到一起：这是从我们观察到的许多文明所具有的共同情感。尽管我们已经不用蒸汽引擎了，我们的超空间中继网络能起到类似的作用。",
+        "area": "engineering"
+    },
+    "tech_akx_worm_1": {
+        "name": "熵递归",
+        "desc": "宇宙似乎不可避免的在向前进。这一趋势无法逆转……但只要付出的代价足够，现在这一切都可以颠覆。",
+        "area": "physics"
+    },
+    "tech_akx_worm_2": {
+        "name": "学说：奇异循环",
+        "desc": "这是一整套基于自相矛盾的直觉，还有爱，之上的社会准则。当我们通晓圆环之理后，我们了解到，无论是发出指令抑或是接受指令，我们都可以对其产生影响。",
+        "area": "society"
+    },
+    "tech_akx_worm_3": {
+        "name": "欧米伽理论",
+        "desc": "当时间悖论开始相互纠缠之时，一个难以形容的意识在黑暗深处渐渐苏醒，它渴望着，索求着。之前发生的一切就是这个意识——某些人口中所称的“时之螶”所引起的。如果我们能够让自己同这个意识进行同调的话，我们或许可以触摸到永生的大门。",
+        "area": "physics"
+    },
+    "tech_dragon_armor": {
+        "name": "人造龙鳞装甲",
+        "desc": "以太龙麟由多层独特矿物质纳米结构构成，具自我修复能力。采用非常规制造手段能够让我们精确仿制出这些能够自我修复的结构。",
+        "area": "engineering"
+    },
+    "tech_enigmatic_encoder": {
+        "name": "神秘编码器",
+        "desc": "神秘编码器在将飞行路径数据返回舰队指挥中心前，会根据某种未知的法则对数据进行加密。",
+        "area": "physics"
+    },
+    "tech_enigmatic_decoder": {
+        "name": "神秘解码器",
+        "desc": "虽然神秘解码器在标准测试中表现平平，但目标的飞行路径越不规则，该解码器预测算法的准确度似乎就越高。",
+        "area": "physics"
+    },
+    "tech_orbital_trash_dispersal": {
+        "name": "轨道垃圾散布",
+        "desc": "这种轨道轰炸管理系统将会向目标星球同时发射上百万高速小型投射物，用垃圾数据过载该星球的防卫系统。装有该装置的船只在进行轨道轰炸时，将会造成更多伤害。",
+        "area": "engineering"
+    },
+    "tech_xeno_tourism_agency": {
+        "name": "外星拓展中介",
+        "desc": "该企业中介提供各种星际旅游的宣传服务，同时也为希望搬至企业空间的移民者提供就业福利与签约奖励。",
+        "area": "society"
+    },
+    "tech_executive_retreat": {
+        "name": "高管休闲项目",
+        "desc": "为企业高层人员而建的豪华度假村。他们可以在这高度安全的环境中品味当地的星球文化。",
+        "area": "society"
+    },
+    "tech_mega_engineering": {
+        "name": "巨型结构工程",
+        "desc": "为了完成此等规模的建造项目，我们必须首先对与巨型结构相关的工程学和物资储备需求有基本的了解。",
+        "area": "engineering"
+    },
+    "tech_science_nexus": {
+        "name": "科学枢纽",
+        "desc": "科学枢纽的研究实验室和数据库能够产出源源不断的原生数据流。",
+        "area": "physics"
+    },
+    "tech_sentry_array": {
+        "name": "哨兵阵列",
+        "desc": "随着工程的不断推进，哨兵阵列会逐步的扩展探测范围，最终将囊括整个星系。",
+        "area": "physics"
+    },
+    "tech_strategic_coordination": {
+        "name": "战略指挥中心",
+        "desc": "可以将全国上下恒星基地网络进行同步化处理的设施，提升基地的防御及攻击能力。",
+        "area": "society"
+    },
+    "tech_interstellar_assembly": {
+        "name": "星际集会",
+        "desc": "星际各国的会议场地，可提高我国对外来移民的吸引力以及他国对我国的评价。",
+        "area": "society"
+    },
+    "tech_mega_art": {
+        "name": "巨型艺术设施",
+        "desc": "星际规模的艺术信标。此设施可以鼓舞人民的士气。",
+        "area": "society"
+    },
+    "tech_gateway_activation": {
+        "name": "星门激活",
+        "desc": "激活在星系中四散的废弃星门空间站的能力，可以极大地缩短星际旅行的时间。",
+        "area": "physics"
+    },
+    "tech_gateway_construction": {
+        "name": "星门建造",
+        "desc": "建造新的星门空间站使我们可以建立一个快速通行网络，给星际通行带来革命。",
+        "area": "physics"
+    },
+    "tech_dyson_sphere": {
+        "name": "戴森球",
+        "desc": "一个 戴森球完全的包裹住一个特定的恒星，直接将恒星辐射输出转化为 能量币。",
+        "area": "physics"
+    },
+    "tech_matter_decompressor": {
+        "name": "物质解压器",
+        "desc": "这个物质解压器将黑洞的引力聚焦于一处，形成了一个引力钻头，我们可以用这个钻头从黑洞的奇点中钻取物质，并转化为矿物。",
+        "area": "physics"
+    },
+    "tech_ring_world": {
+        "name": "环形世界",
+        "desc": "一个环形世界容纳了数个行星大小的区块，但需要拆除星系中其他的行星天体作为材料。",
+        "area": "engineering"
+    },
+    "tech_mega_shipyard": {
+        "name": "巨型船坞",
+        "desc": "一个有着零重力立场的巨型船坞，能够执行多个星舰建设项目。",
+        "area": "society"
+    },
+    "tech_quantum_catapult": {
+        "name": "量子弹弓",
+        "desc": "量子弹弓利用中子星或脉冲星的能量来扭曲空间织构，将舰队传送至遥远的距离之外。",
+        "area": "physics"
+    },
+    "tech_orbital_ring_tier_1": {
+        "name": "星环基地",
+        "desc": "可围绕已殖民行星的稳定轨道建设一座巨大的、环带状恒星基地。",
+        "area": "engineering"
+    },
+    "tech_hyper_relays": {
+        "name": "超空间中继器",
+        "desc": "超空间中继器可以建造在恒星系的引力阱外并构成链路，它可以实现中继器之间的快速穿越而不需要让舰船移动到相应的超空间航道入口。",
+        "area": "physics"
+    },
+    "tech_basic_science_lab_1": {
+        "name": "科学方法",
+        "desc": "对观察现象给出可验证的预测。",
+        "area": "physics"
+    },
+    "tech_basic_science_lab_2": {
+        "name": "外星材料实验室",
+        "desc": "在探索宇宙的过程中，我们不断发现陌生的新材料、新物质。我们需要新的设施来对这些发现进行分析与整理。",
+        "area": "physics"
+    },
+    "tech_basic_science_lab_3": {
+        "name": "多维研究",
+        "desc": "为了拓展知识库，我们必须考虑到所有层次的存在。一个新的研究领域正在等着我们！",
+        "area": "physics"
+    },
+    "tech_global_research_initiative": {
+        "name": "跨行星研究倡议",
+        "desc": "注资行星际资源库，灵活审批研究计划。",
+        "area": "physics"
+    },
+    "tech_curator_lab": {
+        "name": "策展人探索实验室",
+        "desc": "这些船载实验设施集成了古代策展人的先进科技，能够进一步增加调查速度。",
+        "area": "physics"
+    },
+    "tech_archeology_lab": {
+        "name": "策展人考古实验室",
+        "desc": "舰载实验室装备有先进的考古学装备，包括由策展人提供的大容量数据库，新的发现可以很容易地在其中标注出来。",
+        "area": "physics"
+    },
+    "tech_space_science_1": {
+        "name": "零重力实验室",
+        "desc": "许多重要的特殊实验只有在零重力环境下才能进行。因此我们设计了这种专用实验室。",
+        "area": "physics"
+    },
+    "tech_space_science_2": {
+        "name": "微型遏制力场",
+        "desc": "有了这些遏制力场，就可以隔离收纳各种物质或者样本，以便对其进行详细研究。",
+        "area": "physics"
+    },
+    "tech_space_science_3": {
+        "name": "量子探测器",
+        "desc": "这些先进的探测器可以对物体进行次原子级别的详细分析从而获取大量宝贵的研究资料。",
+        "area": "physics"
+    },
+    "tech_space_science_4": {
+        "name": "自主运行空间站协议",
+        "desc": "更加自动化的空间站可以解放更多的工作人员进行科研开发。",
+        "area": "physics"
+    },
+    "tech_space_science_5": {
+        "name": "多维分析",
+        "desc": "单从我们现处的维度世界对事物进行分析，所得到的成果只可能是片面的。一定要从多角度出发进行思考。",
+        "area": "physics"
+    },
+    "tech_physics_1": {
+        "name": "量子理论",
+        "desc": "通过亚原子粒子探索基本力的作用机理。",
+        "area": "physics"
+    },
+    "tech_physics_2": {
+        "name": "应用量子力学",
+        "desc": "微观事物看似不规律的行为，将会彻底改变我们对宏观物体的看法。",
+        "area": "physics"
+    },
+    "tech_physics_3": {
+        "name": "时空理论",
+        "desc": "三维空间，离不开第四个维度。",
+        "area": "physics"
+    },
+    "tech_administrative_ai": {
+        "name": "管理型人工智能",
+        "desc": "逻辑电路经特殊重组后有着相当的学术热情。",
+        "area": "physics"
+    },
+    "tech_cryostasis_1": {
+        "name": "人工智能殖民船",
+        "desc": "将殖民船交由人工智能控制，而船员和殖民者可以进入深度睡眠。",
+        "area": "physics"
+    },
+    "tech_cryostasis_2": {
+        "name": "自我意识殖民船",
+        "desc": "相当先进的系统，知悉目标后，能自动选择执行最优方案。",
+        "area": "physics"
+    },
+    "tech_self_aware_logic": {
+        "name": "自我演化逻辑",
+        "desc": "优先进行自我反省。",
+        "area": "physics"
+    },
+    "tech_automated_exploration": {
+        "name": "自动探索协议",
+        "desc": "先进的人工智能可以辅助科学专员探索新的世界、寻找新的生命和新的文明、以及前往从未有任何布洛葛去过的地方。通过人工智能的帮助，科研船可以探索宇宙。",
+        "area": "physics"
+    },
+    "tech_sapient_ai": {
+        "name": "正电子人工智能",
+        "desc": "演进人工智能是追求合成智能的必由之路。",
+        "area": "physics"
+    },
+    "tech_positronic_implants": {
+        "name": "正电子脑植入体",
+        "desc": "有限控制论，无限可能性。",
+        "area": "physics"
+    },
+    "tech_combat_computers_1": {
+        "name": "特种作战计算机",
+        "desc": "根据特定任务主动调试矩阵，能令战斗事半功倍。",
+        "area": "physics"
+    },
+    "tech_combat_computers_2": {
+        "name": "拓展战斗算法",
+        "desc": "预测算法更进一步，战场决策胜人一筹。",
+        "area": "physics"
+    },
+    "tech_combat_computers_3": {
+        "name": "智慧战斗模拟",
+        "desc": "智慧人工智能在经过高强度战争模拟试验后对于风险评估技术的潜在优化有着宝贵的洞察力。",
+        "area": "physics"
+    },
+    "tech_combat_computers_autonomous": {
+        "name": "自律舰船智能",
+        "desc": "赋予舰船以半自主智能，增强其战场响应能力。",
+        "area": "physics"
+    },
+    "tech_auxiliary_fire_control": {
+        "name": "辅助火控",
+        "desc": "安装辅助火控系统后，我们的舰船可以完成更加精密的计算以及准确的射击。",
+        "area": "physics"
+    },
+    "tech_synchronized_defences": {
+        "name": "同步防御",
+        "desc": "统一防御和攻击武器使用规范以提高效率。",
+        "area": "physics"
+    },
+    "tech_consumer_good_refinement_1": {
+        "name": "市场分析算法",
+        "desc": "基础的行政人工智能可以用于精简供需线，减少浪费。",
+        "area": "physics"
+    },
+    "tech_consumer_good_refinement_2": {
+        "name": "预测消费",
+        "desc": "通过高级人工智能，我们能够在消费需求存在之前便可靠地做出预测。",
+        "area": "physics"
+    },
+    "tech_neuro_quantum_links": {
+        "name": "量子神经链接",
+        "desc": "先进的神经植入体连接着量子计算集群，让人能够进行并行思考。",
+        "area": "physics"
+    },
+    "tech_encryption_1": {
+        "name": "量子防火墙",
+        "desc": "计算机领域的新突破让我们能够有更多新手段保护我的数据免遭窥视。",
+        "area": "physics"
+    },
+    "tech_encryption_2": {
+        "name": "同时崩塌存储",
+        "desc": "不稳定纠缠态领域的进一步突破让我们能够有更多新手段保护我们的数据遭受非法入侵。",
+        "area": "physics"
+    },
+    "tech_encryption_3": {
+        "name": "负时间密钥",
+        "desc": "我们最近在加密领域发现了一个奇怪的物理学现象，我们能够先输入一个特殊密钥再生成它。",
+        "area": "physics"
+    },
+    "tech_decryption_1": {
+        "name": "量子骇客",
+        "desc": "原始的加密机制在现代破译技术面前毫无胜算。",
+        "area": "physics"
+    },
+    "tech_decryption_2": {
+        "name": "模拟社会工程",
+        "desc": "任何安保机制中最脆弱的环节一定是其中的人。通过计算机模拟，我们能够建立他们的弱点模型，从而发现崭新的方法避开他们的安保系统——又或者骗过他们瞒天过海。",
+        "area": "physics"
+    },
+    "tech_decryption_3": {
+        "name": "准维映射",
+        "desc": "我们的特工可以在临近的现实映射中获取数据，这样就不用冒着在真实现实中触发警报的风险来获取情报。",
+        "area": "physics"
+    },
+    "tech_fission_power": {
+        "name": "裂变能源",
+        "desc": "引发核裂变为舰船提供能源，但同时也会生成有害核废料。",
+        "area": "physics"
+    },
+    "tech_fusion_power": {
+        "name": "聚变能源",
+        "desc": "核聚变可为舰船提供大量能源，且风险小于裂变。",
+        "area": "physics"
+    },
+    "tech_cold_fusion_power": {
+        "name": "冷核聚变能源",
+        "desc": "低温核聚变技术将促进新一代舰载聚变反应堆诞生。",
+        "area": "physics"
+    },
+    "tech_antimatter_power": {
+        "name": "反物质能源",
+        "desc": "利用正反物质结合产生舰船能源，效率远超核聚变。",
+        "area": "physics"
+    },
+    "tech_zero_point_power": {
+        "name": "零点能源",
+        "desc": "提取真空零点能是目前最高效的产能方式，可以近乎无限地供应舰船能源。",
+        "area": "physics"
+    },
+    "tech_reactor_boosters_1": {
+        "name": "反应堆增压器",
+        "desc": "额外的发电系统增加了船舶的反应堆发电量。",
+        "area": "physics"
+    },
+    "tech_reactor_boosters_2": {
+        "name": "改良反应堆增压器",
+        "desc": "聚变能力的发现允许更好的反应堆增压器被安装到我们的船上。",
+        "area": "physics"
+    },
+    "tech_reactor_boosters_3": {
+        "name": "先进反应堆增压器",
+        "desc": "反物质能力的发现使得能够极大地提高船舶反应堆的高度先进的反应堆助推器成为可能。",
+        "area": "physics"
+    },
+    "tech_shields_1": {
+        "name": "偏射盾",
+        "desc": "能量偏射屏障可在过载前化解一定敌方火力，主要缺点是能耗高。",
+        "area": "physics"
+    },
+    "tech_shields_2": {
+        "name": "改良偏射盾",
+        "desc": "升级能量偏射屏障，在过载前化解更多火力。",
+        "area": "physics"
+    },
+    "tech_shields_3": {
+        "name": "护盾",
+        "desc": "新型护盾生成器是新一代能量屏障，取代旧式能量偏转器，提供更优秀的防护能力。",
+        "area": "physics"
+    },
+    "tech_shields_4": {
+        "name": "先进护盾",
+        "desc": "升级护盾生成器以制造出更强能量场。只有持续不断的火力可以击穿此屏障。",
+        "area": "physics"
+    },
+    "tech_shields_5": {
+        "name": "超级护盾",
+        "desc": "加强、加固能源护盾，提供首屈一指的防护能力。",
+        "area": "physics"
+    },
+    "tech_shield_rechargers_1": {
+        "name": "护盾电容",
+        "desc": "储能电容器可用于增强舰船护盾。",
+        "area": "physics"
+    },
+    "tech_shield_hardeners_1": {
+        "name": "护盾硬化",
+        "desc": "通过这些调整，我们的护盾生成器产生的立场将会对那些易于穿透护盾的攻击产生部分偏转作用。",
+        "area": "physics"
+    },
+    "tech_shield_hardeners_2": {
+        "name": "先进护盾硬化",
+        "desc": "提升至高能态的泽珞微粒可以在我们的护盾上产生波动，可以折射那些能穿透传统护盾的攻击。",
+        "area": "physics"
+    },
+    "tech_planetary_shield_generator": {
+        "name": "行星护盾",
+        "desc": "在行星大气层中制造出强大护盾比在真空中困难，但能够有效防护轨道轰炸。",
+        "area": "physics"
+    },
+    "tech_sensors_2": {
+        "name": "重力传感器",
+        "desc": "这些传感器已经过调整，可以检测太空中的任何引力变化，例如由舰船出现导致的力场扭曲波动。",
+        "area": "physics"
+    },
+    "tech_sensors_3": {
+        "name": "亚空间传感器",
+        "desc": "这些传感器能检测到旅行舰船启动后遗留的亚空间波动。它们的灵敏度和范围比重力传感器阵列更大。",
+        "area": "physics"
+    },
+    "tech_sensors_4": {
+        "name": "快子传感器",
+        "desc": "先进的传感器依靠旋转的快子束，即使在极远距离也能检测船舶运动。",
+        "area": "physics"
+    },
+    "tech_power_plant_1": {
+        "name": "高能电容器",
+        "desc": "可以储存巨量能源的电容器是现代文明的基础。",
+        "area": "physics"
+    },
+    "tech_power_plant_2": {
+        "name": "力场调制",
+        "desc": "调整过的力场可以增加能源产量并提高能源输出。",
+        "area": "physics"
+    },
+    "tech_power_plant_3": {
+        "name": "量子能态",
+        "desc": "基本的纠缠理论在能量生产中的应用使得能源输出量大幅增加。",
+        "area": "physics"
+    },
+    "tech_power_plant_4": {
+        "name": "量子场操控",
+        "desc": "处于量子叠加态下的能量线圈，可同时充放电。",
+        "area": "physics"
+    },
+    "tech_power_hub_1": {
+        "name": "全球能源管理",
+        "desc": "负载平衡设施可以大幅提升本地电网的稳定性，并将多余的能源返还中央电容器。",
+        "area": "physics"
+    },
+    "tech_power_hub_2": {
+        "name": "行星电力网",
+        "desc": "重新设计后统一的电网将会进一步减少远距离传输的能源损耗。",
+        "area": "physics"
+    },
+    "tech_hyper_drive_1": {
+        "name": "超空间移动",
+        "desc": "就像蜘蛛网上的丝线一样，多维空间的其他维度在大多数恒星的重力井之间运动。在这些超空间航道间理论上是可以进行超光速旅行的。",
+        "area": "physics"
+    },
+    "tech_hyper_drive_2": {
+        "name": "超空间航道突破点",
+        "desc": "我们已经确定太空中有能使舰船消耗更少的能源“突破”并进入一个超空间航道的点的存在。这将产生新一代的超级引擎。",
+        "area": "physics"
+    },
+    "tech_hyper_drive_3": {
+        "name": "超空间滑流",
+        "desc": "新一代的超级引擎能够通过超空间中存在的亚空间滑流。这使得引擎的性能显着提高。",
+        "area": "physics"
+    },
+    "tech_wormhole_stabilization": {
+        "name": "虫洞稳定",
+        "desc": "天然产生的虫洞变幻无常，而其波动的能级通常使舰船无法安全地穿行其连接的开口。不过，暂时稳定其基体的方法还是存在的。",
+        "area": "physics"
+    },
+    "tech_jump_drive_1": {
+        "name": "跃迁引擎",
+        "desc": "一项开创性科技奇迹，跃迁引擎可以粉碎当地的时空连续性并在量子层面上重组至与目标地点完全相同的状态，于是这艘舰船基几乎在一瞬间完成了星系间的“跃迁”。",
+        "area": "physics"
+    },
+    "tech_ftl_inhibitor": {
+        "name": "超光速抑制",
+        "desc": "重力井投射器可以创造出局部无法安全进入超空间的区域。其能源需求与体积都十分巨大，只有恒星基地及以上等级的空间站才能安装。",
+        "area": "physics"
+    },
+    "tech_bio_reactor": {
+        "name": "生物反应堆",
+        "desc": "此设施可以高效地将有机物质转化为能源。",
+        "area": "physics"
+    },
+    "tech_repeatable_improved_tile_energy_output": {
+        "name": "超导应用",
+        "desc": "轻微改善传输效率可以相当大的减少总能量损失。",
+        "area": "physics"
+    },
+    "tech_repeatable_improved_shield_output": {
+        "name": "护盾数律分析",
+        "desc": "舰体护盾的基本力学是很复杂的，但是他们可以用多种方式进行调整和改进。",
+        "area": "physics"
+    },
+    "tech_repeatable_weapon_type_energy_damage": {
+        "name": "聚焦阵列",
+        "desc": "完善激光武器的发射节奏是一个可以让任何行星的工程精英忙几个世纪的任务。",
+        "area": "physics"
+    },
+    "tech_repeatable_weapon_type_energy_fire_rate": {
+        "name": "快速冷却剂",
+        "desc": "可以定期冷却表面的新科技，提高了我们的武器系统的稳定性和效率。让它们在使用的时候不至于炸掉我们的舰船。",
+        "area": "physics"
+    },
+    "tech_repeatable_reduced_building_cost": {
+        "name": "引力分析",
+        "desc": "计算模型的日益强大使得单体建筑项目能够更好地适应星球的极端重力条件。",
+        "area": "physics"
+    },
+    "tech_lasers_1": {
+        "name": "红激光发射器",
+        "desc": "激光武器可以向目标发射聚焦光束，通过高热量给敌方造成伤害。",
+        "area": "physics"
+    },
+    "tech_lasers_2": {
+        "name": "蓝激光发射器",
+        "desc": "比红色激光器更加强大，对有机生物来说，这种波长的电磁辐射看上去是蓝色或紫色的。",
+        "area": "physics"
+    },
+    "tech_lasers_3": {
+        "name": "紫外激光发射器",
+        "desc": "紫外激光器是它的前身蓝激光器的更新强化版本。这些武器精准而充满毁灭性，可以造成巨大的杀伤。",
+        "area": "physics"
+    },
+    "tech_lasers_4": {
+        "name": "X射线发射器",
+        "desc": "这种激光的波长较紫外线短一些，但是更具毁灭性。",
+        "area": "physics"
+    },
+    "tech_lasers_5": {
+        "name": "伽马激光",
+        "desc": "伽马激光的电磁辐射频率极高。在激光武器领域，其破坏力是无可比拟的。",
+        "area": "physics"
+    },
+    "tech_energy_lance_1": {
+        "name": "粒子光矛",
+        "desc": "这些重型能量武器能够发射聚焦的粒子射线并造成巨幅伤害。发射阵列的规模限制了它们只能运用在战列舰和泰坦上。",
+        "area": "physics"
+    },
+    "tech_energy_lance_2": {
+        "name": "快子光矛",
+        "desc": "粒子光矛更为强力的版本，该武器发射携带有巨大能量的快子光束。和它的之前版本一样，只能运用在战列舰和泰坦上。",
+        "area": "physics"
+    },
+    "tech_plasma_1": {
+        "name": "等离子发射器",
+        "desc": "可以向目标发射毁灭性的高能等离子球体的武器。这种等离子抛射体在对付大型舰船的装甲时特别有效。",
+        "area": "physics"
+    },
+    "tech_plasma_2": {
+        "name": "等离子加速器",
+        "desc": "这种新的加速炮利发射具有更先进约束场的高能等离子体。这种技术可以降低等离子体向目标飞行过程中所逸散的能量。",
+        "area": "physics"
+    },
+    "tech_plasma_3": {
+        "name": "等离子加农炮",
+        "desc": "最先进的等离子武器，这种火炮是之前的升级版等离子发射器完全军事化的成果。它们的等离子抛射体更加致命。",
+        "area": "physics"
+    },
+    "tech_arc_emitter_1": {
+        "name": "电弧发射器",
+        "desc": "该武器可以向目标发射带有混乱能量的电弧。可以在某种程度上无视装甲和护盾。",
+        "area": "physics"
+    },
+    "tech_arc_emitter_2": {
+        "name": "聚能电弧发射器",
+        "desc": "这些升级后的发射器装备了更优秀的聚焦透镜，这使得它们可以发射出更加强大的能量。",
+        "area": "physics"
+    },
+    "tech_disruptors_1": {
+        "name": "裂解炮",
+        "desc": "裂解炮发射出的高能射束，能够同时弱化并破坏构成目标原子间的分子键。它们能够穿透护盾和护甲，对敌方的船体和船员直接造成毁灭性的打击。",
+        "area": "physics"
+    },
+    "tech_disruptors_2": {
+        "name": "离子裂解炮",
+        "desc": "这些升级版的裂解炮可以对目标发射出更具威力的离子流。",
+        "area": "physics"
+    },
+    "tech_disruptors_3": {
+        "name": "相位裂解炮",
+        "desc": "这种极限强化版的裂解炮能够发射量子能，任何被命中的目标都会承受极大的伤害。",
+        "area": "physics"
+    },
+    "tech_energy_torpedoes_1": {
+        "name": "质子发射器",
+        "desc": "这些能量抛射体由紧密聚集的质子组成，能够对敌方船体造成巨额伤害。",
+        "area": "physics"
+    },
+    "tech_energy_torpedoes_2": {
+        "name": "中子发射器",
+        "desc": "由于中子具有毁灭性的能量，升级的能量发射物将依赖中子而非质子对敌方进行打击。",
+        "area": "physics"
+    },
+    "tech_pd_tracking_1": {
+        "name": "主动反制",
+        "desc": "进攻是最好的防御。",
+        "area": "physics"
+    },
+    "tech_pd_tracking_2": {
+        "name": "互联支援系统",
+        "desc": "经验证，防御武器阵列比自主防御体系更有效。",
+        "area": "physics"
+    },
+    "tech_pd_tracking_3": {
+        "name": "预测算法",
+        "desc": "推动预测系统进步，提升主动防御精确度。",
+        "area": "physics"
+    },
+    "tech_extradimensional_weapon_1": {
+        "name": "高维武器",
+        "desc": "在低次元中使用第五维的能量操纵原理，可以造就强大的能量武器。",
+        "area": "physics"
+    },
+    "tech_mining_drone_weapon_1": {
+        "name": "采矿无人机激光",
+        "desc": "使用高度聚焦透镜结合振荡发射频率来创造出足够开采小行星或击落敌人的激光。",
+        "area": "physics"
+    },
+    "tech_space_cloud_weapon_1": {
+        "name": "雷云导线",
+        "desc": "虚空之云可以通过构成其核心的大部分的密集气体所产生的电荷来释放出燃烧的等离子体电弧。按照此原理，利用相同成分的气体配合上导管即可以制造出威力强大的闪电武器。",
+        "area": "physics"
+    },
+    "null_void_beam": {
+        "name": "太虚光束",
+        "desc": "利用太虚的熵特性，这种光束可以真正地摧毁能量。",
+        "area": "physics"
+    },
+    "tech_planetary_defenses": {
+        "name": "行星防御",
+        "desc": "宇宙浩瀚冰冷，觊觎谋划者狡诈无情，保护我们的家园，时刻准备着。",
+        "area": "society"
+    },
+    "tech_interplanetary_commerce": {
+        "name": "星际贸易",
+        "desc": "在建立行星贸易所后，商机也变得更为丰富。业务将飞速拓张。",
+        "area": "society"
+    },
+    "tech_space_trading": {
+        "name": "外星贸易公司",
+        "desc": "跨星际的贸易需要我们克服新的一系列的挑战。以及时且最具成本效益的方式将货物从一个星系运输到另一个星系是至关重要的。",
+        "area": "society"
+    },
+    "tech_interstellar_economics": {
+        "name": "星际经济学",
+        "desc": "当我们走出家园，漫游星海的同时，我们的经济也进入了一个全新的时代。新的市场正以惊人的速度涌现，使得经济学家们措手不及。",
+        "area": "society"
+    },
+    "tech_galactic_markets": {
+        "name": "泛星系贸易市场",
+        "desc": "通过商品和服务的自由贸易，我们提供了一种分工更加精细的经济形式，使得人们可以专攻某一行业，交易他们所需的东西。",
+        "area": "society"
+    },
+    "tech_prescient_data_modeling": {
+        "name": "拜金教数据建模",
+        "desc": "这到底是拜金神教的预知能力真的生效了？还是只是精密的计算方式的成果？无论如何，这个星际股市推算模型真的可以准确地推算出金融市场的走向。",
+        "area": "society"
+    },
+    "tech_industrial_farming": {
+        "name": "农业工业化",
+        "desc": "通过大规模工业化农场生产富含养分的农作物，可以让一个文明的人口成倍地增长。",
+        "area": "society"
+    },
+    "tech_eco_simulation": {
+        "name": "生态模拟",
+        "desc": "通过电脑来模拟各种环境与气候条件，可以使作物的产量更加可控。",
+        "area": "society"
+    },
+    "tech_gene_crops": {
+        "name": "转基因作物",
+        "desc": "成熟的作物基因工程有助于进一步提高产量并改善口味和营养价值。",
+        "area": "society"
+    },
+    "tech_nano_vitality_crops": {
+        "name": "纳米活性作物",
+        "desc": "在作物中融入少量的纳米机器人帮助我们创造出了一种具有极强恢复力的作物，其化学组成在整个生命周期都可以进行定制和改变。",
+        "area": "society"
+    },
+    "tech_nutrient_replication": {
+        "name": "营养复制",
+        "desc": "虽然合成复制作物需要大量收集废料才能产生少量农产品，但这一过程仍对农业产量产生了重要的推动作用。",
+        "area": "society"
+    },
+    "tech_hydroponics": {
+        "name": "水培农业",
+        "desc": "在受控制的生态环境下进行水培耕作可使谷物在正常来说不可能农作的地方生长。",
+        "area": "society"
+    },
+    "tech_food_processing_1": {
+        "name": "食品加工",
+        "desc": "改良的食物加工技术可以让食物保存得更长久从而减少食物腐坏。",
+        "area": "society"
+    },
+    "tech_food_processing_2": {
+        "name": "高级食品加工",
+        "desc": "全新的冷冻保存和蛋白质重组技术可以进一步提升食物加工程序的效率。",
+        "area": "society"
+    },
+    "tech_society_1": {
+        "name": "生物多样性研究",
+        "desc": "研究我们星球上的各种生命形态，可以使我们更好地了解自己，以及我们周围的生命。",
+        "area": "society"
+    },
+    "tech_society_2": {
+        "name": "异种生物学",
+        "desc": "研究出现在其它星球上的生命，可使我们对生物学的根本理解达到前所未及的程度。",
+        "area": "society"
+    },
+    "tech_society_3": {
+        "name": "生命的秘密",
+        "desc": "我们有幸研究了大量的生命，从而掌握了所有生物的一些共同点。也就是生命的基础。",
+        "area": "society"
+    },
+    "tech_alien_life_studies": {
+        "name": "异种生物学",
+        "desc": "研究其他星球的动物群为我们的外星生物行为学研究提供了一些新见解，这使得我们可以识别和驯养温顺的个体。",
+        "area": "society"
+    },
+    "tech_colonization_1": {
+        "name": "新世界协议",
+        "desc": "计算得出建立一个行星殖民地所需的资源和设备后，我们勇敢的先驱者将驾驶“方舟”外出探索，相信他们会在远方的行星上建立新的家园。",
+        "area": "society"
+    },
+    "tech_colonization_2": {
+        "name": "大气过滤",
+        "desc": "因地制宜地调节大气过滤可以更好地过滤掉有害的元素，以期改善殖民地的生活条件。",
+        "area": "society"
+    },
+    "tech_colonization_3": {
+        "name": "恶劣环境适应",
+        "desc": "进一步研究其他行星上发现的危险环境有助于缓解殖民者在其他星球的日常生活中遇到的困难。",
+        "area": "society"
+    },
+    "tech_colonization_4": {
+        "name": "外星土壤肥化",
+        "desc": "对多种土壤的种类及其养育作物的能力进行的大量研究使我们可以改善殖民者在其他星球上的生存条件。",
+        "area": "society"
+    },
+    "tech_colonization_5": {
+        "name": "生态整合研究",
+        "desc": "对不同行星气候的研究能够让我们的人口定居在过去我们认为过于严酷的世界。",
+        "area": "society"
+    },
+    "tech_tomb_world_adaption": {
+        "name": "死寂星球适应",
+        "desc": "对经过辐射的环境进行综合研究后，我们可以在被核战争摧毁的星球上进行殖民。",
+        "area": "society"
+    },
+    "tech_frontier_health": {
+        "name": "基因健康保障",
+        "desc": "对异星的殖民为生物医学研究开辟了一个全新的领域。",
+        "area": "society"
+    },
+    "tech_frontier_hospital": {
+        "name": "细胞修复",
+        "desc": "随着帝国日益强大，我们对自身的生物结构也更加了解。先进的细胞层面的医疗手段可以使人们的健康状况大幅提升。",
+        "area": "society"
+    },
+    "tech_mountain_range": {
+        "name": "地表重塑",
+        "desc": "随着无污染核聚变、自动化以及物质压缩技术的出现，从铲除山顶发展到铲除整段山脉只是时间问题了。",
+        "area": "society"
+    },
+    "tech_volcano": {
+        "name": "地壳深部工程",
+        "desc": "材料科技的发展与深井开采技术可使我们在过去无法想象的深度与温度中开展地质工程。岩浆热点现在已可以进行开发，抑制甚至迁移。",
+        "area": "society"
+    },
+    "tech_dangerous_wildlife": {
+        "name": "清除危险野生动物",
+        "desc": "破坏自然栖息地配合围剿扫荡可以有效地在短时间内清除危险的野生动物。",
+        "area": "society"
+    },
+    "tech_dense_jungle": {
+        "name": "选择性脱叶剂",
+        "desc": "通过编目分类、基因测序以及用计算机模拟外星植物生态体系，配合基因编辑与传播机理，我们可以按自己的喜好改造外星植物群落。",
+        "area": "society"
+    },
+    "tech_quicksand_basin": {
+        "name": "土壤修复",
+        "desc": "土壤沉积过程通常需要数百万年的时间。应用先进的水力压裂技术、化学工程以及液压管理科技，即使最贫瘠的地层也能变成肥沃的表层土。",
+        "area": "society"
+    },
+    "tech_noxious_swamp": {
+        "name": "异种水力掌控",
+        "desc": "智慧物种从数千年前就已经开始开垦沼地。通过模块化引水渠、水泵站、化学整治装置与自动土壤压缩机之间的协调配合，我们能以前所未有的速度开垦沼地。",
+        "area": "society"
+    },
+    "tech_massive_glacier": {
+        "name": "气候控制网络",
+        "desc": "只要管理得当，轨道折射镜与遮蔽装置系统可以大幅影响星球的气候。",
+        "area": "society"
+    },
+    "tech_toxic_kelp": {
+        "name": "海洋生态管理",
+        "desc": "只要有足够的处理能力、传感器网络以及分站，即使洋流也能在一定程度上实现精确控制。",
+        "area": "society"
+    },
+    "tech_deep_sinkhole": {
+        "name": "地下殖民",
+        "desc": "许多星球都有着巨大的地下空洞。地下探索、开发以及建造技术可以极大地增加某些星球的可居住空间。",
+        "area": "society"
+    },
+    "tech_terrestrial_sculpting": {
+        "name": "地表塑造",
+        "desc": "重塑宏观尺度的行星地壳的问题没有简单的解决方法——只有更大的铲子和轨道部署级钻头。",
+        "area": "society"
+    },
+    "tech_ecological_adaptation": {
+        "name": "生态适应",
+        "desc": "通过改造行星生态系统使其更能适应大规模环境变化，我们能更有条不紊的进行环境改造。",
+        "area": "society"
+    },
+    "tech_climate_restoration": {
+        "name": "气候复苏",
+        "desc": "通过提升我们对大气改造的理解，我们将能对大多数的生态荒芜的世界进行环境改造。",
+        "area": "society"
+    },
+    "tech_genome_mapping": {
+        "name": "基因图谱",
+        "desc": "通过基因测序进行个体化基因组定位开启了定制医学治疗和疗法的新纪元。",
+        "area": "society"
+    },
+    "tech_vitality_boosters": {
+        "name": "活性增强剂",
+        "desc": "肉体失败的地方，就让科学介入吧。",
+        "area": "society"
+    },
+    "tech_epigenetic_triggers": {
+        "name": "表观遗传学触发器",
+        "desc": "先进的DNA甲基化技术让我们可以在任意基因组上进行更具功能性的改变。",
+        "area": "society"
+    },
+    "tech_cloning": {
+        "name": "克隆",
+        "desc": "摘除术的突破和人工子宫的大规模生产技术允许个人基于一个共同的遗传模板修改自己的基因。",
+        "area": "society"
+    },
+    "tech_gene_banks": {
+        "name": "基因库",
+        "desc": "基因库筛选加上基因组管理可应用于克隆中。",
+        "area": "society"
+    },
+    "tech_gene_seed_purification": {
+        "name": "基因种子纯化",
+        "desc": "利用核苷酸纯化技术分离、改进遗传特质。",
+        "area": "society"
+    },
+    "tech_morphogenetic_field_mastery": {
+        "name": "形态发生学精通",
+        "desc": "形态发生研究本是药学领域的尝试，但深入理解其中玄妙后，开发出了有机体潜意识直连技术。",
+        "area": "society"
+    },
+    "tech_gene_tailoring": {
+        "name": "基因剪裁",
+        "desc": "使基因编辑工具被广泛使用肯定会对我们的发展有积极的影响。",
+        "area": "society"
+    },
+    "tech_glandular_acclimation": {
+        "name": "腺体适应",
+        "desc": "通过改变腺体的生物特性，可定制物种的环境适应性。",
+        "area": "society"
+    },
+    "tech_lithoid_transgenesis": {
+        "name": "硅体转基因技术",
+        "desc": "硅基生物和碳基生物具有许多相似性，这能让我们将石质类生物的进化特质同碳基生物结合起来。",
+        "area": "society"
+    },
+    "tech_plantoid_transgenesis": {
+        "name": "植物体转基因技术",
+        "desc": "通过一些人工的促长手段，我们在植物类物种中发现的进化适应性也可以复制到其他形式的生命体中。",
+        "area": "society"
+    },
+    "tech_leviathan_transgenesis": {
+        "name": "星神兽转基因技术",
+        "desc": "游荡于星辰间的巨兽对于在群星间存活具有极其令人瞩目的适应性。掌控这些特质会是我们在基因领域的巨大胜利。",
+        "area": "society"
+    },
+    "tech_gene_expressions": {
+        "name": "基因定向表达",
+        "desc": "对RNA转录和蛋白质翻译的在细胞层面上进行更严格的控制。",
+        "area": "society"
+    },
+    "tech_selected_lineages": {
+        "name": "择优血脉",
+        "desc": "应该鼓励生育计划，以免浪费宝贵的基因传承。",
+        "area": "society"
+    },
+    "tech_capacity_boosters": {
+        "name": "能力增强",
+        "desc": "我们不留漏洞、不计成本，通过严格管理基因库来造就完美的未来接班人。",
+        "area": "society"
+    },
+    "tech_regenerative_hull_tissue": {
+        "name": "再生舰体组织",
+        "desc": "转基因的硅基细菌可被操控进行非有机材料的再生。",
+        "area": "society"
+    },
+    "tech_doctrine_fleet_size_1": {
+        "name": "学说：太空战斗",
+        "desc": "逐步适应深空作战的现实使我们能够有效地协调更大规模的调动。",
+        "area": "society"
+    },
+    "tech_doctrine_fleet_size_2": {
+        "name": "学说：灵巧编队",
+        "desc": "逐步适应深空作战的现实使我们能够有效地协调更大规模的调动。",
+        "area": "society"
+    },
+    "tech_doctrine_fleet_size_3": {
+        "name": "学说：星际战争",
+        "desc": "逐步适应深空作战的现实使我们能够有效地协调更大规模的调动。",
+        "area": "society"
+    },
+    "tech_doctrine_fleet_size_4": {
+        "name": "学说：机动舰队模板",
+        "desc": "逐步适应深空作战的现实使我们能够有效地协调更大规模的调动。",
+        "area": "society"
+    },
+    "tech_doctrine_fleet_size_5": {
+        "name": "学说：舰队阵型",
+        "desc": "逐步适应深空作战的现实使我们能够有效地协调更大规模的调动。",
+        "area": "society"
+    },
+    "tech_interstellar_fleet_traditions": {
+        "name": "星际舰队传统",
+        "desc": "要是没有强大的命令管理其行为，多么完善的战斗知识体系都是没用的。",
+        "area": "society"
+    },
+    "tech_refit_standards": {
+        "name": "改装标准",
+        "desc": "升级和改造船部件的标准化工作流程能促进大规模的效率提升。",
+        "area": "society"
+    },
+    "tech_command_matrix": {
+        "name": "指挥矩阵",
+        "desc": "重构指挥链并判定军官间应有的依赖关系能够使舰队更加可靠高效。",
+        "area": "society"
+    },
+    "tech_doctrine_navy_size_1": {
+        "name": "学说：舰队支援",
+        "desc": "随着系外远征变得更加普遍，为归来的舰队提供行星侧的补给非常重要。",
+        "area": "society"
+    },
+    "tech_doctrine_navy_size_2": {
+        "name": "学说：支援船队",
+        "desc": "一支舰队的运行不能仅凭一腔热血，为了确保能稳定地获得重要的补给，我们必须将后勤军队组织成专门的支援舰船。",
+        "area": "society"
+    },
+    "tech_doctrine_navy_size_3": {
+        "name": "学说：星际后勤",
+        "desc": "新手谈论战术，专家研究后勤。我们可以通过确保舰队能够定期而高效地获得补给，来增加我们能够有效地支持的舰船数量。",
+        "area": "society"
+    },
+    "tech_doctrine_navy_size_4": {
+        "name": "学说：舰队联络",
+        "desc": "通过维持一支专业的舰队联络队伍，我们可以改善指挥链中的命令传达与通讯。",
+        "area": "society"
+    },
+    "tech_centralized_command": {
+        "name": "集中指挥",
+        "desc": "为各级军事行动打造专门的指挥部以形成高效的舰队，为未来的军事训练打下良好的基础。",
+        "area": "society"
+    },
+    "tech_combat_training": {
+        "name": "战斗训练",
+        "desc": "这是为新兵准备的更完善的培训计划，包括现实的战斗场景，让他们做好进入战场的准备。",
+        "area": "society"
+    },
+    "tech_ground_defense_planning": {
+        "name": "地面防御计划",
+        "desc": "有很多外星帝国希望将我们的星球据为己有。我们必须要做好万全的准备。",
+        "area": "society"
+    },
+    "tech_global_defense_grid": {
+        "name": "全球防御网络",
+        "desc": "良好的防御在今天的重要程度丝毫不逊于我们祖先所生活的中古时代。技术的进步不会使防御工事过时，只会改变它们的存在形式和强度。",
+        "area": "society"
+    },
+    "tech_psionic_theory": {
+        "name": "灵能理论",
+        "desc": "思想是世界的映射，也是微型世界。即便不能揭示思想的本质，也能将意识磨砺成最伟大的工具。",
+        "area": "society"
+    },
+    "tech_telepathy": {
+        "name": "心灵感应",
+        "desc": "只要夯实灵能基础，就能与他人建立思想连接，成就伟业。",
+        "area": "society"
+    },
+    "tech_precognition_interface": {
+        "name": "预知接口",
+        "desc": "不断探索灵能领域，读取心灵波动先于获得实际感知，从而制造出预知接口作战计算机。",
+        "area": "society"
+    },
+    "tech_thought_enforcement": {
+        "name": "思想钢印",
+        "desc": "心灵感应者可以监视具有错误思想的公民，在对心灵感应技术经过一定的研究之后，他们也可以纠正他们在公民中发现的思想错误。",
+        "area": "society"
+    },
+    "tech_psi_jump_drive_1": {
+        "name": "灵能跃迁引擎",
+        "desc": "灵能跳跃引擎利用船员放射的灵能使舰体穿越现实的空间结构，立即“跳跃”过超长的距离。",
+        "area": "society"
+    },
+    "tech_galactic_ambitions": {
+        "name": "星际扩张",
+        "desc": "我们的未来在浩瀚的星海。",
+        "area": "society"
+    },
+    "tech_manifest_destiny": {
+        "name": "昭昭天命",
+        "desc": "勇敢抓住命运，成为天命所归。",
+        "area": "society"
+    },
+    "tech_interstellar_campaigns": {
+        "name": "星际战役",
+        "desc": "枪杆子里面出政权。强者为所欲为。",
+        "area": "society"
+    },
+    "tech_galactic_campaigns": {
+        "name": "星河战役",
+        "desc": "改革政体，增强军备，从而无远弗届。",
+        "area": "society"
+    },
+    "tech_planetary_government": {
+        "name": "行星政府",
+        "desc": "殖民地建立完毕后，开拓者就变成了公民，殖民时期的灵活机关也就必须转变为能维持稳定的强力地方政府。",
+        "area": "society"
+    },
+    "tech_planetary_unification": {
+        "name": "行星统一",
+        "desc": "上古时期的诸国家、部族曾经兵戎相见，然而现在一切都统一在帝国的旗帜之下。我们绝不会，也永远不会，灭亡。",
+        "area": "society"
+    },
+    "tech_colonial_centralization": {
+        "name": "殖民集中",
+        "desc": "健全地方政府管理体制，因地制宜地满足各个殖民地的需要。",
+        "area": "society"
+    },
+    "tech_galactic_administration": {
+        "name": "星系管理",
+        "desc": "星际帝国行政事务繁多，问题复杂。着手妥善应对。",
+        "area": "society"
+    },
+    "tech_planetary_infrastructure_1": {
+        "name": "瓷金基础设施",
+        "desc": "坚固的合金使我们能够建造预制建筑物，为我们的殖民地提供更好的基础设施。",
+        "area": "society"
+    },
+    "tech_planetary_infrastructure_2": {
+        "name": "耐钢基础设施",
+        "desc": "冶金学的进步使我们能够建造更大，更耐用的结构，从而大大改善了殖民地的基础设施。",
+        "area": "society"
+    },
+    "tech_subdermal_stimulation": {
+        "name": "皮下刺激",
+        "desc": "在感官改造工程与娱乐体验革命性交叉领域中，深层组织植入无疑是先进的新发明。“我之所在，皮囊不将束之。”",
+        "area": "society"
+    },
+    "tech_tracking_implants": {
+        "name": "追踪植入体",
+        "desc": "皮下植入物领域的进一步进展使我们可以获悉被植入目标的移动位置和行动。",
+        "area": "society"
+    },
+    "tech_global_production_strategy": {
+        "name": "全球生产策略",
+        "desc": "星球很大，而生产设施之间通常也相隔着很远的距离。我们需要一个协调策略，来确保每个人都在朝着相同的方向努力。",
+        "area": "society"
+    },
+    "tech_adaptive_bureaucracy": {
+        "name": "灵活机构",
+        "desc": "由于发展需要，新时代政府形式必须更加灵活有效，而不是碍手碍脚。",
+        "area": "society"
+    },
+    "tech_effective_bureaucracy": {
+        "name": "高效吏治",
+        "desc": "用于处理和组织海量数据的先进算法可以大幅度优化我们在全帝国范围内的决策效率和信息共享能力。",
+        "area": "society"
+    },
+    "tech_colonial_bureaucracy": {
+        "name": "殖民官僚制",
+        "desc": "地区管理技术的进步使得我们可以对殖民地事务进行进一步的监控，而不会过度增加中央决策机构的负担。",
+        "area": "society"
+    },
+    "tech_galactic_bureaucracy": {
+        "name": "星河官僚制",
+        "desc": "多层级行政效果显著，帝国高层只负责处理最关键事物。",
+        "area": "society"
+    },
+    "tech_living_state": {
+        "name": "活体国度",
+        "desc": "帝国生生不息。我们构筑成为帝国的躯体，但左膀无需知道右臂在做什么。",
+        "area": "society"
+    },
+    "tech_collective_self": {
+        "name": "集体自我",
+        "desc": "团体内的求同存异是自然而然且不可避免的；最终，同性一定会比个性发挥更大的价值。",
+        "area": "society"
+    },
+    "tech_autonomous_agents": {
+        "name": "自主代理",
+        "desc": "半自主的单位是大局成功的关键。",
+        "area": "society"
+    },
+    "tech_embodied_dynamism": {
+        "name": "具现物力论",
+        "desc": "有必要向我们的自主领袖单位提倡积极主动和抱负，但同时也要确保他们不会偏离核心智能的指示。",
+        "area": "society"
+    },
+    "tech_neural_implants": {
+        "name": "神经植入体",
+        "desc": "所谓认知，不过是对感官信号的处理而已。它是可以被改变的。",
+        "area": "society"
+    },
+    "tech_artificial_moral_codes": {
+        "name": "人工道德规范",
+        "desc": "具体情境规定了到底什么是道德的。若拥有定义情景的能力，伦理道德不过手中黏土，可以随意摆弄。",
+        "area": "society"
+    },
+    "tech_synthetic_thought_patterns": {
+        "name": "综合思维模式",
+        "desc": "跳出囹圄思考，唯一能够发现的是明白自己身处另一个更大的囹圄之内。",
+        "area": "society"
+    },
+    "tech_unity_of_purpose": {
+        "name": "齐心协力",
+        "desc": "一个人的目标就是所有人的目标。唯有齐心协力，方可众志成城。",
+        "area": "society"
+    },
+    "tech_collective_production_methods": {
+        "name": "集体生产方法",
+        "desc": "我们共建未来。",
+        "area": "society"
+    },
+    "tech_resource_processing_algorithms": {
+        "name": "资源处理算法",
+        "desc": "一切皆可高效。",
+        "area": "society"
+    },
+    "tech_holo_entertainment": {
+        "name": "全息影像娱乐",
+        "desc": "对全息技术进行别出心裁的运用，造成了崭新的人工虚拟环境，其真实程度令人赞叹。这乃是沉浸式虚拟现实娱乐的一大进步。",
+        "area": "society"
+    },
+    "tech_hyper_entertainment_forum": {
+        "name": "极乐广场",
+        "desc": "一座大型的休闲场所，犹如美梦成真。购物商场、饭店餐馆、游乐园、虚拟游戏厅，数不胜数。想要什么，这里都有！",
+        "area": "society"
+    },
+    "tech_paradise_dome": {
+        "name": "田园建筑学",
+        "desc": "有了最先进的建筑学、景观学及全息影像技术，我们将建造一个真正的未来家园。",
+        "area": "society"
+    },
+    "tech_cultural_heritage": {
+        "name": "社会文化历史",
+        "desc": "唯有理解了我们的共同历史，方可一起大步迈向未来。",
+        "area": "society"
+    },
+    "tech_heritage_site": {
+        "name": "传承遗迹",
+        "desc": "对我们迄今为止走过的路的纪念。既是为了向过去的成就致敬，也为了激励我们勇敢走向未来。",
+        "area": "society"
+    },
+    "tech_hypercomms_forum": {
+        "name": "本地超通讯",
+        "desc": "并不是所有关于超光速通讯频道的研究都是有用功，但是其中某些成果也许会找到将我们的人民团结在一起的新目的。",
+        "area": "society"
+    },
+    "tech_autocurating_vault": {
+        "name": "自动综合处理算法",
+        "desc": "对种类迥异的数据集进行的持续而非同步的分析允许我们对于社会潮流中迄今为止难以预测的浪潮进行精准的数学建模。",
+        "area": "society"
+    },
+    "tech_holographic_rituals": {
+        "name": "全息仪式",
+        "desc": "眼见为实，信念成真。",
+        "area": "society"
+    },
+    "tech_consecration_fields": {
+        "name": "授圣力场",
+        "desc": "通过我们对物理以及力场操纵的理解，我们神圣的领域将为所有的个体所见所感。",
+        "area": "society"
+    },
+    "tech_transcendent_faith": {
+        "name": "超意识信仰",
+        "desc": "离开母星的摇篮为我们开启了理解信仰的新大门，而信仰的位置被摆在了更广阔的背景中。",
+        "area": "society"
+    },
+    "tech_hive_node": {
+        "name": "突触建筑",
+        "desc": "通过开发宏观突触节点来增强蜂巢的意志。",
+        "area": "society"
+    },
+    "tech_hive_cluster": {
+        "name": "簇状突触",
+        "desc": "通过集中宏观突触节点网络来最大化每单位表面积的超级神经元传输速度。",
+        "area": "society"
+    },
+    "tech_hive_confluence": {
+        "name": "思想集簇",
+        "desc": "蜂巢的意志可以通过扩充超级神经元的神经中枢的规模来获得进一步的强化。",
+        "area": "society"
+    },
+    "tech_ascension_theory": {
+        "name": "飞升理论",
+        "desc": "我们的历史就是一个不断螺旋上升的过程。每次循环中，我们的科技、政治和文化水平都会出现飞跃式的发展。这些飞跃通常都出现在动乱之后，随后又带来相对平稳的时代。通过甄别这样的核心前提，我们也许能够大大缩短循环的时间，这样有利于缩短我们的发展周期。",
+        "area": "society"
+    },
+    "tech_psionic_barrier": {
+        "name": "灵能屏障",
+        "desc": "这种屏障是由一群灵能专家用纯粹的灵能生成的。它可以阻挡一些敌方火力，就像我们的偏导护盾系统一样，不过无需耗费大量的能量。",
+        "area": "society"
+    },
+    "tech_psionic_shield": {
+        "name": "灵能护盾",
+        "desc": "这种强大无比的护盾是由一群精英灵能专家使用纯粹的灵能之力生成的。护盾经由大型灵能发射阵列强化后，能量进一步提升。",
+        "area": "society"
+    },
+    "tech_penal_colonies": {
+        "name": "流放地",
+        "desc": "开发特殊的流放世界可以让罪犯居住于此通过劳动改过自新。不过部分罪犯或许须要进行永久性的劳改。",
+        "area": "society"
+    },
+    "tech_resort_colonies": {
+        "name": "度假星球",
+        "desc": "通过仔细研究地形改造、气候控制、科学研究来创造出完全为享乐而生的世界。",
+        "area": "society"
+    },
+    "tech_slave_colonies": {
+        "name": "奴隶星球",
+        "desc": "通过创造特殊的奴隶繁殖世界，我们可以确保廉价劳工的稳定供应。",
+        "area": "society"
+    },
+    "tech_housing_agrarian_idyll": {
+        "name": "农业乌托邦",
+        "desc": "通过建立受气候制约的乡村公社，我们能够在不破坏农耕生活方式的情况下供养更多人口。",
+        "area": "society"
+    },
+    "tech_xeno_diplomacy": {
+        "name": "异种外交",
+        "desc": "理解如何影响和操纵异种，是建立长久星际联盟的必由之路。",
+        "area": "society"
+    },
+    "tech_xeno_relations": {
+        "name": "异星关系学",
+        "desc": "由于星际外交极度复杂，为了达成自身目标，必须与其他势力结交。",
+        "area": "society"
+    },
+    "tech_capital_productivity_1": {
+        "name": "改进生产",
+        "desc": "随着我们的星球变得越来越发达，我们的吞吐量已经大大提高了。",
+        "area": "society"
+    },
+    "tech_capital_productivity_2": {
+        "name": "规模效应",
+        "desc": "人口密度的增加使我们有机会进一步提高生产力。",
+        "area": "society"
+    },
+    "tech_capital_productivity_3": {
+        "name": "最大化产能",
+        "desc": "技术的不断进步使我们最发达的星球达到了前所未有的生产力水平。",
+        "area": "society"
+    },
+    "tech_covenant_composer": {
+        "name": "织缕刻印",
+        "desc": "我们已经发现如何让灵能能量自我们的舰船中流通。有了这等知识，我们就能将超主的权能灌输到我们的舰船内。",
+        "area": "society"
+    },
+    "tech_covenant_eater": {
+        "name": "喰煞刻印",
+        "desc": "我们已经发现如何让灵能能量自我们的舰船中流通。有了这等知识，我们就能将超主的权能灌输到我们的舰船内。",
+        "area": "society"
+    },
+    "tech_covenant_instrument": {
+        "name": "器具刻印",
+        "desc": "我们已经发现如何让灵能能量自我们的舰船中流通。有了这等知识，我们就能将超主的权能灌输到我们的舰船内。",
+        "area": "society"
+    },
+    "tech_covenant_whisperers": {
+        "name": "低语刻印",
+        "desc": "我们已经发现如何让灵能能量自我们的舰船中流通。有了这等知识，我们就能将超主的权能灌输到我们的舰船内。",
+        "area": "society"
+    },
+    "tech_xeno_linguistics": {
+        "name": "外星语言学",
+        "desc": "由于近期与智慧物种的接触，提升我们外星语言学能力非常重要。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_tile_food_output": {
+        "name": "转基因作物",
+        "desc": "仅仅一盒转基因作物就能提供多种普通食物的营养元素。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_core_system_cap": {
+        "name": "行政效率",
+        "desc": "将联系核心世界的行政网汇集于首都，可以减少新帝国时常出现的行政压力和信息阻塞。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_army_damage": {
+        "name": "主动适应",
+        "desc": "让地面部队学习标准的环境生存法，可以让他们在正面作战时更强大。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_army_health": {
+        "name": "神经抑制器",
+        "desc": "小心地调整疼痛接收器，可以让士兵在受到致命伤后仍能坚持战斗。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_leader_life_span": {
+        "name": "细胞活力",
+        "desc": "周期性细胞再生疗法能让领袖阶层保持活力，延年益寿。",
+        "area": "society"
+    },
+    "tech_repeatable_naval_cap": {
+        "name": "舰队管理规程",
+        "desc": "改善舰队管理规程将腾出资源，用以维持更大的舰队。",
+        "area": "society"
+    },
+    "tech_repeatable_command_limit": {
+        "name": "司令幕僚",
+        "desc": "强化舰队司令的幕僚人员，将增加其在一支舰队中可指挥的舰船数量。",
+        "area": "society"
+    },
+    "tech_repeatable_improved_starbase_capacity": {
+        "name": "星际扩张",
+        "desc": "维持恒星基地所需的庞大后勤补给网络得到了进一步改善，现在我们能建造更多恒星基地了。",
+        "area": "society"
+    },
+    "tech_repeatable_weapon_type_strike_craft_fire_damage": {
+        "name": "突触拦截器",
+        "desc": "提高战斗机飞行员处理敌人位置信息并做出反应的速度，提高战斗机在战场食物链中的位置。",
+        "area": "society"
+    },
+    "tech_repeatable_weapon_type_strike_craft_fire_rate": {
+        "name": "迭代式飞行员培训",
+        "desc": "通过收集和分析曾来过此地的飞行员的表现数据，我们能够指数型地改善我们训练飞行员的方法。每一个来过此地受训的人都会变得更加迅速。",
+        "area": "society"
+    },
+    "tech_amoeba_strike_craft_1": {
+        "name": "变形虫育种计划",
+        "desc": "通过圈养太空变形虫，我们可以修改基因让它们的鞭毛成为我军的有机攻击机。",
+        "area": "society"
+    },
+    "tech_swarm_strike_craft_1": {
+        "name": "虫群产卵池",
+        "desc": "从击败的索林原虫处收集样本能使我们克隆其基因并进行重编程，从而造出我们自己的战斗武器。",
+        "area": "society"
+    },
+    "tech_scourge_missile_1": {
+        "name": "天灾导弹",
+        "desc": "通过分析虫群使用的生物武器，我们可以造出同样可怕的自航炮弹用以传播杀伤。",
+        "area": "society"
+    },
+    "tech_space_whale_weapon_1": {
+        "name": "频率调谐",
+        "desc": "改进缇扬奇提取气态物质的能量的方法，就有可能造出可以从敌方舰船中汲取能量的武器。",
+        "area": "society"
+    },
+    "tech_mine_living_metal": {
+        "name": "活体金属",
+        "desc": "开采和处理罕见的活体金属极其困难，但如果成功使用这些易变金属，获得的收益也无法估量。",
+        "area": "engineering"
+    },
+    "tech_mine_betharian": {
+        "name": "贝赛里安精炼",
+        "desc": "贝塞里安矿最早似乎出自单一矿源，但千年前，开始出现于星系各处。此类矿物成鹅卵石大小，群状分布，并且高度易燃。",
+        "area": "engineering"
+    },
+    "tech_mine_volatile_motes": {
+        "name": "微粒稳定化",
+        "desc": "我们需要收集的易爆微粒性质十分不稳定，采集工作也危险重重。为了不在该过程中引起连环爆炸，需要使用能量场对微粒进行稳定化。",
+        "area": "physics"
+    },
+    "tech_volatile_motes": {
+        "name": "易爆材料生产厂",
+        "desc": "除了明显的安全问题之外，人造易爆微粒本身就是极端精密且复杂的工作，需要高度专业化的设备。",
+        "area": "physics"
+    },
+    "tech_mine_exotic_gases": {
+        "name": "异星天然气开采",
+        "desc": "异星天然气十分珍贵，但以传统方式进行采集是不可取的。只有特殊的采集技术才能对其进行收集。",
+        "area": "engineering"
+    },
+    "tech_exotic_gases": {
+        "name": "异星天然气精炼",
+        "desc": "异星天然气可以人工生产，但是较为困难，需要先进的精炼设备。",
+        "area": "engineering"
+    },
+    "tech_mine_rare_crystals": {
+        "name": "稀有水晶开采",
+        "desc": "在不损坏甚至是摧毁它们的前提下开采这些水晶，是一件对精密性要求很高的工作，需要极度精密的先进设备。",
+        "area": "engineering"
+    },
+    "tech_rare_crystals": {
+        "name": "稀有水晶生产",
+        "desc": "结晶化的过程复杂且困难，但只要有专门的生产工厂，我们就可以生产人工制造水晶。",
+        "area": "engineering"
+    },
+    "tech_mine_zro": {
+        "name": "蒸馏泽珞",
+        "desc": "一种在异星粒子中存在的极其稀有的气溶胶，随着陨石撞击被一起发现。不过其真正的来源依然是个未解之谜。若拥有灵能天赋的人将其摄入体内，泽珞将会极大的提高灵能力量（并可能导致成瘾）。",
+        "area": "society"
+    },
+    "tech_mine_dark_matter": {
+        "name": "暗物质收集",
+        "desc": "这种独特的物质具有许多打破物理原理的特性。仅在黑洞周围或部分星云附近能获得。",
+        "area": "physics"
+    },
+    "tech_nanite_transmutation": {
+        "name": "纳米变形",
+        "desc": "这些稀有资源的大规模生产需要极为先进的纳米材料。",
+        "area": "engineering"
+    },
+    "tech_robomodding_m": {
+        "name": "机械模板系统",
+        "desc": "标准化的装配模板能进一步细化机械人口的分工。",
+        "area": "engineering"
+    },
+    "tech_robomodding": {
+        "name": "机械模板系统",
+        "desc": "可擦写的配装模板允许我们创造定制的合成人劳工的设计。",
+        "area": "engineering"
+    },
+    "tech_robomodding_points_1": {
+        "name": "交叉模组标准化",
+        "desc": "经过改良的生成过程可以在不影响核心功能的情况下更大幅度地改造合成人工人。",
+        "area": "engineering"
+    },
+    "tech_robomodding_points_2": {
+        "name": "可替换电路",
+        "desc": "经过改良的生产过程可以在不影响核心功能的情况下对合成人工人进行底层改造。",
+        "area": "engineering"
+    },
+    "tech_binary_motivators": {
+        "name": "二进制内驱程序",
+        "desc": "这些先进的内驱程序比早先版本量级更轻，能让机器人单位为子系统分配额外的空间。",
+        "area": "engineering"
+    },
+    "tech_nanite_assemblers": {
+        "name": "纳米装配机",
+        "desc": "使用程控的纳米机器人辅助建造新机器单位，使其拥有配备了更多子系统的更为先进的模板。",
+        "area": "engineering"
+    },
+    "tech_mega_assembly": {
+        "name": "巨型装配系统",
+        "desc": "先进的装配模板系统，可以大幅提高我们装配新单位的效率。",
+        "area": "engineering"
+    },
+    "tech_adaptive_combat_algorithms": {
+        "name": "自适应作战算法",
+        "desc": "有机生命体经常采用不合逻辑且不可预测的战术，这对我们来说很难有效应对。但采用自适应的战术以及新的、机动性更好的战体将能提供决定性的优势。",
+        "area": "society"
+    },
+    "tech_biomechanics": {
+        "name": "生物力学",
+        "desc": "经过数百万年坚持不懈的进化，有机生命有时也会进化出优雅简洁的解决方案，这可以应用到机械设计中。",
+        "area": "society"
+    },
+    "tech_micro_replicators": {
+        "name": "微型复制机",
+        "desc": "配有显微设备的复制机能够让我们复制出带有更多复杂细节的无人机。",
+        "area": "engineering"
+    },
+    "tech_self_assembling_components": {
+        "name": "自动组装部件",
+        "desc": "仿照有机物DNA而来，这些微型机械智能可以自动组成大多数新无人机需要的零件。",
+        "area": "engineering"
+    }
+}

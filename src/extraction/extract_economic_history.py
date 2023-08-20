@@ -12,10 +12,11 @@ def extract_economic_history(game_log, data_path):
     data = extract_info(game_log, "(?<=HIS_RESERVES_INCOME:).*")
 
     if data:
-        new_df = pd.DataFrame(columns = ["date", "energy_reserves", "minerals_reserves", "food_reserves",
-                "consumer_goods_reserves", "alloys_reserves", "volatile_motes_reserves",
-                "exotic_gases_reserves", "rare_crystals_reserves", "living_metal_reserves",
-                "zro_reserves", "dark_matter_reserves", "nanites_reserves", "minor_artifacts_reserves", "unity_reserves", 
+        new_df = pd.DataFrame(columns = ["date", "energy_reserves", "minerals_reserves", 
+                "food_reserves", "consumer_goods_reserves", "alloys_reserves", 
+                "volatile_motes_reserves", "exotic_gases_reserves", "rare_crystals_reserves", 
+                "living_metal_reserves", "zro_reserves", "dark_matter_reserves", 
+                "nanites_reserves", "minor_artifacts_reserves", "unity_reserves", 
                 "energy_income", "minerals_income", "food_income", "consumer_goods_income",
                 "alloys_income", "volatile_motes_income", "exotic_gases_income",
                 "rare_crystals_income", "living_metal_income", "zro_income",

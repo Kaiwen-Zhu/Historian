@@ -15,7 +15,7 @@ def extract_fleet(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'fleet.csv', new_df, keys=["date"])
+        merge_and_save_df(data_path, 'navy.csv', new_df, keys=["date"])
             
 
 def extract_military_history(game_log, data_path):

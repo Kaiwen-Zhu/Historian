@@ -8,12 +8,12 @@ from .utils import *
 
 
 def list_fleets(env: Environment, assets_path: str, data_path: str):
-    df = pd.read_csv(path_join(data_path, 'fleet.csv'), index_col=0, sep=';')
+    df = pd.read_csv(path_join(data_path, 'navy.csv'), index_col=0, sep=';')
     last_date = df['date'].iloc[-1]
     df_last: DataFrame = df[df['date'] == last_date]
     df_last = df_last.reset_index(drop=True)
     
-    with open(path_join(assets_path, 'entities', 'ship_size_loc.json'), encoding='utf-8') as f:
+    with open(path_join(assets_path, 'entities', 'ship_size_localisation.json'), encoding='utf-8') as f:
         ship_size_loc = json_load(f)
     
     fleets = []
