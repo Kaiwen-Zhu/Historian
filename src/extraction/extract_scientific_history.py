@@ -16,7 +16,7 @@ def extract_scientific_history(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'technologies.csv', new_df, keys=['id'])
+        merge_and_save_df(data_path, 'technologies.csv', new_df)
         
     print("完成")
     stdout.flush()
