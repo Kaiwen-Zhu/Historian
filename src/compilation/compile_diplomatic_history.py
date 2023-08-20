@@ -25,7 +25,7 @@ def plot_opinions(env: Environment, data_path: str, dir_path: str, mapping: dict
             'their_opinion': df_tmp[df.columns[2*ind+2]].tolist()
         })
     
-    render_page(env, 'diplomatic_relationship.html', dir_path, '外交关系.html', config=rel_config)
+    render_page(env, 'charts/diplomatic_relationship.html', dir_path, '外交关系.html', config=rel_config)
 
 
 def compile_diplomatic_history(env: Environment, data_path: str, output_path: str):

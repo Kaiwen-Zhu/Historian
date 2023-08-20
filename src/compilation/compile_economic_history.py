@@ -47,9 +47,9 @@ def plot_resources_reserves_income(env: Environment, data_dir: str, dir_path: st
                 'name': resource_name_in_label, 'data': df[f'{resource_name}_income'].tolist()
             })
         
-        render_page(env, 'line_chart.html', dir_path, f'{resources_category_name}储量.html', 
+        render_page(env, 'charts/line_chart.html', dir_path, f'{resources_category_name}储量.html', 
                     config=reserves_config)
-        render_page(env, 'line_chart.html', dir_path, f'{resources_category_name}月收入.html', 
+        render_page(env, 'charts/line_chart.html', dir_path, f'{resources_category_name}月收入.html', 
                     config=income_config)
 
 
