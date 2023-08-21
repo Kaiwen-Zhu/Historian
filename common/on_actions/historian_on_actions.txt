@@ -1,15 +1,21 @@
 on_game_start_country = {
 	events = {
-		historian_basics.1  # 记录起源、母星名称、母星类别、母星系名称、创始物种，于每年 01.02 记录国家名称、政府名称、政府个性、主流思潮
-		historian_economy.1  # 于每月 3 日记录 17 种资源储量及月收入
-		historian_diplomacy.1  # 于每月 10 日记录我国与其它国家之间相互的评价
-		historian_demography.1  # 于每年 01.15, 07.15 记录人口总数及各物种人口数
-		historian_military_affairs.1  # 于每年 04.15, 10.15 记录海军组织，每月 5 日记录海军规模与容量
+		# 记录起源、母星名称、母星类别、母星系名称、创始物种，于每年 01.02 记录国家名称、政府名称、政府个性、主流思潮
+		historian_basics.1
+		# 于每月 3 日记录 17 种资源储量及月收入
+		historian_economy.1
+		# 于每年偶数月 10 日记录我国与其它国家之间相互的评价
+		historian_diplomacy.1
+		# 于每年 01.15, 07.15 记录人口总数及各物种人口数
+		historian_demography.1
+		# 于每年 04.15, 10.15 记录海军组织，每月 5 日记录海军规模与容量
+		historian_military_affairs.1
 	}
 }
 
 on_tech_increased = {
 	events = {
-		historian_science.1  # 记录所获科技
+		# 记录所获科技
+		historian_science.1
 	}
 }

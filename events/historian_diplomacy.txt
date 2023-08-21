@@ -13,7 +13,7 @@ country_event = {
 	after = {
 		country_event = {
 			id = historian_diplomacy.2
-			days = 9
+			days = 39
 		}
 	}
 }
@@ -75,7 +75,7 @@ country_event = {
 	after = {
 		country_event = {
 			id = historian_diplomacy.2
-			days = 30
+			days = 60
 		}
 	}
 }
