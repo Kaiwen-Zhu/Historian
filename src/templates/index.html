@@ -93,7 +93,10 @@
               <template #title>
                 <span>军事</span>
               </template>
-              <el-menu-item index="6-1" v-on:click="showPage('fleets')">
+              <el-menu-item index="6-1" v-on:click="showPage('naval_size_capacity')">
+                <span>海军规模与容量</span>
+              </el-menu-item>
+              <el-menu-item index="6-2" v-on:click="showPage('fleets')">
                 <span>海军舰队</span>
               </el-menu-item>
             </el-sub-menu>
@@ -140,6 +143,9 @@
         <!-- diplomatic history end -->
 
         <!-- military history begin -->
+        <el-main id="military_history_naval_size_capacity" v-if="currentPage==='naval_size_capacity'">
+          {% include "military_history_naval_size_capacity.html" %}
+        </el-main>
         <el-main id="military_history_fleets" v-if="currentPage==='fleets'">
           {% include "military_history_fleets.html" %}
         </el-main>

@@ -27,12 +27,31 @@ def list_fleets(env: Environment, assets_path: str, data_path: str):
     env.globals['fleets'] = fleets
 
 
+def plot_naval_size_capacity(env: Environment, data_path: str, dir_path: str):
+    df = pd.read_csv(path_join(data_path, 'naval_size_capacity.csv'), index_col=0, sep=';')
+
+    dates = df["date"].apply(lambda date: date[:-3]).tolist()
+
+    naval_size_capacity_config = {
+        'title': "海军规模与容量", 'x': dates, 
+        'data': [{
+            'name': '海军规模', 'data': df['naval_size'].tolist()
+        }, {
+            'name': '海军容量', 'data': df['naval_capacity'].tolist()
+        }], 
+        'colors': ['#000080', '#408000']
+    }
+
+    render_page(env, 'charts/line_chart.html', dir_path, '海军规模与容量.html', config=naval_size_capacity_config)
+    
+
 def compile_military_history(env: Environment, assets_path: str, data_path: str, output_path: str):
     print("编译军事史...", end=' ')
     stdout.flush()
 
     dir_path = prepare_output(output_path, "军事史")
     list_fleets(env, assets_path, data_path)
+    plot_naval_size_capacity(env, data_path, dir_path)
 
     print("完成")
     stdout.flush()

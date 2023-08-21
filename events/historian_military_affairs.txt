@@ -13,6 +13,10 @@ country_event = {
 	after = {
 		country_event = {
 			id = historian_military_affairs.2
+			days = 104
+		}
+		country_event = {
+			id = historian_military_affairs.3
 			days = 4
 		}
 	}
@@ -428,6 +432,34 @@ country_event = {
 	after = {
 		country_event = {
 			id = historian_military_affairs.2
+			days = 180
+		}
+	}
+}
+
+
+# 记录海军规模与容量
+country_event = {
+	id = historian_military_affairs.3
+	hide_window = yes
+
+	trigger = { is_ai = no }
+	is_triggered_only = yes
+
+	immediate = {
+		export_trigger_value_to_variable = {
+			trigger = used_naval_capacity_integer
+			variable = HIS_NAVAL_SIZE
+		}
+		export_trigger_value_to_variable = {
+			trigger = max_naval_capacity
+			variable = HIS_NAVAL_CAPACITY
+		}
+		log = "HIS_NAVAL_SIZE_CAPACITY:[GetDate],[This.HIS_NAVAL_SIZE],[This.HIS_NAVAL_CAPACITY]"
+	}
+	after = {
+		country_event = {
+			id = historian_military_affairs.3
 			days = 30
 		}
 	}

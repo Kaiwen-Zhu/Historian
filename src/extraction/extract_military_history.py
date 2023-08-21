@@ -16,6 +16,18 @@ def extract_fleet(game_log, data_path):
             new_df.loc[len(new_df.index)] = row
 
         merge_and_save_df(data_path, 'fleets.csv', new_df)
+
+
+def extract_naval_size_capacity(game_log, data_path):
+    # data中的每项为 [date, naval_size, naval_capacity]
+    data = extract_info(game_log, "(?<=HIS_NAVAL_SIZE_CAPACITY:).*")
+    
+    if data:
+        new_df = pd.DataFrame(columns = ["date", "naval_size", "naval_capacity"])
+        for row in data:
+            new_df.loc[len(new_df.index)] = row
+
+        merge_and_save_df(data_path, 'naval_size_capacity.csv', new_df)
             
 
 def extract_military_history(game_log, data_path):
@@ -23,6 +35,7 @@ def extract_military_history(game_log, data_path):
     stdout.flush()
     
     extract_fleet(game_log, data_path)  # 提取海军组织
+    extract_naval_size_capacity(game_log, data_path)  # 提取海军规模与舰队容量
         
     print("完成")
     stdout.flush()
