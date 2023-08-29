@@ -28,7 +28,12 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
     
 
 def list_techs(env: Environment, assets_path: str, data_path: str):
-    df = pd.read_csv(path_join(data_path, 'technologies.csv'), index_col=0, sep=';')
+    tech_path = path_join(data_path, 'technologies.csv')
+    if not path_exists(tech_path):
+        env.globals['techs'] = []
+        return
+    
+    df = pd.read_csv(tech_path, index_col=0, sep=';')
 
     with open(path_join(assets_path, 'entities', 'tech_localisation.json'), encoding='utf-8') as f:
         loc = json_load(f)
