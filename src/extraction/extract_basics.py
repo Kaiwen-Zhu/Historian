@@ -48,7 +48,9 @@ def extract_basics(game_log, data_path):
     basics_dict['ethics'] = ethics
 
     with open(path.join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
-        json_dump(basics_dict, f, ensure_ascii=False)
+        json_dump(basics_dict, f, ensure_ascii=False, indent=4)
         
     print("完成")
     stdout.flush()
+
+    return basics_dict['name']

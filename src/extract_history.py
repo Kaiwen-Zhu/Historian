@@ -24,11 +24,11 @@ def main():
     print("完成")
     stdout.flush()
     
-    extract_basics(game_log, data_path)
+    our_name = extract_basics(game_log, data_path)
     extract_economic_history(game_log, data_path)
     extract_demographic_history(game_log, data_path)
     extract_scientific_history(game_log, data_path)
-    extract_diplomatic_history(game_log, data_path)
+    extract_diplomatic_history(game_log, data_path, our_name)
     extract_military_history(game_log, data_path)
 
     print(f"数据已被提取到 {data_path}。")
