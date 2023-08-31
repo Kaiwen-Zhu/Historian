@@ -9,6 +9,12 @@ def extract_fleet(game_log, data_path):
      
     # data中的每项为 [date, fleet_name, *ship_sizes]
     data = extract_info(game_log, "(?<=HIS_FLEET:).*")
+    warning = extract_info(game_log, "(?<=HIS_MILITARY_SHIP_WARNING:UNKNOWN_MILITARY_SHIP_SIZE,).*")
+    if warning:
+        unknown_ship_sizes = set(ship[0] for ship in warning)
+        unknown_ship_sizes = ','.join(list(unknown_ship_sizes))
+        print()
+        print(f"\033[93m警告: 未知军舰类型: {unknown_ship_sizes}\033[0m")
     
     if data:
         ship_sizes = ['corvette', 'frigate', 'destroyer', 'cruiser', 'battleship', 'titan', 'colossus', 'juggernaut', 'small_ship_fallen_empire', 'large_ship_fallen_empire', 'pirate_corvette', 'pirate_destroyer', 'galleon', 'psionic_avatar', 'space_amoeba', 'crisis_corvette', 'crisis_destroyer', 'crisis_cruiser', 'star_eater', 'caravaneer_destroyer_01', 'caravaneer_cruiser_01', 'graygoo_interdictor', 'graygoo_mothership', 'npc_warship_01', 'toxic_god']

@@ -430,7 +430,7 @@ country_event = {
 					}
 				}
 				else = {
-					log = "HIS_MILITARY_SHIP_ERROR:UNKOWN_MILITARY_SHIP_SIZE,[This.GetShipSizeName]"
+					log = "HIS_MILITARY_SHIP_WARNING:UNKNOWN_MILITARY_SHIP_SIZE,[This.GetShipSizeName]"
 				}
 				# log = "HIS_MILITARY_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
 			}
