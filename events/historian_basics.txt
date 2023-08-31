@@ -11,6 +11,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		save_global_event_target_as = HIS_WE
 		log = "HIS_BASICS:[This.GetOriginName],[This.GetHomeWorldName],[This.Capital.GetClassName],[This.Capital.System.GetName],[This.GetSpeciesName]"
 	}
 

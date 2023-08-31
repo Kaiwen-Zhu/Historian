@@ -19,3 +19,31 @@ on_tech_increased = {
 		historian_science.1
 	}
 }
+
+on_war_beginning = {
+	events = {
+		# 记录进入战争
+		historian_military_affairs.4
+	}
+}
+
+on_war_won = {
+	events = {
+		# 记录战争胜负
+		historian_military_affairs.6
+	}
+}
+
+on_status_quo = {
+	events = {
+		# 记录战争以维持现状结束
+		historian_military_affairs.7
+	}
+}
+
+on_status_quo_forced = {
+	events = {
+		# 记录战争以被迫维持现状结束
+		historian_military_affairs.8
+	}
+}

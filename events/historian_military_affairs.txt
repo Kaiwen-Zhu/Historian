@@ -1,7 +1,7 @@
 namespace = historian_military_affairs
 
 
-# 触发记录海军组织的事件
+# 触发记录海军组织、规模与容量的事件，初始化战争计数器
 country_event = {
 	id = historian_military_affairs.1
 	hide_window = yes
@@ -9,6 +9,15 @@ country_event = {
 	trigger = { is_ai = no }
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	immediate = {
+		event_target:HIS_WE = {
+			set_variable = {
+				which = HIS_WAR_COUNTER
+				value = 0
+			}
+		}
+	}
 
 	after = {
 		country_event = {
@@ -462,5 +471,1070 @@ country_event = {
 			id = historian_military_affairs.3
 			days = 30
 		}
+	}
+}
+
+
+# 进入战争时 (on_war_beginning) 触发，记录战争名称、战争开始时间、进攻方领导者与成员与战争目标、防守方领导者与成员与战争目标
+# Root = Country
+# From = War
+country_event = {
+	id = historian_military_affairs.4
+	hide_window = yes
+
+	trigger = {
+		From = {
+			not = {
+				has_war_flag = HIS_WAR_RECORDED
+			}
+			any_war_participant = {
+				is_ai = no
+			}
+		}
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		From = {
+			set_war_flag = HIS_WAR_RECORDED
+			set_variable = {
+				which = HIS_WAR_ID
+				value = event_target:HIS_WE.HIS_WAR_COUNTER
+			}
+			event_target:HIS_WE = {
+				change_variable = {
+					which = HIS_WAR_COUNTER
+					value = 1
+				}
+			}
+
+			# 时间，战争 ID，战争名称，进攻方领导者，防守方领导者
+			log = "HIS_WAR_START:[GetDate],[This.HIS_WAR_ID],[This.GetName],[This.attacker.HIS_COUNTRY_ID],[This.defender.HIS_COUNTRY_ID]"
+			every_attacker = {
+				# 战争 ID，该国家（进攻方）ID
+				log = "HIS_WAR_START_ATTACKER:[Prev.HIS_WAR_ID],[This.HIS_COUNTRY_ID]"
+			}
+			every_defender = {
+				# 战争 ID，该国家（防守方）ID
+				log = "HIS_WAR_START_DEFENDER:[Prev.HIS_WAR_ID],[This.HIS_COUNTRY_ID]"
+			}
+
+			save_event_target_as = HIS_WAR
+
+			# 记录进攻方战争目标
+			attacker = {
+				country_event = {
+					id = historian_military_affairs.5
+				}
+			}
+		}
+	}
+
+	after = {
+		From = {
+			# 记录防守方战争目标
+			defender = {
+				country_event = {
+					id = historian_military_affairs.5
+					days = 10
+				}
+			}
+		}
+	}
+}
+
+
+# 记录一方战争目标
+country_event = {
+	id = historian_military_affairs.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				exists = event_target:HIS_WAR
+			}
+			if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_independence
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_independence"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_swarm
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_swarm"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_assimilators
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_assimilators"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_assimilation
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_assimilation"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_cleansing
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_cleansing"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_absorption
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_absorption"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_assimilation_vs_fe
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_assimilation_vs_fe"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_cleansing_vs_fe
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_cleansing_vs_fe"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_absorption_vs_fe
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_absorption_vs_fe"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_plunder
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_plunder"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_plunder_raid
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_plunder_raid"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_colossus
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_colossus"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_colossus
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_colossus"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_subjugation
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_subjugation"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_tribute
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_tribute"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_megacorp_subjugate
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_megacorp_subjugate"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_force_ideology
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_force_ideology"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_conquest
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_conquest"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_humiliation
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_humiliation"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_take_galatron
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_take_galatron"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_expel_corp
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_expel_corp"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_hostile_takeover
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_hostile_takeover"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_steal_galatron
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_steal_galatron"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_scion
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_scion"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_hegemon
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_hegemon"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_leave_hegemony
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_leave_hegemony"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_counterattack
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_counterattack"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_renegade_containment
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_renegade_containment"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_renegade_containment
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_renegade_containment"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_revenge_for_eaten_star
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_revenge_for_eaten_star"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_revenge_for_eaten_star
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_revenge_for_eaten_star"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_allegiance
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_allegiance"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_stop_atrocities
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_stop_atrocities"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fe_humiliation
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fe_humiliation"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fe_stop_atrocities
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fe_stop_atrocities"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fe_stop_ai
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fe_stop_ai"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fe_cleanse_holy_worlds
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fe_cleanse_holy_worlds"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fe_cleanse_border_worlds
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fe_cleanse_border_worlds"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_ae_domination
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_ae_domination"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_ae
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_ae"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_machine_uprising
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_machine_uprising"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_war_in_heaven
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_war_in_heaven"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_assert_overlordship
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_assert_overlordship"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_assert_hegemony
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_assert_hegemony"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_galactic_civil_war_loyalists
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_galactic_civil_war_loyalists"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_galactic_civil_war_rebels
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_galactic_civil_war_rebels"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_declared_crisis
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_declared_crisis"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_defend_allegiance
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_defend_allegiance"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_fotd_really_bad_contact
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_fotd_really_bad_contact"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_wipe_them_out
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_wipe_them_out"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_force_ideology
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_force_ideology"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_tribute
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_tribute"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_megacorp_subjugate
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_megacorp_subjugate"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_msi
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_msi"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_payback_msi_humiliation
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_payback_msi_humiliation"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_bring_into_the_fold
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_bring_into_the_fold"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_bring_into_the_fold_corporate
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_bring_into_the_fold_corporate"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_wipe_them_out
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_wipe_them_out"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_end_threat_crisis
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_end_threat_crisis"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_imperial_crusade
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_imperial_crusade"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_seize_council_seat
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_seize_council_seat"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_restore_the_community
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_restore_the_community"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_imperial_rebuke
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_imperial_rebuke"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_humiliation_imperium
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_humiliation_imperium"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_take_galatron_imperium
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_take_galatron_imperium"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_expel_corp_imperium
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_expel_corp_imperium"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_hostile_takeover_imperium
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_hostile_takeover_imperium"
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:HIS_WAR = {
+						using_war_goal = {
+							type = wg_steal_galatron_imperium
+							owner = Root
+						}
+					}
+				}
+				event_target:HIS_WAR = {
+					log = "HIS_WAR_GOAL:[This.HIS_WAR_ID],[Root.HIS_COUNTRY_ID],wg_steal_galatron_imperium"
+				}
+			}
+			else = {
+				country_event = {
+					id = historian_military_affairs.5
+					days = 10
+				}
+			}
+		}
+	}
+}
+
+
+# 战争决出胜负时 (on_war_won) 触发，记录战争 ID、战争结束时间、胜方领导者
+# Root = Winner Warleader
+# From = Loser Warleader
+# FromFrom = War
+country_event = {
+	id = historian_military_affairs.6
+	hide_window = yes
+
+	trigger = {
+		FromFrom = {
+			any_war_participant = {
+				is_ai = no
+			}
+		}
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		# 战争 ID，日期，胜方领导者
+		log = "HIS_WAR_WON:[FromFrom.HIS_WAR_ID],[GetDate],[This.HIS_COUNTRY_ID]"
+	}
+}
+
+
+# 战争以维持现状结束时 (on_status_quo) 触发，记录战争 ID、战争结束时间
+# Root = Actor
+# From = Recipient
+# FromFrom = Main Attacker
+# FromFromFrom = Main Defender
+# FromFromFromFrom = War
+country_event = {
+	id = historian_military_affairs.7
+	hide_window = yes
+
+	trigger = {
+		FromFromFromFrom = {
+			any_war_participant = {
+				is_ai = no
+			}
+		}
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		# 战争 ID，日期
+		log = "HIS_WAR_STATUS_QUO:[FromFromFromFrom.HIS_WAR_ID],[GetDate]"
+	}
+}
+
+
+# 战争以被迫维持现状结束时 (on_status_quo_forced) 触发，记录战争 ID、战争结束时间
+# Root = Recipient
+# From = Actor
+# FromFrom = Main Attacker
+# FromFromFrom = Main Defender
+# FromFromFromFrom = War
+country_event = {
+	id = historian_military_affairs.8
+	hide_window = yes
+
+	trigger = {
+		FromFromFromFrom = {
+			any_war_participant = {
+				is_ai = no
+			}
+		}
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		# 战争 ID，日期
+		log = "HIS_WAR_STATUS_QUO_FORCED:[FromFromFromFrom.HIS_WAR_ID],[GetDate]"
 	}
 }

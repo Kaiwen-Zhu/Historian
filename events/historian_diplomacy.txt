@@ -10,6 +10,17 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 
+	immediate = {
+		set_variable = {
+			which = HIS_COUNTRY_COUNTER
+			value = 0
+		}
+		set_variable = {
+			which = HIS_COUNTRY_ID
+			value = 0
+		}
+	}
+
 	after = {
 		country_event = {
 			id = historian_diplomacy.2
