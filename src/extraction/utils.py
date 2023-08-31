@@ -1,5 +1,5 @@
 import re
-from os import path
+from os.path import join as path_join, exists as path_exists
 import pandas as pd
 from pandas.core.frame import DataFrame
 
@@ -30,8 +30,8 @@ def merge_and_save_df(data_path: str, file_name: str, new_df: DataFrame):
         new_df (DataFrame): The new dataframe.
     """    
 
-    file_path = path.join(data_path, file_name)
-    if path.exists(file_path):
+    file_path = path_join(data_path, file_name)
+    if path_exists(file_path):
         old_df: DataFrame = pd.read_csv(file_path, sep=';', index_col=0)
         new_first_date = new_df.iloc[0]['date']
         old_df = old_df[old_df['date'] < new_first_date]

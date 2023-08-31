@@ -30,7 +30,7 @@ def main():
 
     compile_index(env, assets_path, output_path)
 
-    print(f"史书已被保存到 {path_join(output_path, env.globals['name']+'史.html')}。")
+    print(f"史书已被保存为 {path_join(output_path, env.globals['name']+'史.html')}。")
 
 
 if __name__ == '__main__':

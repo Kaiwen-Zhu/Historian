@@ -6,7 +6,7 @@ from jinja2 import Environment
 from .utils import *
 
 
-def plot_opinions(env: Environment, data_path: str, dir_path: str, mapping: dict[str, str]):
+def plot_opinions(env: Environment, data_path: str, dir_path: str, country_name_dict: dict[str, str]):
     df = pd.read_csv(path_join(data_path, 'opinions.csv'), index_col=0, sep=';')
 
     df["date"] = df["date"].apply(lambda date: date[:-3])
@@ -16,7 +16,7 @@ def plot_opinions(env: Environment, data_path: str, dir_path: str, mapping: dict
     }
 
     for ind in range((len(df.columns)-1) // 2):
-        country = mapping[df.columns[2*ind+1][12:]]  # 国家名称
+        country = country_name_dict[df.columns[2*ind+1][12:]]  # 国家名称
         df_tmp = df[df[df.columns[2*ind+1]].notnull()]
         rel_config['data'].append({
             'name': country,
@@ -35,10 +35,10 @@ def compile_diplomatic_history(env: Environment, data_path: str, output_path: st
         
         dir_path = prepare_output(output_path, "外交史")
 
-        with open(path_join(data_path, 'mapping.json'), encoding='utf-8') as f:
-            mapping = json_load(f)
+        with open(path_join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
+            country_name_dict = json_load(f)
     
-        plot_opinions(env, data_path, dir_path, mapping)
+        plot_opinions(env, data_path, dir_path, country_name_dict)
 
         print("完成")
         stdout.flush()

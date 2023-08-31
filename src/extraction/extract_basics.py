@@ -1,5 +1,5 @@
 import re
-from os import path
+from os.path import join as path_join, exists as path_exists
 from sys import stdout
 from json import load as json_load, dump as json_dump
 
@@ -8,9 +8,9 @@ def extract_basics(game_log, data_path):
     print("提取基本信息...", end=' ')
     stdout.flush()
 
-    file_path = path.join(data_path, 'basics.json')
+    file_path = path_join(data_path, 'basics.json')
 
-    if not path.exists(file_path):
+    if not path_exists(file_path):
         basics_dict = {}
         basics_pat = re.compile('(?<=HIS_BASICS:).+')
         info = basics_pat.search(game_log)
@@ -47,7 +47,7 @@ def extract_basics(game_log, data_path):
     ethics = list(map(lambda x: x.split(',')[1], ethics))
     basics_dict['ethics'] = ethics
 
-    with open(path.join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
+    with open(path_join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
         json_dump(basics_dict, f, ensure_ascii=False, indent=4)
         
     print("完成")

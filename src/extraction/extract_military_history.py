@@ -1,5 +1,6 @@
 from sys import stdout
 import pandas as pd
+from os.path import join as path_join, exists as path_exists
 from json import load as json_load, dump as json_dump
 from .utils import *
 
@@ -41,8 +42,8 @@ def extract_war(game_log, data_path):
     """Extracts war history."""
 
     wars = {}
-    if path.exists(path.join(data_path, 'wars.json')):
-        with open(path.join(data_path, 'wars.json'), encoding='utf-8') as f:
+    if path_exists(path_join(data_path, 'wars.json')):
+        with open(path_join(data_path, 'wars.json'), encoding='utf-8') as f:
             wars = json_load(f)
     
     # data_start 中的每项为 [date, war_id, war_name, main attacker, main defender]
@@ -95,7 +96,7 @@ def extract_war(game_log, data_path):
 
         if war_info['end_date'] is None:
             # 检查是否为全面战争且已结束
-            opinions = pd.read_csv(path.join(data_path, 'opinions.csv'), sep=';', index_col=0)
+            opinions = pd.read_csv(path_join(data_path, 'opinions.csv'), sep=';', index_col=0)
             if '0' in war_info['attackers']:
                 enemies = war_info['defenders']
                 our_leader = war_info['main_attacker']
@@ -115,7 +116,7 @@ def extract_war(game_log, data_path):
 
         wars[war_id] = war_info
 
-    with open(path.join(data_path, 'wars.json'), 'w', encoding='utf-8') as f:
+    with open(path_join(data_path, 'wars.json'), 'w', encoding='utf-8') as f:
         json_dump(wars, f, ensure_ascii=False, indent=4)
             
 

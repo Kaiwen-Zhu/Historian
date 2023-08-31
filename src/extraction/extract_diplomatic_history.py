@@ -1,5 +1,6 @@
 from sys import stdout
 import pandas as pd
+from os.path import join as path_join, exists as path_exists
 from json import load as json_load, dump as json_dump
 from .utils import *
 
@@ -12,8 +13,8 @@ def extract_opinion(game_log, data_path, our_name):
     country_name_dict = {'0': our_name}
     
     if data:
-        if path.exists(path.join(data_path, 'country_name_dict.json')):
-            with open(path.join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
+        if path_exists(path_join(data_path, 'country_name_dict.json')):
+            with open(path_join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
                 country_name_dict.update(json_load(f))
 
         new_df = pd.DataFrame(columns=["date"])
@@ -32,7 +33,7 @@ def extract_opinion(game_log, data_path, our_name):
             new_df.loc[new_df[new_df["date"]==date].index, f"their_opinion_{country_id}"] = ele[4]
 
         merge_and_save_df(data_path, 'opinions.csv', new_df)
-        with open(path.join(data_path, 'country_name_dict.json'), 'w', encoding='utf-8') as f:
+        with open(path_join(data_path, 'country_name_dict.json'), 'w', encoding='utf-8') as f:
             json_dump(country_name_dict, f, ensure_ascii=False, indent=4)
     
         return country_name_dict
