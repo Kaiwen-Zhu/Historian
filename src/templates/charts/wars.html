@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>战争</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div id="chart" class="chart-container" style="width: 1000px"></div>
+    <script type="text/javascript">
+      // function time2stamp(time) {
+      //   year_month_day = time.split(".");
+      //   year = parseInt(year_month_day[0]);
+      //   month = parseInt(year_month_day[1]);
+      //   day = parseInt(year_month_day[2]);
+      //   return (year - 2200) * 360 + (month - 1) * 30 + day;
+      // }
+
+      function stamp2time(stamp) {
+        year = Math.floor(stamp / 360) + 2200;
+        month = Math.floor((stamp % 360) / 30) + 1;
+        day = (stamp % 360) % 30;
+        if (day == 0) {
+          day = 30;
+          month -= 1;
+          if (month == 0) {
+            month = 12;
+            year -= 1;
+          }
+        }
+        year = year.toString();
+        month = month.toString().padStart(2, "0");
+        day = day.toString().padStart(2, "0");
+        // return year + "." + month + "." + day;
+        return year + "." + month;
+      }
+
+      var option = {
+        animation: false,
+        yAxis: {
+          type: "category",
+          data: [],
+          inverse: true,
+        },
+        xAxis: {
+          min: 1,
+          max: "dataMax",
+          splitNumber: 10,
+          axisLabel: {
+            formatter: function (value, index) {
+              return stamp2time(value);
+            },
+          },
+        },
+        series: [],
+        tooltip: {
+          show: true,
+          trigger: "item",
+          formatter: function (params) {
+            info = war_data[params.seriesIndex];
+            string = `<b>${info.name}</b> ${info.start_date}-`;
+            if (info.end_date != "-") 
+              string += info.end_date;
+            string += "<br/>";
+            if (info.result != "-") 
+              string += `${info.result}<br/>`;
+
+            other_attackers = "";
+            for (other_attacker of info.other_attackers)
+              other_attackers += `${other_attacker}<br/>`;
+            other_defenders = "";
+            for (other_defender of info.other_defenders)
+              other_defenders += `${other_defender}<br/>`;
+
+            string += `<div>
+                        <div style='float:left'>
+                          进攻方：${info.attacker_wg}<br/>
+                          <b>${info.main_attacker}</b><br/>
+                          ${other_attackers}
+                        </div>
+                        <div style='display:inline-block;width:50px'></div>
+                        <div style='float:right'>
+                          防守方：${info.defender_wg}<br/>
+                          <b>${info.main_defender}</b><br/>
+                          ${other_defenders}
+                        </div>
+                      </div>`;
+            return string;
+          },
+        },
+        grid: {
+          left: "15%",
+          right: "10%",
+          top: "5%",
+          height: "90%",
+        },
+        legend: {
+          data: [],
+          selectedMode: false,
+        },
+        toolbox: {
+          show: true,
+          orient: "horizontal",
+          itemSize: 15,
+          itemGap: 10,
+          right: "10%",
+          feature: {
+            saveAsImage: {
+              type: "png",
+              backgroundColor: "white",
+              connectedBackgroundColor: "#fff",
+              show: true,
+              title: "保存为图片",
+              pixelRatio: 2,
+            },
+          },
+        },
+      };
+
+      option.yAxis.data = {{ config.countries }};
+      war_data = {{ config.war_data }};
+
+      placeholder_template = {
+        data: [],
+        type: "bar",
+        stack: "x",
+        silent: true,
+        itemStyle: {
+          borderColor: "transparent",
+          color: "transparent",
+        },
+        emphasis: {
+          itemStyle: {
+            borderColor: "transparent",
+            color: "transparent",
+          },
+        },
+        barWidth: 25,
+      };
+      war_series_template = {
+        data: [],
+        type: "bar",
+        stack: "x",
+        itemStyle: {
+          color: "",
+        },
+        barWidth: 25,
+      };
+
+      let ally_legend_flag = false, enemy_legend_flag = false;
+      for (let series of war_data) {
+        if ("name" in series) {
+          // 战争
+          this_war_obj = JSON.parse(JSON.stringify(war_series_template));
+          this_war_obj.data = series.data;
+          if (series.side == "敌方") {
+            if (!enemy_legend_flag) {
+              this_war_obj.name = "敌人";
+              option.legend.data.push("敌人");
+              enemy_legend_flag = true;
+            }
+            this_war_obj.itemStyle.color = "#B22222";
+          } else {
+            if (!ally_legend_flag) {
+              this_war_obj.name = "盟友";
+              option.legend.data.push("盟友");
+              ally_legend_flag = true;
+            }
+            this_war_obj.itemStyle.color = "#000080";
+          }
+          option.series.push(this_war_obj);
+        } else {
+          // 占位块
+          this_placeholder_obj = JSON.parse(
+            JSON.stringify(placeholder_template)
+          );
+          this_placeholder_obj.data = series.data;
+          option.series.push(this_placeholder_obj);
+        }
+      }
+
+      document.getElementById("chart").style.height =
+        ((option.yAxis.data.length * 30) / 0.9).toString() + "px";
+
+      var chart = echarts.init(document.getElementById("chart"), "white", {
+        renderer: "canvas",
+      });
+      chart.setOption(option);
+
+      function sendHeightToParent() {
+        const wars_height = document.body.scrollHeight;
+        const message = { wars_height, identifier: "wars" };
+        window.parent.postMessage(message, "*");
+      }
+      window.addEventListener("load", sendHeightToParent);
+    </script>
+  </body>
+</html>

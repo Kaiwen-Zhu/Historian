@@ -23,3 +23,10 @@ def render_page(env: Environment, template_name: str, output_path: str, page_nam
     file_path = path_join(output_path, page_name)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(page)
+
+
+def time2stamp(time: str) -> int:
+    """Converts a time string to a timestamp (days passed since 2200)."""
+
+    year, month, day = time.split(".")
+    return (int(year) - 2200) * 360 + (int(month) - 1) * 30 + int(day)

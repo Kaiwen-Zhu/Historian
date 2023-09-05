@@ -99,6 +99,9 @@
               <el-menu-item index="6-2" v-on:click="showPage('fleets')">
                 <span>海军舰队</span>
               </el-menu-item>
+              <el-menu-item index="6-3" v-on:click="showPage('wars')">
+                <span>战争</span>
+              </el-menu-item>
             </el-sub-menu>
 
           </el-menu>
@@ -149,6 +152,9 @@
         <el-main id="military_history_fleets" v-if="currentPage==='fleets'">
           {% include "military_history_fleets.html" %}
         </el-main>
+        <el-main id="military_history_wars" v-if="currentPage==='wars'">
+          {% include "military_history_wars.html" %}
+        </el-main>
         <!-- military history end -->
       </el-container>
     </div>
@@ -168,6 +174,15 @@
         },
       });
       app.use(ElementPlus).mount("#app");
+
+      // 监听消息事件，更新战争页面的 iframe 的高度为子文档发送的高度
+      window.addEventListener('message', function (e) {
+        // if (e.origin === 'null' && e.source === iframe.contentWindow) {
+        if (e.origin === 'null' && e.data.identifier === 'wars') {
+          const iframe = document.getElementById('wars');
+          iframe.style.height = e.data.wars_height + 'px';
+        }
+      });
     </script>
   </body>
 </html>
