@@ -58,11 +58,8 @@
           trigger: "item",
           formatter: function (params) {
             info = war_data[params.seriesIndex];
-            string = `<b>${info.name}</b> ${info.start_date}-`;
-            if (info.end_date != "-") 
-              string += info.end_date;
-            string += "<br/>";
-            if (info.result != "-") 
+            string = `<b>${info.name}</b> ${info.start_date}-${info.end_date}<br/>`;
+            if (info.result) 
               string += `${info.result}<br/>`;
 
             other_attackers = "";
@@ -119,11 +116,12 @@
 
       option.yAxis.data = {{ config.countries }};
       war_data = {{ config.war_data }};
+      num_groups = {{ config.num_groups }};
 
       placeholder_template = {
         data: [],
         type: "bar",
-        stack: "x",
+        stack: "",
         silent: true,
         itemStyle: {
           borderColor: "transparent",
@@ -140,7 +138,7 @@
       war_series_template = {
         data: [],
         type: "bar",
-        stack: "x",
+        stack: "",
         itemStyle: {
           color: "",
         },
@@ -153,6 +151,7 @@
           // 战争
           this_war_obj = JSON.parse(JSON.stringify(war_series_template));
           this_war_obj.data = series.data;
+          this_war_obj.stack = series.group;
           if (series.side == "敌方") {
             if (!enemy_legend_flag) {
               this_war_obj.name = "敌人";
@@ -175,12 +174,13 @@
             JSON.stringify(placeholder_template)
           );
           this_placeholder_obj.data = series.data;
+          this_placeholder_obj.stack = series.group;
           option.series.push(this_placeholder_obj);
         }
       }
 
       document.getElementById("chart").style.height =
-        ((option.yAxis.data.length * 30) / 0.9).toString() + "px";
+        ((num_groups * option.yAxis.data.length * 30) / 0.9).toString() + "px";
 
       var chart = echarts.init(document.getElementById("chart"), "white", {
         renderer: "canvas",

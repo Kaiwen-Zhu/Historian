@@ -57,13 +57,13 @@ def extract_war(game_log, data_path):
         war_info = {
             'name': war_name, 'start_date': start_date,
             'main_attacker': main_attacker, 
-            'attackers': [id[0] for id in attackers],
+            'attackers': [id[0] for id in attackers if id[0]],  # TO FIX: 可能会有空项
             'attacker_wg': attacker_wg[0][0],
             'main_defender': main_defender,
-            'defenders':  [id[0] for id in defenders],
-            'defender_wg': None,
-            'end_date': None,
-            'result': None
+            'defenders':  [id[0] for id in defenders if id[0]],  # TO FIX: 可能会有空项
+            'defender_wg': '',
+            'end_date': '',
+            'result': ''
         }
         if war_id not in wars:
             wars[war_id] = war_info
@@ -94,7 +94,7 @@ def extract_war(game_log, data_path):
             war_info['end_date'] = status_quo_forced_info[0][0]
             war_info['result'] = 'status_quo_forced'
 
-        if war_info['end_date'] is None:
+        if not war_info['end_date']:
             # 检查是否为全面战争且已结束
             opinions = pd.read_csv(path_join(data_path, 'opinions.csv'), sep=';', index_col=0)
             if '0' in war_info['attackers']:
@@ -104,15 +104,16 @@ def extract_war(game_log, data_path):
                 enemies = war_info['attackers']
                 our_leader = war_info['main_defender']
             enemies_cols = opinions[[f'our_opinion_{enemy}' for enemy in enemies]]
-            null_rows = enemies_cols.isnull().all(axis=1)
-            if null_rows.iloc[-1]:
-                # 敌人已全部灭亡，战争结束
-                for i in range(len(null_rows)-1, -1, -1):
-                    if not null_rows.iloc[i]:
-                        first_nan = i + 1
-                        break
-                war_info['end_date'] = opinions.loc[first_nan]['date']
-                war_info['result'] = ('won', our_leader)
+            if len(enemies_cols.columns):  # TO FIX: 可能为空
+                null_rows = enemies_cols.isnull().all(axis=1)
+                if null_rows.iloc[-1]:
+                    # 敌人已全部灭亡，战争结束
+                    for i in range(len(null_rows)-1, -1, -1):
+                        if not null_rows.iloc[i]:
+                            first_nan = i + 1
+                            break
+                    war_info['end_date'] = opinions.loc[first_nan]['date']
+                    war_info['result'] = ('won', our_leader)
 
         wars[war_id] = war_info
 

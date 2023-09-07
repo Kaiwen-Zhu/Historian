@@ -59,6 +59,10 @@ def plot_war(env: Environment, assets_path: str, data_path: str, dir_path: str):
     # 键为国家 ID，值为我国与该国参与的战争列表
     war_participants = {}
     for war_info in wars.values():
+        # TO FIX: 可能为空
+        if war_info['main_attacker'] == '' or war_info['main_defender'] == '':
+            continue
+
         attackers_set = set(war_info['attackers'])
 
         # 本地化 (暂不本地化国家)
@@ -102,50 +106,64 @@ def plot_war(env: Environment, assets_path: str, data_path: str, dir_path: str):
             war_participants[ally] = war_participants.get(ally, []) + [war_info_copy]
 
     # 计算在柱状图中的长度
-    for country_wars in war_participants.values():
-        prev_timestamp = 0
+    num_groups = 0
+    for country, country_wars in war_participants.items():
+        # 将与该国参与的战争分为若干组，每组中的战争时间不重叠
+        groups = []
+        prev_timestamps = []
         for i, war in enumerate(country_wars):
-            country_wars[i]['placeholder_length'] = time2stamp(war['start_date']) - prev_timestamp
+            start_date = war['start_date']
             end_date = war['end_date'] if war['end_date'] else env.globals['end_date']
-            country_wars[i]['war_length'] = time2stamp(end_date) - time2stamp(war['start_date'])
-            prev_timestamp = time2stamp(end_date)
-            if country_wars[i]['end_date'] is None:
-                country_wars[i]['end_date'] = "-"
-                country_wars[i]['result'] = "-"
-    
+            war['war_length'] = time2stamp(end_date) - time2stamp(start_date)
+            for j, prev_timestamp in enumerate(prev_timestamps):
+                if time2stamp(start_date) > prev_timestamp:
+                    war['placeholder_length'] = time2stamp(start_date) - prev_timestamp
+                    groups[j].append(war)
+                    prev_timestamps[j] = time2stamp(end_date)
+                    break
+            else:
+                war['placeholder_length'] = time2stamp(start_date)
+                groups.append([war])
+                prev_timestamps.append(time2stamp(end_date))
+        war_participants[country] = groups
+        num_groups = max(num_groups, len(groups))
+
     # 将 war_participants 转为键值对的列表，根据进入战争的时间排序
     war_participants = sorted(war_participants.items(), 
-                              key=lambda t: t[1][0]['placeholder_length'])
+                              key=lambda t: t[1][0][0]['placeholder_length'])
     countries = [country_name_dict[country] for country, _ in war_participants]
 
     # 从 war_participants 中整理出数据
     num_war_participants = len(war_participants)
     war_data = []
-    for i, (country, country_wars) in enumerate(war_participants):
-        for war in country_wars:
-            # 填入占位块
-            this_data = [0] * num_war_participants
-            this_data[i] = war['placeholder_length']
-            war_data.append({'data': this_data})
-            del war['placeholder_length']
-            
-            # 填入该战争
-            this_data = [0] * num_war_participants
-            this_data[i] = war['war_length']
-            war['data'] = this_data
-            del war['war_length']
-            # 本地化，并从双方成员中删除领导者
-            war['other_attackers'] = [country_name_dict[attacker] 
-                for attacker in war['attackers'] if attacker != war['main_attacker']]
-            war['other_defenders'] = [country_name_dict[defender] 
-                for defender in war['defenders'] if defender != war['main_defender']]
-            war['main_attacker'] = country_name_dict[war['main_attacker']]
-            war['main_defender'] = country_name_dict[war['main_defender']]
-            del war['attackers'], war['defenders']
-            war_data.append(war)
+    for i, (country, country_wars_groups) in enumerate(war_participants):
+        for group_idx, country_wars in enumerate(country_wars_groups):
+            for war in country_wars:
+                # 填入占位块
+                this_data = [0] * num_war_participants
+                this_data[i] = war['placeholder_length']
+                war_data.append({'data': this_data, 'group': str(group_idx)})
+                del war['placeholder_length']
+                
+                # 填入该战争
+                this_data = [0] * num_war_participants
+                this_data[i] = war['war_length']
+                war['data'] = this_data
+                del war['war_length']
+                # 本地化，并从双方成员中删除领导者
+                war['other_attackers'] = [country_name_dict[attacker] 
+                    for attacker in war['attackers'] if attacker != war['main_attacker']]
+                war['other_defenders'] = [country_name_dict[defender] 
+                    for defender in war['defenders'] if defender != war['main_defender']]
+                war['main_attacker'] = country_name_dict[war['main_attacker']]
+                war['main_defender'] = country_name_dict[war['main_defender']]
+                # 填入组号
+                war['group'] = str(group_idx)
+                del war['attackers'], war['defenders']
+                war_data.append(war)
     
     render_page(env, 'charts/wars.html', dir_path, '战争.html', 
-                config={"war_data": war_data, "countries": countries})
+                config={"war_data": war_data, "countries": countries, "num_groups": num_groups})
 
 
 def compile_military_history(env: Environment, assets_path: str, data_path: str, output_path: str):
