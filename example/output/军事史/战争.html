@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>战争</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div id="chart" class="chart-container" style="width: 1000px"></div>
+    <script type="text/javascript">
+      // function time2stamp(time) {
+      //   year_month_day = time.split(".");
+      //   year = parseInt(year_month_day[0]);
+      //   month = parseInt(year_month_day[1]);
+      //   day = parseInt(year_month_day[2]);
+      //   return (year - 2200) * 360 + (month - 1) * 30 + day;
+      // }
+
+      function stamp2time(stamp) {
+        year = Math.floor(stamp / 360) + 2200;
+        month = Math.floor((stamp % 360) / 30) + 1;
+        day = (stamp % 360) % 30;
+        if (day == 0) {
+          day = 30;
+          month -= 1;
+          if (month == 0) {
+            month = 12;
+            year -= 1;
+          }
+        }
+        year = year.toString();
+        month = month.toString().padStart(2, "0");
+        day = day.toString().padStart(2, "0");
+        // return year + "." + month + "." + day;
+        return year + "." + month;
+      }
+
+      var option = {
+        animation: false,
+        yAxis: {
+          type: "category",
+          data: [],
+          inverse: true,
+        },
+        xAxis: {
+          min: 1,
+          max: "dataMax",
+          splitNumber: 10,
+          axisLabel: {
+            formatter: function (value, index) {
+              return stamp2time(value);
+            },
+          },
+        },
+        series: [],
+        tooltip: {
+          show: true,
+          trigger: "item",
+          formatter: function (params) {
+            info = war_data[params.seriesIndex];
+            string = `<b>${info.name}</b> ${info.start_date}-${info.end_date}<br/>`;
+            if (info.result) 
+              string += `${info.result}<br/>`;
+
+            other_attackers = "";
+            for (other_attacker of info.other_attackers)
+              other_attackers += `${other_attacker}<br/>`;
+            other_defenders = "";
+            for (other_defender of info.other_defenders)
+              other_defenders += `${other_defender}<br/>`;
+
+            string += `<div>
+                        <div style='float:left'>
+                          进攻方：${info.attacker_wg}<br/>
+                          <b>${info.main_attacker}</b><br/>
+                          ${other_attackers}
+                        </div>
+                        <div style='display:inline-block;width:50px'></div>
+                        <div style='float:right'>
+                          防守方：${info.defender_wg}<br/>
+                          <b>${info.main_defender}</b><br/>
+                          ${other_defenders}
+                        </div>
+                      </div>`;
+            return string;
+          },
+        },
+        grid: {
+          left: "15%",
+          right: "10%",
+          top: "5%",
+          height: "90%",
+        },
+        legend: {
+          data: [],
+          selectedMode: false,
+        },
+        toolbox: {
+          show: true,
+          orient: "horizontal",
+          itemSize: 15,
+          itemGap: 10,
+          right: "10%",
+          feature: {
+            saveAsImage: {
+              type: "png",
+              backgroundColor: "white",
+              connectedBackgroundColor: "#fff",
+              show: true,
+              title: "保存为图片",
+              pixelRatio: 2,
+            },
+          },
+        },
+      };
+
+      option.yAxis.data = ['瑟姆拉 有机组织', '弥那玛特种实业集团', '普洛斯纳坎 星际协定', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '拉克西科迪乌姆 权力机构', '伊尔祖库 权力机构', '特拔里斯政府', '奎普提利乌姆 独存实体', '集权人类 诸省国', '雷耶尼 灭绝者', '凯尔布德 中枢', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '克伯利安 企业联合会', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府', '尊者 认知', '天祝伊尔祖库 国度', '克伯利安 自治区', '奎普提利乌姆 自治区'];
+      war_data = [{'data': [12461, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '罗鹏-瑟姆拉领土入侵', 'start_date': '2234.08.11', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '瑟姆拉 有机组织', 'defender_wg': '征服', 'end_date': '2246.11.28', 'result': '我方胜利', 'side': '敌方', 'data': [4427, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': [], 'group': '0'}, {'data': [0, 16999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '奥霖巴利-罗鹏战争', 'start_date': '2247.03.19', 'main_attacker': '弥那玛特种实业集团', 'attacker_wg': '羞辱', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '羞辱', 'end_date': '2260.01.28', 'result': '维持现状', 'side': '敌方', 'data': [0, 4629, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['普洛斯纳坎 星际协定'], 'other_defenders': ['埃斯雅贡 星际邦联'], 'group': '0'}, {'data': [0, 14378, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '罗鹏-奥霖巴利战争', 'start_date': '2300.01.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '消灭威胁', 'main_defender': '弥那玛特种实业集团', 'defender_wg': '扣押资产', 'end_date': '2323.06.10', 'result': '我方胜利', 'side': '敌方', 'data': [0, 8434, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 16999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '奥霖巴利-罗鹏战争', 'start_date': '2247.03.19', 'main_attacker': '弥那玛特种实业集团', 'attacker_wg': '羞辱', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '羞辱', 'end_date': '2260.01.28', 'result': '维持现状', 'side': '敌方', 'data': [0, 0, 4629, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['普洛斯纳坎 星际协定'], 'other_defenders': ['埃斯雅贡 星际邦联'], 'group': '0'}, {'data': [0, 0, 0, 16999, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '奥霖巴利-罗鹏战争', 'start_date': '2247.03.19', 'main_attacker': '弥那玛特种实业集团', 'attacker_wg': '羞辱', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '羞辱', 'end_date': '2260.01.28', 'result': '维持现状', 'side': '友方', 'data': [0, 0, 0, 4629, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['普洛斯纳坎 星际协定'], 'other_defenders': ['埃斯雅贡 星际邦联'], 'group': '0'}, {'data': [0, 0, 0, 29618, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 8030, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 139, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 62101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 2619, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 31925, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '罗鹏-阿摩尼坎纳贡战争', 'start_date': '2288.09.05', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '要求朝贡', 'main_defender': '阿摩尼坎 集体意识', 'defender_wg': '羞辱', 'end_date': '2288.12.22', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 19214, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 8030, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 139, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 62101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 2619, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 34589, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '特拔里斯 独立战争', 'start_date': '2296.01.29', 'main_attacker': '特拔里斯政府', 'attacker_wg': '独立', 'main_defender': '拉克西科迪乌姆 权力机构', 'defender_wg': '强调宗主地位', 'end_date': '2315.07.24', 'result': '维持现状', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 7015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['奎普提利乌姆 独存实体', '集权人类 诸省国', '罗鹏抵抗组织'], 'other_defenders': ['伊尔祖库 权力机构'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 34589, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '特拔里斯 独立战争', 'start_date': '2296.01.29', 'main_attacker': '特拔里斯政府', 'attacker_wg': '独立', 'main_defender': '拉克西科迪乌姆 权力机构', 'defender_wg': '强调宗主地位', 'end_date': '2315.07.24', 'result': '维持现状', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 7015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['奎普提利乌姆 独存实体', '集权人类 诸省国', '罗鹏抵抗组织'], 'other_defenders': ['伊尔祖库 权力机构'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 34589, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '特拔里斯 独立战争', 'start_date': '2296.01.29', 'main_attacker': '特拔里斯政府', 'attacker_wg': '独立', 'main_defender': '拉克西科迪乌姆 权力机构', 'defender_wg': '强调宗主地位', 'end_date': '2315.07.24', 'result': '维持现状', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 7015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['奎普提利乌姆 独存实体', '集权人类 诸省国', '罗鹏抵抗组织'], 'other_defenders': ['伊尔祖库 权力机构'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 34589, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '特拔里斯 独立战争', 'start_date': '2296.01.29', 'main_attacker': '特拔里斯政府', 'attacker_wg': '独立', 'main_defender': '拉克西科迪乌姆 权力机构', 'defender_wg': '强调宗主地位', 'end_date': '2315.07.24', 'result': '维持现状', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 7015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['奎普提利乌姆 独存实体', '集权人类 诸省国', '罗鹏抵抗组织'], 'other_defenders': ['伊尔祖库 权力机构'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 17888, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 34589, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '特拔里斯 独立战争', 'start_date': '2296.01.29', 'main_attacker': '特拔里斯政府', 'attacker_wg': '独立', 'main_defender': '拉克西科迪乌姆 权力机构', 'defender_wg': '强调宗主地位', 'end_date': '2315.07.24', 'result': '维持现状', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 7015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['奎普提利乌姆 独存实体', '集权人类 诸省国', '罗鹏抵抗组织'], 'other_defenders': ['伊尔祖库 权力机构'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 17888, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37499, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '雷耶尼-罗鹏大清洗战争', 'start_date': '2304.02.29', 'main_attacker': '雷耶尼 灭绝者', 'attacker_wg': '净化', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '消灭威胁', 'end_date': '2331.01.03', 'result': '维持现状', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9664, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8030, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51246, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8030, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 855, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51246, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-凯尔布德领土入侵', 'start_date': '2342.05.06', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '凯尔布德 中枢', 'defender_wg': '羞辱', 'end_date': '2342.12.12', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8030, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 855, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59492, 0, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59492, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 855, 0, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59492, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 855, 0, 0, 0, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0, 0, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0, 0, 0], 'group': '1'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '1'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59492, 0, 0, 0, 0], 'group': '0'}, {'name': '魁尔努达尔-克伯利安战争', 'start_date': '2365.04.02', 'main_attacker': '魁尔努达尔 联合星系群', 'attacker_wg': '效忠战争', 'main_defender': '克伯利安 企业联合会', 'defender_wg': '维持侍奉', 'end_date': '2379.03.30', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5038, 0, 0, 0, 0], 'other_attackers': ['罗鹏抵抗组织', '埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '伊玛克拉 星际独裁政府'], 'other_defenders': ['奎普提利乌姆 独存实体', '集权人类 诸省国'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62101, 0, 0, 0], 'group': '0'}, {'name': '罗鹏机械叛乱', 'start_date': '2372.07.01', 'main_attacker': '尊者 认知', 'attacker_wg': '合成人起义', 'main_defender': '罗鹏抵抗组织', 'defender_wg': '合成人起义', 'end_date': '2379.10.10', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2619, 0, 0, 0], 'other_attackers': [], 'other_defenders': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区'], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65385, 0, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '敌方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65385, 0], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}, {'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65385], 'group': '0'}, {'name': '自由联合阵线-伊尔祖库吞并企图', 'start_date': '2381.08.15', 'main_attacker': '罗鹏抵抗组织', 'attacker_wg': '征服', 'main_defender': '天祝伊尔祖库 国度', 'defender_wg': '输入意识形态', 'end_date': '2382.01.04', 'result': '我方胜利', 'side': '友方', 'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139], 'other_attackers': ['埃斯雅贡 星际邦联', '阿摩尼坎 集体意识', '奥霖巴 自由阵线', '魁尔努达尔 联合星系群', '天园九 自治区', '人类 自治区', '雷耶尼 自新 自治区', '克伯利安 自治区', '奎普提利乌姆 自治区'], 'other_defenders': [], 'group': '0'}];
+      num_groups = 2;
+
+      placeholder_template = {
+        data: [],
+        type: "bar",
+        stack: "",
+        silent: true,
+        itemStyle: {
+          borderColor: "transparent",
+          color: "transparent",
+        },
+        emphasis: {
+          itemStyle: {
+            borderColor: "transparent",
+            color: "transparent",
+          },
+        },
+        barWidth: 25,
+      };
+      war_series_template = {
+        data: [],
+        type: "bar",
+        stack: "",
+        itemStyle: {
+          color: "",
+        },
+        barWidth: 25,
+      };
+
+      let ally_legend_flag = false, enemy_legend_flag = false;
+      for (let series of war_data) {
+        if ("name" in series) {
+          // 战争
+          this_war_obj = JSON.parse(JSON.stringify(war_series_template));
+          this_war_obj.data = series.data;
+          this_war_obj.stack = series.group;
+          if (series.side == "敌方") {
+            if (!enemy_legend_flag) {
+              this_war_obj.name = "敌人";
+              option.legend.data.push("敌人");
+              enemy_legend_flag = true;
+            }
+            this_war_obj.itemStyle.color = "#B22222";
+          } else {
+            if (!ally_legend_flag) {
+              this_war_obj.name = "盟友";
+              option.legend.data.push("盟友");
+              ally_legend_flag = true;
+            }
+            this_war_obj.itemStyle.color = "#000080";
+          }
+          option.series.push(this_war_obj);
+        } else {
+          // 占位块
+          this_placeholder_obj = JSON.parse(
+            JSON.stringify(placeholder_template)
+          );
+          this_placeholder_obj.data = series.data;
+          this_placeholder_obj.stack = series.group;
+          option.series.push(this_placeholder_obj);
+        }
+      }
+
+      document.getElementById("chart").style.height =
+        ((num_groups * option.yAxis.data.length * 30) / 0.9).toString() + "px";
+
+      var chart = echarts.init(document.getElementById("chart"), "white", {
+        renderer: "canvas",
+      });
+      chart.setOption(option);
+
+      function sendHeightToParent() {
+        const wars_height = document.body.scrollHeight;
+        const message = { wars_height, identifier: "wars" };
+        window.parent.postMessage(message, "*");
+      }
+      window.addEventListener("load", sendHeightToParent);
+    </script>
+  </body>
+</html>

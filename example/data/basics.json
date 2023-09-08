@@ -1,1 +1,15 @@
-{"origin": "繁荣一统", "home_world": "阿扎克", "home_world_class": "草原星球", "home_system": "科尔-阿扎克", "species": "科尔-阿赞", "end_date": "2425.05.03", "name": "科尔-阿赞共和国", "government_name": "军政官僚制", "personality": "荣耀战士", "ethics": ["Egalitarian", "FanaticMilitarist"]}
+{
+    "origin": "血债血偿",
+    "home_world": "诺格",
+    "home_world_class": "干旱星球",
+    "home_system": "诺格之炎",
+    "species": "罗鹏",
+    "end_date": "2384.01.03",
+    "name": "罗鹏抵抗组织",
+    "government_name": "平等公社",
+    "personality": "民主十字军",
+    "ethics": [
+        "FanaticEgalitarian",
+        "Militarist"
+    ]
+}
