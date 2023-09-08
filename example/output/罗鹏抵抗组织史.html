@@ -4501,6 +4501,7 @@
           <iframe
   id="wars"
   width="1000"
+  height="1600"
   seamless
   frameborder="0"
   scrolling="no"
@@ -4529,14 +4530,14 @@
       });
       app.use(ElementPlus).mount("#app");
 
-      // 监听消息事件，更新战争页面的 iframe 的高度为子文档发送的高度
-      window.addEventListener('message', function (e) {
-        // if (e.origin === 'null' && e.source === iframe.contentWindow) {
-        if (e.origin === 'null' && e.data.identifier === 'wars') {
-          const iframe = document.getElementById('wars');
-          iframe.style.height = e.data.wars_height + 'px';
-        }
-      });
+      // // 监听消息事件，更新战争页面的 iframe 的高度为子文档发送的高度
+      // window.addEventListener('message', function (e) {
+      //   // if (e.origin === 'null' && e.source === iframe.contentWindow) {
+      //   if (e.origin === 'null' && e.data.identifier === 'wars') {
+      //     const iframe = document.getElementById('wars');
+      //     iframe.style.height = e.data.wars_height + 'px';
+      //   }
+      // });
     </script>
   </body>
 </html>
