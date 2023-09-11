@@ -154,6 +154,18 @@ country_event = {
 					which = HIS_NUM_PAYBACK_WARSHIP
 					value = 0
 				}
+				set_variable = {
+					which = HIS_NUM_SMALL_SHIP_SWARM
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_LARGE_SHIP_CARRIER_SWARM
+					value = 0
+				}
+				set_variable = {
+					which = HIS_NUM_LARGE_SHIP_SWARM
+					value = 0
+				}
 			}
 			
 			# log = "HIS_FLEET:[GetDate],[This.GetName]"
@@ -444,12 +456,45 @@ country_event = {
 						}
 					}
 				}
+				else_if = {
+					limit = {
+						is_ship_size = small_ship_swarm
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_SMALL_SHIP_SWARM
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = large_ship_carrier_swarm
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_LARGE_SHIP_CARRIER_SWARM
+							value = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						is_ship_size = large_ship_swarm
+					}
+					root = {
+						change_variable = {
+							which = HIS_NUM_LARGE_SHIP_SWARM
+							value = 1
+						}
+					}
+				}
 				else = {
 					log = "HIS_MILITARY_SHIP_WARNING:UNKNOWN_MILITARY_SHIP_SIZE,[This.GetShipSizeName]"
 				}
 				# log = "HIS_MILITARY_SHIP:[GetDate],[This.GetShipSizeName],[This.GetDesignName],[This.GetName]"
 			}
-			log = "HIS_FLEET:[GetDate],[This.GetName],[Root.HIS_NUM_CORVETTE],[Root.HIS_NUM_FRIGATE],[Root.HIS_NUM_DESTROYER],[Root.HIS_NUM_CRUISER],[Root.HIS_NUM_BATTLESHIP],[Root.HIS_NUM_TITAN],[Root.HIS_NUM_COLOSSUS],[Root.HIS_NUM_JUGGERNAUT],[Root.HIS_NUM_SMALL_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_LARGE_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_PIRATE_CORVETTE],[Root.HIS_NUM_PIRATE_DESTROYER],[Root.HIS_NUM_GALLEON],[Root.HIS_NUM_PSIONIC_AVATAR],[Root.HIS_NUM_SPACE_AMOEBA],[Root.HIS_NUM_CRISIS_CORVETTE],[Root.HIS_NUM_CRISIS_DESTROYER],[Root.HIS_NUM_CRISIS_CRUISER],[Root.HIS_NUM_STAR_EATER],[Root.HIS_NUM_CARAVANEER_DESTROYER_01],[Root.HIS_NUM_CARAVANEER_CRUISER_01],[Root.HIS_NUM_GRAYGOO_INTERDICTOR],[Root.HIS_NUM_GRAYGOO_MOTHERSHIP],[Root.HIS_NUM_NPC_WARSHIP_01],[Root.HIS_NUM_TOXIC_GOD],[Root.HIS_NUM_PAYBACK_WARSHIP]"
+			log = "HIS_FLEET:[GetDate],[This.GetName],[Root.HIS_NUM_CORVETTE],[Root.HIS_NUM_FRIGATE],[Root.HIS_NUM_DESTROYER],[Root.HIS_NUM_CRUISER],[Root.HIS_NUM_BATTLESHIP],[Root.HIS_NUM_TITAN],[Root.HIS_NUM_COLOSSUS],[Root.HIS_NUM_JUGGERNAUT],[Root.HIS_NUM_SMALL_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_LARGE_SHIP_FALLEN_EMPIRE],[Root.HIS_NUM_PIRATE_CORVETTE],[Root.HIS_NUM_PIRATE_DESTROYER],[Root.HIS_NUM_GALLEON],[Root.HIS_NUM_PSIONIC_AVATAR],[Root.HIS_NUM_SPACE_AMOEBA],[Root.HIS_NUM_CRISIS_CORVETTE],[Root.HIS_NUM_CRISIS_DESTROYER],[Root.HIS_NUM_CRISIS_CRUISER],[Root.HIS_NUM_STAR_EATER],[Root.HIS_NUM_CARAVANEER_DESTROYER_01],[Root.HIS_NUM_CARAVANEER_CRUISER_01],[Root.HIS_NUM_GRAYGOO_INTERDICTOR],[Root.HIS_NUM_GRAYGOO_MOTHERSHIP],[Root.HIS_NUM_NPC_WARSHIP_01],[Root.HIS_NUM_TOXIC_GOD],[Root.HIS_NUM_PAYBACK_WARSHIP],[Root.HIS_NUM_SMALL_SHIP_SWARM],[Root.HIS_NUM_LARGE_SHIP_CARRIER_SWARM],[Root.HIS_NUM_LARGE_SHIP_SWARM]"
 		}
 	}
 

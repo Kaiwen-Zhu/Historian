@@ -18,7 +18,7 @@ def extract_fleet(game_log, data_path):
         print(f"\033[93m警告: 未知军舰类型: {unknown_ship_sizes}\033[0m")
     
     if data:
-        ship_sizes = ['corvette', 'frigate', 'destroyer', 'cruiser', 'battleship', 'titan', 'colossus', 'juggernaut', 'small_ship_fallen_empire', 'large_ship_fallen_empire', 'pirate_corvette', 'pirate_destroyer', 'galleon', 'psionic_avatar', 'space_amoeba', 'crisis_corvette', 'crisis_destroyer', 'crisis_cruiser', 'star_eater', 'caravaneer_destroyer_01', 'caravaneer_cruiser_01', 'graygoo_interdictor', 'graygoo_mothership', 'npc_warship_01', 'toxic_god', 'payback_warship']
+        ship_sizes = ['corvette', 'frigate', 'destroyer', 'cruiser', 'battleship', 'titan', 'colossus', 'juggernaut', 'small_ship_fallen_empire', 'large_ship_fallen_empire', 'pirate_corvette', 'pirate_destroyer', 'galleon', 'psionic_avatar', 'space_amoeba', 'crisis_corvette', 'crisis_destroyer', 'crisis_cruiser', 'star_eater', 'caravaneer_destroyer_01', 'caravaneer_cruiser_01', 'graygoo_interdictor', 'graygoo_mothership', 'npc_warship_01', 'toxic_god', 'payback_warship', 'small_ship_swarm', 'large_ship_carrier_swarm', 'large_ship_swarm']
         new_df = pd.DataFrame(columns = ["date", "fleet_name"] + ship_sizes)
         for row in data:
             new_df.loc[len(new_df.index)] = row
