@@ -8,13 +8,13 @@
   <body>
     <div id="chart" class="chart-container" style="width: 1000px"></div>
     <script type="text/javascript">
-      // function time2stamp(time) {
-      //   year_month_day = time.split(".");
-      //   year = parseInt(year_month_day[0]);
-      //   month = parseInt(year_month_day[1]);
-      //   day = parseInt(year_month_day[2]);
-      //   return (year - 2200) * 360 + (month - 1) * 30 + day;
-      // }
+      function time2stamp(time) {
+        year_month_day = time.split(".");
+        year = parseInt(year_month_day[0]);
+        month = parseInt(year_month_day[1]);
+        day = parseInt(year_month_day[2]);
+        return (year - 2200) * 360 + (month - 1) * 30 + day;
+      }
 
       function stamp2time(stamp) {
         year = Math.floor(stamp / 360) + 2200;
@@ -44,7 +44,8 @@
         },
         xAxis: {
           min: 1,
-          max: "dataMax",
+          // max: "dataMax",
+          max: time2stamp("{{end_date}}"),
           splitNumber: 10,
           axisLabel: {
             formatter: function (value, index) {

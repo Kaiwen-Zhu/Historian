@@ -33,19 +33,21 @@ def extract_basics(game_log, data_path):
 
     # extract name, government name, and personality
     ngp_pat = re.compile('(?<=HIS_ETHOS:).+')
-    info = ngp_pat.findall(game_log)[-1]
-    info = info.split(',')
-    last_date = info[0]
-    basics_dict['name'] = info[1]
-    basics_dict['government_name'] = info[2]
-    basics_dict['personality'] = info[3]
+    info = ngp_pat.findall(game_log)
+    if info:
+        info = info[0].split(',')
+        last_date = info[0]
+        basics_dict['name'] = info[1]
+        basics_dict['government_name'] = info[2]
+        basics_dict['personality'] = info[3]
 
     # extract ethics
     ethics_pat = re.compile('(?<=HIS_ETHIC:).+')
     ethics = ethics_pat.findall(game_log)
-    ethics = filter(lambda x: x.startswith(last_date), ethics)
-    ethics = list(map(lambda x: x.split(',')[1], ethics))
-    basics_dict['ethics'] = ethics
+    if ethics:
+        ethics = filter(lambda x: x.startswith(last_date), ethics)
+        ethics = list(map(lambda x: x.split(',')[1], ethics))
+        basics_dict['ethics'] = ethics
 
     with open(path_join(data_path, 'basics.json'), 'w', encoding='utf-8') as f:
         json_dump(basics_dict, f, ensure_ascii=False, indent=4)
