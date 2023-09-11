@@ -216,5 +216,66 @@
             "won",
             "0"
         ]
+    },
+    "12": {
+        "name": "罗鹏机械叛乱",
+        "start_date": "2421.04.01",
+        "main_attacker": "31",
+        "attackers": [
+            "31"
+        ],
+        "attacker_wg": "wg_machine_uprising",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "25",
+            "8",
+            "19",
+            "20",
+            "5",
+            "12",
+            "10",
+            "21",
+            "24",
+            "28",
+            "29",
+            "30"
+        ],
+        "defender_wg": "wg_machine_uprising",
+        "end_date": "2422.02.10",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "13": {
+        "name": "罗鹏-达尔战争",
+        "start_date": "2466.12.28",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "8",
+            "19",
+            "20",
+            "5",
+            "21",
+            "24",
+            "25",
+            "28",
+            "29",
+            "10",
+            "30"
+        ],
+        "attacker_wg": "wg_end_threat_assimilators",
+        "main_defender": "32",
+        "defenders": [
+            "32"
+        ],
+        "defender_wg": "wg_absorption",
+        "end_date": "2467.08.10",
+        "result": [
+            "won",
+            "0"
+        ]
     }
 }
