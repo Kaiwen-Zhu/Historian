@@ -1,5 +1,4 @@
-from os import mkdir
-from os.path import join as path_join, dirname, abspath, exists as path_exists
+from pathlib import Path
 from sys import stdout
 import argparse
 from extraction import *
@@ -10,17 +9,13 @@ def main():
     parser.add_argument('--output', '-o', help='the output directory', type=str, default='MemoryGrain')
     args = parser.parse_args()
 
-    root_path = dirname(dirname(dirname(dirname(abspath(__file__)))))  # Stellaris 目录路径
-    HIS_path = path_join(root_path, "mod", "Historian", args.output)
-    data_path = path_join(HIS_path, "data")
-
-    if not path_exists(HIS_path):
-        mkdir(HIS_path)
-        mkdir(data_path)
+    root_path = Path().resolve().parents[3]  # Stellaris 目录路径
+    data_path: Path = root_path / "mod" / "Historian" / args.output / "data"
+    data_path.mkdir(parents=True, exist_ok=True)
     
     print("读取日志...", end=' ')
     stdout.flush()
-    with open(path_join(root_path, "logs", "game.log"), 'r', encoding='utf-8') as f:
+    with open(root_path / "logs" / "game.log", 'r', encoding='utf-8') as f:
         game_log = f.read()
     print("完成")
     stdout.flush()

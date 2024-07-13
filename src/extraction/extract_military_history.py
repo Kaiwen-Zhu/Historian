@@ -1,11 +1,11 @@
 from sys import stdout
+from pathlib import Path
 import pandas as pd
-from os.path import join as path_join, exists as path_exists
 from json import load as json_load, dump as json_dump
 from .utils import *
 
 
-def extract_fleet(game_log, data_path):
+def extract_fleet(game_log: str, data_path: Path):
     """Extracts organization of navy."""   
      
     # data中的每项为 [date, fleet_name, *ship_sizes]
@@ -23,7 +23,7 @@ def extract_fleet(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'fleets.csv', new_df)
+        merge_and_save_df(data_path, 'fleets.csv', new_df, keys=["date", "fleet_name"])
 
 
 def extract_naval_size_capacity(game_log, data_path):
@@ -35,15 +35,16 @@ def extract_naval_size_capacity(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'naval_size_capacity.csv', new_df)
+        merge_and_save_df(data_path, 'naval_size_capacity.csv', new_df, keys=["date"])
 
 
 def extract_war(game_log, data_path):
     """Extracts war history."""
 
     wars = {}
-    if path_exists(path_join(data_path, 'wars.json')):
-        with open(path_join(data_path, 'wars.json'), encoding='utf-8') as f:
+    war_path = data_path / 'wars.json'
+    if war_path.exists():
+        with open(war_path, encoding='utf-8') as f:
             wars = json_load(f)
     
     # data_start 中的每项为 [date, war_id, war_name, main attacker, main defender]
@@ -96,7 +97,7 @@ def extract_war(game_log, data_path):
 
         if not war_info['end_date']:
             # 检查是否为全面战争且已结束
-            opinions = pd.read_csv(path_join(data_path, 'opinions.csv'), sep=';', index_col=0)
+            opinions = pd.read_csv(data_path / 'opinions.csv', sep=';', index_col=0)
             if '0' in war_info['attackers']:
                 enemies = war_info['defenders']
                 our_leader = war_info['main_attacker']
@@ -117,7 +118,7 @@ def extract_war(game_log, data_path):
 
         wars[war_id] = war_info
 
-    with open(path_join(data_path, 'wars.json'), 'w', encoding='utf-8') as f:
+    with open(war_path, 'w', encoding='utf-8') as f:
         json_dump(wars, f, ensure_ascii=False, indent=4)
             
 

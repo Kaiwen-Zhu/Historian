@@ -1,11 +1,11 @@
 from sys import stdout
+from pathlib import Path
 import pandas as pd
-from os.path import join as path_join, exists as path_exists
 from json import load as json_load, dump as json_dump
 from .utils import *
 
 
-def extract_opinion(game_log, data_path, our_name):
+def extract_opinion(game_log: str, data_path: Path, our_name: str):
     """Extracts mutual opinions of all countries and updates mapping from id to name if necessary."""    
 
     # data中的每项为 [date, id, name, our_opinion, their_opinion]
@@ -13,8 +13,9 @@ def extract_opinion(game_log, data_path, our_name):
     country_name_dict = {'0': our_name}
     
     if data:
-        if path_exists(path_join(data_path, 'country_name_dict.json')):
-            with open(path_join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
+        name_dict_path = data_path / 'country_name_dict.json'
+        if (name_dict_path).exists():
+            with open(name_dict_path, encoding='utf-8') as f:
                 country_name_dict.update(json_load(f))
 
         new_df = pd.DataFrame(columns=["date"])
@@ -32,14 +33,14 @@ def extract_opinion(game_log, data_path, our_name):
             new_df.loc[new_df[new_df["date"]==date].index, f"our_opinion_{country_id}"] = ele[3]
             new_df.loc[new_df[new_df["date"]==date].index, f"their_opinion_{country_id}"] = ele[4]
 
-        merge_and_save_df(data_path, 'opinions.csv', new_df)
-        with open(path_join(data_path, 'country_name_dict.json'), 'w', encoding='utf-8') as f:
+        merge_and_save_df(data_path, 'opinions.csv', new_df, keys=["date"])
+        with open(name_dict_path, 'w', encoding='utf-8') as f:
             json_dump(country_name_dict, f, ensure_ascii=False, indent=4)
     
         return country_name_dict
     
     return country_name_dict
-            
+
 
 def extract_diplomatic_history(game_log, data_path, our_name):
     print("提取外交史...", end=' ')

@@ -1,5 +1,4 @@
 from sys import stdout
-from os.path import join as path_join
 import pandas as pd
 from pandas.core.frame import DataFrame
 from json import load as json_load
@@ -7,14 +6,13 @@ from jinja2 import Environment
 from .utils import *
 
 
-def list_fleets(env: Environment, assets_path: str, data_path: str):
-    df = pd.read_csv(path_join(data_path, 'fleets.csv'), index_col=0, sep=';')
+def list_fleets(env: Environment, assets_path: Path, data_path: Path):
+    df = pd.read_csv(data_path / 'fleets.csv', index_col=0, sep=';')
     last_date = df['date'].iloc[-1]
     df_last: DataFrame = df[df['date'] == last_date]
     df_last = df_last.reset_index(drop=True)
     
-    with open(path_join(assets_path, 'entities', 'ship_size_localisation.json'), 
-              encoding='utf-8') as f:
+    with open(assets_path / 'entities' / 'ship_size_localisation.json', encoding='utf-8') as f:
         ship_size_loc = json_load(f)
     
     fleets = []
@@ -28,8 +26,8 @@ def list_fleets(env: Environment, assets_path: str, data_path: str):
     env.globals['fleets'] = fleets
 
 
-def plot_naval_size_capacity(env: Environment, data_path: str, dir_path: str):
-    df = pd.read_csv(path_join(data_path, 'naval_size_capacity.csv'), index_col=0, sep=';')
+def plot_naval_size_capacity(env: Environment, data_path: Path, dir_path: Path):
+    df = pd.read_csv(data_path / 'naval_size_capacity.csv', index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
 
@@ -47,13 +45,12 @@ def plot_naval_size_capacity(env: Environment, data_path: str, dir_path: str):
                 config=naval_size_capacity_config)
     
 
-def plot_war(env: Environment, assets_path: str, data_path: str, dir_path: str):
-    with open(path_join(data_path, 'wars.json'), encoding='utf-8') as f:
+def plot_war(env: Environment, assets_path: Path, data_path: Path, dir_path: Path):
+    with open(data_path / 'wars.json', encoding='utf-8') as f:
         wars: dict = json_load(f)
-    with open(path_join(assets_path, 'entities', 'war_goal_localisation.json'), 
-              encoding='utf-8') as f:
+    with open(assets_path / 'entities' / 'war_goal_localisation.json', encoding='utf-8') as f:
         war_goal_loc: dict = json_load(f)
-    with open(path_join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
+    with open(data_path / 'country_name_dict.json', encoding='utf-8') as f:
         country_name_dict: dict = json_load(f)
 
     # 键为国家 ID，值为我国与该国参与的战争列表
@@ -166,7 +163,7 @@ def plot_war(env: Environment, assets_path: str, data_path: str, dir_path: str):
                 config={"war_data": war_data, "countries": countries, "num_groups": num_groups})
 
 
-def compile_military_history(env: Environment, assets_path: str, data_path: str, output_path: str):
+def compile_military_history(env: Environment, assets_path: Path, data_path: Path, output_path: Path):
     print("编译军事史...", end=' ')
     stdout.flush()
 

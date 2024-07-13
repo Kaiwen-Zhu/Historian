@@ -1,10 +1,9 @@
 from sys import stdout
-from shutil import copyfile
 from jinja2 import Environment
 from .utils import *
         
 
-def compile_index(env: Environment, assets_path: str, output_path: str):
+def compile_index(env: Environment, output_path: Path):
     print("编译索引...", end=' ')
     stdout.flush()
 

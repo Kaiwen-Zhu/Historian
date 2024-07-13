@@ -1,9 +1,10 @@
 from sys import stdout
+from pathlib import Path
 import pandas as pd
 from .utils import *
 
 
-def extract_pop_size_by_species(game_log, data_path):
+def extract_pop_size_by_species(game_log: str, data_path: Path):
     """Extracts population size of various species respectively."""
 
     # data中的每项为 [date, species_name, pop_num]
@@ -14,7 +15,7 @@ def extract_pop_size_by_species(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'species_pop_size.csv', new_df)
+        merge_and_save_df(data_path, 'species_pop_size.csv', new_df, keys=["date","species_name", "num_pop"])
             
 
 def extract_demographic_history(game_log, data_path):  

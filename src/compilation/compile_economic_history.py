@@ -1,12 +1,11 @@
 from sys import stdout
-from os.path import join as path_join
 import pandas as pd
 from jinja2 import Environment
 from .utils import *
         
 
-def plot_resources_reserves_income(env: Environment, data_dir: str, dir_path: str):
-    df = pd.read_csv(path_join(data_dir, 'resources.csv'), index_col=0, sep=';')
+def plot_resources_reserves_income(env: Environment, data_dir: Path, dir_path: Path):
+    df = pd.read_csv(data_dir / 'resources.csv', index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
     resources = ['energy', 'minerals', 'food', 'consumer_goods', 'alloys',
@@ -58,7 +57,7 @@ def plot_resources_reserves_income(env: Environment, data_dir: str, dir_path: st
         plot_one_type_resources(resources_category)
 
 
-def compile_economic_history(env: Environment, assets_path: str, data_path: str, output_path: str):
+def compile_economic_history(env: Environment, data_path: Path, output_path: Path):
     print("编译经济史...", end=' ')
     stdout.flush()
 

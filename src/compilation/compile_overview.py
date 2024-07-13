@@ -1,4 +1,5 @@
 from sys import stdout
+from pathlib import Path
 from os.path import join as path_join
 from json import load as json_load
 from shutil import copyfile
@@ -6,13 +7,13 @@ from jinja2 import Environment
 from .utils import *
         
 
-def compile_overview(env: Environment, assets_path: str, data_path: str, output_path: str):
+def compile_overview(env: Environment, assets_path: Path, data_path: Path, output_path: Path):
     print("编译基本信息...", end=' ')
     stdout.flush()
 
     dir_path = prepare_output(output_path, "基本信息")
 
-    with open(path_join(data_path, 'basics.json'), encoding='utf-8') as f:
+    with open(data_path / 'basics.json', encoding='utf-8') as f:
         basics = json_load(f)
 
     loc = {

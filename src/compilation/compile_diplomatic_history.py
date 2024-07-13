@@ -1,13 +1,12 @@
 from sys import stdout
-from os.path import join as path_join, exists as path_exists
 from json import load as json_load
 import pandas as pd
 from jinja2 import Environment
 from .utils import *
 
 
-def plot_opinions(env: Environment, data_path: str, dir_path: str, country_name_dict: dict[str, str]):
-    df = pd.read_csv(path_join(data_path, 'opinions.csv'), index_col=0, sep=';')
+def plot_opinions(env: Environment, data_path: Path, dir_path: Path, country_name_dict: dict[str, str]):
+    df = pd.read_csv(data_path / 'opinions.csv', index_col=0, sep=';')
 
     df["date"] = df["date"].apply(lambda date: date[:-3])
 
@@ -28,14 +27,14 @@ def plot_opinions(env: Environment, data_path: str, dir_path: str, country_name_
     render_page(env, 'charts/diplomatic_relationship.html', dir_path, '外交关系.html', config=rel_config)
 
 
-def compile_diplomatic_history(env: Environment, data_path: str, output_path: str):
-    if path_exists(path_join(data_path, 'opinions.csv')):
+def compile_diplomatic_history(env: Environment, data_path: Path, output_path: Path):
+    if (data_path / 'opinions.csv').exists():
         print("编译外交史...", end=' ')
         stdout.flush()
         
         dir_path = prepare_output(output_path, "外交史")
 
-        with open(path_join(data_path, 'country_name_dict.json'), encoding='utf-8') as f:
+        with open(data_path / 'country_name_dict.json', encoding='utf-8') as f:
             country_name_dict = json_load(f)
     
         plot_opinions(env, data_path, dir_path, country_name_dict)

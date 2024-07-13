@@ -1,5 +1,4 @@
 from sys import stdout
-from os.path import join as path_join
 import pandas as pd
 from json import load as json_load
 from jinja2 import Environment
@@ -7,7 +6,7 @@ from .utils import *
 
 
 def plot_points_income(env: Environment, data_dir: str, dir_path: str):
-    df = pd.read_csv(path_join(data_dir, 'resources.csv'), index_col=0, sep=';')
+    df = pd.read_csv(data_dir / 'resources.csv', index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
 
@@ -28,14 +27,14 @@ def plot_points_income(env: Environment, data_dir: str, dir_path: str):
     
 
 def list_techs(env: Environment, assets_path: str, data_path: str):
-    tech_path = path_join(data_path, 'technologies.csv')
-    if not path_exists(tech_path):
+    tech_path = data_path / 'technologies.csv'
+    if not tech_path.exists():
         env.globals['techs'] = []
         return
     
     df = pd.read_csv(tech_path, index_col=0, sep=';')
 
-    with open(path_join(assets_path, 'entities', 'tech_localisation.json'), encoding='utf-8') as f:
+    with open(assets_path /'entities' / 'tech_localisation.json', encoding='utf-8') as f:
         loc = json_load(f)
 
     techs = []
@@ -56,7 +55,7 @@ def list_techs(env: Environment, assets_path: str, data_path: str):
     env.globals['techs'] = techs
 
 
-def compile_scientific_history(env: Environment, assets_path: str, data_path: str, output_path: str):
+def compile_scientific_history(env: Environment, assets_path: Path, data_path: Path, output_path: Path):
     print("编译科技史...", end=' ')
     stdout.flush()
 

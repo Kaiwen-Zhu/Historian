@@ -1,9 +1,10 @@
 from sys import stdout
+from pathlib import Path
 import pandas as pd
 from .utils import *
 
 
-def extract_economic_history(game_log, data_path):
+def extract_economic_history(game_log: str, data_path: Path):
     """Extracts the reserves and monthly income of all kinds of resources."""    
 
     print("提取经济史...", end=' ')
@@ -25,7 +26,7 @@ def extract_economic_history(game_log, data_path):
         for row in data:
             new_df.loc[len(new_df.index)] = row
 
-        merge_and_save_df(data_path, 'resources.csv', new_df)
+        merge_and_save_df(data_path, 'resources.csv', new_df, keys=["date"])
         
     print("完成")
     stdout.flush()

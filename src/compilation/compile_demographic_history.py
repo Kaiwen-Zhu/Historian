@@ -1,5 +1,4 @@
 from sys import stdout
-from os.path import join as path_join
 import pandas as pd
 from jinja2 import Environment
 from .utils import *
@@ -40,7 +39,7 @@ def pad_vacant_year(df, species_name, all_dates):
 
 
 def plot_pop_size(env, data_path, dir_path):
-    df_species = pd.read_csv(path_join(data_path, 'species_pop_size.csv'), index_col=0, sep=';')  
+    df_species = pd.read_csv(data_path / 'species_pop_size.csv', index_col=0, sep=';')  
 
     dates = df_species['date'].drop_duplicates(keep='first')
     dates.reset_index(inplace=True, drop=True)
@@ -77,7 +76,7 @@ def plot_pop_size(env, data_path, dir_path):
                     
 
 def plot_unity(env, data_path, dir_path):
-    df = pd.read_csv(path_join(data_path, 'resources.csv'), index_col=0, sep=';')
+    df = pd.read_csv(data_path / 'resources.csv', index_col=0, sep=';')
 
     dates = df["date"].apply(lambda date: date[:-3]).tolist()
 
@@ -100,7 +99,7 @@ def plot_unity(env, data_path, dir_path):
     render_page(env, 'charts/line_chart.html', dir_path, '凝聚力月收入.html', config=unity_income_config)
 
 
-def compile_demographic_history(env: Environment, data_path: str, output_path: str):
+def compile_demographic_history(env: Environment, data_path: Path, output_path: Path):
     print("编译人口史...", end=' ')
     stdout.flush()
 
