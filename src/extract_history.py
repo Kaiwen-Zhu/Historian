@@ -9,7 +9,7 @@ def main():
     parser.add_argument('--output', '-o', help='the output directory', type=str, default='MemoryGrain')
     args = parser.parse_args()
 
-    root_path = Path().resolve().parents[3]  # Stellaris 目录路径
+    root_path = Path(__file__).resolve().parents[3]  # Stellaris 目录路径
     data_path: Path = root_path / "mod" / "Historian" / args.output / "data"
     data_path.mkdir(parents=True, exist_ok=True)
     

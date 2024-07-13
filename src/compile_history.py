@@ -9,7 +9,7 @@ def main():
     parser.add_argument('--output', '-o', help='输出文件夹名称', type=str, default='MemoryGrain')
     args = parser.parse_args()
     
-    Historian_path = Path().resolve().parents[1]  # Historian 目录路径
+    Historian_path = Path(__file__).resolve().parents[1]  # Historian 目录路径
     data_path: Path = Historian_path / args.output / "data"
     output_path: Path = Historian_path / args.output / "output"
     assets_path: Path = Historian_path / "src" / "assets"
