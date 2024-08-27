@@ -78,12 +78,14 @@ pip install -r requirements.txt
 
 以下介绍运行脚本的方法。
 + 运行 `extract_history.py`
+
 在 `Historian` 文件夹下的 Powershell 终端运行如下命令。
   ```sh
   python ./src/extract_history.py -o "地球联合国"
   ```
   生成的数据文件将被存储到 `./地球联合国/data`。
 + 运行 `compile_history.py`
+
 在 `Historian` 文件夹下的 Powershell 终端运行如下命令。
   ```sh
   python ./src/compile_history.py -o "地球联合国"
