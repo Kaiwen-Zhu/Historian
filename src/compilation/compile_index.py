@@ -8,7 +8,9 @@ def compile_index(env: Environment, output_path: Path):
     print("编译索引...", end=' ')
     stdout.flush()
 
-    copytree(Path("src", "static"), output_path / 'static')
+    static_path = output_path / 'static'
+    if not static_path.exists():
+        copytree(Path("src", "static"), static_path)
     render_page(env, 'index.html', output_path, '{}史.html'.format(env.globals['name']))
     
     print("完成")
