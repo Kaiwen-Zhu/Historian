@@ -1,7 +1,46 @@
 {
     "0": {
-        "name": "罗鹏-瑟姆拉领土入侵",
-        "start_date": "2234.08.11",
+        "name": "伊尔达-泽尼侵略战争",
+        "start_date": "2220.08.13",
+        "main_attacker": "0",
+        "attackers": [
+            "0"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "5",
+        "defenders": [
+            "5"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2225.07.21",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "1": {
+        "name": "卡洛克托拉-拉特雷皮安吞并企图",
+        "start_date": "2227.12.22",
+        "main_attacker": "4",
+        "attackers": [
+            "4",
+            "0"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "3",
+        "defenders": [
+            "3"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2235.06.17",
+        "result": [
+            "won",
+            "4"
+        ]
+    },
+    "2": {
+        "name": "伊尔达-拉特雷皮安吞并企图",
+        "start_date": "2246.11.24",
         "main_attacker": "0",
         "attackers": [
             "0"
@@ -12,94 +51,309 @@
             "3"
         ],
         "defender_wg": "wg_conquest",
-        "end_date": "2246.11.28",
-        "result": [
-            "won",
-            "0"
-        ]
-    },
-    "1": {
-        "name": "奥霖巴利-罗鹏战争",
-        "start_date": "2247.03.19",
-        "main_attacker": "4",
-        "attackers": [
-            "4",
-            "6"
-        ],
-        "attacker_wg": "wg_payback_msi_humiliation",
-        "main_defender": "0",
-        "defenders": [
-            "0",
-            "8"
-        ],
-        "defender_wg": "wg_humiliation",
-        "end_date": "2260.01.28",
-        "result": "status_quo"
-    },
-    "2": {
-        "name": "罗鹏-阿摩尼坎纳贡战争",
-        "start_date": "2288.09.05",
-        "main_attacker": "0",
-        "attackers": [
-            "0"
-        ],
-        "attacker_wg": "wg_tribute",
-        "main_defender": "19",
-        "defenders": [
-            "19"
-        ],
-        "defender_wg": "wg_humiliation",
-        "end_date": "2288.12.22",
+        "end_date": "2248.09.17",
         "result": [
             "won",
             "0"
         ]
     },
     "3": {
-        "name": "特拔里斯 独立战争",
-        "start_date": "2296.01.29",
-        "main_attacker": "11",
-        "attackers": [
-            "11",
-            "10",
-            "7",
-            "0"
-        ],
-        "attacker_wg": "wg_independence",
-        "main_defender": "9",
-        "defenders": [
-            "9",
-            "18"
-        ],
-        "defender_wg": "wg_assert_overlordship",
-        "end_date": "2315.07.24",
-        "result": "status_quo"
-    },
-    "4": {
-        "name": "罗鹏-奥霖巴利战争",
-        "start_date": "2300.01.06",
+        "name": "伊尔达-拉特雷皮安征服战",
+        "start_date": "2248.05.15",
         "main_attacker": "0",
         "attackers": [
-            "0"
-        ],
-        "attacker_wg": "wg_payback_wipe_them_out",
-        "main_defender": "4",
-        "defenders": [
+            "0",
             "4"
         ],
-        "defender_wg": "wg_payback_msi",
-        "end_date": "2323.06.10",
+        "attacker_wg": "wg_conquest",
+        "main_defender": "3",
+        "defenders": [
+            "3"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2248.10.10",
         "result": [
             "won",
             "0"
         ]
     },
-    "5": {
-        "name": "雷耶尼-罗鹏大清洗战争",
-        "start_date": "2304.02.29",
-        "main_attacker": "17",
+    "4": {
+        "name": "伊尔达-波萨利亚征服战",
+        "start_date": "2254.10.15",
+        "main_attacker": "0",
         "attackers": [
+            "0",
+            "4"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "14",
+        "defenders": [
+            "14"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2260.12.05",
+        "result": "status_quo"
+    },
+    "5": {
+        "name": "伊尔达-帕里征服战",
+        "start_date": "2287.08.22",
+        "main_attacker": "0",
+        "attackers": [
+            "0"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "19",
+        "defenders": [
+            "19",
+            "20",
+            "14"
+        ],
+        "defender_wg": "wg_humiliation",
+        "end_date": "2299.04.29",
+        "result": "status_quo"
+    },
+    "6": {
+        "name": "瓦雷维夫-伊尔达惩戒远征",
+        "start_date": "2287.10.11",
+        "main_attacker": "1",
+        "attackers": [
+            "1"
+        ],
+        "attacker_wg": "wg_fe_humiliation",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "12",
+            "13",
+            "15",
+            "16",
+            "18"
+        ],
+        "defender_wg": "wg_humiliation",
+        "end_date": "2290.08.15",
+        "result": "status_quo"
+    },
+    "7": {
+        "name": "瓦雷维夫-伊尔达反人工智能警察行动",
+        "start_date": "2302.12.11",
+        "main_attacker": "1",
+        "attackers": [
+            "1"
+        ],
+        "attacker_wg": "wg_fe_stop_ai",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "12",
+            "13",
+            "15",
+            "16",
+            "18"
+        ],
+        "defender_wg": "wg_humiliation",
+        "end_date": "2308.12.15",
+        "result": "status_quo"
+    },
+    "8": {
+        "name": "伊尔达-统合金融协议统合吞并企图",
+        "start_date": "2319.10.23",
+        "main_attacker": "0",
+        "attackers": [
+            "0"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "8",
+        "defenders": [
+            "8",
+            "7",
+            "6"
+        ],
+        "defender_wg": "wg_force_ideology",
+        "end_date": "2334.09.26",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "9": {
+        "name": "瓦雷维夫-伊尔达反人工智能警察行动",
+        "start_date": "2321.12.11",
+        "main_attacker": "1",
+        "attackers": [
+            "1"
+        ],
+        "attacker_wg": "wg_fe_stop_ai",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "12",
+            "13",
+            "15",
+            "16",
+            "18"
+        ],
+        "defender_wg": "wg_humiliation",
+        "end_date": "2326.11.21",
+        "result": "status_quo"
+    },
+    "10": {
+        "name": "伊尔达-皮洛克侵略战争",
+        "start_date": "2339.05.22",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "10"
+        ],
+        "attacker_wg": "wg_conquest",
+        "main_defender": "12",
+        "defenders": [
+            "12",
+            "13"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2352.11.28",
+        "result": "status_quo"
+    },
+    "11": {
+        "name": "瓦雷维夫-伊尔达圣地净化战争",
+        "start_date": "2340.09.11",
+        "main_attacker": "1",
+        "attackers": [
+            "1"
+        ],
+        "attacker_wg": "wg_fe_cleanse_holy_worlds",
+        "main_defender": "0",
+        "defenders": [
+            "0"
+        ],
+        "defender_wg": "wg_humiliation",
+        "end_date": "2344.08.11",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "12": {
+        "name": "帕里-伊尔达战争",
+        "start_date": "2344.10.29",
+        "main_attacker": "19",
+        "attackers": [
+            "19"
+        ],
+        "attacker_wg": "wg_end_threat_assimilators",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "21"
+        ],
+        "defender_wg": "wg_absorption",
+        "end_date": "2380.05.05",
+        "result": "status_quo"
+    },
+    "13": {
+        "name": "伊尔达-皮洛克边境战争",
+        "start_date": "2365.03.22",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "10"
+        ],
+        "attacker_wg": "wg_humiliation",
+        "main_defender": "12",
+        "defenders": [
+            "12",
+            "13"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2375.12.28",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "14": {
+        "name": "伊尔达-帕里信仰战争",
+        "start_date": "2370.02.20",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
             "17"
+        ],
+        "attacker_wg": "wg_force_ideology",
+        "main_defender": "19",
+        "defenders": [
+            "19",
+            "20"
+        ],
+        "defender_wg": "wg_end_threat_colossus",
+        "end_date": "2380.06.07",
+        "result": "status_quo"
+    },
+    "15": {
+        "name": "伊尔达-欧萨利战争",
+        "start_date": "2370.04.10",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "25"
+        ],
+        "attacker_wg": "wg_end_threat_ae",
+        "main_defender": "2",
+        "defenders": [
+            "2"
+        ],
+        "defender_wg": "wg_ae_domination",
+        "end_date": "2380.09.13",
+        "result": "status_quo"
+    },
+    "16": {
+        "name": "伊尔达-欧萨利战争",
+        "start_date": "2394.04.10",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "25"
+        ],
+        "attacker_wg": "wg_end_threat_ae",
+        "main_defender": "2",
+        "defenders": [
+            "2"
+        ],
+        "defender_wg": "wg_ae_domination",
+        "end_date": "2397.06.10",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "17": {
+        "name": "伊尔达-联合星系势力联合惩戒远征",
+        "start_date": "2394.11.22",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "10"
+        ],
+        "attacker_wg": "wg_humiliation",
+        "main_defender": "19",
+        "defenders": [
+            "19",
+            "20",
+            "8",
+            "15",
+            "16",
+            "18"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2406.04.30",
+        "result": "status_quo"
+    },
+    "18": {
+        "name": "麦克佐-伊尔达战争",
+        "start_date": "2407.11.12",
+        "main_attacker": "24",
+        "attackers": [
+            "24"
         ],
         "attacker_wg": "wg_cleansing",
         "main_defender": "0",
@@ -107,172 +361,89 @@
             "0"
         ],
         "defender_wg": "wg_end_threat",
-        "end_date": "2331.01.03",
-        "result": "status_quo"
-    },
-    "6": {
-        "name": "自由联合阵线-凯尔布德领土入侵",
-        "start_date": "2342.05.06",
-        "main_attacker": "0",
-        "attackers": [
-            "0",
-            "8",
-            "19",
-            "20",
-            "5",
-            "21"
-        ],
-        "attacker_wg": "wg_conquest",
-        "main_defender": "22",
-        "defenders": [
-            "22"
-        ],
-        "defender_wg": "wg_humiliation",
-        "end_date": "2342.12.12",
+        "end_date": "2412.04.10",
         "result": [
             "won",
             "0"
         ]
     },
-    "7": {
-        "name": "魁尔努达尔-克伯利安战争",
-        "start_date": "2365.04.02",
-        "main_attacker": "5",
+    "19": {
+        "name": "伊尔达-联合星系势力联合惩戒远征",
+        "start_date": "2425.05.10",
+        "main_attacker": "0",
         "attackers": [
-            "5",
             "0",
-            "8",
-            "19",
-            "20",
-            "21",
-            "24",
-            "25",
-            "12"
+            "25"
         ],
-        "attacker_wg": "wg_allegiance",
+        "attacker_wg": "wg_humiliation",
+        "main_defender": "19",
+        "defenders": [
+            "19",
+            "8",
+            "15",
+            "16",
+            "18"
+        ],
+        "defender_wg": "wg_conquest",
+        "end_date": "2429.04.09",
+        "result": "status_quo"
+    },
+    "20": {
+        "name": "伊尔达-伊尔卡罕战争",
+        "start_date": "2449.09.10",
+        "main_attacker": "0",
+        "attackers": [
+            "0",
+            "25"
+        ],
+        "attacker_wg": "wg_colossus",
         "main_defender": "15",
         "defenders": [
             "15",
-            "10",
-            "7"
-        ],
-        "defender_wg": "wg_defend_allegiance",
-        "end_date": "2379.03.30",
-        "result": [
-            "won",
-            "5"
-        ]
-    },
-    "8": {
-        "name": "罗鹏机械叛乱",
-        "start_date": "2372.07.01",
-        "main_attacker": "26",
-        "attackers": [
-            "26"
-        ],
-        "attacker_wg": "wg_machine_uprising",
-        "main_defender": "0",
-        "defenders": [
-            "0",
+            "18",
+            "16",
             "8",
-            "19",
-            "20",
-            "5",
-            "21",
-            "24",
-            "25"
+            "19"
         ],
-        "defender_wg": "wg_machine_uprising",
-        "end_date": "2379.10.10",
+        "defender_wg": "wg_end_threat_colossus",
+        "end_date": "2476.02.10",
         "result": [
             "won",
             "0"
         ]
     },
-    "9": {
-        "name": "自由联合阵线-伊尔祖库吞并企图",
-        "start_date": "2381.08.15",
+    "21": {
+        "name": "混血伊姆塔兰自由抗争战争",
+        "start_date": "2470.09.01",
+        "main_attacker": "",
+        "attackers": [],
+        "attacker_wg": "wg_independence",
+        "main_defender": "0",
+        "defenders": [
+            "0",
+            "25"
+        ],
+        "defender_wg": "wg_assert_overlordship",
+        "end_date": "2471.01.12",
+        "result": [
+            "won",
+            "0"
+        ]
+    },
+    "22": {
+        "name": "伊尔达-伊什人奴役运动",
+        "start_date": "2485.01.16",
         "main_attacker": "0",
         "attackers": [
-            "0",
-            "8",
-            "19",
-            "20",
-            "5",
-            "21",
-            "24",
-            "25",
-            "28",
-            "29"
+            "0"
         ],
-        "attacker_wg": "wg_conquest",
+        "attacker_wg": "wg_subjugation",
         "main_defender": "27",
         "defenders": [
             "27"
         ],
-        "defender_wg": "wg_force_ideology",
-        "end_date": "2382.01.04",
-        "result": [
-            "won",
-            "0"
-        ]
-    },
-    "12": {
-        "name": "罗鹏机械叛乱",
-        "start_date": "2421.04.01",
-        "main_attacker": "31",
-        "attackers": [
-            "31"
-        ],
-        "attacker_wg": "wg_machine_uprising",
-        "main_defender": "0",
-        "defenders": [
-            "0",
-            "25",
-            "8",
-            "19",
-            "20",
-            "5",
-            "12",
-            "10",
-            "21",
-            "24",
-            "28",
-            "29",
-            "30"
-        ],
-        "defender_wg": "wg_machine_uprising",
-        "end_date": "2422.02.10",
-        "result": [
-            "won",
-            "0"
-        ]
-    },
-    "13": {
-        "name": "罗鹏-达尔战争",
-        "start_date": "2466.12.28",
-        "main_attacker": "0",
-        "attackers": [
-            "0",
-            "8",
-            "19",
-            "20",
-            "5",
-            "21",
-            "24",
-            "25",
-            "28",
-            "29",
-            "10",
-            "30"
-        ],
-        "attacker_wg": "wg_end_threat_assimilators",
-        "main_defender": "32",
-        "defenders": [
-            "32"
-        ],
-        "defender_wg": "wg_absorption",
-        "end_date": "2467.08.10",
+        "defender_wg": "wg_humiliation",
+        "end_date": "2486.04.10",
         "result": [
             "won",
             "0"

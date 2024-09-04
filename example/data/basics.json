@@ -1,15 +1,15 @@
 {
-    "origin": "血债血偿",
-    "home_world": "诺格",
-    "home_world_class": "干旱星球",
-    "home_system": "诺格之炎",
-    "species": "罗鹏",
-    "end_date": "2470.03.03",
-    "name": "罗鹏抵抗组织",
-    "government_name": "平等公社",
-    "personality": "民主十字军",
+    "origin": "君临天下",
+    "home_world": "伊尔",
+    "home_world_class": "陆地星球",
+    "home_system": "伊斯达尔",
+    "species": "伊尔达",
+    "end_date": "2489.10.03",
+    "name": "伊尔达联合帝国",
+    "government_name": "启明专政制",
+    "personality": "霸权帝国主义者",
     "ethics": [
-        "FanaticEgalitarian",
-        "Militarist"
+        "FanaticMilitarist",
+        "Materialist"
     ]
 }
