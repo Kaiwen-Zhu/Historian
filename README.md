@@ -4,7 +4,7 @@
 _五帝三皇神圣事，骗了无涯过客。_
 
 ## 当前内容
-示例见 `example` 文件夹或 [罗鹏抵抗组织史](https://kaiwen-zhu.github.io/Historian/example/output/伊尔达联合帝国史.html)。
+示例见 `example` 文件夹或 [伊尔达联合帝国史](https://kaiwen-zhu.github.io/Historian/example/output/伊尔达联合帝国史.html)。
 + 基本信息
 
    国家名称，政府名称，政府个性，主流思潮，起源，母星名称，母星类别，母星系名称，创始物种
